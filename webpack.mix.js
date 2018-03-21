@@ -12,4 +12,7 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+  .js('resources/assets/frontend/js/index.js', 'public/themes/wellmedic/js')
+
+mix.sass('resources/assets/sass/app.scss', 'public/css')
+  .sass('resources/assets/frontend/sass/index.scss', 'public/themes/wellmedic/css');
