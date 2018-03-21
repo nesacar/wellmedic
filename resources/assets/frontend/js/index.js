@@ -1,1 +1,2 @@
-console.log('hello, laravel')
+window.$ = window.jQuery = require('jquery');
+require('bootstrap');

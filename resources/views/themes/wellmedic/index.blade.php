@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Wellmedic - @yield('title')</title>
     <link rel="stylesheet" href="{{ url('themes/wellmedic/css/index.css') }}">
 </head>
 <body>
-
+  @include('themes/wellmedic/partials/nav')
+  
 <script src="{{ url('themes/wellmedic/js/index.js') }}"></script>
 </body>
 </html>
