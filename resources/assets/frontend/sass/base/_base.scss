@@ -1,0 +1,15 @@
+body {
+  font-family: $font-family-open-sans;
+  font-size: 14px;
+  color: $text-primary-on-light;
+  background-color: #fff;
+}
+
+a {
+  color: inherit;
+  transition: color .12s;
+
+  &:hover {
+    color: $theme-primary;
+  }
+}

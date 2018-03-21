@@ -1,3 +1,3 @@
-body {
-  background-color: rebeccapurple;
-}
+@import '~bootstrap/scss/bootstrap';
+@import 'base/index.scss';
+@import 'layout/index.scss';
