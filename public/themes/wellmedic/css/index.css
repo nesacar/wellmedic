@@ -10011,6 +10011,10 @@ a:hover {
   color: #00adee;
 }
 
+p {
+  color: rgba(0, 0, 0, 0.54);
+}
+
 .thin {
   font-weight: 300 !important;
 }
@@ -10050,5 +10054,12 @@ a:hover {
 .subheading {
   font-size: 22px;
   color: rgba(0, 0, 0, 0.87);
+}
+
+.caption {
+  color: #00adee;
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 6px;
 }
 
