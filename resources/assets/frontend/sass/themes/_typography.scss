@@ -1,11 +1,25 @@
-.headline {
+%heading {
+  font-family: $font-family-oswald;
+  font-weight: $text-medium;
+  color: $text-secondary-on-light;
+}
 
+.headline {
+  @extend %heading;
+
+  font-size: 42px;
+  text-transform: uppercase;
 }
 
 .title {
+  @extend %heading;
 
+  font-size: 30px;
 }
 
 .subheading {
+  @extend %heading;
 
+  font-size: 22px;
+  color: $text-primary-on-light;
 }

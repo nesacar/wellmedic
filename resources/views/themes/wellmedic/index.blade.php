@@ -7,6 +7,10 @@
 </head>
 <body>
   @include('themes/wellmedic/partials/header')
+
+  <h1 class="headline">Headline</h1>
+  <h2 class="title"><span class="thin">Prefix</span> Title</h2>
+  <h3 class="subheading">Subheading</h3>
   
 <script src="{{ url('themes/wellmedic/js/index.js') }}"></script>
 </body>
