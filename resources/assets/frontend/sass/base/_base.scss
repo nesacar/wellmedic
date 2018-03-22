@@ -1,4 +1,11 @@
+html,
 body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
   font-family: $font-family-open-sans;
   font-size: 14px;
   color: $text-primary-on-light;
