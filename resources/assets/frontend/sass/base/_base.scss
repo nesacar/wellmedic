@@ -21,6 +21,14 @@ a {
   }
 }
 
+b {
+  font-weight: $text-medium;
+}
+
+strong {
+  font-weight: $text-bold;
+}
+
 p {
   color: $text-secondary-on-light;
 }

@@ -10023,6 +10023,14 @@ a:hover {
   color: #00adee;
 }
 
+b {
+  font-weight: 500;
+}
+
+strong {
+  font-weight: 600;
+}
+
 p {
   color: rgba(0, 0, 0, 0.54);
 }
@@ -10033,6 +10041,7 @@ p {
 
 .footer {
   margin-top: auto;
+  font-size: 13px;
 }
 
 .footer_copy {
@@ -10117,7 +10126,8 @@ p {
 
 .headline,
 .title,
-.subheading {
+.subheading,
+.section-title {
   font-family: "Oswald", sans-serif;
   font-weight: 500;
   color: rgba(0, 0, 0, 0.54);
@@ -10135,6 +10145,10 @@ p {
 .subheading {
   font-size: 22px;
   color: rgba(0, 0, 0, 0.87);
+}
+
+.section-title {
+  font-size: 16px;
 }
 
 .caption {

@@ -24,6 +24,12 @@
   color: $text-primary-on-light;
 }
 
+.section-title {
+  @extend %heading;
+
+  font-size: 16px;
+}
+
 .caption {
   color: $theme-primary;
   font-size: 13px;
