@@ -6,8 +6,14 @@
     <link rel="stylesheet" href="{{ url('themes/wellmedic/css/index.css') }}">
 </head>
 <body>
+  @include('themes/wellmedic/partials/icons')
+
   <div class="content">
     @include('themes/wellmedic/partials/header')
+
+    <svg class="icon">
+      <use xlink:href="#icon_search">
+    </svg>
 
     <div class="container">
       <h1 class="headline">Headline</h1>
