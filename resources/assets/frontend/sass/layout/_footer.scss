@@ -1,6 +1,32 @@
-.footer {
+#footer {
   margin-top: auto;
   font-size: 13px;
+}
+
+.footer {
+  padding-top: 30px;
+  background-color: $theme-primary-light;
+  
+  @include media-breakpoint-up(md) {
+    padding-bottom: 30px;
+  }
+
+  &_column {
+
+    @include media-breakpoint-up(md) {
+      padding-left: 46px;
+    }
+  }
+
+  &_cell {
+    position: relative;
+    line-height: 1.5em;
+    min-height: calc(1.5 * 4em);
+  }
+}
+
+.subfooter {
+  background-color: #fff;
 
   &_copy {
     display: flex;
@@ -10,7 +36,6 @@
     padding-bottom: 15px;
     font-size: 12px;
     color: $theme-primary;
-    background-color: #fff;
     
     @include media-breakpoint-up(md) {
       flex-direction: row;

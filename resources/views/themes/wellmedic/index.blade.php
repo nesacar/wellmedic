@@ -12,10 +12,6 @@
   <div class="content">
     @include('themes/wellmedic/partials/header')
 
-    <svg class="icon">
-      <use xlink:href="#icon_search">
-    </svg>
-
     <div class="container">
       <h1 class="headline">Headline</h1>
       <h2 class="title"><span class="thin">Prefix</span> Title</h2>
