@@ -1,5 +1,19 @@
 <footer id="footer">
+
   <div class="footer">
+    <div class="newsletter">
+      <div class="container">
+        <h3>Prijavite se za naš Newsletter</h3>
+        <p>Najnovije vesti i specijalne ponude u vašem e-mail sandučetu.</p>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Vaš e-mail" aria-label="vaša e-mail adresa">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">Prijavi se</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container separator"></div>
     <div class="container">
       <div class="row">
         <div class="col-xl-3 col-lg-12">

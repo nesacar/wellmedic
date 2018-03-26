@@ -17766,6 +17766,8 @@ module.exports = __webpack_require__(44);
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -17792,6 +17794,8 @@ var app = new Vue({
 /***/ }),
 /* 14 */
 /***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 
 
 window._ = __webpack_require__(15);
@@ -47255,10 +47259,14 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 /* 41 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 //
 //
 //
@@ -47276,11 +47284,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = ({
+exports.default = {
     mounted: function mounted() {
         console.log('Component mounted.');
     }
-});
+};
 
 /***/ }),
 /* 42 */
