@@ -5,16 +5,16 @@
       <div class="container">
         <h3 class="subheading newsletter_title">Prijavite se za naš Newsletter</h3>
         <p class="newsletter_description">Najnovije vesti i specijalne ponude u vašem e-mail sandučetu.</p>
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Vaš e-mail" aria-label="vaša e-mail adresa">
-          <div class="input-group-append">
-            <button class="btn btn-outline-primary" type="button">Prijavi se</button>
-          </div>
+        <div class="d-flex justify-content-center py-3">
+          <form class="newsletter_form">
+            <input type="text" class="form-control newsletter_input" placeholder="Vaš e-mail" aria-label="vaša e-mail adresa">
+            <button class="btn btn-primary newsletter_btn" type="submit">Prijavi se</button>
+          </form>
         </div>
       </div>
     </div>
     <div class="container separator"></div>
-    <div class="container">
+    <div class="container pt-4">
       <div class="row">
         <div class="col-xl-3 col-lg-12">
           <div>
