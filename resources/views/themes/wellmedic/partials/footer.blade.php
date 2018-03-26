@@ -1,5 +1,4 @@
 <footer id="footer">
-
   <div class="footer">
     <div class="newsletter">
       <div class="container">

@@ -10131,7 +10131,6 @@ p {
 }
 
 .footer {
-  padding-top: 45px;
   background-color: #f2f5f8;
 }
 
@@ -10181,6 +10180,13 @@ p {
 .newsletter {
   text-align: center;
   font-size: 14px;
+  padding-top: 45px;
+}
+
+@media (min-width: 768px) {
+  .newsletter {
+    padding-bottom: 15px;
+  }
 }
 
 .newsletter_title {
