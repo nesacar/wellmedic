@@ -21,7 +21,7 @@
 
       <button class="btn">Button</button>
       <button class="btn btn-primary">Primary Button</button>
-      <button class="btn btn-primary btn-outline">Outline Button</button>
+      <button class="btn btn-outline-primary">Outline Button</button>
     </div>
 
   </div>

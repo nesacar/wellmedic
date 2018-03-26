@@ -10054,6 +10054,41 @@ p {
   opacity: .5;
 }
 
+.headline,
+.title,
+.subheading,
+.section-title {
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.headline {
+  font-size: 42px;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: 30px;
+}
+
+.subheading {
+  font-size: 22px;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.section-title {
+  font-size: 16px;
+  margin-bottom: 22px;
+}
+
+.caption {
+  color: #00adee;
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 6px;
+}
+
 #footer {
   margin-top: auto;
   font-size: 13px;
@@ -10129,19 +10164,7 @@ p {
   padding-left: 18px;
   padding-right: 18px;
   font-size: 14px;
-}
-
-.btn-outline {
-  color: #00adee;
-  border-color: #00adee;
-  border-style: solid;
   border-width: 2px;
-  background-color: transparent;
-}
-
-.btn-outline:hover {
-  border-color: #00adee;
-  background-color: #00adee;
 }
 
 .icon {
@@ -10190,38 +10213,17 @@ p {
   }
 }
 
-.headline,
-.title,
-.subheading,
-.section-title {
-  font-family: "Oswald", sans-serif;
-  font-weight: 500;
+.newsletter {
+  text-align: center;
+  font-size: 14px;
+}
+
+.newsletter_title {
+  font-size: 26px;
   color: rgba(0, 0, 0, 0.54);
 }
 
-.headline {
-  font-size: 42px;
-  text-transform: uppercase;
-}
-
-.title {
-  font-size: 30px;
-}
-
-.subheading {
-  font-size: 22px;
-  color: rgba(0, 0, 0, 0.87);
-}
-
-.section-title {
-  font-size: 16px;
-  margin-bottom: 22px;
-}
-
-.caption {
+.newsletter_description {
   color: #00adee;
-  font-size: 13px;
-  font-weight: 400;
-  margin-bottom: 6px;
 }
 

@@ -3,12 +3,12 @@
   <div class="footer">
     <div class="newsletter">
       <div class="container">
-        <h3>Prijavite se za naš Newsletter</h3>
-        <p>Najnovije vesti i specijalne ponude u vašem e-mail sandučetu.</p>
+        <h3 class="subheading newsletter_title">Prijavite se za naš Newsletter</h3>
+        <p class="newsletter_description">Najnovije vesti i specijalne ponude u vašem e-mail sandučetu.</p>
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Vaš e-mail" aria-label="vaša e-mail adresa">
           <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button">Prijavi se</button>
+            <button class="btn btn-outline-primary" type="button">Prijavi se</button>
           </div>
         </div>
       </div>

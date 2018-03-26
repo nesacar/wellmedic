@@ -3,17 +3,5 @@
   padding-left: 18px;
   padding-right: 18px;
   font-size: 14px;
-
-  &-outline {
-    color: $theme-primary;
-    border-color: $theme-primary;
-    border-style: solid;
-    border-width: 2px;
-    background-color: transparent;
-
-    &:hover {
-      border-color: $theme-primary;
-      background-color: $theme-primary;
-    }
-  }
+  border-width: 2px;
 }

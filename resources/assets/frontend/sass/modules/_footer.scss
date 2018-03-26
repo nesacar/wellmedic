@@ -15,3 +15,17 @@
     }
   }
 }
+
+.newsletter {
+  text-align: center;
+  font-size: 14px;
+
+  &_title {
+    font-size: 26px;
+    color: $text-secondary-on-light;
+  }
+
+  &_description {
+    color: $theme-primary;
+  }
+}
