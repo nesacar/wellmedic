@@ -32,6 +32,7 @@
 }
 
 .caption {
+  display: inline-block;
   color: $theme-primary;
   font-size: 13px;
   font-weight: $text-regular;

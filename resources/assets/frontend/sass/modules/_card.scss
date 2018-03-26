@@ -1,0 +1,23 @@
+.card {
+  background-color: $theme-primary-light;
+  border: 0;
+}
+
+.product-card {
+  display: flex;
+
+  &_thumbnail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    img {
+      max-width: 128px;
+    }
+  }
+
+  &_description {
+    flex-grow: 1;
+    font-size: 13px;
+  }
+}

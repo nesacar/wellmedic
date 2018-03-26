@@ -12,17 +12,7 @@
   <div class="content">
     @include('themes/wellmedic/partials/header')
 
-    <div class="container">
-      <h1 class="headline">Headline</h1>
-      <h2 class="title"><span class="thin">Prefix</span> Title</h2>
-      <p class="caption">Caption</p>
-      <h3 class="subheading">Subheading</h3>
-      <p>This is a block of text.</p>
-
-      <button class="btn">Button</button>
-      <button class="btn btn-primary">Primary Button</button>
-      <button class="btn btn-outline-primary">Outline Button</button>
-    </div>
+    @yield('content')
 
   </div>
 

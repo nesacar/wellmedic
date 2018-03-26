@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="col-xl-5 col-lg-6">
-          <h5 class="section-title">Nađite nas</h5>
+          <h5 class="section-title">Pronađite nas</h5>
           <div class="row">
             <div class="col-6 footer_column">
               <div class="footer_cell">
