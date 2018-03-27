@@ -32,7 +32,7 @@
       @foreach ($items as $item)
       <div class="col-lg-4 mb-3">
         <div class="card product-card with-shadow">
-          <a class="link" href="#">
+          <a class="link product-card_link" href="#">
             <div class="card-body product-card_body">
               <div class="product-card_thumbnail">
                 <img

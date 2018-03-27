@@ -10185,6 +10185,10 @@ p {
   background-color: #f2f5f8;
 }
 
+.product-card_link {
+  height: 100%;
+}
+
 .product-card_body {
   display: -webkit-box;
   display: -ms-flexbox;
