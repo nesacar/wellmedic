@@ -1,9 +1,13 @@
 .quote {
   display: flex;
   flex-direction: column;
+  padding-left: 48px;
+  padding-right: 48px;
 
   @include media-breakpoint-up(md) {
     flex-direction: row;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   &_icon {
@@ -30,8 +34,12 @@
 
   &_text {
     line-height: 1.5em;
-    height: calc(1.5 * 5em);
+    height: calc(1.5 * 4em);
     background-color: #fff;
+
+    @include media-breakpoint-up(md) {
+      height: calc(1.5 * 5em);
+    }
   }
 
   &_author {

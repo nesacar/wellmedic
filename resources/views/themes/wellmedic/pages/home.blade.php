@@ -5,23 +5,29 @@
 @section('content')
   <div class="container">
     <h2 class="title"><span class="thin">Iskustva</span> korisnika</h2>
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        @for ($i = 0; $i < 3; $i++)
-        <div class="swiper-slide quote">
-          <div class="quote_icon">
-            <svg class="icon" role="presentation">
-              <use xlink:href="#icon_quote">
-            </svg>
+    <div class="carousel carousel--quotes">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          @for ($i = 0; $i < 5; $i++)
+          <div class="swiper-slide quote">
+            <div class="quote_icon">
+              <svg class="icon" role="presentation">
+                <use xlink:href="#icon_quote">
+              </svg>
+            </div>
+            <div class="quote_info">
+              <p class="quote_text with-trunk">
+                <em>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eros tortor, consectetur non laoreet vitae, ornare vel ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non erat lorem.</em>
+              </p>
+              <p class="quote_author">John Snow</p>
+            </div>
           </div>
-          <div class="quote_info">
-            <p class="quote_text with-trunk">
-              <em>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eros tortor, consectetur non laoreet vitae, ornare vel ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non erat lorem.</em>
-            </p>
-            <p class="quote_author">John Snow</p>
-          </div>
+          @endfor
         </div>
-        @endfor
+      </div>
+      <div class="controls">
+        <button class="arrow arrow--prev"></button>
+        <button class="arrow arrow--next"></button>
       </div>
     </div>
   </div>

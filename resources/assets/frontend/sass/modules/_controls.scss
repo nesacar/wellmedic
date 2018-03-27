@@ -1,0 +1,33 @@
+.arrow {
+  position: relative;
+  display: inline-flex;
+  height: 36px;
+  width: 36px;
+  background: transparent;
+  cursor: pointer;
+  border: 0;
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 16px;
+    width: 16px;
+    border-style: solid;
+    border-color: $theme-primary;
+    border-width: 4px 4px 0 0;
+    content: "";
+  }
+
+  &--next {
+    &::after {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  }
+
+  &--prev {
+    &::after {
+      transform: translate(-50%, -50%) rotate(-135deg);
+    }
+  }
+}
