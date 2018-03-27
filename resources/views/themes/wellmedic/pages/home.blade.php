@@ -64,6 +64,35 @@
 
   <div class="container">
     <h2 class="title"><span class="thin">Naš</span> blog</h2>
+
+    <div class="row">
+      <div class="col-md-7">
+        <div class="blog-entry">
+          <div>
+            <p class="caption">30. Decembar 2017</p>
+            <h3 class="subheading">Izbor kraljevskih i plemićkih porodica</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eros tortor, consectetur non laoreet vitae, ornare vel ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non erat lorem.</p>
+            <a href="#" class="btn btn-outline-primary">Pročitaj više</a>
+          </div>
+        </div>
+      </div>  
+      <div class="col-md-5">
+        <div class="blog-entry blog-entry--alt">
+          <div>
+            <p class="caption">30. Decembar 2017</p>
+            <h3 class="subheading">Neverovatni sastojci</h3>
+            <a href="#" class="btn btn-outline-primary">Pročitaj više</a>
+          </div>
+        </div>
+        <div class="blog-entry blog-entry--alt">
+          <div>
+            <p class="caption">30. Decembar 2017</p>
+            <h3 class="subheading">Hiljadugodisnja tradicionalna kineska medicin</h3>
+            <a href="#" class="btn btn-outline-primary">Pročitaj više</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script type="text/javascript">
