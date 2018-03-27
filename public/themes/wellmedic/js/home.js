@@ -185,25 +185,32 @@ var _swiper2 = _interopRequireDefault(_swiper);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var swiper = new _swiper2.default('.swiper-container', {
-  slidesPerView: 3,
-  spaceBetween: 30,
-  navigation: {
-    nextEl: '.arrow--next',
-    prevEl: '.arrow--prev',
-    disabledClass: 'disabled'
-  },
-  on: {
-    init: function init() {
-      this.el.parentElement.classList.remove('is-loading');
-      console.log('swiper initialized. remove preinit styles.');
-    }
-  },
-  breakpoints: {
-    767: {
-      slidesPerView: 1
+var OPTIONS = {
+  quotes: {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    navigation: {
+      nextEl: '.arrow--next',
+      prevEl: '.arrow--prev',
+      disabledClass: 'disabled'
+    },
+    on: {
+      init: function init() {
+        this.el.classList.remove('is-loading');
+      }
+    },
+    breakpoints: {
+      767: {
+        slidesPerView: 1
+      }
     }
   }
+};
+
+var swipers = document.getElementsByClassName('swiper-container');
+Array.from(swipers, function (swiper, i) {
+  var name = swiper.getAttribute('data-name');
+  new _swiper2.default(swiper, OPTIONS[name]);
 });
 
 /***/ }),

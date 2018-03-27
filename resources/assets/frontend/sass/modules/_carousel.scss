@@ -1,28 +1,6 @@
 .carousel {
   position: relative;
 
-  &.is-loading {
-    .swiper-container {
-      overflow: hidden;
-    }
-
-    .swiper-wrapper {
-      display: flex;
-      flex-wrap: nowrap;
-      justify-content: flex-start;
-    }
-
-    .quote {
-      width: 100%;
-      flex-shrink: 0;
-      
-      @include media-breakpoint-up(md) {
-        width: 33.3333%;
-        padding-right: 30px;
-      }
-    }
-  }
-
   &--quotes {
     .controls {
       display: flex;
@@ -42,4 +20,25 @@
       }
     }
   } 
+}
+
+// Critical
+.swiper-container.is-loading {
+    overflow: hidden;
+
+  .swiper-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+
+  .quote {
+    width: 100%;
+    flex-shrink: 0;
+    
+    @include media-breakpoint-up(md) {
+      width: 33.3333%;
+      padding-right: 30px;
+    }
+  }
 }

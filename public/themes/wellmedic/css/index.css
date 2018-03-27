@@ -6849,34 +6849,6 @@ strong {
   position: relative;
 }
 
-.carousel.is-loading .swiper-container {
-  overflow: hidden;
-}
-
-.carousel.is-loading .swiper-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-
-.carousel.is-loading .quote {
-  width: 100%;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-}
-
-@media (min-width: 768px) {
-  .carousel.is-loading .quote {
-    width: 33.3333%;
-    padding-right: 30px;
-  }
-}
-
 .carousel--quotes .controls {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6902,6 +6874,34 @@ strong {
             justify-content: flex-end;
     -webkit-transform: translateY(calc(-100% - 24px));
             transform: translateY(calc(-100% - 24px));
+  }
+}
+
+.swiper-container.is-loading {
+  overflow: hidden;
+}
+
+.swiper-container.is-loading .swiper-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.swiper-container.is-loading .quote {
+  width: 100%;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .swiper-container.is-loading .quote {
+    width: 33.3333%;
+    padding-right: 30px;
   }
 }
 

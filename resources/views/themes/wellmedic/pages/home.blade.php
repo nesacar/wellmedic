@@ -5,8 +5,8 @@
 @section('content')
   <div class="container">
     <h2 class="title"><span class="thin">Iskustva</span> korisnika</h2>
-    <div class="carousel carousel--quotes is-loading" data-is-carousel="true">
-      <div class="swiper-container">
+    <div class="carousel carousel--quotes">
+      <div class="swiper-container is-loading" data-name="quotes">
         <div class="swiper-wrapper">
 
           @for ($i = 0; $i < 5; $i++)
