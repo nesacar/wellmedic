@@ -1,14 +1,18 @@
 .card {
-  background-color: $theme-primary-light;
   border: 0;
 }
 
 .product-card {
-  display: flex;
+  height: 100%;
+  background-color: $theme-primary-light;
+
+  &_body {
+    display: flex;
+  }
 
   &_thumbnail {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     
     img {
@@ -19,5 +23,11 @@
   &_description {
     flex-grow: 1;
     font-size: 13px;
+  }
+
+  &_info {
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }

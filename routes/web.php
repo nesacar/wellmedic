@@ -14,7 +14,7 @@
 Route::get('/', function () {
     $items = [
       (object) ["name" => "Ganoderma lucidium", "categorie" => "kapsule na bazi ulja iz spora", "about" => "Doktori i naučnici znaju da pomaže u sledećim: Dovodi kiseonik u telo povećava izdržljivost, pruža više snage i energije"],
-      (object) ["name" => "ženšen i rog mladog jelena", "categorie" => "kapsule", "about" => "Doktori i naučnici znaju da pomaže u sledećim: Dovodi kiseonik u telo povećava izdržljivost, pruža više snage i energije"],
+      (object) ["name" => "Ženšen i rog mladog jelena", "categorie" => "kapsule", "about" => "Jača imuni sistem. Oslobađa telo fizičkog zamora. Vraća energiju. Štiti krvne sudove srca."],
       (object) ["name" => "Pasta za zube", "categorie" => "pasta za zube", "about" => "Doktori i naučnici znaju da pomaže u sledećim: Dovodi kiseonik u telo povećava izdržljivost, pruža više snage i energije"]
     ];
     $title = 'Veleprodaja medicinskih sredstava';
