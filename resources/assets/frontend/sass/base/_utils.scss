@@ -55,3 +55,20 @@
     opacity: 1;
   }
 }
+
+.with-trunk {
+  position: relative;
+  overflow: hidden;
+  margin-right: -1em;
+  padding-right: 1em;
+
+  &::before {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 1.5em;
+    width: 50%;
+    content: "";
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 80%);
+  }
+}

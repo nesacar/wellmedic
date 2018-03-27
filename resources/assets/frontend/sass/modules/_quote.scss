@@ -1,0 +1,41 @@
+.quote {
+  display: flex;
+  flex-direction: column;
+
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+  }
+
+  &_icon {
+    display: flex;
+    min-width: 48px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    color: $theme-primary;
+
+    @include media-breakpoint-up(md) {
+      align-items: flex-start;
+      margin-bottom: 0;
+    }
+  }
+
+  &_info {
+    text-align: center;
+
+    @include media-breakpoint-up(md) {
+      text-align: left;
+    }
+  }
+
+  &_text {
+    line-height: 1.5em;
+    height: calc(1.5 * 5em);
+    background-color: #fff;
+  }
+
+  &_author {
+    font-size: 16px;
+    color: $theme-primary;
+  }
+}
