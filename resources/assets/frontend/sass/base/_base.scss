@@ -3,15 +3,6 @@ body {
   height: 100%;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  font-family: $font-family-open-sans;
-  font-size: 14px;
-  color: $text-primary-on-light;
-  background-color: #fff;
-}
-
 a {
   color: inherit;
   transition: color .12s;
@@ -25,10 +16,26 @@ b {
   font-weight: $text-medium;
 }
 
-strong {
-  font-weight: $text-bold;
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: $font-family-open-sans;
+  font-size: 14px;
+  color: $text-primary-on-light;
+  background-color: #fff;
+}
+
+button {
+  &.disabled {
+    pointer-events: none;
+    cursor: none;
+  }
 }
 
 p {
   color: $text-secondary-on-light;
+}
+
+strong {
+  font-weight: $text-bold;
 }

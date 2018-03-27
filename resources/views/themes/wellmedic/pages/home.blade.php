@@ -5,9 +5,10 @@
 @section('content')
   <div class="container">
     <h2 class="title"><span class="thin">Iskustva</span> korisnika</h2>
-    <div class="carousel carousel--quotes is-loading">
+    <div class="carousel carousel--quotes is-loading" data-is-carousel="true">
       <div class="swiper-container">
         <div class="swiper-wrapper">
+
           @for ($i = 0; $i < 5; $i++)
           <div class="swiper-slide quote">
             <div class="quote_icon">
@@ -23,6 +24,7 @@
             </div>
           </div>
           @endfor
+
         </div>
       </div>
       <div class="controls">
@@ -56,10 +58,20 @@
         </div>
       </div>
       @endforeach
+
     </div>
   </div>
 
   <div class="container">
     <h2 class="title"><span class="thin">Naš</span> blog</h2>
   </div>
+
+  <script type="text/javascript">
+    window.onload = function () {
+      var resource = document.createElement('script');
+      resource.async = 'true';
+      resource.src = '/themes/wellmedic/js/home.js';
+      document.body.appendChild(resource);
+    };
+  </script>
 @endsection
