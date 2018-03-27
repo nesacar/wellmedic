@@ -17559,7 +17559,8 @@ var swiper = new _swiper2.default('.swiper-container', {
   },
   on: {
     init: function init() {
-      console.log(this, 'swiper initialized. remove preinit styles.');
+      this.el.parentElement.classList.remove('is-loading');
+      console.log('swiper initialized. remove preinit styles.');
     }
   },
   breakpoints: {

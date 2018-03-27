@@ -13,7 +13,8 @@ const swiper = new Swiper('.swiper-container', {
   },
   on: {
     init: function () {
-      console.log(this, 'swiper initialized. remove preinit styles.');
+      this.el.parentElement.classList.remove('is-loading');
+      console.log('swiper initialized. remove preinit styles.');
     }
   },
   breakpoints: {

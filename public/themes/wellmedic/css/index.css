@@ -10209,6 +10209,17 @@ p {
   position: relative;
 }
 
+.carousel.is-loading .quote {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .carousel.is-loading .quote {
+    width: 33.3333%;
+    padding-right: 30px;
+  }
+}
+
 .carousel--quotes .controls {
   display: -webkit-box;
   display: -ms-flexbox;

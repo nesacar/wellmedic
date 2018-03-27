@@ -1,6 +1,17 @@
 .carousel {
   position: relative;
 
+  &.is-loading {
+    .quote {
+      width: 100%;
+      
+      @include media-breakpoint-up(md) {
+        width: 33.3333%;
+        padding-right: 30px;
+      }
+    }
+  }
+
   &--quotes {
     .controls {
       display: flex;
