@@ -55,7 +55,11 @@
 
   &_form {
     position: relative;
-    width: 80%;
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+      width: 80%;
+    }
 
     @include media-breakpoint-up(lg) {
       width: 50%;
