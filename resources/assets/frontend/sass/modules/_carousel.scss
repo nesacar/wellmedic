@@ -22,6 +22,15 @@
   } 
 }
 
+.swiper-pagination-bullet {
+  height: 12px;
+  width: 12px;
+
+  &-active {
+    background-color: $theme-primary;
+  }
+}
+
 // Critical
 .swiper-container.is-loading {
   overflow: hidden;

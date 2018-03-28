@@ -1,6 +1,16 @@
 import Swiper from 'swiper';
 
 const OPTIONS = {
+  masthead: {
+    loop: true,
+    autoplay: {
+      delay: 5000
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    }
+  },
   quotes: {
     slidesPerView: 3,
     spaceBetween: 30,

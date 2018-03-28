@@ -9,6 +9,10 @@
 
   font-size: 42px;
   text-transform: uppercase;
+
+  @include media-breakpoint-up(xl) {
+    font-size: 55px;
+  }
 }
 
 .title {

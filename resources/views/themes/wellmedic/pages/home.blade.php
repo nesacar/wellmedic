@@ -4,7 +4,7 @@
 @endsection
 @section('content')
   <div class="section">
-    <div class="swiper-container">
+    <div class="swiper-container" data-name="masthead">
       <div class="swiper-wrapper">
 
         @for ($i = 0; $i < 3; $i++)
@@ -21,6 +21,7 @@
         @endfor
 
       </div>
+      <div class="swiper-pagination"></div>
     </div>
   </div>
 

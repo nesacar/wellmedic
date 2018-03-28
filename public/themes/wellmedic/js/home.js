@@ -186,6 +186,16 @@ var _swiper2 = _interopRequireDefault(_swiper);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var OPTIONS = {
+  masthead: {
+    loop: true,
+    autoplay: {
+      delay: 5000
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    }
+  },
   quotes: {
     slidesPerView: 3,
     spaceBetween: 30,
