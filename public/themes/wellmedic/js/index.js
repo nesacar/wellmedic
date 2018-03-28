@@ -77,9 +77,84 @@ module.exports = __webpack_require__(50);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-// window.$ = window.jQuery = require('jquery');
+
+
+var _toolbar = __webpack_require__(59);
+
+var _toolbar2 = _interopRequireDefault(_toolbar);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var toolbar = new _toolbar2.default(); // window.$ = window.jQuery = require('jquery');
 // require('bootstrap');
 
+/***/ }),
+
+/***/ 59:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Toolbar = function () {
+  _createClass(Toolbar, [{
+    key: 'position',
+    get: function get() {
+      return this._position;
+    },
+    set: function set(val) {
+      this._position = val;
+    }
+  }], [{
+    key: 'delta',
+    get: function get() {
+      return 64;
+    }
+  }]);
+
+  function Toolbar() {
+    _classCallCheck(this, Toolbar);
+
+    this.el = document.getElementById('header');
+
+    this._handleScroll = this._handleScroll.bind(this);
+
+    window.addEventListener('scroll', this._handleScroll);
+  }
+
+  _createClass(Toolbar, [{
+    key: '_handleScroll',
+    value: function _handleScroll() {
+      var prevPosition = this.position;
+      var currentPosition = document.body.scrollTop || document.documentElement.scrollTop;
+
+      if (Math.abs(prevPosition - currentPosition) <= Toolbar.delta) return;
+
+      if (currentPosition > prevPosition && currentPosition > Toolbar.delta) {
+        // TODO: Remove with-background class on currentPosition < Toolbar.delta
+        this.el.classList.add('hidden', 'with-background');
+      } else {
+        this.el.classList.remove('hidden');
+      }
+
+      this.position = currentPosition;
+    }
+  }]);
+
+  return Toolbar;
+}();
+
+;
+
+exports.default = Toolbar;
 
 /***/ })
 
