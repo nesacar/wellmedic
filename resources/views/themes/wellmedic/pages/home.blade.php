@@ -3,7 +3,7 @@
   {{ $title }}
 @endsection
 @section('content')
-  <div class="container">
+  <div class="container section">
     <h2 class="title"><span class="thin">Iskustva</span> korisnika</h2>
     <div class="carousel carousel--quotes">
       <div class="swiper-container is-loading" data-name="quotes">
@@ -34,7 +34,7 @@
     </div>
   </div>
 
-  <div class="container">
+  <div class="container section">
     <div class="row">
 
       @foreach ($items as $item)
@@ -62,34 +62,41 @@
     </div>
   </div>
 
-  <div class="container">
+  <div class="container section">
     <h2 class="title"><span class="thin">Naš</span> blog</h2>
 
     <div class="row">
-      <div class="col-md-7">
-        <div class="blog-entry">
-          <div>
-            <p class="caption">30. Decembar 2017</p>
-            <h3 class="subheading">Izbor kraljevskih i plemićkih porodica</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eros tortor, consectetur non laoreet vitae, ornare vel ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non erat lorem.</p>
-            <a href="#" class="btn btn-outline-primary">Pročitaj više</a>
+      <div class="col-lg-7">
+        <div class="article-entry">
+          <div class="image mb-3">
+            <img src="https://www.first-nature.com/fungi/images/ganodermataceae/ganoderma-lucidum1.jpg" alt="ganoderma lucidium" />
           </div>
+          <div class="caption">30. Decembar 2017</div>
+          <h3 class="subheading">Izbor kraljevskih i plemićkih porodica</h3>
+          <p>Rog mladog jelena je na listi tri najveće dragocenosti na severoistoku Kine. Mladi rogovi jelena predstavljaju izuzetno dragocen kineski sirov lek.</p>
+          <p>Kapsule se pripremaju isključivo iz prve serije duplih rogova koji se sakupljaju u mesecu maju. Ovi prvi , mladi rogovi su osnovni , najhranljiviji i najtraženiji.</p>
+          <a href="#" class="btn btn-outline-primary">Pročitaj više</a>
         </div>
-      </div>  
-      <div class="col-md-5">
-        <div class="blog-entry blog-entry--alt">
-          <div>
-            <p class="caption">30. Decembar 2017</p>
+      </div>
+      <div class="col-lg-5">
+        <div class="article-entry">
+          <div class="image image--alt mb-3">
+            <img src="https://www.first-nature.com/fungi/images/ganodermataceae/ganoderma-lucidum1.jpg" alt="ganoderma lucidium" />
+          </div>
+          <div class="caption">30. Decembar 2017</div>
+          <div class="article-entry_footer">
             <h3 class="subheading">Neverovatni sastojci</h3>
             <a href="#" class="btn btn-outline-primary">Pročitaj više</a>
           </div>
         </div>
-        <div class="blog-entry blog-entry--alt">
-          <div>
-            <p class="caption">30. Decembar 2017</p>
-            <h3 class="subheading">Hiljadugodisnja tradicionalna kineska medicin</h3>
-            <a href="#" class="btn btn-outline-primary">Pročitaj više</a>
+        <div class="article-entry">
+          <div class="image image--alt mb-3">
+            <img src="https://www.first-nature.com/fungi/images/ganodermataceae/ganoderma-lucidum1.jpg" alt="ganoderma lucidium" />
           </div>
+          <div class="caption">30. Decembar 2017</div>
+          <div class="article-entry_footer">
+            <h3 class="subheading">Hiljadugodisnja tradicionalna kineska medicina</h3>
+            <a href="#" class="btn btn-outline-primary">Pročitaj više</a>
         </div>
       </div>
     </div>

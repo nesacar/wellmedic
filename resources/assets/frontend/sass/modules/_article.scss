@@ -1,0 +1,21 @@
+.article-entry {
+  margin-bottom: 25px;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  p + p {
+    margin-bottom: 1rem;
+  }
+
+  &_footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    > :last-child {
+      margin-left: 15px;
+    }
+  }
+}
