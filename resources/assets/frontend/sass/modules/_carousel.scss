@@ -32,15 +32,7 @@
 }
 
 // Critical
-.swiper-container.is-loading {
-  overflow: hidden;
-
-  .swiper-wrapper {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-  }
-
+.is-loading {
   .quote {
     width: 100%;
     flex-shrink: 0;

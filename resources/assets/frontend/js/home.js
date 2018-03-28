@@ -3,6 +3,7 @@ import Swiper from 'swiper';
 const OPTIONS = {
   masthead: {
     loop: true,
+    speed: 500,
     autoplay: {
       delay: 5000
     },

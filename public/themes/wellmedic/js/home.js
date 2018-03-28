@@ -188,6 +188,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var OPTIONS = {
   masthead: {
     loop: true,
+    speed: 500,
     autoplay: {
       delay: 5000
     },

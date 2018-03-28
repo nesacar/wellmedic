@@ -4,13 +4,13 @@
 @endsection
 @section('content')
   <div class="section">
-    <div class="swiper-container" data-name="masthead">
+    <div class="swiper-container is-loading" data-name="masthead">
       <div class="swiper-wrapper">
 
         @for ($i = 0; $i < 3; $i++)
-        <div class="swiper-slide">
-          <img class="image-fluid" src="{{ url('themes/wellmedic/images/landing-hero-bg.png') }}" />
-          <div class="masthead">
+        <div class="swiper-slide masthead">
+          <img class="image-fluid masthead_image" src="{{ url('themes/wellmedic/images/landing-hero-bg.png') }}" />
+          <div class="masthead_wrap">
             <div class="container masthead_content">
               <h1 class="headline">ganoderma lucidium</h1>
               <p>Kapsule na bazi ulja iz spora</p>

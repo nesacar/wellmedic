@@ -1,15 +1,56 @@
 .masthead {
-  @extend %overlay;
+  height: 450px;
+  overflow: hidden;
 
-  display: flex;
-  flex-direction: column;
+  @include media-breakpoint-up(lg) {
+    height: auto;
+  }
+
+  &_image {
+    @include media-breakpoint-down(md) {
+      height: 100%;
+      width: auto;
+      margin-left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &_wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+  }
 
   &_content {
     margin-top: 120px;
     font-size: 18px;
+    opacity: 0;
+    transform: translateY(75%);
+    transition: transform .3s .21s ease-out, opacity .3s .21s ease-out;
+
+    .swiper-slide-active & {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     @include media-breakpoint-up(xl) {
       margin-top: 180px;
     }
+  }
+}
+
+.test {
+  height: 450px;
+  overflow: hidden;
+
+  img {
+    height: 100%;
+    width: auto;
+    margin-left: 50%;  
+    transform: translateX(-50%);
   }
 }

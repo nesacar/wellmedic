@@ -6686,8 +6686,7 @@ strong {
   font-weight: 600;
 }
 
-.with-shadow::before,
-.masthead {
+.with-shadow::before {
   position: absolute;
   top: 0;
   left: 0;
@@ -6944,29 +6943,14 @@ strong {
   background-color: #00adee;
 }
 
-.swiper-container.is-loading {
-  overflow: hidden;
-}
-
-.swiper-container.is-loading .swiper-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-
-.swiper-container.is-loading .quote {
+.is-loading .quote {
   width: 100%;
   -ms-flex-negative: 0;
       flex-shrink: 0;
 }
 
 @media (min-width: 768px) {
-  .swiper-container.is-loading .quote {
+  .is-loading .quote {
     width: 33.3333%;
     padding-right: 30px;
   }
@@ -7187,9 +7171,35 @@ strong {
 }
 
 .masthead {
+  height: 450px;
+  overflow: hidden;
+}
+
+@media (min-width: 992px) {
+  .masthead {
+    height: auto;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .masthead_image {
+    height: 100%;
+    width: auto;
+    margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
+.masthead_wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  height: 100%;
+  width: 100%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -7199,12 +7209,38 @@ strong {
 .masthead_content {
   margin-top: 120px;
   font-size: 18px;
+  opacity: 0;
+  -webkit-transform: translateY(75%);
+          transform: translateY(75%);
+  -webkit-transition: opacity .3s .21s ease-out, -webkit-transform .3s .21s ease-out;
+  transition: opacity .3s .21s ease-out, -webkit-transform .3s .21s ease-out;
+  transition: transform .3s .21s ease-out, opacity .3s .21s ease-out;
+  transition: transform .3s .21s ease-out, opacity .3s .21s ease-out, -webkit-transform .3s .21s ease-out;
+}
+
+.swiper-slide-active .masthead_content {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }
 
 @media (min-width: 1200px) {
   .masthead_content {
     margin-top: 180px;
   }
+}
+
+.test {
+  height: 450px;
+  overflow: hidden;
+}
+
+.test img {
+  height: 100%;
+  width: auto;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 .main-nav {
