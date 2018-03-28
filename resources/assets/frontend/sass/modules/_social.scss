@@ -1,8 +1,14 @@
 .social {
   display: inline-flex;
+  align-items: center;
   flex-wrap: nowrap;
 
   &_item {
     margin-left: 8px;
+
+    a {
+      display: block;
+      line-height: 0;
+    }
   }
 }

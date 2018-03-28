@@ -1,6 +1,6 @@
 <header id="header">
   <div class="container header">
-    <a href="/">
+    <a class="header_logo" href="/">
       <img src="{{ url('themes/wellmedic/images/wellmedic-logo.png') }}" alt="wellmedic logo">
     </a>
 
@@ -23,23 +23,23 @@
     </ul>
 
     <div>
-      <ul class="social">
+      <ul class="social d-none d-lg-inline-flex">
         <li class="social_item">
-          <a href="#">
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="pratite nas na facebooku">
             <svg class="icon" role="presentation">
               <use xlink:href="#icon_facebook">
             </svg>
           </a>
         </li>
         <li class="social_item">
-          <a href="#">
+          <a href="https://www.instagram.com/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="pratite nas na instagramu">
             <svg class="icon" role="presentation">
               <use xlink:href="#icon_instagram">
             </svg>
           </a>
         </li>
         <li class="social_item">
-          <a href="#">
+          <a href="https://twitter.com/?lang=en" target="_blank" rel="noopener noreferrer" aria-label="pratite nas na twitteru">
             <svg class="icon" role="presentation">
               <use xlink:href="#icon_twitter">
             </svg>
