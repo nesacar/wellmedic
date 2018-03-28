@@ -30,7 +30,7 @@
     font-size: 18px;
     opacity: 0;
     transform: translateY(75%);
-    transition: transform .3s .21s ease-out, opacity .3s .21s ease-out;
+    transition: transform .3s .4s ease-out, opacity .3s .4s ease-out;
 
     .swiper-slide-active & {
       opacity: 1;

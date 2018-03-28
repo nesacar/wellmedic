@@ -1,6 +1,6 @@
 <header id="header">
   <div class="container header">
-    <a class="navbar-brand" href="/">
+    <a href="/">
       <img src="{{ url('themes/wellmedic/images/wellmedic-logo.png') }}" alt="wellmedic logo">
     </a>
 
@@ -21,5 +21,36 @@
         <a class="nav-link" href="/contact">Kontakt</a>
       </li>
     </ul>
+
+    <div>
+      <ul class="social">
+        <li class="social_item">
+          <a href="#">
+            <svg class="icon" role="presentation">
+              <use xlink:href="#icon_facebook">
+            </svg>
+          </a>
+        </li>
+        <li class="social_item">
+          <a href="#">
+            <svg class="icon" role="presentation">
+              <use xlink:href="#icon_instagram">
+            </svg>
+          </a>
+        </li>
+        <li class="social_item">
+          <a href="#">
+            <svg class="icon" role="presentation">
+              <use xlink:href="#icon_twitter">
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <button class="btn-icon toggler toggler--search">
+        <svg class="icon" role="presentation">
+          <use xlink:href="#icon_search">
+        </svg>
+      </button>
+    </div>
   </div>
 </header>

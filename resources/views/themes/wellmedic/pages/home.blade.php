@@ -50,8 +50,8 @@
         </div>
       </div>
       <div class="controls">
-        <button class="arrow arrow--prev"></button>
-        <button class="arrow arrow--next"></button>
+        <button class="btn-icon arrow arrow--prev"></button>
+        <button class="btn-icon arrow arrow--next"></button>
       </div>
     </div>
   </div>

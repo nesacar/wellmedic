@@ -1,0 +1,8 @@
+.social {
+  display: inline-flex;
+  flex-wrap: nowrap;
+
+  &_item {
+    margin-left: 8px;
+  }
+}

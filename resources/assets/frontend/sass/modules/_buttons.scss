@@ -5,3 +5,14 @@
   font-size: 14px;
   border-width: 2px;
 }
+
+.btn-icon {
+  display: inline-flex;
+  height: 36px;
+  width: 36px;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  cursor: pointer;
+  border: 0;
+}
