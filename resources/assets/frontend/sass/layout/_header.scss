@@ -3,7 +3,18 @@
   top: 0;
   left: 0;
   width: 100%;
+  background-color: transparent;
   z-index: 100;
+  transition: transform .12s;
+
+  &.hidden {
+    transform: translateY(calc(-100% - 5px));
+  }
+
+  &.with-background {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,.26);
+  }
 }
 
 .header {

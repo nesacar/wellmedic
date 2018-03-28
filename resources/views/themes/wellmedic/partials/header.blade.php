@@ -1,10 +1,15 @@
 <header id="header">
   <div class="container header">
+    <button class="btn-icon toggler d-inline-flex d-lg-none">
+      <svg class="icon" role="presentation">
+        <use xlink:href="#icon_menu">
+      </svg>
+    </button>
     <a class="header_logo" href="/">
       <img src="{{ url('themes/wellmedic/images/wellmedic-logo.png') }}" alt="wellmedic logo">
     </a>
 
-    <ul class="nav main-nav">
+    <ul class="nav main-nav d-none d-lg-flex">
       <li class="nav-item active">
         <a class="nav-link" href="/about">O nama</a>
       </li>
@@ -46,7 +51,7 @@
           </a>
         </li>
       </ul>
-      <button class="btn-icon toggler toggler--search">
+      <button class="btn-icon toggler">
         <svg class="icon" role="presentation">
           <use xlink:href="#icon_search">
         </svg>

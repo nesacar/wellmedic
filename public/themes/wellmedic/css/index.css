@@ -6811,7 +6811,23 @@ ol {
   top: 0;
   left: 0;
   width: 100%;
+  background-color: transparent;
   z-index: 100;
+  -webkit-transition: -webkit-transform .12s;
+  transition: -webkit-transform .12s;
+  transition: transform .12s;
+  transition: transform .12s, -webkit-transform .12s;
+}
+
+#header.hidden {
+  -webkit-transform: translateY(calc(-100% - 5px));
+          transform: translateY(calc(-100% - 5px));
+}
+
+#header.with-background {
+  background-color: #fff;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
 }
 
 .header {
@@ -6882,6 +6898,10 @@ ol {
   background: transparent;
   cursor: pointer;
   border: 0;
+}
+
+.toggler {
+  color: #00adee;
 }
 
 .card {
