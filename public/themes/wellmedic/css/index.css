@@ -7004,6 +7004,22 @@ strong {
   }
 }
 
+.footer_company {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+@media (min-width: 1200px) {
+  .footer_company {
+    text-align: left;
+    margin-bottom: 0;
+  }
+}
+
+.footer_company img {
+  margin-bottom: 15px;
+}
+
 @media (min-width: 768px) {
   .footer_column {
     padding-left: 46px;
@@ -7121,6 +7137,12 @@ strong {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .footer-column-offset-fix {
+    margin-left: 25%;
   }
 }
 

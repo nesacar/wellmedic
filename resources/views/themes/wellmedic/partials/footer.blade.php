@@ -15,10 +15,10 @@
     <div class="container separator"></div>
     <div class="container pt-4">
       <div class="row">
-        <div class="col-xl-3 col-lg-12">
-          <div>
+        <div class="col-xl-3 col-lg-6 col-md-12 footer-column-offset-fix">
+          <div class="footer_company">
             <img src="{{ url('themes/wellmedic/images/wellmedic-logo.png') }}" alt="wellmedic logo">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ante mi, pellentesque vel turpis sed, vehicula bibendum mauris. Nunc elementum, lorem ut varius pharetra, lacus lacus bibendum augue, a rhoncus velit elit ac mi.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ante mi, pellentesque vel turpis sed, vehicula bibendum mauris.</p>
           </div>
         </div>
         <div class="col-xl-5 col-lg-6">

@@ -5,6 +5,20 @@
     padding-bottom: 30px;
   }
 
+  &_company {
+    text-align: center;
+    margin-bottom: 30px;
+
+    @include media-breakpoint-up(xl) {
+      text-align: left;
+      margin-bottom: 0;
+    }
+
+    img {
+      margin-bottom: 15px;
+    }
+  }
+
   &_column {
 
     @include media-breakpoint-up(md) {
@@ -95,5 +109,11 @@
       flex-direction: row;
       justify-content: space-between;
     }
+  }
+}
+
+.footer-column-offset-fix {
+  @include media-breakpoint-between(lg, lg) {
+    margin-left: 25%;
   }
 }
