@@ -1,0 +1,14 @@
+.masthead {
+  @extend %overlay;
+
+  display: flex;
+  flex-direction: column;
+
+  &_content {
+    margin-top: 120px;
+
+    @include media-breakpoint-up(xl) {
+      margin-top: 180px;
+    }
+  }
+}

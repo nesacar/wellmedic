@@ -3,6 +3,27 @@
   {{ $title }}
 @endsection
 @section('content')
+  <div class="section">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+
+        @for ($i = 0; $i < 3; $i++)
+        <div class="swiper-slide">
+          <img class="image-fluid" src="{{ url('themes/wellmedic/images/landing-hero-bg.png') }}" />
+          <div class="masthead">
+            <div class="container masthead_content">
+              <h1 class="headline">ganoderma lucidium</h1>
+              <p>Kapsule na bazi ulja iz spora</p>
+              <a class="btn btn-primary" href="#">Saznajte više</a>
+            </div>
+          </div>
+        </div>
+        @endfor
+
+      </div>
+    </div>
+  </div>
+
   <div class="container section">
     <h2 class="title"><span class="thin">Iskustva</span> korisnika</h2>
     <div class="carousel carousel--quotes">

@@ -6,6 +6,10 @@
   background-color: $theme-primary-light;
   border-radius: $border-radius-lg;
 
+  &-fluid {
+    width: 100%;
+  }
+
   &--square {
     padding-top: 100%;
   }

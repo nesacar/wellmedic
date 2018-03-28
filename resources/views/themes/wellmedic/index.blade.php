@@ -8,9 +8,9 @@
 </head>
 <body>
   @include('themes/wellmedic/partials/icons')
+  @include('themes/wellmedic/partials/header')
 
   <div class="content">
-    @include('themes/wellmedic/partials/header')
 
     @yield('content')
 
