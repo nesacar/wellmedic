@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 53);
+/******/ 	return __webpack_require__(__webpack_require__.s = 49);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -165,21 +165,21 @@ var win = w;
 
 /***/ }),
 
-/***/ 53:
+/***/ 49:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(54);
+module.exports = __webpack_require__(50);
 
 
 /***/ }),
 
-/***/ 54:
+/***/ 50:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _swiper = __webpack_require__(55);
+var _swiper = __webpack_require__(51);
 
 var _swiper2 = _interopRequireDefault(_swiper);
 
@@ -226,12 +226,12 @@ Array.from(swipers, function (swiper, i) {
 
 /***/ }),
 
-/***/ 55:
+/***/ 51:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_dom7_dist_dom7_modular__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_dom7_dist_dom7_modular__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ssr_window__ = __webpack_require__(11);
 /**
  * Swiper 4.2.0
@@ -6779,7 +6779,7 @@ Swiper.use(components);
 
 /***/ }),
 
-/***/ 56:
+/***/ 52:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

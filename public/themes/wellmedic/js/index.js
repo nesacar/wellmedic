@@ -60,26 +60,26 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 49);
+/******/ 	return __webpack_require__(__webpack_require__.s = 46);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 49:
+/***/ 46:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(50);
+module.exports = __webpack_require__(47);
 
 
 /***/ }),
 
-/***/ 50:
+/***/ 47:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _toolbar = __webpack_require__(59);
+var _toolbar = __webpack_require__(48);
 
 var _toolbar2 = _interopRequireDefault(_toolbar);
 
@@ -90,7 +90,7 @@ var toolbar = new _toolbar2.default(); // window.$ = window.jQuery = require('jq
 
 /***/ }),
 
-/***/ 59:
+/***/ 48:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -125,27 +125,41 @@ var Toolbar = function () {
 
     this.el = document.getElementById('header');
 
-    this._handleScroll = this._handleScroll.bind(this);
+    this._ticking = false;
 
-    window.addEventListener('scroll', this._handleScroll);
+    this._onScroll = this._onScroll.bind(this);
+    this._update = this._update.bind(this);
+
+    window.addEventListener('scroll', this._onScroll);
+    this._update();
   }
 
   _createClass(Toolbar, [{
-    key: '_handleScroll',
-    value: function _handleScroll() {
+    key: '_update',
+    value: function _update() {
       var prevPosition = this.position;
       var currentPosition = document.body.scrollTop || document.documentElement.scrollTop;
 
       if (Math.abs(prevPosition - currentPosition) <= Toolbar.delta) return;
 
       if (currentPosition > prevPosition && currentPosition > Toolbar.delta) {
-        // TODO: Remove with-background class on currentPosition < Toolbar.delta
-        this.el.classList.add('hidden', 'with-background');
+        this.el.classList.add('hidden');
       } else {
         this.el.classList.remove('hidden');
       }
 
+      if (currentPosition > Toolbar.delta) {
+        this.el.classList.add('with-background');
+      } else {
+        this.el.classList.remove('with-background');
+      }
+
       this.position = currentPosition;
+    }
+  }, {
+    key: '_onScroll',
+    value: function _onScroll() {
+      window.requestAnimationFrame(this._update);
     }
   }]);
 

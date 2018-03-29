@@ -5,7 +5,20 @@
   width: 100%;
   background-color: transparent;
   z-index: 100;
-  transition: transform .12s;
+  transition: transform .12s, background-color .12s;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
+    opacity: 0;
+    transition: opacity .12s;
+    z-index: -1;
+  }
 
   &.hidden {
     transform: translateY(calc(-100% - 5px));
@@ -13,7 +26,10 @@
 
   &.with-background {
     background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,.26);
+
+    &::after {
+      opacity: 1;
+    }
   }
 }
 

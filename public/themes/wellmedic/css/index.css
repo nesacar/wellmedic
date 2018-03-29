@@ -6813,10 +6813,25 @@ ol {
   width: 100%;
   background-color: transparent;
   z-index: 100;
-  -webkit-transition: -webkit-transform .12s;
-  transition: -webkit-transform .12s;
-  transition: transform .12s;
-  transition: transform .12s, -webkit-transform .12s;
+  -webkit-transition: background-color .12s, -webkit-transform .12s;
+  transition: background-color .12s, -webkit-transform .12s;
+  transition: transform .12s, background-color .12s;
+  transition: transform .12s, background-color .12s, -webkit-transform .12s;
+}
+
+#header::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  height: 100%;
+  width: 100%;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+  opacity: 0;
+  -webkit-transition: opacity .12s;
+  transition: opacity .12s;
+  z-index: -1;
 }
 
 #header.hidden {
@@ -6826,8 +6841,10 @@ ol {
 
 #header.with-background {
   background-color: #fff;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+}
+
+#header.with-background::after {
+  opacity: 1;
 }
 
 .header {
