@@ -13,8 +13,14 @@
       <li class="nav-item active">
         <a class="nav-link" href="/about">O nama</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item dropdown">
         <a class="nav-link" href="/proizvodi">Proizvodi</a>
+        <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false"></button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="/proizvodi/id_1">Ganoderma lucidim</a>
+          <a class="dropdown-item" href="/proizvodi/id_2">Jelenski rog</a>
+          <a class="dropdown-item" href="/proizvodi/id_3">Pasta za zube</a>
+        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/blog">Blog</a>
