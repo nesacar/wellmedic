@@ -6950,6 +6950,7 @@ ol {
   font-family: "Oswald", sans-serif;
   font-weight: 500;
   color: rgba(0, 0, 0, 0.54);
+  line-height: 1.2em;
 }
 
 .headline {
@@ -7518,6 +7519,18 @@ ol {
   opacity: 1;
   -webkit-transform: translateY(0);
           transform: translateY(0);
+}
+
+@media (min-width: 768px) {
+  .masthead_content {
+    max-width: 70%;
+  }
+}
+
+@media (min-width: 992px) {
+  .masthead_content {
+    max-width: 50%;
+  }
 }
 
 @media (min-width: 1200px) {
