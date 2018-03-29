@@ -79,14 +79,21 @@ module.exports = __webpack_require__(47);
 "use strict";
 
 
+var _drawer = __webpack_require__(59);
+
+var _drawer2 = _interopRequireDefault(_drawer);
+
 var _toolbar = __webpack_require__(48);
 
 var _toolbar2 = _interopRequireDefault(_toolbar);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var toolbar = new _toolbar2.default(); // window.$ = window.jQuery = require('jquery');
+// window.$ = window.jQuery = require('jquery');
 // require('bootstrap');
+
+var toolbar = new _toolbar2.default();
+_drawer2.default.init();
 
 /***/ }),
 
@@ -169,6 +176,49 @@ var Toolbar = function () {
 ;
 
 exports.default = Toolbar;
+
+/***/ }),
+
+/***/ 59:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _close = function _close(target) {
+  return function (evt) {
+    if (evt.target.closest('.drawer_drawer')) return;
+
+    document.body.classList.remove('no-scroll');
+    target.classList.remove('active');
+    target.removeEventListener('click', _close);
+  };
+};
+
+var _open = function _open(target) {
+  return function (evt) {
+    target.classList.add('active');
+    document.body.classList.add('no-scroll');
+    target.addEventListener('click', _close(target));
+  };
+};
+
+var _bindEvents = function _bindEvents(control) {
+  var id = control.getAttribute('data-drawer');
+  var target = document.getElementById(id);
+
+  control.addEventListener('click', _open(target));
+};
+
+exports.default = {
+  init: function init() {
+    var controls = document.querySelectorAll('[data-drawer]');
+    Array.from(controls, _bindEvents);
+  }
+};
 
 /***/ })
 

@@ -1,4 +1,4 @@
-<aside class="drawer active" id="mobileNav">
+<aside class="drawer" id="mobileNav">
   <div class="drawer_drawer drawer_drawer--left">
     <div class="my-2">
 
