@@ -12,12 +12,4 @@
   @extend %nav-typography;
 
   flex-direction: column;
-
-  .nav-item {
-    display: flex;
-
-    .nav-link {
-      flex-grow: 1;
-    }
-  }
 }

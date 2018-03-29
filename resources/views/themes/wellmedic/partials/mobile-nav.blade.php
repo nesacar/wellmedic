@@ -33,8 +33,21 @@
         <li class="nav-item active">
           <a class="nav-link" href="/about">O nama</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link" href="/proizvodi">Proizvodi</a>
+        <li class="nav-item">
+          <div>
+            <a class="nav-link" href="/proizvodi">Proizvodi</a>
+          </div>
+          <div class="accordion">
+            <div class="nav-item">
+              <a href="#" class="nav-link">Genoderma lucidium</a>
+            </div>
+            <div class="nav-item">
+              <a href="#" class="nav-link">Jelenski rog</a>
+            </div>
+            <div class="nav-item">
+              <a href="#" class="nav-link">Pasta za zube</a>
+            </div>
+          </div>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/blog">Blog</a>

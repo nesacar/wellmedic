@@ -1,3 +1,6 @@
+const HIDDEN_CLASS = 'hidden';
+const BACKGROUND_CLASS = 'with-background';
+
 class Toolbar {
   static get delta () { return 64; }
   get position () { return this._position; }
@@ -22,17 +25,17 @@ class Toolbar {
     if (Math.abs(prevPosition - currentPosition) <= Toolbar.delta) return;
 
     if ((currentPosition > prevPosition) && (currentPosition > Toolbar.delta)) {
-      this.el.classList.add('hidden');
+      this.el.classList.add(HIDDEN_CLASS);
     }
     else {
-      this.el.classList.remove('hidden');
+      this.el.classList.remove(HIDDEN_CLASS);
     }
 
     if (currentPosition > Toolbar.delta) {
-      this.el.classList.add('with-background');
+      this.el.classList.add(BACKGROUND_CLASS);
     }
     else {
-      this.el.classList.remove('with-background');
+      this.el.classList.remove(BACKGROUND_CLASS);
     }
 
     this.position = currentPosition;
