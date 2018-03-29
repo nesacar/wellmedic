@@ -8,6 +8,7 @@
 </head>
 <body>
   @include('themes/wellmedic/partials/icons')
+  @include('themes/wellmedic/partials/mobile-nav')
   @include('themes/wellmedic/partials/header')
 
   <div class="content">

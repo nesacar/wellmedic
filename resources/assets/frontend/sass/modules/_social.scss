@@ -6,6 +6,10 @@
   &_item {
     margin-left: 8px;
 
+    &:first-child {
+      margin-left: 0;
+    }
+
     a {
       display: block;
       line-height: 0;

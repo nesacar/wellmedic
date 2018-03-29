@@ -38,4 +38,9 @@
   height: 64px;
   align-items: center;
   justify-content: space-between;
+  min-width: 100%;
+
+  @include media-breakpoint-up(lg) {
+    min-width: 0;
+  }
 }

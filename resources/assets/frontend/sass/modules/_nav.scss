@@ -1,5 +1,23 @@
-.main-nav {
+%nav-typography {
   font-family: $font-family-oswald;
   font-weight: $text-medium;
   text-transform: uppercase;
+}
+
+.main-nav {
+  @extend %nav-typography;
+}
+
+.mobile-nav {
+  @extend %nav-typography;
+
+  flex-direction: column;
+
+  .nav-item {
+    display: flex;
+
+    .nav-link {
+      flex-grow: 1;
+    }
+  }
 }
