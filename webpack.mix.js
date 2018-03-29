@@ -1,4 +1,5 @@
 let mix = require('laravel-mix');
+require('laravel-mix-purgecss');
 
 /*
  |--------------------------------------------------------------------------
@@ -16,4 +17,5 @@ mix.js('resources/assets/js/app.js', 'public/js')
   .js('resources/assets/frontend/js/home.js', 'public/themes/wellmedic/js/home.js')
 
 mix.sass('resources/assets/sass/app.scss', 'public/css')
-  .sass('resources/assets/frontend/sass/index.scss', 'public/themes/wellmedic/css');
+  .sass('resources/assets/frontend/sass/index.scss', 'public/themes/wellmedic/css')
+  .purgeCss();
