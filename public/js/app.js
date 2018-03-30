@@ -32351,7 +32351,7 @@ exports.default = {
 
             var data = {
                 client_id: 2,
-                client_secret: 'gpjvqhGsTA3ecPITmCDq36Eswf7OxRFzS7QqCbOe',
+                client_secret: 'uupe6T1r0AsJ8VfKGa2sgT3DW7OyXw25osAXzmN0',
                 grant_type: 'password',
                 username: this.email,
                 password: this.password
@@ -32395,7 +32395,7 @@ var render = function() {
           [
             _c("div", { staticClass: "form-group" }, [
               _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                _vm._v("Email address")
+                _vm._v("Email adresa")
               ]),
               _vm._v(" "),
               _c("input", {
@@ -32412,7 +32412,7 @@ var render = function() {
                   type: "email",
                   id: "exampleInputEmail1",
                   "aria-describedby": "emailHelp",
-                  placeholder: "Vaša email adresa"
+                  placeholder: "Tvoja email adresa"
                 },
                 domProps: { value: _vm.email },
                 on: {
@@ -32434,7 +32434,7 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
               _c("label", { attrs: { for: "exampleInputPassword1" } }, [
-                _vm._v("Password")
+                _vm._v("Lozinka")
               ]),
               _vm._v(" "),
               _c("input", {
@@ -32467,7 +32467,7 @@ var render = function() {
             _c(
               "button",
               { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-              [_vm._v("Submit")]
+              [_vm._v("Potvrdi")]
             )
           ]
         )

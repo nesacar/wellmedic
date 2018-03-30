@@ -79,29 +79,53 @@ module.exports = __webpack_require__(117);
 "use strict";
 
 
-var _drawer = __webpack_require__(118);
+var _CDS = __webpack_require__(118);
+
+var CDS = _interopRequireWildcard(_CDS);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+(function () {
+  CDS.init();
+})(); // window.$ = window.jQuery = require('jquery');
+// require('bootstrap');
+
+/***/ }),
+
+/***/ 118:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.init = init;
+
+var _drawer = __webpack_require__(119);
 
 var _drawer2 = _interopRequireDefault(_drawer);
 
-var _lazyImages = __webpack_require__(119);
+var _lazyImages = __webpack_require__(120);
 
 var _lazyImages2 = _interopRequireDefault(_lazyImages);
 
-var _toolbar = __webpack_require__(121);
+var _toolbar = __webpack_require__(122);
 
 var _toolbar2 = _interopRequireDefault(_toolbar);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_toolbar2.default.init(); // window.$ = window.jQuery = require('jquery');
-// require('bootstrap');
-
-_drawer2.default.init();
-_lazyImages2.default.init();
+function init() {
+  _toolbar2.default.init();
+  _drawer2.default.init();
+  _lazyImages2.default.init();
+};
 
 /***/ }),
 
-/***/ 118:
+/***/ 119:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -175,7 +199,7 @@ exports.default = Drawer;
 
 /***/ }),
 
-/***/ 119:
+/***/ 120:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -187,7 +211,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _utils = __webpack_require__(120);
+var _utils = __webpack_require__(121);
 
 var Utils = _interopRequireWildcard(_utils);
 
@@ -301,7 +325,7 @@ exports.default = LazyImages;
 
 /***/ }),
 
-/***/ 120:
+/***/ 121:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -323,7 +347,7 @@ exports.preloadImage = preloadImage;
 
 /***/ }),
 
-/***/ 121:
+/***/ 122:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
