@@ -358,6 +358,7 @@ var Toolbar = function () {
 
 exports.default = Toolbar;
 
+<<<<<<< HEAD
 /***/ }),
 
 /***/ 61:
@@ -380,6 +381,8 @@ var preloadImage = function preloadImage(url) {
 
 exports.preloadImage = preloadImage;
 
+=======
+>>>>>>> 10f9df7ef96de9c8b9ca795995b6adb8703d31a5
 /***/ })
 
 /******/ });
