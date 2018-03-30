@@ -248,7 +248,7 @@
   width: 250px;
   height: 100vh;
   padding: 0;
-  background-color: $tamna;
+  background-color: $primary;
   z-index: 100;
 
   -ms-transform: translate(0, 0); /* IE 9 */
@@ -376,11 +376,11 @@
       transition: all 0.5s;
 
       &.active{
-        background-color: $svetla;
+        background-color: $primary;
 
         ul{
           height: 100%;
-          background-color: $svetla;
+          background-color: $primary;
         }
 
         svg {
@@ -394,7 +394,7 @@
       }
 
       &:hover{
-        background-color: $svetla;
+        background-color: $second;
       }
 
       a{
@@ -411,7 +411,7 @@
         position: absolute;
         left: 8px;
         top: 16px;
-        color: $primary;
+        color: $info;
         margin-right: 10px;
 
         &.fa-angle-right{
@@ -429,11 +429,11 @@
 
         li{
           font-size: 14px;
-          background-color: $svetla;
+          background-color: $second;
           margin-left: -35px;
 
           &:hover{
-            background-color: $tamna;
+            background-color: $second;
           }
         }
       }

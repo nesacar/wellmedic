@@ -35,37 +35,37 @@
                             </div>
                         </div>
                     </li>
-                    <li>
-                        <div class="dropdown show">
-                            <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <font-awesome-icon icon="envelope" />
-                            </a>
+                    <!--<li>-->
+                        <!--<div class="dropdown show">-->
+                            <!--<a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                                <!--<font-awesome-icon icon="envelope" />-->
+                            <!--</a>-->
 
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="dropdown show">
-                            <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <font-awesome-icon icon="bell" />
-                            </a>
+                            <!--<div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">-->
+                                <!--<a class="dropdown-item" href="#">Action</a>-->
+                                <!--<a class="dropdown-item" href="#">Another action</a>-->
+                                <!--<a class="dropdown-item" href="#">Something else here</a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<div class="dropdown show">-->
+                            <!--<a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                                <!--<font-awesome-icon icon="bell" />-->
+                            <!--</a>-->
 
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink3">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="btn btn-primary" @click="changeShowRightBar()">
-                            <font-awesome-icon icon="comment-alt" />
-                        </a>
-                    </li>
+                            <!--<div class="dropdown-menu" aria-labelledby="dropdownMenuLink3">-->
+                                <!--<a class="dropdown-item" href="#">Action</a>-->
+                                <!--<a class="dropdown-item" href="#">Another action</a>-->
+                                <!--<a class="dropdown-item" href="#">Something else here</a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a class="btn btn-primary" @click="changeShowRightBar()">-->
+                            <!--<font-awesome-icon icon="comment-alt" />-->
+                        <!--</a>-->
+                    <!--</li>-->
                     <li class="user">
                         <a class="btn btn-primary transparent dropdown-toggle" href="#" role="button" id="dropdownMenuLink4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img :src="domain + 'img/user-image.png'" class="avatar-image" alt="User image" v-if="!user">

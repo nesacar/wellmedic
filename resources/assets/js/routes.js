@@ -12,11 +12,11 @@ export const router = new VueRouter({
         { path: "/register", component: require('./components/auth/Register.vue'), meta: { forVisitors: true } },
         { path: "/logout", component: require('./components/auth/Logout.vue'), meta: { forAuth: true } },
 
-        // { path: "/users", component: require('./components/users/UserList.vue'), meta: { forAuth: true } },
-        // { path: "/users/create", component: require('./components/users/UserCreate.vue'), meta: { forAuth: true } },
-        // { path: "/users/:id/edit", component: require('./components/users/UserEdit.vue'), meta: { forAuth: true } },
-        // { path: "/users/change-password", component: require('./components/users/UserChangePassword.vue'), meta: { forAuth: true } },
-        //
+        { path: "/users", component: require('./components/users/UserList.vue'), meta: { forAuth: true } },
+        { path: "/users/create", component: require('./components/users/UserCreate.vue'), meta: { forAuth: true } },
+        { path: "/users/:id/edit", component: require('./components/users/UserEdit.vue'), meta: { forAuth: true } },
+        { path: "/users/change-password", component: require('./components/users/UserChangePassword.vue'), meta: { forAuth: true } },
+
         // { path: "/categories", component: require('./components/categories/CategoryList.vue'), meta: { forAuth: true } },
         // { path: "/categories/create", component: require('./components/categories/CategoryCreate.vue'), meta: { forAuth: true } },
         // { path: "/categories/:id/edit", component: require('./components/categories/CategoryEdit.vue'), meta: { forAuth: true } },
@@ -32,9 +32,9 @@ export const router = new VueRouter({
         // { path: "/products", component: require('./components/products/ProductList.vue'), meta: { forAuth: true } },
         // { path: "/products/create", component: require('./components/products/ProductCreate.vue'), meta: { forAuth: true } },
         // { path: "/products/:id/edit", component: require('./components/products/ProductEdit.vue'), meta: { forAuth: true } },
-        //
-        // { path: "/settings/:id/edit", component: require('./components/settings/SettingEdit.vue'), meta: { forAuth: true } },
-        //
+
+        { path: "/settings/:id/edit", component: require('./components/settings/SettingEdit.vue'), meta: { forAuth: true } },
+
         // { path: "/themes", component: require('./components/themes/ThemeList.vue'), meta: { forAuth: true } },
         // { path: "/themes/create", component: require('./components/themes/ThemeCreate.vue'), meta: { forAuth: true } },
         // { path: "/themes/:id/edit", component: require('./components/themes/ThemeEdit.vue'), meta: { forAuth: true } },
