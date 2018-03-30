@@ -15,7 +15,7 @@
               <div class="masthead_content">
                 <h1 class="headline">{{ $item->name}}</h1>
                 <p>{{ $item->categorie }}</p>
-                <a class="btn btn-primary" href="#">Saznajte više 2 o Vladanu Caru.</a>
+                <a class="btn btn-primary" href="#">Saznajte više 2 o Vladanu Caru2.</a>
               </div>
             </div>
           </div>
