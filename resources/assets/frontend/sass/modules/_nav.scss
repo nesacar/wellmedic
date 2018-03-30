@@ -6,6 +6,12 @@
 
 .main-nav {
   @extend %nav-typography;
+
+  display: none;
+
+  @include media-breakpoint-up(lg) {
+    display: flex;
+  }
 }
 
 .mobile-nav {

@@ -19,4 +19,12 @@
 
 .toggler {
   color: $theme-primary;
+
+  &--menu {
+    display: inline-flex;
+
+    @include media-breakpoint-up(lg) {
+      display: none;
+    }
+  }
 }
