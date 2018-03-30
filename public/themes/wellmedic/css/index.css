@@ -6947,6 +6947,12 @@ ol {
   overflow: hidden;
 }
 
+@media (min-width: 992px) {
+  .no-scroll {
+    overflow: auto;
+  }
+}
+
 .fade-in {
   -webkit-animation: fade-in .3s;
           animation: fade-in .3s;
