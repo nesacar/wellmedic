@@ -20,3 +20,11 @@ Route::get('/', function () {
     $title = 'Veleprodaja medicinskih sredstava';
     return view('themes.wellmedic.pages.home', compact('title', 'items'));
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin', function () {
+    return view('layouts.admin-app');
+});
