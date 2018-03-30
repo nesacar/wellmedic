@@ -1,6 +1,6 @@
 <header id="header">
   <div class="container header">
-    <button class="btn-icon toggler d-inline-flex d-lg-none" data-drawer="mobileNav" aria-controls="mobileNav" aria-expanded="false" aria-label="Otvori navigaciju">
+    <button class="btn-icon toggler d-inline-flex d-lg-none js-menu-show" aria-controls="mobileNav" aria-expanded="false" aria-label="Otvori navigaciju">
       <svg class="icon" role="presentation">
         <use xlink:href="#icon_menu">
       </svg>

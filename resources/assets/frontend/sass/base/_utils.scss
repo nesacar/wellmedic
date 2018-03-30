@@ -73,6 +73,10 @@
 
 .no-scroll {
   overflow: hidden;
+
+  @include media-breakpoint-up(lg) {
+    overflow: auto;
+  }
 }
 
 .fade-in {

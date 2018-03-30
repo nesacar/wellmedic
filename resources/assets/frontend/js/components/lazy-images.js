@@ -11,7 +11,7 @@ class LazyImages {
 
   static init () {
     if (this._instance) {
-      this._instance.disconnect();
+      this._instance._disconnect();
     }
 
     this._instance = new LazyImages();

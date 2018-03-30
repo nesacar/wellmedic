@@ -1,32 +1,40 @@
-const ACTIVE_CLASS = 'active';
-const NO_SCROLL_CLASS = 'no-scroll';
-const DATA_ID = 'data-drawer';
-
-const _close = target => evt => {
-  // block clicks on drawer surface
-  if (evt.target.closest('.drawer_drawer')) return;
-
-  document.body.classList.remove(NO_SCROLL_CLASS);
-  target.classList.remove(ACTIVE_CLASS);
-  target.removeEventListener('click', _close);
-};
-
-const _open = target => evt => {
-  target.classList.add(ACTIVE_CLASS);
-  document.body.classList.add(NO_SCROLL_CLASS);
-  target.addEventListener('click', _close(target));
-};
-
-const _bindEvents = control => {
-  const id = control.getAttribute(DATA_ID);
-  const target = document.getElementById(id);
-
-  control.addEventListener('click', _open(target));
-};
-
-export default {
-  init: () => {
-    const controls = document.querySelectorAll(`[${DATA_ID}]`);
-    Array.from(controls, _bindEvents);
+class Drawer {
+  static get ACTIVE_CLASS () { return 'active'; }
+  static init () {
+    new Drawer();
   }
-};
+
+  constructor () {
+    this._showButtonEl = document.querySelector('.js-menu-show');
+    this._drawerEl = document.getElementById('mobileNav');
+    this._drawerContainerEl = this._drawerEl.querySelector('.drawer_drawer');
+
+    this._show = this._show.bind(this);
+    this._hide = this._hide.bind(this);
+    this._blockClicks = this._blockClicks.bind(this);
+
+    this._addEventListeners();
+  }
+
+  _addEventListeners () {
+    this._showButtonEl.addEventListener('click', this._show);
+    this._drawerEl.addEventListener('click', this._hide);
+    this._drawerContainerEl.addEventListener('click', this._blockClicks);
+  }
+
+  _blockClicks (evt) {
+    evt.stopPropagation();
+  }
+
+  _show () {
+    this._drawerEl.classList.add(Drawer.ACTIVE_CLASS);
+    document.body.classList.add('no-scroll');
+  }
+
+  _hide () {
+    this._drawerEl.classList.remove(Drawer.ACTIVE_CLASS);
+    document.body.classList.remove('no-scroll');
+  }
+}
+
+export default Drawer;

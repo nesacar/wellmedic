@@ -1,10 +1,8 @@
 // window.$ = window.jQuery = require('jquery');
 // require('bootstrap');
 
-import drawer from './components/drawer';
-import LazyImages from './components/lazy-images';
-import Toolbar from './components/toolbar';
+import * as CDS from './CDS';
 
-const toolbar = new Toolbar();
-drawer.init();
-LazyImages.init();
+(function () {
+  CDS.init();
+}());

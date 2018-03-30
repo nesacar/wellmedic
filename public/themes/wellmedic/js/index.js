@@ -93,7 +93,7 @@ var _toolbar2 = _interopRequireDefault(_toolbar);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var toolbar = new _toolbar2.default(); // window.$ = window.jQuery = require('jquery');
+_toolbar2.default.init(); // window.$ = window.jQuery = require('jquery');
 // require('bootstrap');
 
 _drawer2.default.init();
@@ -110,42 +110,68 @@ _lazyImages2.default.init();
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var ACTIVE_CLASS = 'active';
-var NO_SCROLL_CLASS = 'no-scroll';
-var DATA_ID = 'data-drawer';
 
-var _close = function _close(target) {
-  return function (evt) {
-    // block clicks on drawer surface
-    if (evt.target.closest('.drawer_drawer')) return;
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-    document.body.classList.remove(NO_SCROLL_CLASS);
-    target.classList.remove(ACTIVE_CLASS);
-    target.removeEventListener('click', _close);
-  };
-};
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var _open = function _open(target) {
-  return function (evt) {
-    target.classList.add(ACTIVE_CLASS);
-    document.body.classList.add(NO_SCROLL_CLASS);
-    target.addEventListener('click', _close(target));
-  };
-};
+var Drawer = function () {
+  _createClass(Drawer, null, [{
+    key: 'init',
+    value: function init() {
+      new Drawer();
+    }
+  }, {
+    key: 'ACTIVE_CLASS',
+    get: function get() {
+      return 'active';
+    }
+  }]);
 
-var _bindEvents = function _bindEvents(control) {
-  var id = control.getAttribute(DATA_ID);
-  var target = document.getElementById(id);
+  function Drawer() {
+    _classCallCheck(this, Drawer);
 
-  control.addEventListener('click', _open(target));
-};
+    this._showButtonEl = document.querySelector('.js-menu-show');
+    this._drawerEl = document.getElementById('mobileNav');
+    this._drawerContainerEl = this._drawerEl.querySelector('.drawer_drawer');
 
-exports.default = {
-  init: function init() {
-    var controls = document.querySelectorAll('[' + DATA_ID + ']');
-    Array.from(controls, _bindEvents);
+    this._show = this._show.bind(this);
+    this._hide = this._hide.bind(this);
+    this._blockClicks = this._blockClicks.bind(this);
+
+    this._addEventListeners();
   }
-};
+
+  _createClass(Drawer, [{
+    key: '_addEventListeners',
+    value: function _addEventListeners() {
+      this._showButtonEl.addEventListener('click', this._show);
+      this._drawerEl.addEventListener('click', this._hide);
+      this._drawerContainerEl.addEventListener('click', this._blockClicks);
+    }
+  }, {
+    key: '_blockClicks',
+    value: function _blockClicks(evt) {
+      evt.stopPropagation();
+    }
+  }, {
+    key: '_show',
+    value: function _show() {
+      this._drawerEl.classList.add(Drawer.ACTIVE_CLASS);
+      document.body.classList.add('no-scroll');
+    }
+  }, {
+    key: '_hide',
+    value: function _hide() {
+      this._drawerEl.classList.remove(Drawer.ACTIVE_CLASS);
+      document.body.classList.remove('no-scroll');
+    }
+  }]);
+
+  return Drawer;
+}();
+
+exports.default = Drawer;
 
 /***/ }),
 
@@ -174,7 +200,7 @@ var LazyImages = function () {
     key: 'init',
     value: function init() {
       if (this._instance) {
-        this._instance.disconnect();
+        this._instance._disconnect();
       }
 
       this._instance = new LazyImages();
@@ -311,9 +337,6 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var HIDDEN_CLASS = 'hidden';
-var BACKGROUND_CLASS = 'with-background';
-
 var Toolbar = function () {
   _createClass(Toolbar, [{
     key: 'position',
@@ -324,9 +347,28 @@ var Toolbar = function () {
       this._position = val;
     }
   }], [{
-    key: 'delta',
+    key: 'init',
+    value: function init() {
+      if (this._instance) {
+        this._instance._disconnect();
+      }
+
+      this._instance = new Toolbar();
+    }
+  }, {
+    key: 'DELTS',
     get: function get() {
       return 64;
+    }
+  }, {
+    key: 'HIDDEN_CLASS',
+    get: function get() {
+      return 'hidden';
+    }
+  }, {
+    key: 'BACKGROUND_CLASS',
+    get: function get() {
+      return 'with-background';
     }
   }]);
 
@@ -334,8 +376,6 @@ var Toolbar = function () {
     _classCallCheck(this, Toolbar);
 
     this.el = document.getElementById('header');
-
-    this._ticking = false;
 
     this._onScroll = this._onScroll.bind(this);
     this._update = this._update.bind(this);
@@ -345,23 +385,28 @@ var Toolbar = function () {
   }
 
   _createClass(Toolbar, [{
+    key: '_disconnect',
+    value: function _disconnect() {
+      window.removeEventListener('scroll', this._onScroll);
+    }
+  }, {
     key: '_update',
     value: function _update() {
       var prevPosition = this.position;
       var currentPosition = document.body.scrollTop || document.documentElement.scrollTop;
 
-      if (Math.abs(prevPosition - currentPosition) <= Toolbar.delta) return;
+      if (Math.abs(prevPosition - currentPosition) <= Toolbar.DELTS) return;
 
-      if (currentPosition > prevPosition && currentPosition > Toolbar.delta) {
-        this.el.classList.add(HIDDEN_CLASS);
+      if (currentPosition > prevPosition && currentPosition > Toolbar.DELTS) {
+        this.el.classList.add(Toolbar.HIDDEN_CLASS);
       } else {
-        this.el.classList.remove(HIDDEN_CLASS);
+        this.el.classList.remove(Toolbar.HIDDEN_CLASS);
       }
 
-      if (currentPosition > Toolbar.delta) {
-        this.el.classList.add(BACKGROUND_CLASS);
+      if (currentPosition > Toolbar.DELTS) {
+        this.el.classList.add(Toolbar.BACKGROUND_CLASS);
       } else {
-        this.el.classList.remove(BACKGROUND_CLASS);
+        this.el.classList.remove(Toolbar.BACKGROUND_CLASS);
       }
 
       this.position = currentPosition;
