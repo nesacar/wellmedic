@@ -133,11 +133,16 @@
   </div>
 
   <script type="text/javascript">
-    window.onload = function () {
-      var resource = document.createElement('script');
-      resource.async = 'true';
-      resource.src = '/themes/wellmedic/js/home.js';
-      document.body.appendChild(resource);
-    };
+    (function () {
+      function loadScript () {
+        var resource = document.createElement('script');
+        resource.src = "{{ url('/themes/wellmedic/js/home.js') }}";
+        document.head.appendChild(resource);
+      }
+
+      window.onload = function () {
+        loadScript();
+      };
+    }());
   </script>
 @endsection
