@@ -7,6 +7,24 @@ const preloadImage = url => {
   });
 };
 
+const loadStyles = url => {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.returnType = 'text';
+    xhr.onload = function () {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = url;
+      document.head.appendChild(link);
+      resolve();
+    };
+    xhr.onerror = reject;
+    xhr.open('get', url);
+    xhr.send();
+  });
+};
+
 export {
-  preloadImage
+  preloadImage,
+  loadStyles
 }
