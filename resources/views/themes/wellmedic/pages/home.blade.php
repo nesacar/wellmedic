@@ -92,9 +92,11 @@
     <div class="row">
       <div class="col-lg-7">
         <div class="article-entry">
-          <div class="image mb-3">
-            <img src="https://www.first-nature.com/fungi/images/ganodermataceae/ganoderma-lucidum1.jpg" alt="ganoderma lucidium" />
-          </div>
+          <div 
+            class="image mb-3 lazy-image"
+            data-src="{{ url('themes/wellmedic/images/demo/tile-img.jpg') }}"
+            style="background-image: url({{ url('themes/wellmedic/images/demo/tile-img-sm.jpg') }});"
+          ></div>
           <div class="caption">30. Decembar 2017</div>
           <h3 class="subheading">Izbor kraljevskih i plemićkih porodica</h3>
           <p>Rog mladog jelena je na listi tri najveće dragocenosti na severoistoku Kine. Mladi rogovi jelena predstavljaju izuzetno dragocen kineski sirov lek.</p>
@@ -104,9 +106,11 @@
       </div>
       <div class="col-lg-5">
         <div class="article-entry">
-          <div class="image image--alt mb-3">
-            <img src="https://www.first-nature.com/fungi/images/ganodermataceae/ganoderma-lucidum1.jpg" alt="ganoderma lucidium" />
-          </div>
+          <div 
+            class="image mb-3 lazy-image"
+            data-src="{{ url('themes/wellmedic/images/demo/tile-img.jpg') }}"
+            style="background-image: url({{ url('themes/wellmedic/images/demo/tile-img-sm.jpg') }});"
+          ></div>
           <div class="caption">30. Decembar 2017</div>
           <div class="article-entry_footer">
             <h3 class="subheading">Neverovatni sastojci</h3>
@@ -114,9 +118,11 @@
           </div>
         </div>
         <div class="article-entry">
-          <div class="image image--alt mb-3">
-            <img src="https://www.first-nature.com/fungi/images/ganodermataceae/ganoderma-lucidum1.jpg" alt="ganoderma lucidium" />
-          </div>
+          <div 
+            class="image mb-3 lazy-image"
+            data-src="{{ url('themes/wellmedic/images/demo/tile-img.jpg') }}"
+            style="background-image: url({{ url('themes/wellmedic/images/demo/tile-img-sm.jpg') }});"
+          ></div>
           <div class="caption">30. Decembar 2017</div>
           <div class="article-entry_footer">
             <h3 class="subheading">Hiljadugodisnja tradicionalna kineska medicina</h3>

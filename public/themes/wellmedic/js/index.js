@@ -79,25 +79,29 @@ module.exports = __webpack_require__(47);
 "use strict";
 
 
-var _drawer = __webpack_require__(48);
+var _drawer = __webpack_require__(60);
 
 var _drawer2 = _interopRequireDefault(_drawer);
 
-var _toolbar = __webpack_require__(49);
+var _lazyImages = __webpack_require__(62);
+
+var _lazyImages2 = _interopRequireDefault(_lazyImages);
+
+var _toolbar = __webpack_require__(61);
 
 var _toolbar2 = _interopRequireDefault(_toolbar);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// window.$ = window.jQuery = require('jquery');
+var toolbar = new _toolbar2.default(); // window.$ = window.jQuery = require('jquery');
 // require('bootstrap');
 
-var toolbar = new _toolbar2.default();
 _drawer2.default.init();
+_lazyImages2.default.init();
 
 /***/ }),
 
-/***/ 48:
+/***/ 60:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -145,7 +149,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 49:
+/***/ 61:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -227,6 +231,51 @@ var Toolbar = function () {
 ;
 
 exports.default = Toolbar;
+
+/***/ }),
+
+/***/ 62:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var LazyImages = function () {
+  function LazyImages() {
+    _classCallCheck(this, LazyImages);
+  }
+
+  _createClass(LazyImages, null, [{
+    key: 'init',
+    value: function init() {
+      var images = document.getElementsByClassName('lazy-image');
+      Array.from(images, LazyImages.load);
+    }
+  }, {
+    key: 'load',
+    value: function load(image) {
+      var src = image.getAttribute('data-src');
+      var img = document.createElement('img');
+
+      img.src = image.getAttribute('data-src');
+      img.onload = function (evt) {
+        image.appendChild(img);
+      };
+    }
+  }]);
+
+  return LazyImages;
+}();
+
+exports.default = LazyImages;
 
 /***/ })
 

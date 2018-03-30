@@ -5,6 +5,9 @@
   overflow: hidden;
   background-color: $theme-primary-light;
   border-radius: $border-radius-lg;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   &-fluid {
     width: 100%;
@@ -25,5 +28,10 @@
     height: auto;
     width: 100%;
     transform: translate(-50%, -50%);
+    animation: fade-in .35s;
   }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
 }
