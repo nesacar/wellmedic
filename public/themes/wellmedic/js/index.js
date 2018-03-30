@@ -60,39 +60,52 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 138);
+/******/ 	return __webpack_require__(__webpack_require__.s = 147);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 138:
+/***/ 147:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(139);
+module.exports = __webpack_require__(148);
 
 
 /***/ }),
 
-/***/ 139:
+/***/ 148:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _CDS = __webpack_require__(140);
+var _utils = __webpack_require__(22);
+
+var _CDS = __webpack_require__(149);
 
 var CDS = _interopRequireWildcard(_CDS);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-(function () {
-  CDS.init();
-})(); // window.$ = window.jQuery = require('jquery');
+// window.$ = window.jQuery = require('jquery');
 // require('bootstrap');
+
+function loadPageStyles() {
+  if (document.querySelector('link[href="/themes/wellmedic/css/index.css"]')) {
+    return;
+  }
+
+  (0, _utils.loadStyles)('/themes/wellmedic/css/index.css');
+}
+
+(function () {
+  loadPageStyles();
+  CDS.init();
+})();
 
 /***/ }),
 
-/***/ 140:
+/***/ 149:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -103,15 +116,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.init = init;
 
-var _drawer = __webpack_require__(141);
+var _drawer = __webpack_require__(150);
 
 var _drawer2 = _interopRequireDefault(_drawer);
 
-var _lazyImages = __webpack_require__(142);
+var _lazyImages = __webpack_require__(151);
 
 var _lazyImages2 = _interopRequireDefault(_lazyImages);
 
-var _toolbar = __webpack_require__(144);
+var _toolbar = __webpack_require__(152);
 
 var _toolbar2 = _interopRequireDefault(_toolbar);
 
@@ -125,7 +138,7 @@ function init() {
 
 /***/ }),
 
-/***/ 141:
+/***/ 150:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -199,7 +212,7 @@ exports.default = Drawer;
 
 /***/ }),
 
-/***/ 142:
+/***/ 151:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -211,7 +224,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _utils = __webpack_require__(143);
+var _utils = __webpack_require__(22);
 
 var Utils = _interopRequireWildcard(_utils);
 
@@ -325,29 +338,7 @@ exports.default = LazyImages;
 
 /***/ }),
 
-/***/ 143:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var preloadImage = function preloadImage(url) {
-  return new Promise(function (resolve, reject) {
-    var image = new Image();
-    image.src = url;
-    image.onload = resolve;
-    image.onerror = reject;
-  });
-};
-
-exports.preloadImage = preloadImage;
-
-/***/ }),
-
-/***/ 144:
+/***/ 152:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -448,6 +439,46 @@ var Toolbar = function () {
 ;
 
 exports.default = Toolbar;
+
+/***/ }),
+
+/***/ 22:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var preloadImage = function preloadImage(url) {
+  return new Promise(function (resolve, reject) {
+    var image = new Image();
+    image.src = url;
+    image.onload = resolve;
+    image.onerror = reject;
+  });
+};
+
+var loadStyles = function loadStyles(url) {
+  return new Promise(function (resolve, reject) {
+    var xhr = new XMLHttpRequest();
+    xhr.returnType = 'text';
+    xhr.onload = function () {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = url;
+      document.head.appendChild(link);
+      resolve();
+    };
+    xhr.onerror = reject;
+    xhr.open('get', url);
+    xhr.send();
+  });
+};
+
+exports.preloadImage = preloadImage;
+exports.loadStyles = loadStyles;
 
 /***/ })
 

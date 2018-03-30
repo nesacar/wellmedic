@@ -5,7 +5,7 @@
                 <div class="col-md-12">
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
-                            <li>Home</li>
+                            <li>Početna</li>
                         </ul>
                     </div>
                 </div>
@@ -15,7 +15,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Homepage</li>
+                            <li class="list-group-item">Početna strana</li>
                         </ul>
                     </div>
                 </div>
