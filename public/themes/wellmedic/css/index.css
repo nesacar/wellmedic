@@ -6947,6 +6947,23 @@ ol {
   overflow: hidden;
 }
 
+.fade-in {
+  -webkit-animation: fade-in .3s;
+          animation: fade-in .3s;
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
 .headline,
 .title,
 .subheading,
@@ -7566,20 +7583,6 @@ ol {
   width: 100%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  -webkit-animation: fade-in .35s;
-          animation: fade-in .35s;
-}
-
-@-webkit-keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
 }
 
 .masthead {

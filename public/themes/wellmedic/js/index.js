@@ -79,15 +79,15 @@ module.exports = __webpack_require__(47);
 "use strict";
 
 
-var _drawer = __webpack_require__(60);
+var _drawer = __webpack_require__(48);
 
 var _drawer2 = _interopRequireDefault(_drawer);
 
-var _lazyImages = __webpack_require__(62);
+var _lazyImages = __webpack_require__(49);
 
 var _lazyImages2 = _interopRequireDefault(_lazyImages);
 
-var _toolbar = __webpack_require__(61);
+var _toolbar = __webpack_require__(50);
 
 var _toolbar2 = _interopRequireDefault(_toolbar);
 
@@ -101,7 +101,7 @@ _lazyImages2.default.init();
 
 /***/ }),
 
-/***/ 60:
+/***/ 48:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -149,7 +149,133 @@ exports.default = {
 
 /***/ }),
 
-/***/ 61:
+/***/ 49:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _utils = __webpack_require__(61);
+
+var Utils = _interopRequireWildcard(_utils);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var LazyImages = function () {
+  _createClass(LazyImages, null, [{
+    key: 'init',
+    value: function init() {
+      if (this._instance) {
+        this._instance.disconnect();
+      }
+
+      this._instance = new LazyImages();
+    }
+  }, {
+    key: 'HANDLED_CLASS',
+    get: function get() {
+      return 'has-loaded';
+    }
+  }, {
+    key: 'SUPPORTS_INTERSECTION_OBSERVER',
+    get: function get() {
+      return 'IntersectionObserver' in window;
+    }
+  }]);
+
+  function LazyImages() {
+    var _this = this;
+
+    _classCallCheck(this, LazyImages);
+
+    var images = document.querySelectorAll('.lazy-image');
+
+    if (!LazyImages.SUPPORTS_INTERSECTION_OBSERVER) {
+      this._loadImagesImmediately(images);
+      return;
+    }
+
+    this._onIntersetion = this._onIntersetion.bind(this);
+    this._io = new IntersectionObserver(this._onIntersetion);
+    images.forEach(function (image) {
+      if (image.classList.contains(LazyImages.HANDLED_CLASS)) {
+        return;
+      }
+
+      _this._io.observe(image);
+    });
+  }
+
+  _createClass(LazyImages, [{
+    key: '_disconnect',
+    value: function _disconnect() {
+      if (!this._io) {
+        return;
+      }
+
+      this._io.disconnect();
+    }
+  }, {
+    key: '_onIntersetion',
+    value: function _onIntersetion(entries) {
+      var _this2 = this;
+
+      entries.forEach(function (entry) {
+        if (entry.intersectionRatio <= 0) {
+          return;
+        }
+
+        if (entry.target.classList.contains(LazyImages.HANDLED_CLASS)) {
+          return;
+        }
+
+        entry.target.classList.add('has-loaded');
+        _this2._preLoadImage(entry.target);
+      });
+    }
+  }, {
+    key: '_preLoadImage',
+    value: function _preLoadImage(image) {
+      var _this3 = this;
+
+      var src = image.dataset.src;
+      if (!src) {
+        return;
+      }
+
+      return Utils.preloadImage(src).then(function (evt) {
+        return _this3._applyImage(image, evt.target);
+      });
+    }
+  }, {
+    key: '_loadImagesImmediately',
+    value: function _loadImagesImmediately(images) {
+      Array.from(images, this._preLoadImage);
+    }
+  }, {
+    key: '_applyImage',
+    value: function _applyImage(image, img) {
+      image.appendChild(img);
+      img.classList.add('fade-in');
+    }
+  }]);
+
+  return LazyImages;
+}();
+
+exports.default = LazyImages;
+
+/***/ }),
+
+/***/ 50:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -234,7 +360,7 @@ exports.default = Toolbar;
 
 /***/ }),
 
-/***/ 62:
+/***/ 61:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -243,39 +369,16 @@ exports.default = Toolbar;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var preloadImage = function preloadImage(url) {
+  return new Promise(function (resolve, reject) {
+    var image = new Image();
+    image.src = url;
+    image.onload = resolve;
+    image.onerror = reject;
+  });
+};
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var LazyImages = function () {
-  function LazyImages() {
-    _classCallCheck(this, LazyImages);
-  }
-
-  _createClass(LazyImages, null, [{
-    key: 'init',
-    value: function init() {
-      var images = document.getElementsByClassName('lazy-image');
-      Array.from(images, LazyImages.load);
-    }
-  }, {
-    key: 'load',
-    value: function load(image) {
-      var src = image.getAttribute('data-src');
-      var img = document.createElement('img');
-
-      img.src = image.getAttribute('data-src');
-      img.onload = function (evt) {
-        image.appendChild(img);
-      };
-    }
-  }]);
-
-  return LazyImages;
-}();
-
-exports.default = LazyImages;
+exports.preloadImage = preloadImage;
 
 /***/ })
 
