@@ -111,28 +111,6 @@ ol {
   margin-bottom: 24px;
 }
 
-.subheading {
-  @extend %heading;
-
-  font-size: 22px;
-  color: $text-primary-on-light;
-}
-
-.section-title {
-  @extend %heading;
-
-  font-size: 16px;
-  margin-bottom: 22px;
-}
-
-.caption {
-  display: inline-block;
-  color: $theme-primary;
-  font-size: 13px;
-  font-weight: $text-regular;
-  margin-bottom: 6px;
-}
-
 // HEADER
 #header {
   position: fixed;
@@ -319,12 +297,6 @@ ol {
       right: initial;
       transform: translateX(-107%);
     }
-
-    &--right {
-      left: initial;
-      right: 0;
-      transform: translateX(107%);
-    }
   }
 }
 
@@ -364,8 +336,8 @@ ol {
   overflow: hidden;
 
   &_image {
-    height: 100% !important;
-    width: auto !important;
+    height: 100%;
+    width: auto;
   }
 
   &_wrap {
