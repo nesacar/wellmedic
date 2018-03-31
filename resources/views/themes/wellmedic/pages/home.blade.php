@@ -10,11 +10,11 @@
         @foreach ($items as $item)
         <div class="swiper-slide masthead">
           <div
-            class="image image--masthead"
+            class="image image--masthead lazy-image"
             style="background-image: url( {{ url('themes/wellmedic/images/landing-hero-bg-sm.jpg') }});"
-          >
-            <img class="masthead_image" src="{{ url('themes/wellmedic/images/landing-hero-bg.jpg') }}" alt="{{ $item->name}}">
-          </div>
+            data-src="{{ url('themes/wellmedic/images/landing-hero-bg.jpg') }}"
+            data-alt="{{ $item->name }}"
+          ></div>
           <div class="masthead_wrap">
             <div class="container">
               <div class="masthead_content">

@@ -310,15 +310,6 @@ ol {
   background-repeat: no-repeat;
   background-size: cover;
 
-  &--masthead {
-    padding-top: 450px;
-    border-radius: 0;
-
-    @media (min-width: 992px) {
-      padding-top: 46.875%;
-    }
-  }
-
   img {
     position: absolute;
     top: 50%;
@@ -327,6 +318,20 @@ ol {
     width: 100%;
     transform: translate(-50%, -50%);
   }
+
+  &--masthead {
+    padding-top: 450px;
+    border-radius: 0;
+
+    @media (min-width: 992px) {
+      padding-top: 46.875%;
+    }
+
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
 }
 
 // HERO
@@ -334,11 +339,6 @@ ol {
   position: relative;
   width: 100%;
   overflow: hidden;
-
-  &_image {
-    height: 100%;
-    width: auto;
-  }
 
   &_wrap {
     position: absolute;

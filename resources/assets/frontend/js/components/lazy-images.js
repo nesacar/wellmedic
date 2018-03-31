@@ -46,7 +46,7 @@ class LazyImages {
 
   _onIntersetion (entries) {
     entries.forEach(entry => {
-      if (entry.intersectionRatio <= 0) {
+      if (!entry.isIntersecting) {
         return;
       }
 
@@ -61,18 +61,23 @@ class LazyImages {
 
   _preLoadImage (image) {
     const src = image.dataset.src;
+    const alt = image.dataset.alt;
     if (!src) {
       return;
     }
 
-    return Utils.preloadImage(src).then(evt => this._applyImage(image, evt.target));
+    return Utils.preloadImage(src).then(evt => this._applyImage(image, evt.target, alt));
   }
 
   _loadImagesImmediately (images) {
     Array.from(images, this._preLoadImage);
   }
 
-  _applyImage (image, img) {
+  _applyImage (image, img, alt) {
+    if (alt) {
+      img.alt = alt;
+    }
+
     image.appendChild(img);
     img.classList.add('fade-in');
   }
