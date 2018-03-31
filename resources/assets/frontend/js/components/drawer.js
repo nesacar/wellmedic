@@ -7,6 +7,10 @@ class Drawer {
     return 'animatable';
   }
 
+  static get THRESHOLD () {
+    return -75;
+  }
+
   static init () {
     new Drawer();
   }
@@ -18,6 +22,7 @@ class Drawer {
 
     this._startX = 0;
     this._currentX = 0;
+    this._touchingDrawer = false;
 
     this._show = this._show.bind(this);
     this._hide = this._hide.bind(this);
@@ -25,6 +30,7 @@ class Drawer {
     this._onTouchMove = this._onTouchMove.bind(this);
     this._onTouchEnd = this._onTouchEnd.bind(this);
     this._onTransitionEnd = this._onTransitionEnd.bind(this);
+    this._uptade = this._uptade.bind(this);
 
     this._addEventListeners();
   }
@@ -46,23 +52,43 @@ class Drawer {
   _onTouchStart (evt) {
     this._startX = evt.touches[0].pageX;
     this._currentX = this._startX;
+
+    this._touchingDrawer = true;
+    window.requestAnimationFrame(this._uptade);
   }
 
   _onTouchMove (evt) {
-    this._currentX = evt.touches[0].pageX;
+    if (!this._touchingDrawer) {
+      return;
+    }
 
-    const translateX = Math.min(0, this._currentX - this._startX);
-    this._drawerContainerEl.style.transform = `translateX(${translateX}px)`;
+    this._currentX = evt.touches[0].pageX;
   }
 
   _onTouchEnd (evt) {
-    const translateX = Math.min(0, this._currentX - this._startX);
-    this._drawerContainerEl.style.transform = 'initial';
+    if (!this._touchingDrawer) {
+      return;
+    }
 
-    if (translateX < -30) {
-      this._drawerContainerEl.style.transform = '';
+    this._touchingDrawer = false;
+
+    const translateX = Math.min(0, this._currentX - this._startX);
+    this._drawerContainerEl.style.transform = '';
+
+    if (translateX < Drawer.THRESHOLD) {
       this._hide();
     }
+  }
+
+  _uptade () {
+    if (!this._touchingDrawer) {
+      return;
+    }
+
+    window.requestAnimationFrame(this._uptade);
+
+    const translateX = Math.min(0, this._currentX - this._startX);
+    this._drawerContainerEl.style.transform = `translateX(${translateX}px)`;
   }
 
   _onTransitionEnd () {
