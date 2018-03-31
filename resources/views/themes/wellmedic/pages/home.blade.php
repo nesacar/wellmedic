@@ -9,7 +9,12 @@
 
         @foreach ($items as $item)
         <div class="swiper-slide masthead">
-          <img class="image-fluid masthead_image" src="{{ url('themes/wellmedic/images/landing-hero-bg.png') }}" />
+          <div
+            class="image image--masthead"
+            style="background-image: url( {{ url('themes/wellmedic/images/landing-hero-bg-sm.jpg') }});"
+          >
+            <img class="masthead_image" src="{{ url('themes/wellmedic/images/landing-hero-bg.jpg') }}" alt="{{ $item->name}}">
+          </div>
           <div class="masthead_wrap">
             <div class="container">
               <div class="masthead_content">
@@ -68,7 +73,7 @@
             <div class="card-body product-card_body">
               <div class="product-card_thumbnail">
                 <img
-                  src="https://cdn7.bigcommerce.com/s-u0uja8gg4w/images/stencil/500x650/products/155/668/B000178_use__01779.1519163981.png?c=2" 
+                  src="https://cdn7.bigcommerce.com/s-u0uja8gg4w/images/stencil/500x650/products/155/668/B000178_use__01779.1519163981.png?c=2"
                   alt="genoderma lucidium"
                 >
               </div>
@@ -92,7 +97,7 @@
     <div class="row">
       <div class="col-lg-7">
         <div class="article-entry">
-          <div 
+          <div
             class="image mb-3 lazy-image"
             data-src="{{ url('themes/wellmedic/images/demo/tile-img.jpg') }}"
             style="background-image: url({{ url('themes/wellmedic/images/demo/tile-img-sm.jpg') }});"
@@ -106,7 +111,7 @@
       </div>
       <div class="col-lg-5">
         <div class="article-entry">
-          <div 
+          <div
             class="image mb-3 lazy-image"
             data-src="{{ url('themes/wellmedic/images/demo/tile-img.jpg') }}"
             style="background-image: url({{ url('themes/wellmedic/images/demo/tile-img-sm.jpg') }});"
@@ -118,7 +123,7 @@
           </div>
         </div>
         <div class="article-entry">
-          <div 
+          <div
             class="image mb-3 lazy-image"
             data-src="{{ url('themes/wellmedic/images/demo/tile-img.jpg') }}"
             style="background-image: url({{ url('themes/wellmedic/images/demo/tile-img-sm.jpg') }});"

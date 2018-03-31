@@ -3,6 +3,12 @@
   align-items: center;
   flex-wrap: nowrap;
 
+  &--desktop {
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+  }
+
   &_item {
     margin-left: 8px;
 

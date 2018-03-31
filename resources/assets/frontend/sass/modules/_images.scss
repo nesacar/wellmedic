@@ -21,6 +21,15 @@
     padding-top: 46.51%;
   }
 
+  &--masthead {
+    padding-top: 450px;
+    border-radius: 0;
+
+    @include media-breakpoint-up(lg) {
+      padding-top: 46.875%;
+    }
+  }
+
   img {
     position: absolute;
     top: 50%;

@@ -71,6 +71,7 @@ ol {
 
 .container,
 .container-fluid {
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding-left: 15px;
@@ -189,6 +190,12 @@ ol {
   display: inline-flex;
   align-items: center;
   flex-wrap: nowrap;
+
+  &--desktop {
+    @media (max-width: 991.98px) {
+      display: none;
+    }
+  }
 
   &_item {
     margin-left: 8px;
@@ -321,9 +328,72 @@ ol {
   }
 }
 
+.image {
+  position: relative;
+  display: block;
+  padding-top: 56.25%;
+  overflow: hidden;
+  background-color: $theme-primary-light;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &--masthead {
+    padding-top: 450px;
+    border-radius: 0;
+
+    @media (min-width: 992px) {
+      padding-top: 46.875%;
+    }
+  }
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: auto;
+    width: 100%;
+    transform: translate(-50%, -50%);
+  }
+}
+
 // HERO
 .masthead {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 
+  &_image {
+    height: 100% !important;
+    width: auto !important;
+  }
+
+  &_wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  &_content {
+    margin-top: 120px;
+    font-size: 18px;
+
+    @media (min-width: 768px) {
+      max-width: 70%;
+    }
+
+    @media (min-width: 992px) {
+      max-width: 50%;
+    }
+
+    @media (min-width: 1200px) {
+      margin-top: 180px;
+    }
+  }
 }
 
 //swiper

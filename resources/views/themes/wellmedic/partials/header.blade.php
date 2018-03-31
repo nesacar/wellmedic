@@ -34,7 +34,7 @@
     </ul>
 
     <div>
-      <ul class="social d-none d-lg-inline-flex">
+      <ul class="social social--desktop">
         <li class="social_item">
           <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="pratite nas na facebooku">
             <svg class="icon" role="presentation">

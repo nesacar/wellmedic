@@ -1,18 +1,10 @@
 .masthead {
-  height: 450px;
+  position: relative;
   overflow: hidden;
 
-  @include media-breakpoint-up(lg) {
-    height: auto;
-  }
-
   &_image {
-    @include media-breakpoint-down(md) {
-      height: 100%;
-      width: auto;
-      margin-left: 50%;
-      transform: translateX(-50%);
-    }
+    height: 100% !important;
+    width: auto !important;
   }
 
   &_wrap {
@@ -28,13 +20,13 @@
   &_content {
     margin-top: 120px;
     font-size: 18px;
-    opacity: 0;
-    transform: translateY(75%);
+    // opacity: 0;
+    // transform: translateY(75%);
     transition: transform .3s .4s ease-out, opacity .3s .4s ease-out;
 
     .swiper-slide-active & {
-      opacity: 1;
-      transform: translateY(0);
+      // opacity: 1;
+      // transform: translateY(0);
     }
 
     @include media-breakpoint-up(md) {
@@ -48,17 +40,5 @@
     @include media-breakpoint-up(xl) {
       margin-top: 180px;
     }
-  }
-}
-
-.test {
-  height: 450px;
-  overflow: hidden;
-
-  img {
-    height: 100%;
-    width: auto;
-    margin-left: 50%;  
-    transform: translateX(-50%);
   }
 }
