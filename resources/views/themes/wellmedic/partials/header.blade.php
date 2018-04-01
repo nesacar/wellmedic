@@ -56,16 +56,16 @@
           </a>
         </li>
       </ul>
-      <form>
+      <form id="search-form">
         <div class="search-widget">
-          <button class="btn-icon toggler search-widget_search-btn">
+          <button class="btn-icon toggler search-widget_search-btn" type="submit">
             <svg class="icon" role="presentation">
               <use xlink:href="#icon_search">
             </svg>
           </button>
           <input type="text" placeholder="Pretraži" />
           <div class="search-widget_border"></div>
-          <button class="btn-icon toggler search-widget_close-btn">
+          <button class="btn-icon toggler search-widget_close-btn" type="reset">
             <svg class="icon" role="presentation">
               <use xlink:href="#icon_close">
             </svg>
