@@ -1,10 +1,5 @@
 .dropdown {
   position: relative;
-  display: inline-flex;
-
-  .nav-link {
-    padding-right: 6px;
-  }
 
   &:hover {
     .dropdown-menu {

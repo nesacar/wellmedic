@@ -15,7 +15,6 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link" href="/proizvodi">Proizvodi</a>
-        <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false"></button>
         <div class="dropdown-menu">
           <a class="dropdown-item nav-link--secondary" href="/proizvodi/id_1">Ganoderma lucidim</a>
           <a class="dropdown-item nav-link--secondary" href="/proizvodi/id_2">Jelenski rog</a>
