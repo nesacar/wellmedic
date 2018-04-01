@@ -24,7 +24,7 @@
                 <use xlink:href="#icon_twitter">
               </svg>
             </a>
-          </li> 
+          </li>
         </ul>
       </div>
 
@@ -33,19 +33,26 @@
         <li class="nav-item active">
           <a class="nav-link" href="/about">O nama</a>
         </li>
-        <li class="nav-item">
-          <div>
+        <li class="nav-item accordion">
+          <div class="accordion_tab">
             <a class="nav-link" href="/proizvodi">Proizvodi</a>
+            <button class="btn-icon toggler js-dropdown-toggle" data-target="#jsSubmenu" aria-controls="jsSubmenu" aria-expanded="false">
+              <svg class="icon">
+                <use xlink:href="#icon_arrow" />
+              </svg>
+            </button>
           </div>
-          <div class="accordion">
-            <div class="nav-item">
-              <a href="#" class="nav-link">Genoderma lucidium</a>
-            </div>
-            <div class="nav-item">
-              <a href="#" class="nav-link">Jelenski rog</a>
-            </div>
-            <div class="nav-item">
-              <a href="#" class="nav-link">Pasta za zube</a>
+          <div class="accordion_pane" id="jsSubmenu">
+            <div class="accordion_container">
+              <div class="nav-item">
+                <a href="#" class="nav-link nav-link--secondary">Genoderma lucidium</a>
+              </div>
+              <div class="nav-item">
+                <a href="#" class="nav-link nav-link--secondary">Jelenski rog</a>
+              </div>
+              <div class="nav-item">
+                <a href="#" class="nav-link nav-link--secondary">Pasta za zube</a>
+              </div>
             </div>
           </div>
         </li>

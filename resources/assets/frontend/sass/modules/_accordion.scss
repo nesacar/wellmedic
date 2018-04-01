@@ -1,0 +1,29 @@
+.accordion {
+  &_tab {
+    display: flex;
+    justify-content: space-between;
+
+    .nav-link {
+      flex-grow: 1;
+    }
+  }
+
+  &_pane {
+    position: relative;
+    overflow: hidden;
+    height: 0;
+    transition: height .21s;
+    will-change: height;
+  }
+
+  &_container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    .nav-link {
+      padding-left: 2rem;
+    }
+  }
+}

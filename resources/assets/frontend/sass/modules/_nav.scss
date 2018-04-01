@@ -19,3 +19,9 @@
 
   flex-direction: column;
 }
+
+.nav-link--secondary {
+  text-transform: none;
+  font-weight: $text-regular;
+  font-family: $font-family-open-sans;
+}

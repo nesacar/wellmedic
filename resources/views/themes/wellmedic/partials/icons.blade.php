@@ -1,12 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" xml:space="preserve" style="display: none;">
   <symbol id="icon_search" viewBox="0 0 1024 1024">
-    <title>traži</title>
+    <title>pretraži</title>
     <desc>lupa za uvećavanje</desc>
     <path d="M660.3,596.3h-33.7l-11.9-11.5c41.8-48.6,67-111.8 67-180.5c0-153.2-124.2-277.3-277.3-277.3S127,251.2,127,404.3 s124.2,277.3,277.3,277.3c68.7,0,131.8-25.2,180.5-67l11.5,11.9v33.7l213.3,212.9l63.6-63.6L660.3,596.3z M404.3,596.3 c-106.2,0-192-85.8-192-192s85.8-192,192-192s192,85.8,192,192S510.6,596.3,404.3,596.3z"/>
   </symbol>
   <symbol id="icon_menu" viewBox="0 0 1024 1024">
     <title>meni</title>
     <path d="M128,768h768v-85.3H128V768z M128,554.7h768v-85.3H128V554.7z M128,256v85.3h768V256H128z"/>
+  </symbol>
+  <symbol id="icon_arrow" viewBox="0 0 1024 1024">
+    <title>strleica</title>
+    <path d="M316.2,366.8L512,562.2l195.8-195.4l60.2,60.2l-256,256l-256-256L316.2,366.8z"/>
   </symbol>
   <symbol id="icon_mobile" viewBox="0 0 1024 1024">
     <title>telefon</title>
