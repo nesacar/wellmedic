@@ -10,7 +10,12 @@ const OPTIONS = {
     pagination: {
       el: '.swiper-pagination',
       clickable: true
-    }
+    },
+    on: {
+      init: function () {
+        this.el.classList.add('has-loaded');
+      }
+    },
   },
   quotes: {
     slidesPerView: 3,
