@@ -21,8 +21,9 @@
   display: block;
   height: 2px;
   width: 100%;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  // margin-top: 30px;
+  margin-top: 4 * $base-line;
+  margin-bottom: 4 * $base-line;
   border-bottom: 1px solid #fff;
   background-color: rgba(0, 0, 0, .12);
   background-image:

@@ -1,8 +1,8 @@
 .quote {
   display: flex;
   flex-direction: column;
-  padding-left: 48px;
-  padding-right: 48px;
+  padding-left: 6 * $base-line;
+  padding-right: 6 * $base-line;
   user-select: none;
 
   @include media-breakpoint-up(md) {
@@ -13,10 +13,10 @@
 
   &_icon {
     display: flex;
-    min-width: 48px;
+    min-width: 6 * $base-line;
     align-items: center;
     justify-content: center;
-    margin-bottom: 15px;
+    margin-bottom: 2 * $base-line;
     color: $theme-primary;
 
     @include media-breakpoint-up(md) {

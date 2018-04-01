@@ -18,9 +18,9 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    
+
     img {
-      max-width: 128px;
+      max-width: 16 * $base-line;
     }
   }
 

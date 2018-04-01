@@ -35,7 +35,7 @@
 
 .header {
   display: flex;
-  height: 64px;
+  height: 8 * $base-line;
   align-items: center;
   justify-content: space-between;
   min-width: 100%;

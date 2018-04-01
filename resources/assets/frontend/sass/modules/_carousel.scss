@@ -19,7 +19,7 @@
         transform: translateY(calc(-100% - 24px));
       }
     }
-  } 
+  }
 }
 
 .swiper-pagination-bullet {
@@ -36,10 +36,10 @@
   .quote {
     width: 100%;
     flex-shrink: 0;
-    
+
     @include media-breakpoint-up(md) {
       width: 33.3333%;
-      padding-right: 30px;
+      padding-right: 4 * $base-line;
     }
   }
 }
