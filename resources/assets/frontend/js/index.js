@@ -2,7 +2,7 @@
 // require('bootstrap');
 
 import { loadStyles } from './utils';
-import * as CDS from './CDS';
+import * as wellmedic from './wellmedic';
 
 function loadPageStyles () {
   if (document.querySelector('link[href="/themes/wellmedic/css/index.css"]')) {
@@ -14,5 +14,5 @@ function loadPageStyles () {
 
 (function () {
   loadPageStyles();
-  CDS.init();
+  wellmedic.init();
 }());
