@@ -9,12 +9,10 @@
 
         @foreach ($items as $item)
         <div class="swiper-slide masthead">
-          <div
-            class="image image--masthead lazy-image"
-            style="background-image: url( {{ url('themes/wellmedic/images/landing-hero-bg-sm.jpg') }});"
-            data-src="{{ url('themes/wellmedic/images/landing-hero-bg.jpg') }}"
-            data-alt="{{ $item->name }}"
-          ></div>
+          <div class="image image--masthead">
+            <img src="{{ url('themes/wellmedic/images/landing-hero-bg.jpg') }}"
+            alt="{{ $item->name }}" />
+          </div>
           <div class="masthead_wrap">
             <div class="container">
               <div class="masthead_content">
@@ -57,8 +55,16 @@
         </div>
       </div>
       <div class="controls">
-        <button class="btn-icon arrow arrow--prev"></button>
-        <button class="btn-icon arrow arrow--next"></button>
+        <button class="btn-icon arrow arrow--prev">
+          <svg class="icon">
+            <use xlink:href="#icon_arrow" />
+          </svg>
+        </button>
+        <button class="btn-icon arrow arrow--next">
+          <svg class="icon">
+            <use xlink:href="#icon_arrow" />
+          </svg>
+        </button>
       </div>
     </div>
   </div>
