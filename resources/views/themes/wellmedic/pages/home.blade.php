@@ -148,6 +148,7 @@
       function loadScript () {
         var resource = document.createElement('script');
         resource.src = "{{ url('/themes/wellmedic/js/home.js') }}";
+        resource.async = 'true';
         document.head.appendChild(resource);
       }
 

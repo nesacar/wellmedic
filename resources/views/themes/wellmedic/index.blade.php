@@ -20,7 +20,11 @@
   </div>
 
   @include('themes/wellmedic/partials/footer')
-  
+
+<script>
+  window.app_url = "{{ url('') }}";
+</script>
+
 <script src="{{ url('themes/wellmedic/js/index.js') }}"></script>
 <noscript>
   <link rel="stylesheet" href="{{ url('themes/wellmedic/css/index.css') }}">
