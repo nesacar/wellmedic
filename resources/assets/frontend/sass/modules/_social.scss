@@ -4,6 +4,8 @@
   flex-wrap: nowrap;
 
   &--desktop {
+    margin-right: 36px;
+
     @include media-breakpoint-down(md) {
       display: none;
     }

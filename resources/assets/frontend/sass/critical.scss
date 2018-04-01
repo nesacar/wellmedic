@@ -396,3 +396,43 @@ ol {
     }
   }
 }
+
+.search-widget {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  margin: 0;
+  padding: 0;
+  color: $theme-primary;
+  font-size: 16px;
+  width: 0;
+  transition: width .21s;
+
+  input {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 5px 0;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid $theme-primary;
+    background: 0;
+    box-shadow: none;
+    outline: none;
+  }
+
+  &_search-btn {
+    position: absolute;
+    top: 0;
+    left: -36px;
+  }
+
+  &_close-btn {
+    position: absolute;
+    top: 0;
+    right: -6px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .21s;
+  }
+}

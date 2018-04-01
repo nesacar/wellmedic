@@ -56,11 +56,22 @@
           </a>
         </li>
       </ul>
-      <button class="btn-icon toggler">
-        <svg class="icon" role="presentation">
-          <use xlink:href="#icon_search">
-        </svg>
-      </button>
+      <form>
+        <div class="search-widget">
+          <button class="btn-icon toggler search-widget_search-btn">
+            <svg class="icon" role="presentation">
+              <use xlink:href="#icon_search">
+            </svg>
+          </button>
+          <input type="text" placeholder="Pretraži" />
+          <div class="search-widget_border"></div>
+          <button class="btn-icon toggler search-widget_close-btn">
+            <svg class="icon" role="presentation">
+              <use xlink:href="#icon_close">
+            </svg>
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </header>
