@@ -10406,12 +10406,12 @@ a.text-dark:focus {
 }
 
 #leftMenu ul li.active {
-  background-color: #00adee;
+  background-color: #67c3d1;
 }
 
 #leftMenu ul li.active ul {
   height: 100%;
-  background-color: #00adee;
+  background-color: #67c3d1;
 }
 
 #leftMenu ul li.active svg {

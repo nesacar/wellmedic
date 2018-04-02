@@ -376,11 +376,11 @@
       transition: all 0.5s;
 
       &.active{
-        background-color: $primary;
+        background-color: $second;
 
         ul{
           height: 100%;
-          background-color: $primary;
+          background-color: $second;
         }
 
         svg {
