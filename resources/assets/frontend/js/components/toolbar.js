@@ -1,9 +1,15 @@
 class Toolbar {
-  static get DELTS () { return 64; }
-  static get HIDDEN_CLASS () { return 'hidden'; }
-  static get BACKGROUND_CLASS () { return 'with-background'; }
-  get position () { return this._position; }
-  set position (val) { this._position = val; }
+  static get DELTA () {
+    return 64;
+  }
+
+  static get HIDDEN_CLASS () {
+    return 'hidden';
+  }
+
+  static get BACKGROUND_CLASS () {
+    return 'with-background';
+  }
 
   static init () {
     if (this._instance) {
@@ -15,6 +21,7 @@ class Toolbar {
 
   constructor () {
     this.el = document.getElementById('header');
+    this._ticking = false;
 
     this._onScroll = this._onScroll.bind(this);
     this._update = this._update.bind(this);
@@ -28,30 +35,39 @@ class Toolbar {
   }
 
   _update () {
-    const prevPosition = this.position;
+    this._ticking = false;
+    const prevPosition = this._position;
     const currentPosition = document.body.scrollTop || document.documentElement.scrollTop;
 
-    if (Math.abs(prevPosition - currentPosition) <= Toolbar.DELTS) return;
+    if (Math.abs(prevPosition - currentPosition) <= Toolbar.DELTA) return;
 
-    if ((currentPosition > prevPosition) && (currentPosition > Toolbar.DELTS)) {
+    if ((currentPosition > prevPosition) && (currentPosition > Toolbar.DELTA)) {
       this.el.classList.add(Toolbar.HIDDEN_CLASS);
     }
     else {
       this.el.classList.remove(Toolbar.HIDDEN_CLASS);
     }
 
-    if (currentPosition > Toolbar.DELTS) {
+    if (currentPosition > Toolbar.DELTA) {
       this.el.classList.add(Toolbar.BACKGROUND_CLASS);
     }
     else {
       this.el.classList.remove(Toolbar.BACKGROUND_CLASS);
     }
 
-    this.position = currentPosition;
+    this._position = currentPosition;
   }
 
   _onScroll () {
-    window.requestAnimationFrame(this._update);
+    this._requestTick();
+  }
+  
+  _requestTick () {
+    if (!this._ticking) {
+      window.requestAnimationFrame(this._update);
+    }
+
+    this._ticking = true;
   }
 };
 
