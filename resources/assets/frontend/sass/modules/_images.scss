@@ -31,8 +31,12 @@
   }
 
   &--banner {
-    padding-top: 28.57%;
+    padding-top: 40.39%;
     border-radius: 0;
+
+    @include media-breakpoint-up(md) {
+      padding-top: 28.57%;
+    }
   }
 
   &--masthead {

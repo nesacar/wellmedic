@@ -70,11 +70,19 @@
   </div>
 
   <div class="container section">
-    <div
-      class="image image--banner mb-3 lazy-image"
-      data-src="{{ url('themes/wellmedic/images/demo/banner.jpg') }}"
-      style="background-image: url({{ url('themes/wellmedic/images/demo/banner-sm.jpg') }});"
-    ></div>
+    <div class="position-relative">
+      <div
+        class="image image--banner mb-3 lazy-image"
+        data-src="{{ url('themes/wellmedic/images/demo/banner.jpg') }}"
+        style="background-image: url({{ url('themes/wellmedic/images/demo/banner-sm.jpg') }});"
+      ></div>
+      <div class="card banner" id="banner">
+        <div class="card-body">
+          <div class="headline banner_headline">želimo vam dobro</div>
+          <div class="subheading banner_subheading">Budite spremni, lepi i zdravi</div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="container section">
