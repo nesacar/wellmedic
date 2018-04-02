@@ -72,6 +72,7 @@
   <div class="container section">
     <div class="position-relative">
       <div
+        id="banner-image"
         class="image image--banner mb-3 lazy-image"
         data-src="{{ url('themes/wellmedic/images/demo/banner.jpg') }}"
         style="background-image: url({{ url('themes/wellmedic/images/demo/banner-sm.jpg') }});"
