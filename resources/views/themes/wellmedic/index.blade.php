@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Wellmedic - @yield('title')</title>
     <style>
-      <?php include('themes/wellmedic/css/critical.css') ?>
+       {{ include('themes/wellmedic/css/critical.css') }}
     </style>
 </head>
 <body>
@@ -22,7 +22,7 @@
   @include('themes/wellmedic/partials/footer')
 
 <script>
-  window.app_url = "{{ url('') }}";
+  window.app_url = "{{ url('/') }}";
 </script>
 
 <script src="{{ url('themes/wellmedic/js/index.js') }}"></script>

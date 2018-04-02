@@ -114,7 +114,7 @@
   </div>
   <div class="subfooter">
     <div class="container subfooter_copy">
-      <span>Copyright &copy; <?php echo date("Y"); ?> Wellmedic | All rights reserved.</span>
+      <span>Copyright &copy; {{ date("Y") }} Wellmedic | All rights reserved.</span>
       <span>Developed by <a href="https://ministudio.rs/" target="_blank" rel="noopener noreferrer">Mini STUDIO Publishing Group</a></span>
     </div>
   </div>
