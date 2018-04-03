@@ -25,3 +25,7 @@
   font-weight: $text-regular;
   font-family: $font-family-open-sans;
 }
+
+.nav-item.active {
+  color: $theme-primary;
+}
