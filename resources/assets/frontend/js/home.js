@@ -1,4 +1,5 @@
 import Swiper from 'swiper';
+import Banner from './components/banner';
 
 const OPTIONS = {
   masthead: {
@@ -38,8 +39,11 @@ const OPTIONS = {
   }
 };
 
-const swipers = document.getElementsByClassName('swiper-container');
-Array.from(swipers, (swiper, i) => {
-  let name = swiper.getAttribute('data-name');
-  new Swiper(swiper, OPTIONS[name]);
-});
+(function () {
+  Banner.init();
+  const swipers = document.getElementsByClassName('swiper-container');
+  Array.from(swipers, (swiper, i) => {
+    let name = swiper.getAttribute('data-name');
+    new Swiper(swiper, OPTIONS[name]);
+  });
+}());

@@ -28,6 +28,15 @@ class Banner {
     this._worker = new Worker(Banner.WORKER_URL);
     this._worker.addEventListener('message', this._applyColor);
 
+    const img = image.firstElementChild;
+
+    // If the image is already in the DOM,
+    // load it immediately
+    if (img) {
+      this._getAverageRGB(img);
+      return;
+    }
+
     this._mo = new MutationObserver(this._onMutation);
     this._mo.observe(image, {
       childList: true
