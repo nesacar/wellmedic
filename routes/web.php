@@ -22,8 +22,13 @@ Route::get('/', function () {
 });
 
 Route::get('/products', function () {
+  $items = [
+    (object) ["name" => "Ganoderma lucidium", "categorie" => "Kapsule na bazi ulja iz spora", "tagline" => "Lek kineskih careva 4000 godina", "about" => "Doktori i naučnici znaju da pomaže u sledećim: Dovodi kiseonik u telo povećava izdržljivost, pruža više snage i energije"],
+    (object) ["name" => "Ženšen i rog mladog jelena", "categorie" => "Kapsule", "tagline" => "Za bolji natalitet Srbije", "about" => "Jača imuni sistem. Oslobađa telo fizičkog zamora. Vraća energiju. Štiti krvne sudove srca."],
+    (object) ["name" => "Pasta za zube", "categorie" => "Pasta za zube", "tagline" => "Na bazi Zelenog propolisa i ulja Ganoderme lucidium", "about" => "Doktori i naučnici znaju da pomaže u sledećim: Dovodi kiseonik u telo povećava izdržljivost, pruža više snage i energije"]
+  ];
   $title = 'Proizvodi';
-  return view('themes.wellmedic.pages.products', compact('title'));
+  return view('themes.wellmedic.pages.products', compact('title', 'items'));
 });
 
 Auth::routes();

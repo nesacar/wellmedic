@@ -3,6 +3,28 @@
   {{ $title }}
 @endsection
 @section('content')
+<div class="section" style="padding-top: 80px;">
+  @foreach ($items as $i => $item)
+  @php $isOdd = (($i % 2) != 0); @endphp
+    <div class="product {{ $isOdd ? 'product--alt' : '' }}">
+      <div class="container product_container">
+        <div class="row {{ $isOdd ? 'flex-row-reverse' : '' }}">
+          <div class="col-md-8">
+            <p class="caption">{{ $item->categorie}}</p>
+            <h1 class="headline">{{ $item->name }}</h1>
+            <p class="tag-line">{{ $item->tagline }}</p>
+            <p>{{ $item->about }}</p>
+            <a class="btn btn-primary" href="#">Saznajte više</a>
+          </div>
+          <div class="col-md-4">
+            slika
+          </div>
+        </div>
+      </div>
+    </div>
+    @endforeach
+  </div>
+
   <div class="container section">
     <h2 class="title"><span class="thin">Naš</span> blog</h2>
     <div class="row">

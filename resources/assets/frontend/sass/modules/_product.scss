@@ -1,0 +1,6 @@
+.product {
+  padding: 4 * $base-line 0; 
+  &--alt {
+    background-color: $theme-primary-light;
+  }
+}
