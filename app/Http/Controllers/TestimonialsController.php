@@ -81,7 +81,7 @@ class TestimonialsController extends Controller
         $testimonial->delete();
 
         return response()->json([
-            'message' => 'Utisak je obrisan'
+            'message' => 'deleted'
         ]);
     }
 }
