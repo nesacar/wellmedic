@@ -1,12 +1,9 @@
 .article-entry {
   margin-bottom: 3 * $base-line;
 
-  p {
-    margin-bottom: 0;
-  }
-
-  p + p {
-    margin-bottom: 1rem;
+  &_text {
+    line-height: 1.5em;
+    max-height: calc(1.5 * 3em);
   }
 
   &_footer {

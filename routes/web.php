@@ -21,6 +21,11 @@ Route::get('/', function () {
     return view('themes.wellmedic.pages.home', compact('title', 'items'));
 });
 
+Route::get('/products', function () {
+  $title = 'Proizvodi';
+  return view('themes.wellmedic.pages.products', compact('title'));
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
