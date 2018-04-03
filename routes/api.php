@@ -43,4 +43,6 @@ Route::middleware('auth:api')->get('collections/lists', 'CollectionsController@l
 Route::middleware('auth:api')->resource('collections', 'CollectionsController');
 Route::middleware('auth:api')->post('collections/{id}/image', 'CollectionsController@uploadImage');
 
+Route::middleware('auth:api')->post('products/search', 'ProductsController@search');
 Route::middleware('auth:api')->resource('products', 'ProductsController');
+Route::middleware('auth:api')->post('products/{id}/image', 'ProductsController@uploadImage');

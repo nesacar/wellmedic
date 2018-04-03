@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateProductRequest;
+use App\Http\Requests\UploadImageRequest;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -32,8 +33,11 @@ class ProductsController extends Controller
     public function store(CreateProductRequest $request)
     {
         $product = Product::create(request()->all());
+        $product->slug = request('slug')? str_slug(request('slug')) : str_slug(request('title'));
         $product->publish = request('publish')? true : false;
         $product->update();
+
+        if(request('image')){ Product::base64UploadImage($product->id, request('image')); }
 
         return response()->json([
             'product' => $product
@@ -62,6 +66,8 @@ class ProductsController extends Controller
      */
     public function update(CreateProductRequest $request, Product $product)
     {
+        $product->update(request()->all());
+        $product->slug = request('slug')? str_slug(request('slug')) : str_slug(request('title'));
         $product->publish = request('publish')? true : false;
         $product->update();
 
@@ -82,6 +88,36 @@ class ProductsController extends Controller
 
         return response()->json([
             'message' => 'deleted'
+        ]);
+    }
+
+    public function uploadImage(UploadImageRequest $request, $id){
+        $image = Product::base64UploadImage($id, request('file'));
+
+        return response()->json([
+            'image' => $image
+        ]);
+    }
+
+    public function search(){
+        $collection = request('list');
+        $text = request('text');
+        $products = Product::select('products.id', 'products.title', 'products.publish', 'products.created_at', 'collections.title as collection')
+            ->join('collections', 'products.collection_id', '=', 'collections.id')
+            ->where(function ($query) use ($collection){
+                if($collection > 0){
+                    $query->where('products.collection_id', $collection);
+                }
+            })
+            ->where(function ($query) use ($text){
+                if($text != ''){
+                    $query->where('products.title', 'like', '%'.$text.'%')->orWhere('products.slug', 'like', '%'.$text.'%');
+                }
+            })
+            ->orderBy('products.created_at', 'DESC')->groupBy('products.id')->paginate(50);
+
+        return response()->json([
+            'products' => $products,
         ]);
     }
 }

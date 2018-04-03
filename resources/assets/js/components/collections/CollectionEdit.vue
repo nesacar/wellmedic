@@ -22,8 +22,6 @@
 
                 <div class="col-md-4">
                     <div class="card">
-                        <h5>Generalne informacije</h5>
-                        <hr>
                         <div class="form-group">
                             <label for="title">Redosled</label>
                             <input type="text" name="order" class="form-control" id="order" placeholder="Redosled" v-model="collection.order">
@@ -46,8 +44,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card">
-                        <h5>Jezičke informacije</h5>
-                        <hr>
+
                             <form @submit.prevent="submit()">
                                 <div class="form-group">
                                     <label for="title">Naslov</label>
