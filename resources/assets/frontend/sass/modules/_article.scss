@@ -15,4 +15,32 @@
       margin-left: 2 * $base-line;
     }
   }
+
+  &_comments {
+    display: inline-flex;
+    align-items: center;
+    color: $theme-primary;
+    font-size: 13px;
+
+    svg {
+      margin-right: $base-line;
+    }
+
+    &_desc {
+      display: none;
+      margin-right: $base-line;
+      
+      @include media-breakpoint-up(md) {
+        display: initial;
+      }
+
+      @include media-breakpoint-up(lg) {
+        display: none;
+      }
+
+      @include media-breakpoint-up(xl) {
+        display: initial;
+      }
+    }
+  }
 }

@@ -4,9 +4,10 @@
 @endsection
 @section('content')
   <div class="container section">
+    <h2 class="title"><span class="thin">Naš</span> blog</h2>
     <div class="row">
       @for ($i = 0; $i < 3; $i++)
-        <div class="col-md-4">
+        <div class="col-lg-4">
           @component('themes.wellmedic.components.article-entry')
             @slot('imageLg')
               {{ url('themes/wellmedic/images/demo/tile-img.jpg') }}
@@ -23,8 +24,14 @@
             @slot('body')
               Rog mladog jelena je na listi tri najveće dragocenosti na severoistoku Kine. Mladi rogovi jelena predstavljaju izuzetno dragocen kineski sirov lek. Kapsule se pripremaju isključivo iz prve serije duplih rogova koji se sakupljaju u mesecu maju. Ovi prvi, mladi rogovi su osnovni, najhranljiviji i najtraženiji.
             @endslot
-            @slot('url')
+            @slot('articleURL')
               #
+            @endslot
+            @slot('commentsURL')
+              #
+            @endslot
+            @slot('count')
+              9
             @endslot
           @endcomponent
         </div>
