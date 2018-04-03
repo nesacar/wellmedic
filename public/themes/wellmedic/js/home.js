@@ -60,30 +60,30 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 187);
+/******/ 	return __webpack_require__(__webpack_require__.s = 199);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 187:
+/***/ 199:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(188);
+module.exports = __webpack_require__(200);
 
 
 /***/ }),
 
-/***/ 188:
+/***/ 200:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _swiper = __webpack_require__(189);
+var _swiper = __webpack_require__(201);
 
 var _swiper2 = _interopRequireDefault(_swiper);
 
-var _banner = __webpack_require__(191);
+var _banner = __webpack_require__(203);
 
 var _banner2 = _interopRequireDefault(_banner);
 
@@ -138,13 +138,13 @@ var OPTIONS = {
 
 /***/ }),
 
-/***/ 189:
+/***/ 201:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_dom7_dist_dom7_modular__ = __webpack_require__(190);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ssr_window__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_dom7_dist_dom7_modular__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ssr_window__ = __webpack_require__(27);
 /**
  * Swiper 4.2.0
  * Most modern mobile touch slider and framework with hardware accelerated transitions
@@ -6691,7 +6691,7 @@ Swiper.use(components);
 
 /***/ }),
 
-/***/ 190:
+/***/ 202:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6782,7 +6782,7 @@ Swiper.use(components);
 /* unused harmony export touchmove */
 /* unused harmony export resize */
 /* unused harmony export scroll */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ssr_window__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ssr_window__ = __webpack_require__(27);
 /**
  * Dom7 2.0.3
  * Minimalistic JavaScript library for DOM manipulation, with a jQuery-compatible API
@@ -8117,7 +8117,7 @@ function scroll(...args) {
 
 /***/ }),
 
-/***/ 191:
+/***/ 203:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8233,7 +8233,7 @@ exports.default = Banner;
 
 /***/ }),
 
-/***/ 25:
+/***/ 27:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

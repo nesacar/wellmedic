@@ -9,6 +9,10 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+var VueTruncate = require('vue-truncate-filter');
+window.Slug = require('slug');
+Slug.defaults.mode = 'rfc3986';
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -58,6 +62,7 @@ fontawesome.library.add(
 );
 
 Vue.use(Auth);
+Vue.use(VueTruncate);
 
 axios.defaults.headers.common['Authorization'] = 'Bearer ' + Vue.auth.getToken();
 

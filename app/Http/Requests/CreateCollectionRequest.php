@@ -25,7 +25,6 @@ class CreateCollectionRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'slug' => 'required',
         ];
     }
 
@@ -33,7 +32,6 @@ class CreateCollectionRequest extends FormRequest
     {
         return [
             'title.required' => 'Naziv kolekcije je obavezan',
-            'slug.required' => 'Slug je obavezan',
         ];
     }
 }

@@ -38,6 +38,9 @@ Route::middleware('auth:api')->post('menu-links/{id}/order', 'MenuLinksControlle
 
 Route::middleware('auth:api')->resource('testimonials', 'TestimonialsController');
 
+Route::middleware('auth:api')->post('collections/search', 'CollectionsController@search');
+Route::middleware('auth:api')->get('collections/lists', 'CollectionsController@lists');
 Route::middleware('auth:api')->resource('collections', 'CollectionsController');
+Route::middleware('auth:api')->post('collections/{id}/image', 'CollectionsController@uploadImage');
 
 Route::middleware('auth:api')->resource('products', 'ProductsController');
