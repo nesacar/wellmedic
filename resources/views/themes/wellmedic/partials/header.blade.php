@@ -10,24 +10,24 @@
     </a>
 
     <ul class="nav main-nav">
-      <li class="nav-item active">
+      <li class="nav-item {{ Request::is('about') ? 'active' : '' }}">
         <a class="nav-link" href="/about">O nama</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link" href="/proizvodi">Proizvodi</a>
+      <li class="nav-item dropdown {{ Request::is('products') ? 'active' : '' }}">
+        <a class="nav-link" href="/products">Proizvodi</a>
         <div class="dropdown-menu">
           <a class="dropdown-item nav-link--secondary" href="/proizvodi/id_1">Ganoderma lucidim</a>
           <a class="dropdown-item nav-link--secondary" href="/proizvodi/id_2">Jelenski rog</a>
           <a class="dropdown-item nav-link--secondary" href="/proizvodi/id_3">Pasta za zube</a>
         </div>
       </li>
-      <li class="nav-item">
+      <li class="nav-item {{ Request::is('blog') ? 'active' : '' }}">
         <a class="nav-link" href="/blog">Blog</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/iskustva">Iskustva</a>
+      <li class="nav-item {{ Request::is('experiences') ? 'active' : '' }}">
+        <a class="nav-link" href="/experiences">Iskustva</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item {{ Request::is('contact') ? 'active' : '' }}">
         <a class="nav-link" href="/contact">Kontakt</a>
       </li>
     </ul>

@@ -30,12 +30,12 @@
 
       <div>
       <ul class="nav mobile-nav">
-        <li class="nav-item active">
+        <li class="nav-item {{ Request::is('about') ? 'active' : '' }}">
           <a class="nav-link" href="/about">O nama</a>
         </li>
-        <li class="nav-item accordion">
+        <li class="nav-item accordion {{ Request::is('products') ? 'active' : '' }}">
           <div class="accordion_tab">
-            <a class="nav-link" href="/proizvodi">Proizvodi</a>
+            <a class="nav-link" href="/products">Proizvodi</a>
             <button class="btn-icon toggler js-dropdown-toggle" data-target="#jsSubmenu" aria-controls="jsSubmenu" aria-expanded="false">
               <svg class="icon">
                 <use xlink:href="#icon_arrow" />
@@ -56,13 +56,13 @@
             </div>
           </div>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {{ Request::is('blog') ? 'active' : '' }}">
           <a class="nav-link" href="/blog">Blog</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/iskustva">Iskustva</a>
+        <li class="nav-item {{ Request::is('experiences') ? 'active' : '' }}">
+          <a class="nav-link" href="/experiences">Iskustva</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {{ Request::is('contact') ? 'active' : '' }}">
           <a class="nav-link" href="/contact">Kontakt</a>
         </li>
       </ul>
