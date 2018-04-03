@@ -606,15 +606,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Toolbar = function () {
-  _createClass(Toolbar, [{
-    key: 'position',
-    get: function get() {
-      return this._position;
-    },
-    set: function set(val) {
-      this._position = val;
-    }
-  }], [{
+  _createClass(Toolbar, null, [{
     key: 'init',
     value: function init() {
       if (this._instance) {
@@ -624,7 +616,7 @@ var Toolbar = function () {
       this._instance = new Toolbar();
     }
   }, {
-    key: 'DELTS',
+    key: 'DELTA',
     get: function get() {
       return 64;
     }
@@ -644,6 +636,7 @@ var Toolbar = function () {
     _classCallCheck(this, Toolbar);
 
     this.el = document.getElementById('header');
+    this._ticking = false;
 
     this._onScroll = this._onScroll.bind(this);
     this._update = this._update.bind(this);
@@ -660,29 +653,39 @@ var Toolbar = function () {
   }, {
     key: '_update',
     value: function _update() {
-      var prevPosition = this.position;
+      this._ticking = false;
+      var prevPosition = this._position;
       var currentPosition = document.body.scrollTop || document.documentElement.scrollTop;
 
-      if (Math.abs(prevPosition - currentPosition) <= Toolbar.DELTS) return;
+      if (Math.abs(prevPosition - currentPosition) <= Toolbar.DELTA) return;
 
-      if (currentPosition > prevPosition && currentPosition > Toolbar.DELTS) {
+      if (currentPosition > prevPosition && currentPosition > Toolbar.DELTA) {
         this.el.classList.add(Toolbar.HIDDEN_CLASS);
       } else {
         this.el.classList.remove(Toolbar.HIDDEN_CLASS);
       }
 
-      if (currentPosition > Toolbar.DELTS) {
+      if (currentPosition > Toolbar.DELTA) {
         this.el.classList.add(Toolbar.BACKGROUND_CLASS);
       } else {
         this.el.classList.remove(Toolbar.BACKGROUND_CLASS);
       }
 
-      this.position = currentPosition;
+      this._position = currentPosition;
     }
   }, {
     key: '_onScroll',
     value: function _onScroll() {
-      window.requestAnimationFrame(this._update);
+      this._requestTick();
+    }
+  }, {
+    key: '_requestTick',
+    value: function _requestTick() {
+      if (!this._ticking) {
+        window.requestAnimationFrame(this._update);
+      }
+
+      this._ticking = true;
     }
   }]);
 
