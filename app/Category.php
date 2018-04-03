@@ -10,7 +10,7 @@ class Category extends Model
 
     protected $fillable = ['id', 'title', 'slug', 'short', 'order', 'parent', 'level', 'image', 'publish'];
 
-//    public function product(){
-//        return $this->hasMany(Product::class);
-//    }
+    public function post(){
+        return $this->hasMany(Post::class);
+    }
 }
