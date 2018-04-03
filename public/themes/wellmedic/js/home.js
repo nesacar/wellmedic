@@ -83,6 +83,10 @@ var _swiper = __webpack_require__(189);
 
 var _swiper2 = _interopRequireDefault(_swiper);
 
+var _banner = __webpack_require__(191);
+
+var _banner2 = _interopRequireDefault(_banner);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var OPTIONS = {
@@ -123,11 +127,14 @@ var OPTIONS = {
   }
 };
 
-var swipers = document.getElementsByClassName('swiper-container');
-Array.from(swipers, function (swiper, i) {
-  var name = swiper.getAttribute('data-name');
-  new _swiper2.default(swiper, OPTIONS[name]);
-});
+(function () {
+  _banner2.default.init();
+  var swipers = document.getElementsByClassName('swiper-container');
+  Array.from(swipers, function (swiper, i) {
+    var name = swiper.getAttribute('data-name');
+    new _swiper2.default(swiper, OPTIONS[name]);
+  });
+})();
 
 /***/ }),
 
@@ -8107,6 +8114,122 @@ function scroll(...args) {
 
 
 
+
+/***/ }),
+
+/***/ 191:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Banner = function () {
+  _createClass(Banner, null, [{
+    key: 'init',
+    value: function init() {
+      if (this._instance) {
+        this._instance._disconnect();
+      }
+
+      this._instance = new Banner();
+    }
+  }, {
+    key: 'WORKER_URL',
+    get: function get() {
+      return window.app_url + '/themes/wellmedic/js/image-processor.js';
+    }
+  }, {
+    key: 'THRESHOLD',
+    get: function get() {
+      return 186;
+    }
+  }, {
+    key: 'TOGGLE_CLASS',
+    get: function get() {
+      return 'light-context';
+    }
+  }]);
+
+  function Banner() {
+    _classCallCheck(this, Banner);
+
+    var image = document.getElementById('banner-image');
+
+    this._applyColor = this._applyColor.bind(this);
+    this._onMutation = this._onMutation.bind(this);
+
+    this._worker = new Worker(Banner.WORKER_URL);
+    this._worker.addEventListener('message', this._applyColor);
+
+    var img = image.firstElementChild;
+
+    // If the image is already in the DOM,
+    // load it immediately
+    if (img) {
+      this._getAverageRGB(img);
+      return;
+    }
+
+    this._mo = new MutationObserver(this._onMutation);
+    this._mo.observe(image, {
+      childList: true
+    });
+  }
+
+  _createClass(Banner, [{
+    key: '_disconnect',
+    value: function _disconnect() {
+      if (!this._mo) {
+        return;
+      }
+
+      this._mo.disconnect();
+    }
+  }, {
+    key: '_onMutation',
+    value: function _onMutation(mutations) {
+      var _this = this;
+
+      mutations.forEach(function (mutation) {
+        if (mutation.type === 'childList') {
+          var img = mutation.target.firstElementChild;
+          _this._getAverageRGB(img);
+        }
+      });
+    }
+  }, {
+    key: '_getAverageRGB',
+    value: function _getAverageRGB(img) {
+      var canvas = document.createElement('canvas');
+      var canvasCtx = canvas.getContext('2d');
+      canvas.height = img.height;
+      canvas.width = img.width;
+      canvasCtx.drawImage(img, 0, 0);
+      var imageData = canvasCtx.getImageData(0, 0, img.width, img.height);
+
+      this._worker.postMessage(imageData, [imageData.data.buffer]);
+    }
+  }, {
+    key: '_applyColor',
+    value: function _applyColor(d) {
+      var luma = d.data;
+      var banner = document.getElementById('banner');
+      luma < Banner.THRESHOLD ? banner.classList.add(Banner.TOGGLE_CLASS) : banner.classList.remove(Banner.TOGGLE_CLASS);
+    }
+  }]);
+
+  return Banner;
+}();
+
+exports.default = Banner;
 
 /***/ }),
 
