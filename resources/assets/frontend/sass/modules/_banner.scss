@@ -1,9 +1,18 @@
-.light-context {
-  .headline {
-    color: $text-secondary-on-dark;
-  }
+.banner {
+  @include media-breakpoint-down(sm) {
+    .headline {
+      font-size: 28px;
+    }
 
-  .subheading, .headline {
+    .subheading {
+      font-size: 18px;
+    }
+  }
+}
+
+.light-context {
+  .headline,
+  .subheading {
     color: $text-primary-on-dark;
     text-shadow: 0 2px 8px rgba(0, 0, 0, .21);
   }
