@@ -15,6 +15,17 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned()->index();
+            $table->integer('collection_id')->unsigned()->index();
+            $table->string('title');
+            $table->string('slug');
+            $table->string('overTitle')->nullable();
+            $table->string('subTitle')->nullable();
+            $table->text('short');
+            $table->text('body');
+            $table->string('image')->nullable();
+            $table->timestamp('publish_at')->useCurrent();
+            $table->boolean('publish')->default(1);
             $table->timestamps();
         });
     }
