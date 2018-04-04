@@ -46,3 +46,17 @@ Route::middleware('auth:api')->post('collections/{id}/image', 'CollectionsContro
 Route::middleware('auth:api')->post('products/search', 'ProductsController@search');
 Route::middleware('auth:api')->resource('products', 'ProductsController');
 Route::middleware('auth:api')->post('products/{id}/image', 'ProductsController@uploadImage');
+
+Route::middleware('auth:api')->get('categories/lists', 'CategoriesController@lists');
+Route::middleware('auth:api')->resource('categories', 'CategoriesController');
+Route::middleware('auth:api')->post('categories/{id}/image', 'CategoriesController@uploadImage');
+
+Route::middleware('auth:api')->post('posts/search', 'PostsController@search');
+Route::middleware('auth:api')->resource('posts', 'PostsController');
+Route::middleware('auth:api')->post('posts/{id}/image', 'PostsController@uploadImage');
+
+Route::middleware('auth:api')->get('banners/lists', 'BannersController@lists');
+Route::middleware('auth:api')->resource('banners', 'BannersController');
+Route::middleware('auth:api')->post('banners/{id}/image', 'BannersController@uploadImage');
+
+Route::middleware('auth:api')->resource('subscribers', 'SubscribersController');

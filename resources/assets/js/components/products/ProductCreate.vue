@@ -31,11 +31,6 @@
                                 <small class="form-text text-muted" v-if="error != null && error.collection_id">{{ error.collection_id[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label for="title">Vreme publikovanja</label>
-                                <datetime v-model="product.publish_at" :config="{format: 'YYYY-MM-DD H:s'}"></datetime>
-                                <small class="form-text text-muted" v-if="error != null && error.publish_at">{{ error.publish_at[0] }}</small>
-                            </div>
-                            <div class="form-group">
                                 <label for="title">Naslov</label>
                                 <input type="text" name="title" class="form-control" id="title" placeholder="Naslov" v-model="product.title">
                                 <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
@@ -61,7 +56,7 @@
                                 <small class="form-text text-muted" v-if="error != null && error.short">{{ error.short[0] }}</small>
                             </div>
                             <div class="form-group">
-                                    <label>Opis</label>
+                                <label>Opis</label>
                                 <ckeditor
                                         v-model="product.body"
                                         :config="config">
