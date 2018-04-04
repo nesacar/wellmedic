@@ -48,12 +48,13 @@ export const router = new VueRouter({
         { path: "/menu-links/:id/create", component: require('./components/menuLinks/MenuLinkCreate.vue'), meta: { forAuth: true } },
         { path: "/menu-links/:id/edit", component: require('./components/menuLinks/MenuLinkEdit.vue'), meta: { forAuth: true } },
 
-        // { path: "/galleries", component: require('./components/galleries/GalleryList.vue'), meta: { forAuth: true } },
-        // { path: "/galleries/create", component: require('./components/galleries/GalleryCreate.vue'), meta: { forAuth: true } },
-        // { path: "/galleries/:id/edit", component: require('./components/galleries/GalleryEdit.vue'), meta: { forAuth: true } },
-        //
-        // { path: "/architects", component: require('./components/architects/ArchitectList.vue'), meta: { forAuth: true } },
-        // { path: "/architects/:id/edit", component: require('./components/architects/ArchitectEdit.vue'), meta: { forAuth: true } },
+        { path: "/banners", component: require('./components/banners/BannerList.vue'), meta: { forAuth: true } },
+        { path: "/banners/create", component: require('./components/banners/BannerCreate.vue'), meta: { forAuth: true } },
+        { path: "/banners/:id/edit", component: require('./components/banners/BannerEdit.vue'), meta: { forAuth: true } },
+
+        { path: "/subscribers", component: require('./components/subscribers/SubscriberList.vue'), meta: { forAuth: true } },
+        { path: "/subscribers/create", component: require('./components/subscribers/SubscriberCreate.vue'), meta: { forAuth: true } },
+        { path: "/subscribers/:id/edit", component: require('./components/subscribers/SubscriberEdit.vue'), meta: { forAuth: true } },
     ],
 
     linkActiveClass: 'active'

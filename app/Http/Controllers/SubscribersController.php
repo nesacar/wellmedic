@@ -16,7 +16,7 @@ class SubscribersController extends Controller
      */
     public function index()
     {
-        $subscribers = Subscriber::select('id', 'email', 'created_at')->orderBy('created_at', 'DESC')->paginate(50);
+        $subscribers = Subscriber::select('id', 'email', 'block', 'created_at')->orderBy('created_at', 'DESC')->paginate(50);
 
         return response()->json([
             'subscribers' => $subscribers,
@@ -85,6 +85,21 @@ class SubscribersController extends Controller
 
         return response()->json([
             'subscriber' => $subscriber
+        ]);
+    }
+
+    public function search(){
+        $text = request('text');
+        $subscribers = Subscriber::select('id', 'email', 'block', 'created_at')
+            ->where(function ($query) use ($text){
+                if($text != ''){
+                    $query->where('email', 'like', '%'.$text.'%');
+                }
+            })
+            ->orderBy('created_at', 'DESC')->paginate(50);
+
+        return response()->json([
+            'subscribers' => $subscribers,
         ]);
     }
 }
