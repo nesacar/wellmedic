@@ -68,9 +68,9 @@
                 <a href="#" @click="changeShowNewslettersItemActive()">Newsletter</a>
                 <font-awesome-icon icon="envelope" />
                 <ul>
-                    <li><a href="#">Newsletter review</a></li>
-                    <li><a href="#">Subscriber review</a></li>
-                    <li><a href="#">Banner review</a></li>
+                    <li><router-link tag="a" :to="'/newsletters'">Newsletter review</router-link></li>
+                    <li><router-link tag="a" :to="'/subscribers'">Subscriber review</router-link></li>
+                    <li><router-link tag="a" :to="'/banners'">Banner review</router-link></li>
                 </ul>
             </li>
         </ul>

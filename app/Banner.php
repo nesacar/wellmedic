@@ -19,9 +19,9 @@ class Banner extends Model
         $exploaded = explode(',', $image);
         $data = base64_decode($exploaded[1]);
         $filename = time() . '-' . $banner->id . '.jpg';
-        $path = public_path('uploads/banners/');
+        $path = public_path('storage/uploads/banners/');
         file_put_contents($path . $filename, $data);
-        $banner->image = 'uploads/banners/' . $filename;
+        $banner->image = 'storage/uploads/banners/' . $filename;
         $banner->update();
         return $banner->image;
     }

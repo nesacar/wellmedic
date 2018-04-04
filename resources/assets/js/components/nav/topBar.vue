@@ -31,7 +31,9 @@
                                 <a class="dropdown-item" href="#"  @click.prevent="newTheme()">Tema</a>
                                 <a class="dropdown-item" href="#"  @click.prevent="newMenu()">Meni</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"  @click.prevent="newGallery()">Galerija</a>
+                                <a class="dropdown-item" href="#"  @click.prevent="newNewsletter()">Newsletter</a>
+                                <a class="dropdown-item" href="#"  @click.prevent="newSubscriber()">Pretplatnik</a>
+                                <a class="dropdown-item" href="#"  @click.prevent="newBanner()">Baner</a>
                             </div>
                         </div>
                     </li>
@@ -155,8 +157,14 @@
             newProduct(){
                 this.$router.push('/products/create');
             },
-            newGallery(){
-                this.$router.push('/galleries/create');
+            newNewsletter(){
+                this.$router.push('/newsletters/create');
+            },
+            newSubscriber(){
+                this.$router.push('/subscribers/create');
+            },
+            newBanner(){
+                this.$router.push('/banners/create');
             },
         }
     }
