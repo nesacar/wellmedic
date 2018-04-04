@@ -36,6 +36,11 @@ Route::get('/blog', function () {
   return view('themes.wellmedic.pages.blog', compact('title'));
 });
 
+Route::get('/experiences', function () {
+  $title = 'Iskustva korisnika';
+  return view('themes.wellmedic.pages.experiences', compact('title'));
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
