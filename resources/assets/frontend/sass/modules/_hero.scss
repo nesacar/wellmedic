@@ -1,0 +1,18 @@
+.hero {
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    content: "";
+    background: url("/themes/wellmedic/images/texture.jpg");
+    opacity: .21;
+    z-index: -1;
+  }
+
+  &_title {
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+}

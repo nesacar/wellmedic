@@ -1,0 +1,8 @@
+#hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 37 * $base-line;
+  overflow: hidden;
+}

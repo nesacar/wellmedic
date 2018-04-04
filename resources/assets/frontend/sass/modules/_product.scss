@@ -10,4 +10,12 @@
     flex-direction: column;
     justify-content: center;
   }
+
+  &_comments-desc {
+    display: none;
+
+    @include media-breakpoint-up(md) {
+      display: initial;
+    }
+  }
 }

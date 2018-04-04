@@ -6,41 +6,20 @@
     max-height: calc(1.5 * 3em);
   }
 
-  &_footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    > :last-child {
-      margin-left: 2 * $base-line;
-    }
-  }
-
-  &_comments {
-    display: inline-flex;
-    align-items: center;
-    color: $theme-primary;
-    font-size: 13px;
-
-    svg {
-      margin-right: $base-line;
+  &_comments-desc {
+    display: none;
+    margin-right: $base-line;
+    
+    @include media-breakpoint-up(md) {
+      display: initial;
     }
 
-    &_desc {
+    @include media-breakpoint-up(lg) {
       display: none;
-      margin-right: $base-line;
-      
-      @include media-breakpoint-up(md) {
-        display: initial;
-      }
+    }
 
-      @include media-breakpoint-up(lg) {
-        display: none;
-      }
-
-      @include media-breakpoint-up(xl) {
-        display: initial;
-      }
+    @include media-breakpoint-up(xl) {
+      display: initial;
     }
   }
 }
