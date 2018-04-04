@@ -5,19 +5,24 @@
 @section('content')
 <div class="section" style="padding-top: 80px;">
   @foreach ($items as $i => $item)
-  @php $isOdd = (($i % 2) != 0); @endphp
-    <div class="product {{ $isOdd ? 'product--alt' : '' }}">
+  @php $isOdd = (($i % 2) == 0); @endphp
+    <div class="product {{ $isOdd ? '' : 'product--alt' }}">
       <div class="container product_container">
         <div class="row {{ $isOdd ? 'flex-row-reverse' : '' }}">
-          <div class="col-md-8">
-            <p class="caption">{{ $item->categorie}}</p>
-            <h1 class="headline">{{ $item->name }}</h1>
-            <p class="tag-line">{{ $item->tagline }}</p>
-            <p>{{ $item->about }}</p>
-            <a class="btn btn-primary" href="#">Saznajte više</a>
+          <div class="col-md-5">
+            <div
+              class="image image--square mb-3 lazy-image"
+              data-src="https://cdn7.bigcommerce.com/s-u0uja8gg4w/images/stencil/500x650/products/155/668/B000178_use__01779.1519163981.png?c=2"
+            ></div>
           </div>
-          <div class="col-md-4">
-            slika
+          <div class="col-md-7 product_desc">
+            <div class="py-4">
+              <p class="caption">{{ $item->categorie}}</p>
+              <h1 class="headline">{{ $item->name }}</h1>
+              <p class="tag-line">{{ $item->tagline }}</p>
+              <p>{{ $item->about }}</p>
+              <a class="btn btn-primary" href="#">Saznajte više</a>
+            </div>
           </div>
         </div>
       </div>

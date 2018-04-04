@@ -1,6 +1,13 @@
 .product {
-  padding: 4 * $base-line 0; 
+  padding: 4 * $base-line 0;
+
   &--alt {
     background-color: $theme-primary-light;
+  }
+
+  &_desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
