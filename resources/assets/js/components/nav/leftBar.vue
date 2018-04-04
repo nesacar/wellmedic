@@ -55,15 +55,14 @@
                     <li><router-link tag="a" :to="'/categories'">Pregled kategorija</router-link></li>
                 </ul>
             </li>
-            <li :class="{ 'active': showGalleriesItemActive }" :style="{ 'display': showPostsItem ? 'block' : 'none' }">
-                <font-awesome-icon icon="angle-right" />
-                <a href="#" @click="changeShowGalleriesItemActive()">Galerije</a>
-                <font-awesome-icon icon="paste" />
-                <ul>
-                    <li><router-link tag="a" :to="'/galleries'">Pregled galerije</router-link></li>
-                </ul>
-            </li>
-            <!--
+            <!--<li :class="{ 'active': showGalleriesItemActive }" :style="{ 'display': showPostsItem ? 'block' : 'none' }">-->
+                <!--<font-awesome-icon icon="angle-right" />-->
+                <!--<a href="#" @click="changeShowGalleriesItemActive()">Galerije</a>-->
+                <!--<font-awesome-icon icon="paste" />-->
+                <!--<ul>-->
+                    <!--<li><router-link tag="a" :to="'/galleries'">Pregled galerije</router-link></li>-->
+                <!--</ul>-->
+            <!--</li>-->
             <li :class="{ 'active': showNewslettersItemActive }" :style="{ 'display': showNewslettersItem ? 'block' : 'none' }">
                 <font-awesome-icon icon="angle-right" />
                 <a href="#" @click="changeShowNewslettersItemActive()">Newsletter</a>
@@ -74,7 +73,6 @@
                     <li><a href="#">Banner review</a></li>
                 </ul>
             </li>
-            -->
         </ul>
     </div>
 </template>
