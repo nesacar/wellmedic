@@ -140,7 +140,7 @@
             style="background-image: url({{ url('themes/wellmedic/images/demo/tile-img-sm.jpg') }});"
           ></div>
           <div class="caption">30. Decembar 2017</div>
-          <div class="article-entry_footer">
+          <div class="action-footer">
             <h3 class="subheading">Neverovatni sastojci</h3>
             <a href="#" class="btn btn-outline-primary">Pročitaj više</a>
           </div>
@@ -152,7 +152,7 @@
             style="background-image: url({{ url('themes/wellmedic/images/demo/tile-img-sm.jpg') }});"
           ></div>
           <div class="caption">30. Decembar 2017</div>
-          <div class="article-entry_footer">
+          <div class="action-footer">
             <h3 class="subheading">Hiljadugodisnja tradicionalna kineska medicina</h3>
             <a href="#" class="btn btn-outline-primary">Pročitaj više</a>
         </div>

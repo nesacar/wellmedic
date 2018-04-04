@@ -3,12 +3,23 @@
   {{ $title }}
 @endsection
 @section('content')
-  <div class="section">
-    <div class="hero">
+  <div class="section position-relative">
+    <div class="hero" id="hero">
       <h1 class="title hero_title">proizvodi</h1>
+      <figure class="plant plant--spoon">
+        <img src="{{ url('themes/wellmedic/images/demo/spoon.png') }}" alt="drvena kašika">
+      </figure>
+    </div>
+    <div class="container" id="breadcrumb">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Početna</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Proizvodi</li>
+        </ol>
+      </nav>
     </div>
   </div>
-  
+
   <div class="section">
   @foreach ($items as $i => $item)
   @php $isOdd = (($i % 2) == 0); @endphp

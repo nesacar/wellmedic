@@ -1,0 +1,8 @@
+.breadcrumb {
+  background: none;
+  margin: 0;
+
+  &-item.active {
+    color: $theme-primary;
+  }
+}

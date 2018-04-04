@@ -1,0 +1,18 @@
+.plant {
+  position: absolute;
+
+  img {
+    height: 100%;
+  }
+
+  &--spoon {
+    bottom: -32px;
+    right: 0;
+    height: calc(100% - 32px);
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+      display: initial;
+    }
+  }
+}

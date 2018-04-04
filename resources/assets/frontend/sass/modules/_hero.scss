@@ -1,10 +1,4 @@
 .hero {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 37 * $base-line;
-
   &:after {
     position: absolute;
     top: 0;
@@ -13,7 +7,7 @@
     width: 100%;
     content: "";
     background: url("/themes/wellmedic/images/texture.jpg");
-    opacity: .38;
+    opacity: .21;
     z-index: -1;
   }
 
