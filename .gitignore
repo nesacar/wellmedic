@@ -3,8 +3,8 @@
 /public/storage
 /public/themes/wellmedic/css
 /public/themes/wellmedic/js
-/public/css
-/public/js
+/public/css/app.css
+/public/js/app.js
 /storage/*.key
 /vendor
 /.idea

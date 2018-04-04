@@ -61,7 +61,7 @@
                                 <small class="form-text text-muted" v-if="error != null && error.short">{{ error.short[0] }}</small>
                             </div>
                             <div class="form-group">
-                                    <label>Opis</label>
+                                <label>Opis</label>
                                 <ckeditor
                                         v-model="product.body"
                                         :config="config">

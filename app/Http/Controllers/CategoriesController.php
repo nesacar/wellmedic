@@ -31,6 +31,7 @@ class CategoriesController extends Controller
     public function store(CreateCategoryRequest $request)
     {
         $category = Category::create(request()->all());
+        $category->slug = request('slug')? str_slug(request('slug')) : str_slug(request('title'));
         $category->publish = request('publish')? true : false;
         $category->update();
 
@@ -61,6 +62,8 @@ class CategoriesController extends Controller
      */
     public function update(CreateCategoryRequest $request, Category $category)
     {
+        $category->update(request()->all());
+        $category->slug = request('slug')? str_slug(request('slug')) : str_slug(request('title'));
         $category->publish = request('publish')? true : false;
         $category->update();
 
@@ -81,6 +84,22 @@ class CategoriesController extends Controller
 
         return response()->json([
             'message' => 'deleted'
+        ]);
+    }
+
+    public function uploadImage($id){
+        $image = Category::base64UploadImage($id, request('image'));
+
+        return response()->json([
+            'image' => $image
+        ]);
+    }
+
+    public function lists(){
+        $categories = Category::where('publish', 1)->orderBy('title', 'ASC')->pluck('title', 'id')->prepend('Bez kategorije', 0);
+
+        return response()->json([
+            'categories' => $categories
         ]);
     }
 }
