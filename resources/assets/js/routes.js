@@ -21,9 +21,9 @@ export const router = new VueRouter({
         { path: "/categories/create", component: require('./components/categories/CategoryCreate.vue'), meta: { forAuth: true } },
         { path: "/categories/:id/edit", component: require('./components/categories/CategoryEdit.vue'), meta: { forAuth: true } },
 
-        // { path: "/posts", component: require('./components/posts/PostList.vue'), meta: { forAuth: true } },
-        // { path: "/posts/create", component: require('./components/posts/PostCreate.vue'), meta: { forAuth: true } },
-        // { path: "/posts/:id/edit", component: require('./components/posts/PostEdit.vue'), meta: { forAuth: true } },
+        { path: "/posts", component: require('./components/posts/PostList.vue'), meta: { forAuth: true } },
+        { path: "/posts/create", component: require('./components/posts/PostCreate.vue'), meta: { forAuth: true } },
+        { path: "/posts/:id/edit", component: require('./components/posts/PostEdit.vue'), meta: { forAuth: true } },
 
         { path: "/collections", component: require('./components/collections/CollectionList.vue'), meta: { forAuth: true } },
         { path: "/collections/create", component: require('./components/collections/CollectionCreate.vue'), meta: { forAuth: true } },

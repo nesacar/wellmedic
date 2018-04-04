@@ -65,7 +65,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card">
-                            <form @submit.prevent="submit('sr')">
+                            <form @submit.prevent="submit()">
                                 <div class="form-group">
                                     <label for="title">Naslov</label>
                                     <input type="text" name="title" class="form-control" id="title" placeholder="Naslov" v-model="product.title">

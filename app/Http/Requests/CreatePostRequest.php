@@ -25,9 +25,10 @@ class CreatePostRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'category_id' => 'required',
+            'category_id' => 'required|integer|min:1',
             'short' => 'required',
             'body' => 'required',
+            'publish_at' => 'required|date',
         ];
     }
 
@@ -36,8 +37,12 @@ class CreatePostRequest extends FormRequest
         return [
             'title.required' => 'Naslov je obavezan',
             'category_id.required' => 'Kategorija je obavezna',
+            'category_id.integer' => 'Kategorija je obavezna',
+            'category_id.min' => 'Kategorija je obavezna',
             'short.required' => 'Kratak opis je obavezan',
             'body.required' => 'Opis je obavezan',
+            'publish_at.required' => 'Datum publikovanja je obavezan',
+            'publish_at.date' => 'Datum publikovanja nije u ispravnom formatu',
         ];
     }
 }

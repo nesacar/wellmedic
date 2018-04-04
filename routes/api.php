@@ -50,3 +50,7 @@ Route::middleware('auth:api')->post('products/{id}/image', 'ProductsController@u
 Route::middleware('auth:api')->get('categories/lists', 'CategoriesController@lists');
 Route::middleware('auth:api')->resource('categories', 'CategoriesController');
 Route::middleware('auth:api')->post('categories/{id}/image', 'CategoriesController@uploadImage');
+
+Route::middleware('auth:api')->post('posts/search', 'PostsController@search');
+Route::middleware('auth:api')->resource('posts', 'PostsController');
+Route::middleware('auth:api')->post('posts/{id}/image', 'PostsController@uploadImage');

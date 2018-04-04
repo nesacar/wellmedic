@@ -33,9 +33,9 @@ class User extends Authenticatable
         $exploaded = explode(',', $image);
         $data = base64_decode($exploaded[1]);
         $filename = time() . '-' . $user->id . '.jpg';
-        $path = public_path('uploads/users/');
+        $path = public_path('storage/uploads/users/');
         file_put_contents($path . $filename, $data);
-        $user->image = 'uploads/users/' . $filename;
+        $user->image = 'storage/uploads/users/' . $filename;
         $user->update();
         return $user->image;
     }
