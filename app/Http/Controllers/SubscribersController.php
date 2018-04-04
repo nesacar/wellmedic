@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateSubscriberRequest;
+use App\Http\Requests\EditSubscriberRequest;
 use App\Subscriber;
 use Illuminate\Http\Request;
 
@@ -14,17 +16,11 @@ class SubscribersController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $subscribers = Subscriber::select('id', 'email', 'created_at')->orderBy('created_at', 'DESC')->paginate(50);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return response()->json([
+            'subscribers' => $subscribers,
+        ]);
     }
 
     /**
@@ -33,9 +29,17 @@ class SubscribersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateSubscriberRequest $request)
     {
-        //
+        $subscriber = new Subscriber();
+        $subscriber->email = request('email');
+        $subscriber->verification = str_random(20);
+        $subscriber->block = request('block')? 1 : 0;
+        $subscriber->save();
+
+        return response()->json([
+            'subscriber' => $subscriber
+        ]);
     }
 
     /**
@@ -46,18 +50,9 @@ class SubscribersController extends Controller
      */
     public function show(Subscriber $subscriber)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Subscriber  $subscriber
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Subscriber $subscriber)
-    {
-        //
+        return response()->json([
+            'subscriber' => $subscriber
+        ]);
     }
 
     /**
@@ -67,9 +62,15 @@ class SubscribersController extends Controller
      * @param  \App\Subscriber  $subscriber
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Subscriber $subscriber)
+    public function update(EditSubscriberRequest $request, Subscriber $subscriber)
     {
-        //
+        $subscriber->email = request('email');
+        $subscriber->block = request('block')? 1 : 0;
+        $subscriber->update();
+
+        return response()->json([
+            'subscriber' => $subscriber
+        ]);
     }
 
     /**
@@ -80,6 +81,10 @@ class SubscribersController extends Controller
      */
     public function destroy(Subscriber $subscriber)
     {
-        //
+        $subscriber->delete();
+
+        return response()->json([
+            'subscriber' => $subscriber
+        ]);
     }
 }
