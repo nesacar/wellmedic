@@ -51,7 +51,7 @@
             </div>
           </div>
           @endfor
-
+          
         </div>
       </div>
       <div class="controls">
@@ -155,6 +155,7 @@
           <div class="action-footer">
             <h3 class="subheading">Hiljadugodisnja tradicionalna kineska medicina</h3>
             <a href="#" class="btn btn-outline-primary">Pročitaj više</a>
+          </div>
         </div>
       </div>
     </div>

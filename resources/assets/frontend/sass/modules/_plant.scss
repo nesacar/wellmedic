@@ -1,5 +1,10 @@
 .plant {
   position: absolute;
+  display: none;
+
+  @include media-breakpoint-up(lg) {
+    display: initial;
+  }
 
   img {
     height: 100%;
@@ -7,12 +12,27 @@
 
   &--spoon {
     bottom: -32px;
-    right: 0;
-    height: calc(100% - 32px);
-    display: none;
+    right: 6%;
+    height: 34 * $base-line;
 
-    @include media-breakpoint-up(lg) {
-      display: initial;
+    img {
+      transform: rotate(12deg);
     }
+  }
+
+  &--mushroom {
+    top: -64px;
+    left: 6%;
+    height: 26 * $base-line;
+
+    img {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &--powder {
+    top: 0;
+    right: -(8 * $base-line);
+    height: 28 * $base-line;
   }
 }

@@ -1,4 +1,12 @@
 <footer id="footer">
+  <div id="footer-plants">
+    <figure class="plant plant--mushroom">
+      <img src="{{ url('themes/wellmedic/images/demo/mushroom.png') }}" alt="drvena kašika">
+    </figure>
+    <figure class="plant plant--powder">
+      <img src="{{ url('themes/wellmedic/images/demo/powder.png') }}" alt="drvena kašika">
+    </figure>
+  </div>
   <div class="footer">
     <div class="newsletter">
       <div class="container">

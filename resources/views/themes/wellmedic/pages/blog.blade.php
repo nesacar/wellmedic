@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <div class="container section">
+  <div class="section container">
     <div class="row">
       @for ($i = 0; $i < 8; $i++)
         <div class="mb-3 {{ ($i < 2) ? 'col-lg-6' : 'col-lg-4' }}">
