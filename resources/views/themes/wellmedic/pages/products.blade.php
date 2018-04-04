@@ -3,7 +3,13 @@
   {{ $title }}
 @endsection
 @section('content')
-<div class="section" style="padding-top: 80px;">
+  <div class="section">
+    <div class="hero">
+      <h1 class="title hero_title">proizvodi</h1>
+    </div>
+  </div>
+  
+  <div class="section">
   @foreach ($items as $i => $item)
   @php $isOdd = (($i % 2) == 0); @endphp
     <div class="product {{ $isOdd ? '' : 'product--alt' }}">
@@ -18,10 +24,18 @@
           <div class="col-md-7 product_desc">
             <div class="py-4">
               <p class="caption">{{ $item->categorie}}</p>
-              <h1 class="headline">{{ $item->name }}</h1>
+              <h2 class="headline">{{ $item->name }}</h2>
               <p class="tag-line">{{ $item->tagline }}</p>
               <p>{{ $item->about }}</p>
-              <a class="btn btn-primary" href="#">Saznajte više</a>
+              <div class="action-footer">
+                <a class="btn btn-primary" href="#">Saznajte više</a>
+                <a href="#" title="iskustva" class="action-footer_comments">
+                  <svg class="icon" role="presentation">
+                    <use xlink:href="#icon_comment" />
+                  </svg>
+                  <span class="action-footer_comments_desc product_comments-desc">Iskustva naših korisnika</span>18
+                </a>
+              </div>
             </div>
           </div>
         </div>

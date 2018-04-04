@@ -7,13 +7,13 @@
   <div class="caption">{{ $date }}</div>
   <h3 class="subheading">{{ $title }}</h3>
   <p class="article-entry_text with-trunk">{{ $body }}</p>
-  <div class="article-entry_footer">
+  <div class="action-footer">
     <a href="{{ $articleURL }}" class="btn btn-outline-primary">Pročitaj više</a>
-    <a href="{{ $commentsURL }}" title="iskustva" class="article-entry_comments">
+    <a href="{{ $commentsURL }}" title="iskustva" class="action-footer_comments">
       <svg class="icon" role="presentation">
         <use xlink:href="#icon_comment" />
       </svg>
-      <span class="article-entry_comments_desc">Iskustva naših korisnika</span>{{ $count }}
+      <span class="action-footer_comments_desc article-entry_comments-desc">Iskustva naših korisnika</span>{{ $count }}
     </a>
   </div>
 </div>

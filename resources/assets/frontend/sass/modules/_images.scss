@@ -46,7 +46,7 @@
   }
 
   &--masthead {
-    padding-top: 450px;
+    padding-top: 56 * $base-line;
     border-radius: 0;
 
     @include media-breakpoint-up(lg) {
