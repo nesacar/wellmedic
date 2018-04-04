@@ -5,7 +5,7 @@
 @section('content')
   <div class="section position-relative">
     <div class="hero" id="hero">
-      <h1 class="title hero_title">proizvodi</h1>
+      <h1 class="title hero_title">Blog</h1>
       <figure class="plant plant--spoon">
         <img src="{{ url('themes/wellmedic/images/demo/spoon.png') }}" alt="drvena kašika">
       </figure>
@@ -15,53 +15,17 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Početna</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Proizvodi</li>
+            <li class="breadcrumb-item active" aria-current="page">Blog</li>
           </ol>
         </nav>
       </div>
     </div>
   </div>
 
-  <div class="section">
-  @foreach ($items as $i => $item)
-  @php $isOdd = (($i % 2) == 0); @endphp
-    <div class="product {{ $isOdd ? '' : 'product--alt' }}">
-      <div class="container product_container">
-        <div class="row {{ $isOdd ? 'flex-row-reverse' : '' }}">
-          <div class="col-md-5">
-            <div
-              class="image image--square mb-3 lazy-image"
-              data-src="https://cdn7.bigcommerce.com/s-u0uja8gg4w/images/stencil/500x650/products/155/668/B000178_use__01779.1519163981.png?c=2"
-            ></div>
-          </div>
-          <div class="col-md-7 product_desc">
-            <div class="py-4">
-              <p class="caption">{{ $item->categorie}}</p>
-              <h2 class="headline">{{ $item->name }}</h2>
-              <p class="tag-line">{{ $item->tagline }}</p>
-              <p>{{ $item->about }}</p>
-              <div class="action-footer">
-                <a class="btn btn-primary" href="#">Saznajte više</a>
-                <a href="#" title="iskustva" class="action-footer_comments">
-                  <svg class="icon" role="presentation">
-                    <use xlink:href="#icon_comment" />
-                  </svg>
-                  <span class="action-footer_comments_desc product_comments-desc">Iskustva naših korisnika</span>18
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    @endforeach
-  </div>
-
   <div class="container section">
-    <h2 class="title"><span class="thin">Naš</span> blog</h2>
     <div class="row">
-      @for ($i = 0; $i < 3; $i++)
-        <div class="col-lg-4">
+      @for ($i = 0; $i < 8; $i++)
+        <div class="mb-3 {{ ($i < 2) ? 'col-lg-6' : 'col-lg-4' }}">
           @component('themes.wellmedic.components.article-entry')
             @slot('imageLg')
               {{ url('themes/wellmedic/images/demo/tile-img.jpg') }}
@@ -91,5 +55,37 @@
         </div>
       @endfor
     </div>
+  </div>
+
+  <div class="container section" id="pagination">
+    <nav aria-label="paginacija">
+      <ul class="pagination">
+        <li class="page-item disabled">
+          <a class="page-link arrow arrow--prev" aria-label="Predhodna strana" href="#">
+            <span class="sr-only">Predhodna</span>
+            <svg class="icon">
+              <use xlink:href="#icon_arrow" />
+            </svg>
+          </a>
+        </li>
+        <li class="page-item active">
+          <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">3</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link arrow arrow--next" aria-label="Sledeća strana" href="#">
+            <span class="sr-only">Sledeća</span>
+            <svg class="icon">
+              <use xlink:href="#icon_arrow" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
 @endsection

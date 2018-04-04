@@ -1,0 +1,33 @@
+.pagination {
+  font-weight: $text-medium;
+
+  .page-item {
+    .arrow {
+      color: $theme-primary;
+    }
+
+    &.disabled {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &.active {
+      .page-link {
+        color: $theme-primary;
+        background: none;
+      }
+    }
+  }
+
+  .page-link {
+    color: inherit;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 4 * $base-line;
+    width: 4 * $base-line;
+  }
+}
