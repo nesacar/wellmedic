@@ -30,7 +30,15 @@
   
   <div class="container section">
     <h2 class="title"><span class="thin">Kontaktirajte</span> nas</h2>
-    <div>forma</div>
+    <form>
+
+      <div class="text-field">
+        <input class="text-field_input" type="text" name="name" id="name" />
+        <label class="text-field_label" for="name">Ime i prezime</label>
+        <div class="text-field_line"></div>
+      </div>
+
+    </form>
   </div>
 
 @endsection
