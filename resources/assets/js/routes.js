@@ -55,6 +55,10 @@ export const router = new VueRouter({
         { path: "/subscribers", component: require('./components/subscribers/SubscriberList.vue'), meta: { forAuth: true } },
         { path: "/subscribers/create", component: require('./components/subscribers/SubscriberCreate.vue'), meta: { forAuth: true } },
         { path: "/subscribers/:id/edit", component: require('./components/subscribers/SubscriberEdit.vue'), meta: { forAuth: true } },
+
+        { path: "/testimonials", component: require('./components/testimonials/TestimonialList.vue'), meta: { forAuth: true } },
+        { path: "/testimonials/create", component: require('./components/testimonials/TestimonialCreate.vue'), meta: { forAuth: true } },
+        { path: "/testimonials/:id/edit", component: require('./components/testimonials/TestimonialEdit.vue'), meta: { forAuth: true } },
     ],
 
     linkActiveClass: 'active'

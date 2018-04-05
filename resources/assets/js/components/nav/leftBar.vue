@@ -43,6 +43,7 @@
                 <font-awesome-icon icon="shopping-cart" />
                 <ul>
                     <li><router-link tag="a" :to="'/products'">Pregled proizvoda</router-link></li>
+                    <li><router-link tag="a" :to="'/testimonials'">Pregled iskustva</router-link></li>
                     <li><router-link tag="a" :to="'/collections'">Pregled kolekcija</router-link></li>
                 </ul>
             </li>

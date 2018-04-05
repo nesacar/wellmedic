@@ -19,6 +19,7 @@ class CreateTestimonialsTable extends Migration
             $table->integer('post_id')->unsigned()->index()->nullable();
             $table->text('body');
             $table->string('author');
+            $table->string('link')->nullable();
             $table->boolean('publish')->default(1);
             $table->timestamps();
         });

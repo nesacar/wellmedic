@@ -106,6 +106,14 @@ class PostsController extends Controller
         ]);
     }
 
+    public function lists(){
+        $posts = Post::where('publish', 1)->orderBy('title', 'ASC')->pluck('title', 'id')->prepend('Bez članka', 0);
+
+        return response()->json([
+            'posts' => $posts
+        ]);
+    }
+
     public function search(){
         $category = request('list');
         $text = request('text');

@@ -21,6 +21,7 @@
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
                                 <a class="dropdown-item" href="#" @click.prevent="newProduct()">Proizvod</a>
+                                <a class="dropdown-item" href="#" @click.prevent="newTestimonial()">Utisak</a>
                                 <a class="dropdown-item" href="#" @click.prevent="newCollection()">Kolekcija</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" @click.prevent="newPost()">Članak</a>
@@ -166,6 +167,9 @@
             newBanner(){
                 this.$router.push('/banners/create');
             },
+            newTestimonial(){
+                this.$router.push('/testimonials/create');
+            }
         }
     }
 </script>
