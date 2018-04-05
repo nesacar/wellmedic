@@ -37,6 +37,15 @@
         <label class="text-field_label" for="name">Ime i prezime</label>
         <div class="text-field_line"></div>
       </div>
+      <div class="text-field">
+        <input class="text-field_input" type="text" name="email" id="email" />
+        <label class="text-field_label" for="email">Vaša e-mail adresa</label>
+        <div class="text-field_line"></div>
+      </div>
+      <div class="text-field text-field--textarea">
+        <textarea class="text-field_input" rows="8" name="message" id="message"></textarea>
+        <label class="text-field_label" for="message">Poruka</label>
+      </div>
 
     </form>
   </div>

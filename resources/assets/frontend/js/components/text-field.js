@@ -6,7 +6,7 @@ class TextField {
 
   constructor (root) {
     this._root = root;
-    this._input = this._root.querySelector('input');
+    this._input = this._root.querySelector('.text-field_input');
 
     this._onBlur = this._onBlur.bind(this);
     this._onFocus = this._onFocus.bind(this);
@@ -20,13 +20,15 @@ class TextField {
   }
 
   _onBlur (evt) {
+    this._root.classList.remove('focus');
+
     if (this._input.value === '') {
       this._root.classList.remove('float');
     }
   }
 
   _onFocus (evt) {
-    this._root.classList.add('float');
+    this._root.classList.add('focus', 'float');
   }
 }
 
