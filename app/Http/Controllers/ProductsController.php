@@ -99,6 +99,14 @@ class ProductsController extends Controller
         ]);
     }
 
+    public function lists(){
+        $products = Product::where('publish', 1)->orderBy('title', 'ASC')->pluck('title', 'id')->prepend('Bez proizvoda', 0);
+
+        return response()->json([
+            'products' => $products
+        ]);
+    }
+
     public function search(){
         $collection = request('list');
         $text = request('text');

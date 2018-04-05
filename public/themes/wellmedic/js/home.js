@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 377);
+/******/ 	return __webpack_require__(__webpack_require__.s = 386);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -165,25 +165,25 @@ var win = w;
 
 /***/ }),
 
-/***/ 377:
+/***/ 386:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(378);
+module.exports = __webpack_require__(387);
 
 
 /***/ }),
 
-/***/ 378:
+/***/ 387:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _swiper = __webpack_require__(379);
+var _swiper = __webpack_require__(388);
 
 var _swiper2 = _interopRequireDefault(_swiper);
 
-var _banner = __webpack_require__(381);
+var _banner = __webpack_require__(390);
 
 var _banner2 = _interopRequireDefault(_banner);
 
@@ -238,15 +238,15 @@ var OPTIONS = {
 
 /***/ }),
 
-/***/ 379:
+/***/ 388:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_dom7_dist_dom7_modular__ = __webpack_require__(380);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_dom7_dist_dom7_modular__ = __webpack_require__(389);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ssr_window__ = __webpack_require__(154);
 /**
- * Swiper 4.2.0
+ * Swiper 4.2.2
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * http://www.idangero.us/swiper/
  *
@@ -254,7 +254,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
  *
  * Released under the MIT License
  *
- * Released on: March 16, 2018
+ * Released on: April 1, 2018
  */
 
 
@@ -501,6 +501,7 @@ class SwiperClass {
   }
   off(events, handler) {
     const self = this;
+    if (!self.eventsListeners) return self;
     events.split(' ').forEach((event) => {
       if (typeof handler === 'undefined') {
         self.eventsListeners[event] = [];
@@ -531,7 +532,7 @@ class SwiperClass {
     }
     const eventsArray = Array.isArray(events) ? events : events.split(' ');
     eventsArray.forEach((event) => {
-      if (self.eventsListeners[event]) {
+      if (self.eventsListeners && self.eventsListeners[event]) {
         const handlers = [];
         self.eventsListeners[event].forEach((eventHandler) => {
           handlers.push(eventHandler);
@@ -1420,16 +1421,26 @@ function slideNext (speed = this.params.speed, runCallbacks = true, internal) {
 /* eslint no-unused-vars: "off" */
 function slidePrev (speed = this.params.speed, runCallbacks = true, internal) {
   const swiper = this;
-  const { params, animating } = swiper;
+  const {
+    params, animating, snapGrid, slidesGrid, rtlTranslate,
+  } = swiper;
 
   if (params.loop) {
     if (animating) return false;
     swiper.loopFix();
     // eslint-disable-next-line
     swiper._clientLeft = swiper.$wrapperEl[0].clientLeft;
-    return swiper.slideTo(swiper.activeIndex - 1, speed, runCallbacks, internal);
   }
-  return swiper.slideTo(swiper.activeIndex - 1, speed, runCallbacks, internal);
+  const translate = rtlTranslate ? swiper.translate : -swiper.translate;
+  const currentSnap = snapGrid[snapGrid.indexOf(translate)];
+  const prevSnap = snapGrid[snapGrid.indexOf(translate) - 1];
+  let prevIndex;
+
+  if (prevSnap) {
+    prevIndex = slidesGrid.indexOf(prevSnap);
+    if (prevIndex < 0) prevIndex = swiper.activeIndex - 1;
+  }
+  return swiper.slideTo(prevIndex, speed, runCallbacks, internal);
 }
 
 /* eslint no-unused-vars: "off" */
@@ -2193,6 +2204,7 @@ function onTouchEnd (event) {
       let doBounce = false;
       let afterBouncePosition;
       const bounceAmount = Math.abs(swiper.velocity) * 20 * params.freeModeMomentumBounceRatio;
+      let needsLoopFix;
       if (newPosition < swiper.maxTranslate()) {
         if (params.freeModeMomentumBounce) {
           if (newPosition + swiper.maxTranslate() < -bounceAmount) {
@@ -2204,6 +2216,7 @@ function onTouchEnd (event) {
         } else {
           newPosition = swiper.maxTranslate();
         }
+        if (params.loop && params.centeredSlides) needsLoopFix = true;
       } else if (newPosition > swiper.minTranslate()) {
         if (params.freeModeMomentumBounce) {
           if (newPosition - swiper.minTranslate() > bounceAmount) {
@@ -2215,6 +2228,7 @@ function onTouchEnd (event) {
         } else {
           newPosition = swiper.minTranslate();
         }
+        if (params.loop && params.centeredSlides) needsLoopFix = true;
       } else if (params.freeModeSticky) {
         let nextSlide;
         for (let j = 0; j < snapGrid.length; j += 1) {
@@ -2230,6 +2244,11 @@ function onTouchEnd (event) {
           newPosition = snapGrid[nextSlide - 1];
         }
         newPosition = -newPosition;
+      }
+      if (needsLoopFix) {
+        swiper.once('transitionEnd', () => {
+          swiper.loopFix();
+        });
       }
       // Fix duration
       if (swiper.velocity !== 0) {
@@ -2351,7 +2370,7 @@ function onResize () {
   }
 
   // Save locks
-  const { allowSlideNext, allowSlidePrev } = swiper;
+  const { allowSlideNext, allowSlidePrev, snapGrid } = swiper;
 
   // Disable locks on resize
   swiper.allowSlideNext = true;
@@ -2380,6 +2399,10 @@ function onResize () {
   // Return locks after resize
   swiper.allowSlidePrev = allowSlidePrev;
   swiper.allowSlideNext = allowSlideNext;
+
+  if (swiper.params.watchOverflow && snapGrid !== swiper.snapGrid) {
+    swiper.checkOverflow();
+  }
 }
 
 function onClick (e) {
@@ -2659,7 +2682,11 @@ function checkOverflow() {
   const wasLocked = swiper.isLocked;
 
   swiper.isLocked = swiper.snapGrid.length === 1;
-  swiper.allowTouchMove = !swiper.isLocked;
+  swiper.allowSlideNext = !swiper.isLocked;
+  swiper.allowSlidePrev = !swiper.isLocked;
+
+  // events
+  if (wasLocked !== swiper.isLocked) swiper.emit(swiper.isLocked ? 'lock' : 'unlock');
 
   if (wasLocked && wasLocked !== swiper.isLocked) {
     swiper.isEnd = false;
@@ -3051,6 +3078,11 @@ class Swiper extends SwiperClass {
   update() {
     const swiper = this;
     if (!swiper || swiper.destroyed) return;
+    const { snapGrid, params } = swiper;
+    // Breakpoints
+    if (params.breakpoints) {
+      swiper.setBreakpoint();
+    }
     swiper.updateSize();
     swiper.updateSlides();
     swiper.updateProgress();
@@ -3078,6 +3110,9 @@ class Swiper extends SwiperClass {
       if (!translated) {
         setTranslate();
       }
+    }
+    if (params.watchOverflow && snapGrid !== swiper.snapGrid) {
+      swiper.checkOverflow();
     }
     swiper.emit('update');
   }
@@ -3781,6 +3816,9 @@ const Mousewheel = {
       swiper.mousewheel.lastScrollTime = (new __WEBPACK_IMPORTED_MODULE_1_ssr_window__["b" /* window */].Date()).getTime();
     } else {
       // Freemode or scrollContainer:
+      if (swiper.params.loop) {
+        swiper.loopFix();
+      }
       let position = swiper.getTranslate() + (delta * params.sensitivity);
       const wasBeginning = swiper.isBeginning;
       const wasEnd = swiper.isEnd;
@@ -4137,12 +4175,19 @@ const Pagination = {
       $el.find(`.${params.totalClass}`).text(total);
     }
     if (params.type === 'progressbar') {
+      let progressbarDirection;
+      if (params.progressbarOpposite) {
+        progressbarDirection = swiper.isHorizontal() ? 'vertical' : 'horizontal';
+      } else {
+        progressbarDirection = swiper.isHorizontal() ? 'horizontal' : 'vertical';
+      }
       const scale = (current + 1) / total;
-      let scaleX = scale;
+      let scaleX = 1;
       let scaleY = 1;
-      if (!swiper.isHorizontal()) {
+      if (progressbarDirection === 'horizontal') {
+        scaleX = scale;
+      } else {
         scaleY = scale;
-        scaleX = 1;
       }
       $el.find(`.${params.progressbarFillClass}`).transform(`translate3d(0,0,0) scaleX(${scaleX}) scaleY(${scaleY})`).transition(swiper.params.speed);
     }
@@ -4228,6 +4273,9 @@ const Pagination = {
         params.dynamicMainBullets = 1;
       }
     }
+    if (params.type === 'progressbar' && params.progressbarOpposite) {
+      $el.addClass(params.progressbarOppositeClass);
+    }
 
     if (params.clickable) {
       $el.on('click', `.${params.bulletClass}`, function onClick(e) {
@@ -4270,6 +4318,7 @@ var Pagination$1 = {
       renderProgressbar: null,
       renderFraction: null,
       renderCustom: null,
+      progressbarOpposite: false,
       type: 'bullets', // 'bullets' or 'progressbar' or 'fraction' or 'custom'
       dynamicBullets: false,
       dynamicMainBullets: 1,
@@ -4280,6 +4329,7 @@ var Pagination$1 = {
       totalClass: 'swiper-pagination-total',
       hiddenClass: 'swiper-pagination-hidden',
       progressbarFillClass: 'swiper-pagination-progressbar-fill',
+      progressbarOppositeClass: 'swiper-pagination-progressbar-opposite',
       clickableClass: 'swiper-pagination-clickable', // NEW
       lockClass: 'swiper-pagination-lock',
     },
@@ -6791,7 +6841,7 @@ Swiper.use(components);
 
 /***/ }),
 
-/***/ 380:
+/***/ 389:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8217,7 +8267,7 @@ function scroll(...args) {
 
 /***/ }),
 
-/***/ 381:
+/***/ 390:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

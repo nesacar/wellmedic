@@ -36,6 +36,7 @@ Route::middleware('auth:api')->resource('menu-links', 'MenuLinksController');
 Route::middleware('auth:api')->get('menu-links/{id}/sort', 'MenuLinksController@sort');
 Route::middleware('auth:api')->post('menu-links/{id}/order', 'MenuLinksController@saveOrder');
 
+Route::middleware('auth:api')->post('testimonials/search', 'TestimonialsController@search');
 Route::middleware('auth:api')->resource('testimonials', 'TestimonialsController');
 
 Route::middleware('auth:api')->post('collections/search', 'CollectionsController@search');
@@ -44,6 +45,7 @@ Route::middleware('auth:api')->resource('collections', 'CollectionsController');
 Route::middleware('auth:api')->post('collections/{id}/image', 'CollectionsController@uploadImage');
 
 Route::middleware('auth:api')->post('products/search', 'ProductsController@search');
+Route::middleware('auth:api')->get('products/lists', 'ProductsController@lists');
 Route::middleware('auth:api')->resource('products', 'ProductsController');
 Route::middleware('auth:api')->post('products/{id}/image', 'ProductsController@uploadImage');
 
@@ -52,6 +54,7 @@ Route::middleware('auth:api')->resource('categories', 'CategoriesController');
 Route::middleware('auth:api')->post('categories/{id}/image', 'CategoriesController@uploadImage');
 
 Route::middleware('auth:api')->post('posts/search', 'PostsController@search');
+Route::middleware('auth:api')->get('posts/lists', 'PostsController@lists');
 Route::middleware('auth:api')->resource('posts', 'PostsController');
 Route::middleware('auth:api')->post('posts/{id}/image', 'PostsController@uploadImage');
 

@@ -26,6 +26,7 @@ class CreateTestimonialRequest extends FormRequest
         return [
             'body' => 'required',
             'author' => 'required',
+            'publish_at' => 'required|date',
         ];
     }
 
@@ -34,6 +35,8 @@ class CreateTestimonialRequest extends FormRequest
         return [
             'body.required' => 'Tekst je obavezan',
             'author.required' => 'Autor je obavezan',
+            'publish_at.required' => 'Vreme publikovanja je obavezno',
+            'publish_at.date' => 'Vreme publikovanja nije u ispravnom formatu',
         ];
     }
 }
