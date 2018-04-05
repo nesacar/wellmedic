@@ -21,8 +21,9 @@
                             <thead>
                             <tr>
                                 <th scope="col">id</th>
-                                <th scope="col">naslov</th>
-                                <th scope="col">kategorija</th>
+                                <th scope="col">opis</th>
+                                <th scope="col">proizvod</th>
+                                <th scope="col">članak</th>
                                 <th scope="col">publikovano</th>
                                 <th scope="col">kreirano</th>
                                 <th>akcija</th>
@@ -31,9 +32,10 @@
                             <tbody>
                             <tr v-for="row in testimonials">
                                 <td>{{ row.id }}</td>
-                                <td>{{ row.title }}</td>
-                                <td>{{ row.category }}</td>
-                                <td>{{ row.publish }}</td>
+                                <td><p v-html="row.body"></p></td>
+                                <td>{{ row.product }}</td>
+                                <td>{{ row.post }}</td>
+                                <td><div v-if="row.publish == 1">Da</div> <div v-else>Ne</div></td>
                                 <td>{{ row.created_at }}</td>
                                 <td>
                                     <router-link tag="a" :to="'testimonials/' + row['id'] + '/edit'" class="edit-link" target="_blank"><font-awesome-icon icon="pencil-alt"/></router-link>

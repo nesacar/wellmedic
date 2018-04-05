@@ -20,6 +20,7 @@ class CreateTestimonialsTable extends Migration
             $table->text('body');
             $table->string('author');
             $table->string('link')->nullable();
+            $table->timestamp('publish_at')->useCurrent();
             $table->boolean('publish')->default(1);
             $table->timestamps();
         });

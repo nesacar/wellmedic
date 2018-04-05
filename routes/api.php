@@ -36,6 +36,7 @@ Route::middleware('auth:api')->resource('menu-links', 'MenuLinksController');
 Route::middleware('auth:api')->get('menu-links/{id}/sort', 'MenuLinksController@sort');
 Route::middleware('auth:api')->post('menu-links/{id}/order', 'MenuLinksController@saveOrder');
 
+Route::middleware('auth:api')->post('testimonials/search', 'TestimonialsController@search');
 Route::middleware('auth:api')->resource('testimonials', 'TestimonialsController');
 
 Route::middleware('auth:api')->post('collections/search', 'CollectionsController@search');

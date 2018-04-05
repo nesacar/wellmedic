@@ -27,49 +27,39 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="date">Publikovano od:</label>
-                                    <input type="date" name="title" class="form-control" id="date" placeholder="Published at" v-model="post.date">
+                                    <input type="date" name="title" class="form-control" id="date" placeholder="Published at" v-model="testimonial.date">
                                     <small class="form-text text-muted" v-if="error != null && error.publish_at">{{ error.publish_at[0] }}</small>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="time">&nbsp;</label>
-                                    <input type="time" name="title" class="form-control" id="time" placeholder="Published at" v-model="post.time">
+                                    <input type="time" name="title" class="form-control" id="time" placeholder="Published at" v-model="testimonial.time">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="category">Kategorija</label>
-                            <select name="category" id="category" class="form-control" v-model="post.category_id">
-                                <option :value="index" v-for="(category, index) in lists">{{ category }}</option>
+                            <label for="product">Proizvod</label>
+                            <select name="product" id="product" class="form-control" v-model="testimonial.product_id">
+                                <option :value="index" v-for="(product, index) in products">{{ product }}</option>
                             </select>
-                            <small class="form-text text-muted" v-if="error != null && error.category_id">{{ error.category_id[0] }}</small>
+                            <small class="form-text text-muted" v-if="error != null && error.product_id">{{ error.product_id[0] }}</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="post_id">Članak</label>
+                            <select name="post_id" id="post_id" class="form-control" v-model="testimonial.post_id">
+                                <option :value="index" v-for="(post, index) in posts">{{ post }}</option>
+                            </select>
+                            <small class="form-text text-muted" v-if="error != null && error.post_id">{{ error.post_id[0] }}</small>
                         </div>
                         <div class="form-group">
                             <label>Publikovano</label><br>
-                            <switches v-model="post.publish" theme="bootstrap" color="primary"></switches>
-                        </div>
-                        <div class="form-group" v-if="post.category_id == 3">
-                            <label for="author">Autor</label>
-                            <input type="text" name="author" class="form-control" id="author" placeholder="Autor" v-model="post.author">
-                            <small class="form-text text-muted" v-if="error != null && error.author">{{ error.author[0] }}</small>
+                            <switches v-model="testimonial.publish" theme="bootstrap" color="primary"></switches>
                         </div>
 
-                        <upload-image-helper
-                                :image="post.image"
-                                :defaultImage="null"
-                                :titleImage="'članka'"
-                                :error="error"
-                                @uploadImage="upload($event)"
-                                @removeRow="remove($event)"
-                        ></upload-image-helper>
 
                     </div><!-- .card -->
-                    <!--
-                    <div class="card">
-                        <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions" @vdropzone-success="showSuccess()"></vue-dropzone>
-                    </div>
-                    -->
+
                 </div>
                 <div class="col-md-8">
                     <div class="card">
@@ -77,27 +67,22 @@
                             <div class="tab-pane fade show active" id="srb" role="tabpanel" aria-labelledby="srb-tab">
                                 <form @submit.prevent="submit()">
                                     <div class="form-group">
-                                        <label for="title">Naslov</label>
-                                        <input type="text" name="title" class="form-control" id="title" placeholder="Naslov" v-model="post.title">
-                                        <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="slug">Slug</label>
-                                        <input type="text" name="slug" class="form-control" id="slug" placeholder="Slug" v-model="post.slug">
-                                        <small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="short">Kratak opis</label>
-                                        <textarea name="short" id="short" cols="3" rows="4" class="form-control" placeholder="Kratak opis" v-model="post.short"></textarea>
-                                        <small class="form-text text-muted" v-if="error != null && error.short">{{ error.short[0] }}</small>
-                                    </div>
-                                    <div class="form-group">
                                         <label>Opis</label>
                                         <ckeditor
-                                                v-model="post.body"
+                                                v-model="testimonial.body"
                                                 :config="config">
                                         </ckeditor>
                                         <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.body[0] }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="author">Autor</label>
+                                        <input type="text" name="author" class="form-control" id="author" placeholder="Autor" v-model="testimonial.author">
+                                        <small class="form-text text-muted" v-if="error != null && error.author">{{ error.author[0] }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="link">Link autora</label>
+                                        <input type="text" name="link" class="form-control" id="link" placeholder="Link autora" v-model="testimonial.link">
+                                        <small class="form-text text-muted" v-if="error != null && error.link">{{ error.link[0] }}</small>
                                     </div>
                                     <div class="form-group">
                                         <button class="btn btn-primary" type="submit">Izmeni</button>
@@ -125,9 +110,10 @@
     export default {
         data(){
           return {
-              post: {},
+              testimonial: {},
               error: null,
-              lists: {},
+              products: {},
+              posts: {},
               photos: {},
               config: {
                   toolbar: [
@@ -150,13 +136,13 @@
         },
         computed: {
             post_id(){
-                return this.post.id;
+                return this.testimonial.id;
             },
             user(){
                 return this.$store.getters.getUser;
             },
             publish_at(){
-                return this.post.date + ' ' + this.post.time
+                return this.testimonial.date + ' ' + this.testimonial.time
             }
         },
         components: {
@@ -167,16 +153,17 @@
             'vue-dropzone': vue2Dropzone
         },
         created(){
-            this.getPost();
-            this.getList();
+            this.getTestimonial();
+            this.getProducts();
+            this.getPosts();
             //this.getPhotos();
         },
         methods: {
-            getPost(){
-                axios.get('api/posts/' + this.$route.params.id)
+            getTestimonial(){
+                axios.get('api/testimonials/' + this.$route.params.id)
                     .then(res => {
-                        if(res.data.post != null){
-                            this.post = res.data.post;
+                        if(res.data.testimonial != null){
+                            this.testimonial = res.data.testimonial;
                         }
                     })
                     .catch(e => {
@@ -185,9 +172,8 @@
                     });
             },
             submit(){
-                this.post.user_id = this.user.id;
-                this.post.publish_at = this.publish_at;
-                axios.put('api/posts/' + this.post.id, this.post)
+                this.testimonial.publish_at = this.publish_at;
+                axios.put('api/testimonials/' + this.testimonial.id, this.testimonial)
                     .then(res => {
                         this.post = res.data.post;
                         swal({
@@ -203,58 +189,24 @@
                         this.error = e.response.data.errors;
                     });
             },
-            upload(image){
-                axios.post('api/posts/' + this.post.id + '/image', { file: image[0] })
+            getProducts(){
+                axios.get('api/products/lists')
                     .then(res => {
-                        console.log(res);
-                        this.post.image = res.data.image;
-                        this.error = null;
-                        swal({
-                            position: 'center',
-                            type: 'success',
-                            title: 'Success',
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                    }).catch(e => {
-                    console.log(e);
-                    this.error = e.response.data.errors;
-                });
-            },
-            getList(){
-                axios.get('api/categories/lists')
-                    .then(res => {
-                        this.lists = res.data.categories;
-                    }).catch(e => {
-                    console.log(e.response);
-                    this.error = e.response.data.errors;
-                });
-            },
-            getPhotos(){
-                axios.get('api/posts/' + this.$route.params.id + '/gallery')
-                    .then(res => {
-                        console.log(res);
-                        this.photos = res.data.photos;
-                    }).catch(e => {
-                    console.log(e.response);
-                    this.error = e.response.data.errors;
-                });
-            },
-            deletePhoto(photo){
-                axios.post('api/photos/' + photo.id + '/destroy')
-                    .then(res => {
-                        console.log(res);
-                        this.photos = this.photos.filter(function (item) {
-                            return photo.id != item.id;
-                        });
+                        this.products = res.data.products;
                     }).catch(e => {
                         console.log(e.response);
                         this.error = e.response.data.errors;
                     });
             },
-            showSuccess(){
-                this.getPhotos();
-            }
+            getPosts(){
+                axios.get('api/posts/lists')
+                    .then(res => {
+                        this.posts = res.data.posts;
+                    }).catch(e => {
+                        console.log(e.response);
+                        this.error = e.response.data.errors;
+                    });
+            },
         }
     }
 </script>
