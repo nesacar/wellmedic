@@ -135,7 +135,7 @@
       <div class="col-lg-5">
         <div class="article-entry">
           <div
-            class="image mb-3 lazy-image"
+            class="image image--alt mb-3 lazy-image"
             data-src="{{ url('themes/wellmedic/images/demo/tile-img.jpg') }}"
             style="background-image: url({{ url('themes/wellmedic/images/demo/tile-img-sm.jpg') }});"
           ></div>
@@ -147,7 +147,7 @@
         </div>
         <div class="article-entry">
           <div
-            class="image mb-3 lazy-image"
+            class="image image--alt mb-3 lazy-image"
             data-src="{{ url('themes/wellmedic/images/demo/tile-img.jpg') }}"
             style="background-image: url({{ url('themes/wellmedic/images/demo/tile-img-sm.jpg') }});"
           ></div>
