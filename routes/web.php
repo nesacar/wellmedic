@@ -31,6 +31,11 @@ Route::get('/products', function () {
   return view('themes.wellmedic.pages.products', compact('title', 'items'));
 });
 
+Route::get('/about', function () {
+  $title = 'O Nama';
+  return view('themes.wellmedic.pages.about', compact('title'));
+});
+
 Route::get('/blog', function () {
   $title = 'Blog';
   return view('themes.wellmedic.pages.blog', compact('title'));
