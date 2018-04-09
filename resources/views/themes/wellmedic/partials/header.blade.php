@@ -16,9 +16,9 @@
       <li class="nav-item dropdown {{ Request::is('products') ? 'active' : '' }}">
         <a class="nav-link" href="/products">Proizvodi</a>
         <div class="dropdown-menu">
-          <a class="dropdown-item nav-link--secondary" href="/proizvodi/id_1">Ganoderma lucidim</a>
-          <a class="dropdown-item nav-link--secondary" href="/proizvodi/id_2">Jelenski rog</a>
-          <a class="dropdown-item nav-link--secondary" href="/proizvodi/id_3">Pasta za zube</a>
+          <a class="dropdown-item nav-link--secondary" href="/products/id_1">Ganoderma lucidum</a>
+          <a class="dropdown-item nav-link--secondary" href="/products/id_2">Jelenski rog</a>
+          <a class="dropdown-item nav-link--secondary" href="/products/id_3">Pasta za zube</a>
         </div>
       </li>
       <li class="nav-item {{ Request::is('blog') ? 'active' : '' }}">

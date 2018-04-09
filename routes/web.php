@@ -31,6 +31,11 @@ Route::get('/products', function () {
   return view('themes.wellmedic.pages.products', compact('title', 'items'));
 });
 
+Route::get('/products/{id}', function () {
+  $title = 'Product name..';
+  return view('themes.wellmedic.pages.product', compact('title'));
+});
+
 Route::get('/about', function () {
   $title = 'O Nama';
   return view('themes.wellmedic.pages.about', compact('title'));

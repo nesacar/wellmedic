@@ -45,13 +45,13 @@
           <div class="accordion_pane" id="jsSubmenu">
             <div class="accordion_container">
               <div class="nav-item">
-                <a href="#" class="nav-link nav-link--secondary">Genoderma lucidium</a>
+                <a href="/products/id_1" class="nav-link nav-link--secondary">Genoderma lucidium</a>
               </div>
               <div class="nav-item">
-                <a href="#" class="nav-link nav-link--secondary">Jelenski rog</a>
+                <a href="/products/id_2" class="nav-link nav-link--secondary">Jelenski rog</a>
               </div>
               <div class="nav-item">
-                <a href="#" class="nav-link nav-link--secondary">Pasta za zube</a>
+                <a href="/products/id_3" class="nav-link nav-link--secondary">Pasta za zube</a>
               </div>
             </div>
           </div>
