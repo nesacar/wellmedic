@@ -28,6 +28,14 @@
   }
 }
 
+.subtitle {
+  color: $theme-primary;
+  font-weight: $text-regular;
+  font-size: 16px;
+  line-height: 1.2em;
+  margin-bottom: 2 * $base-line;
+}
+
 .subheading {
   @extend %heading;
 

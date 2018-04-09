@@ -1,0 +1,34 @@
+.contact {
+  &_column {
+
+    @include media-breakpoint-up(md) {
+      padding-left: 6 * $base-line;
+    }
+  }
+
+  &_cell {
+    position: relative;
+    line-height: 1.5em;
+    min-height: calc(1.5 * 4em);
+  }
+
+  &_icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 6 * $base-line;
+    transform: translateX(-100%);
+    color: $theme-primary;
+
+    @include media-breakpoint-up(md) {
+      display: inline-flex;
+    }
+  }
+}
+
+.contact_column-spacer-fix {
+  height: 35px;
+}

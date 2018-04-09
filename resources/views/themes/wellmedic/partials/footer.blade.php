@@ -32,9 +32,9 @@
         <div class="col-xl-5 col-lg-6">
           <h5 class="section-title">Pronađite nas</h5>
           <div class="row">
-            <div class="col-6 footer_column">
-              <div class="footer_cell">
-                <div class="footer_icon">
+            <div class="col-6 contact_column">
+              <div class="contact_cell">
+                <div class="contact_icon">
                   <svg class="icon">
                     <use xlink:href="#icon_location">
                   </svg>
@@ -42,8 +42,8 @@
                 <strong>TC City Passage</strong>
                 <div>Obilićev Venac 18-20, lokal 2.12</div>
               </div>
-              <div class="footer_cell">
-                <div class="footer_icon">
+              <div class="contact_cell">
+                <div class="contact_icon">
                   <svg class="icon">
                     <use xlink:href="#icon_time">
                   </svg>
@@ -53,9 +53,9 @@
                 <div>Sub: 10:00-16:00</div>
               </div>
             </div>
-            <div class="col-6 footer_column">
-              <div class="footer_cell">
-                <div class="footer_icon">
+            <div class="col-6 contact_column">
+              <div class="contact_cell">
+                <div class="contact_icon">
                   <svg class="icon">
                     <use xlink:href="#icon_location">
                   </svg>
@@ -63,8 +63,8 @@
                 <strong>TC Futura</strong>
                 <div>Nemanjina 40/ll, lokal 3</div>
               </div>
-              <div class="footer_cell">
-                <div class="footer_icon">
+              <div class="contact_cell">
+                <div class="contact_icon">
                   <svg class="icon">
                     <use xlink:href="#icon_time">
                   </svg>
@@ -79,9 +79,9 @@
         <div class="col-xl-4 col-lg-6">
           <h5 class="section-title">Kontakt</h5>
           <div class="row">
-            <div class="col-6 footer_column">
-              <div class="footer_cell">
-                <div class="footer_icon">
+            <div class="col-6 contact_column">
+              <div class="contact_cell">
+                <div class="contact_icon">
                   <svg class="icon">
                     <use xlink:href="#icon_mobile">
                   </svg>
@@ -90,14 +90,14 @@
                 <div>+381 60 133 8227</div>
                 <div>+381 61 285 5652</div>
               </div>
-              <div class="footer_cell">
+              <div class="contact_cell">
                 <div>+381 60 033 8227</div>
                 <div>+381 11 403 9778</div>
               </div>
             </div>
-            <div class="col-6 footer_column">
-              <div class="footer_cell">
-                <div class="footer_icon">
+            <div class="col-6 contact_column">
+              <div class="contact_cell">
+                <div class="contact_icon">
                   <svg class="icon">
                     <use xlink:href="#icon_fax">
                   </svg>
@@ -105,8 +105,8 @@
                 <b>Fax</b>
                 <div>+381 11 403 9175</div>
               </div>
-              <div class="footer_cell">
-                <div class="footer_icon">
+              <div class="contact_cell">
+                <div class="contact_icon">
                   <svg class="icon">
                     <use xlink:href="#icon_mail">
                   </svg>
