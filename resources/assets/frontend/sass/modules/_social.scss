@@ -2,9 +2,9 @@
   display: inline-flex;
   align-items: center;
   flex-wrap: nowrap;
-  color: $text-secondary-on-light;
 
   &--desktop {
+    color: $text-secondary-on-light;
     margin-right: 36px;
 
     @include media-breakpoint-down(md) {

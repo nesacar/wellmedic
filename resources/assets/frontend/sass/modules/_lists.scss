@@ -1,0 +1,26 @@
+.list {
+  color: $text-secondary-on-light;
+  margin-bottom: 2 * $base-line;
+  
+  &--bullet {
+    padding-left: 4 * $base-line;
+
+    &_item {
+  
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: -4 - (2 * $base-line);
+        display: block;
+        height: 8px;
+        width: 8px;
+        border-radius: 50%;
+        background-color: $theme-primary;
+        transform: translateY(-50%);
+        content: "";
+      }
+    }
+  }
+}

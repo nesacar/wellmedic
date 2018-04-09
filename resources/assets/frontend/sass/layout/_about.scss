@@ -1,0 +1,20 @@
+.about {
+  margin-bottom: 4 * $base-line;
+
+  & > div {
+    margin-bottom: 2 * $base-line;
+
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 0;
+    }
+  }
+
+  &_logo {
+    text-align: center;
+    margin-bottom: 2 * $base-line;
+
+    @include media-breakpoint-up(lg) {
+      text-align: left;
+    }
+  }
+}

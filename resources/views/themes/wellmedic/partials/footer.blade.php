@@ -11,7 +11,7 @@
     <div class="newsletter">
       <div class="container">
         <h3 class="subheading newsletter_title">Prijavite se za naš Newsletter</h3>
-        <p class="newsletter_description">Najnovije vesti i specijalne ponude u vašem e-mail sandučetu.</p>
+        <p class="primary">Najnovije vesti i specijalne ponude u vašem e-mail sandučetu.</p>
         <div class="d-flex justify-content-center py-3">
           <form class="newsletter_form">
             <input type="text" class="form-control newsletter_input" placeholder="Vaš e-mail" aria-label="vaša e-mail adresa">
