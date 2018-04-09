@@ -36,7 +36,7 @@
           </div>
           <div class="col-md-7 product_desc">
             <div class="py-4">
-              <p class="caption">{{ $item->categorie}}</p>
+              <p class="caption caption--big">{{ $item->categorie}}</p>
               <h2 class="headline">{{ $item->name }}</h2>
               <p class="tag-line">{{ $item->tagline }}</p>
               <p>{{ $item->about }}</p>

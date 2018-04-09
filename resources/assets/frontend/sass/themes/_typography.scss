@@ -56,6 +56,10 @@
   font-size: 13px;
   font-weight: $text-regular;
   margin-bottom: 6px;
+
+  &--big {
+    font-size: 16px;
+  }
 }
 
 .tag-line {
