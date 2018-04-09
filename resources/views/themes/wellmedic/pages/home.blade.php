@@ -37,18 +37,12 @@
         <div class="swiper-wrapper">
 
           @for ($i = 0; $i < 5; $i++)
-          <div class="swiper-slide quote">
-            <div class="quote_icon">
-              <svg class="icon" role="presentation">
-                <use xlink:href="#icon_quote">
-              </svg>
-            </div>
-            <div class="quote_info">
-              <p class="quote_text with-trunk">
-                <em>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eros tortor, consectetur non laoreet vitae, ornare vel ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non erat lorem.</em>
-              </p>
-              <p class="quote_author">John Snow</p>
-            </div>
+          <div class="swiper-slide">
+            @component('themes.wellmedic.components.quote', [
+              'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eros tortor, consectetur non laoreet vitae, ornare vel ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non erat lorem',
+              'author' => 'John Snow'
+            ])
+            @endcomponent
           </div>
           @endfor
           
