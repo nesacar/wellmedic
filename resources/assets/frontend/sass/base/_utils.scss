@@ -91,3 +91,12 @@
 @keyframes fade-in {
   from { opacity: 0; }
 }
+
+.paper-rip {
+  border-image: url('/themes/wellmedic/images/paper-rip.png');
+  border-top: 32px solid transparent;
+  border-bottom: 32px solid transparent;
+  border-image-repeat: repeat;
+  border-image-slice: 32 0;
+  box-shadow: 0 -16px 48px rgba(0, 0, 0, .12);
+}

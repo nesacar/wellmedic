@@ -25,7 +25,7 @@
   <div class="section">
   @foreach ($items as $i => $item)
   @php $isOdd = (($i % 2) == 0); @endphp
-    <div class="product {{ $isOdd ? '' : 'product--alt' }}">
+    <div class="product {{ $isOdd ? '' : 'product--alt paper-rip' }}">
       <div class="container product_container">
         <div class="row {{ $isOdd ? 'flex-row-reverse' : '' }}">
           <div class="col-md-5">
