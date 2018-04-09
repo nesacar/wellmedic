@@ -41,6 +41,12 @@
 
   font-size: 22px;
   color: $text-primary-on-light;
+
+  &--big {
+    @include media-breakpoint-up(md) {
+      font-size: 36px;
+    }
+  }
 }
 
 .section-title {
@@ -58,7 +64,9 @@
   margin-bottom: 6px;
 
   &--big {
-    font-size: 16px;
+    @include media-breakpoint-up(md) {
+      font-size: 16px;
+    }
   }
 }
 

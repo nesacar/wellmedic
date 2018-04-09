@@ -46,6 +46,11 @@ Route::get('/blog', function () {
   return view('themes.wellmedic.pages.blog', compact('title'));
 });
 
+Route::get('/blog/{id}', function () {
+  $title = 'Blog Post';
+  return view('themes.wellmedic.pages.blog-post', compact('title'));
+});
+
 Route::get('/contact', function () {
   $title = 'Kontakt';
   return view('themes.wellmedic.pages.contact', compact('title'));

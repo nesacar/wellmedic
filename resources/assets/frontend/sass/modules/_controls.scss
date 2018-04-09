@@ -17,3 +17,30 @@
     }
   }
 }
+
+.go {
+  line-height: 0;
+  padding: $base-line 0;
+  
+  &--prev {
+    text-align: left;
+  }
+
+  &--next {
+    text-align: right;
+  }
+
+  &_control {
+    display: inline-flex;
+    align-items: center;
+    color: $theme-primary;
+  }
+
+  .subheading {
+    display: none;
+
+    @include media-breakpoint-up(md) {
+      display: block;
+    }
+  }
+}

@@ -176,6 +176,10 @@ var _toolbar = __webpack_require__(385);
 
 var _toolbar2 = _interopRequireDefault(_toolbar);
 
+var _textField = __webpack_require__(386);
+
+var _textField2 = _interopRequireDefault(_textField);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function init() {
@@ -184,6 +188,7 @@ function init() {
   _lazyImages2.default.init();
   _searchWidget2.default.init();
   _toolbar2.default.init();
+  _textField2.default.init();
 };
 
 /***/ }),
@@ -735,6 +740,72 @@ var Toolbar = function () {
 ;
 
 exports.default = Toolbar;
+
+/***/ }),
+
+/***/ 386:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var TextField = function () {
+  _createClass(TextField, null, [{
+    key: 'init',
+    value: function init() {
+      var fields = document.querySelectorAll('.text-field');
+      fields.forEach(function (field) {
+        return new TextField(field);
+      });
+    }
+  }]);
+
+  function TextField(root) {
+    _classCallCheck(this, TextField);
+
+    this._root = root;
+    this._input = this._root.querySelector('.text-field_input');
+
+    this._onBlur = this._onBlur.bind(this);
+    this._onFocus = this._onFocus.bind(this);
+
+    this._addEventListeners();
+  }
+
+  _createClass(TextField, [{
+    key: '_addEventListeners',
+    value: function _addEventListeners() {
+      this._input.addEventListener('focus', this._onFocus);
+      this._input.addEventListener('blur', this._onBlur);
+    }
+  }, {
+    key: '_onBlur',
+    value: function _onBlur(evt) {
+      this._root.classList.remove('focus');
+
+      if (this._input.value === '') {
+        this._root.classList.remove('float');
+      }
+    }
+  }, {
+    key: '_onFocus',
+    value: function _onFocus(evt) {
+      this._root.classList.add('focus', 'float');
+    }
+  }]);
+
+  return TextField;
+}();
+
+exports.default = TextField;
 
 /***/ })
 
