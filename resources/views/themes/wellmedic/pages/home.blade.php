@@ -40,7 +40,8 @@
           <div class="swiper-slide">
             @component('themes.wellmedic.components.quote', [
               'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eros tortor, consectetur non laoreet vitae, ornare vel ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non erat lorem',
-              'author' => 'John Snow'
+              'author' => 'John Snow',
+              'href' => '#'
             ])
             @endcomponent
           </div>

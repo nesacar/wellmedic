@@ -5,6 +5,10 @@
   padding-right: 6 * $base-line;
   user-select: none;
 
+  &:hover {
+    text-decoration: none;
+  }
+
   @include media-breakpoint-up(md) {
     flex-direction: row;
     padding-left: 0;

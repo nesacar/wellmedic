@@ -44,7 +44,8 @@
           <div class="col-lg-12 col-md-4 mb-3">
             @component('themes.wellmedic.components.quote', [
               'body' => 'Rog mladog jelena je na listi tri najveće dragocenosti na severoistoku Kine. Mladi rogovi jelena predstavljaju izuzetno dragocen kineski sirov lek.',
-              'author' => 'Vaca San'
+              'author' => 'Vaca San',
+              'href' => '#'
             ])
             @endcomponent
           </div>
