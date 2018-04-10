@@ -13,7 +13,7 @@ class CreateBoxRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,19 @@ class CreateBoxRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'block_id' => 'required|min:1',
+            'title' => 'required',
+            'link' => 'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'block_id.required' => 'Šablon je obavezan',
+            'block_id.min' => 'Šablon je obavezan',
+            'title.required' => 'Naslov je obavezan',
+            'link.required' => 'Link je obavezan',
         ];
     }
 }

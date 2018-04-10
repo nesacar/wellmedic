@@ -65,7 +65,9 @@ Route::middleware('auth:api')->post('banners/{id}/image', 'BannersController@upl
 Route::middleware('auth:api')->post('subscribers/search', 'SubscribersController@search');
 Route::middleware('auth:api')->resource('subscribers', 'SubscribersController');
 
+Route::middleware('auth:api')->get('blocks/lists', 'BlocksController@lists');
 Route::middleware('auth:api')->resource('blocks', 'BlocksController');
 
 Route::middleware('auth:api')->resource('boxes', 'BoxesController');
+Route::middleware('auth:api')->get('boxes/{id}/index', 'BoxesController@showIndex');
 Route::middleware('auth:api')->post('boxes/{id}/image', 'BoxesController@uploadImage');
