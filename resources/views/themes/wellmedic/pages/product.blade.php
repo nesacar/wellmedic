@@ -26,10 +26,15 @@
 
   <div class="container section">
     <div class="row">
-      <div class="col-xl-9 col-lg-8" id="product">
-        <p class="caption caption--big">Kapsule na bazi ulja iz spora</p>
-        <h2 class="headline">Ganoderma lucidum</h2>
-        <p class="tag-line">Meke gel kapsule na bazi ulja iz spora gljive Ganoderma lucidum</p>
+      <div class="col-xl-9 col-lg-8">
+        <div class="mb-4">
+          <p class="caption caption--big">Kapsule na bazi ulja iz spora</p>
+          <h2 class="headline">Ganoderma lucidum</h2>
+          <p class="tag-line">Meke gel kapsule na bazi ulja iz spora gljive Ganoderma lucidum</p>
+        </div>
+        <div id="product">
+
+        </div>
       </div>
       <div class="col-xl-3 col-lg-4">
         <h2 class="title"><span class="thin">Iskustva</span> korisnika</h2>
