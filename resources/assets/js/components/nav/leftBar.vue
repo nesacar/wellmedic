@@ -33,6 +33,18 @@
                     -->
                 </ul>
             </li>
+            <li :class="{ 'active': showTemplatesItemActive }" :style="{ 'display': showTemplatesItem ? 'block' : 'none' }">
+                <font-awesome-icon icon="angle-right" />
+                <a href="#" @click="changeShowTemplatesItemActive()">Šаbloni</a>
+                <font-awesome-icon icon="th-large" />
+                <ul>
+                    <li><router-link tag="a" :to="'/users'">Slajder</router-link></li>
+                    <li><router-link tag="a" :to="'/users'">Baner na početnoj</router-link></li>
+                    <!--
+                    <li><a href="#">Roles</a></li>
+                    -->
+                </ul>
+            </li>
             <li>
                 <font-awesome-icon icon="images" />
                 <a :href="domain + 'filemanager/show'" target="_blank">File manager</a>
@@ -146,6 +158,14 @@
             showGalleriesItemActive(){
                 return this.$store.getters.getGalleriesItemActive;
             },
+
+            /** templates **/
+            showTemplatesItem(){
+                return this.$store.getters.getShowTemplatesItem;
+            },
+            showTemplatesItemActive(){
+                return this.$store.getters.getTemplatesItemActive;
+            },
         },
         methods: {
             /** settings **/
@@ -176,6 +196,11 @@
             /** galleries **/
             changeShowGalleriesItemActive(){
                 this.$store.dispatch('changeGalleriesItemActive');
+            },
+
+            /** templates **/
+            changeShowTemplatesItemActive(){
+                this.$store.dispatch('changeTemplatesItemActive');
             },
         }
     }
