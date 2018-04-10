@@ -63,7 +63,7 @@
         </div><!-- /navigation -->
 
       </div>
-      <div class="col-xl-3 col-lg-4">
+      <aside class="col-xl-3 col-lg-4">
         <h2 class="title"><span class="thin">Iskustva</span> korisnika</h2>
         <div class="row">
           @for ($i = 0; $i < 3; $i++)
@@ -76,8 +76,10 @@
           </div>
           @endfor
         </div>
-        <a href="/experiences" class="btn btn-outline-primary">Ostala iskustva</a>
-      </div>
+        <div class="text-center py-2">
+          <a href="/experiences" class="btn btn-outline-primary">Ostala iskustva</a>
+        </div>
+      </aside>
     </div>
   </div>
 
