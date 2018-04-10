@@ -28,9 +28,9 @@
                                 <a class="dropdown-item" href="#" @click.prevent="newCategory()">Kategorija</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" @click.prevent="newUser()">Korisnik</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"  @click.prevent="newTheme()">Tema</a>
-                                <a class="dropdown-item" href="#"  @click.prevent="newMenu()">Meni</a>
+                                <!--<div class="dropdown-divider"></div>-->
+                                <!--<a class="dropdown-item" href="#"  @click.prevent="newTheme()">Tema</a>-->
+                                <!--<a class="dropdown-item" href="#"  @click.prevent="newMenu()">Meni</a>-->
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#"  @click.prevent="newNewsletter()">Newsletter</a>
                                 <a class="dropdown-item" href="#"  @click.prevent="newSubscriber()">Pretplatnik</a>
