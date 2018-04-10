@@ -93,10 +93,32 @@
 }
 
 .paper-rip {
-  border-image: url('/themes/wellmedic/images/paper-rip.png');
-  border-top: 32px solid transparent;
-  border-bottom: 32px solid transparent;
-  border-image-repeat: repeat;
-  border-image-slice: 32 0;
-  box-shadow: 0 -16px 48px rgba(0, 0, 0, .12);
+  position: relative;
+  padding: 64px 0 !important;
+  box-shadow: inset 0px 48px 48px -24px rgba(0, 0, 0, .12),
+    inset 0px -48px 48px -24px rgba(0, 0, 0, .12);
+
+  &::after,
+  &::before {
+    position: absolute;
+    left: 0;
+    display: block;
+    width: 100%;
+    content: "";
+    border-image: url('/themes/wellmedic/images/paper-rip.png');
+    border-image-repeat: repeat;
+    z-index: 1;
+  }
+
+  &::after {
+    bottom: 0;
+    border-bottom: 32px solid transparent;
+    border-image-slice: 0 0 32;
+  }
+
+  &::before {
+    top: 0;
+    border-top: 32px solid transparent;
+    border-image-slice: 32 0 0;
+  }
 }
