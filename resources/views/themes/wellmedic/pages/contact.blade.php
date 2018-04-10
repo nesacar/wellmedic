@@ -140,24 +140,29 @@
   
   <div class="container section">
     <h2 class="title"><span class="thin">Kontaktirajte</span> nas</h2>
-    <form>
+    <div class="contact_form">
+      <form>
 
-      <div class="text-field">
-        <input class="text-field_input" type="text" name="name" id="name" />
-        <label class="text-field_label" for="name">Ime i prezime</label>
-        <div class="text-field_line"></div>
-      </div>
-      <div class="text-field">
-        <input class="text-field_input" type="text" name="email" id="email" />
-        <label class="text-field_label" for="email">Vaša e-mail adresa</label>
-        <div class="text-field_line"></div>
-      </div>
-      <div class="text-field text-field--textarea">
-        <textarea class="text-field_input" rows="8" name="message" id="message"></textarea>
-        <label class="text-field_label" for="message">Poruka</label>
-      </div>
+        <div class="text-field">
+          <input class="text-field_input" type="text" name="name" id="name" />
+          <label class="text-field_label" for="name">Ime i prezime</label>
+          <div class="text-field_line"></div>
+        </div>
+        <div class="text-field">
+          <input class="text-field_input" type="text" name="email" id="email" />
+          <label class="text-field_label" for="email">Vaša e-mail adresa</label>
+          <div class="text-field_line"></div>
+        </div>
+        <div class="text-field text-field--textarea">
+          <textarea class="text-field_input" rows="8" name="message" id="message"></textarea>
+          <label class="text-field_label" for="message">Poruka</label>
+        </div>
 
-    </form>
+        <div class="d-flex py-2">
+          <button class="btn btn-primary ml-auto" type="submit">Pošalji</button>
+        </div>
+      </form>
+    </div>
   </div>
 
 @endsection
