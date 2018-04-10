@@ -66,8 +66,9 @@
     </div>
     <div class="row flex-row-reverse about">
       <div class="col-lg-4">
-        <div class="image image--square"
-          style="background-color: #f2f5f8;"
+        <div class="image image--square fit-height lazy-image"
+          data-src="https://cdn7.bigcommerce.com/s-u0uja8gg4w/images/stencil/500x650/products/155/668/B000178_use__01779.1519163981.png?c=2"
+          data-alt="genoderma lucidium"
         ></div>
       </div>
       <div class="col-lg-8">
