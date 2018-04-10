@@ -9,7 +9,7 @@
 
         @foreach ($items as $item)
         <div class="swiper-slide masthead">
-          <div class="image image--masthead">
+          <div class="image image--masthead fit-height">
             <img src="{{ url('themes/wellmedic/images/demo/landing-hero-bg.jpg') }}"
             alt="{{ $item->name }}" />
           </div>
@@ -89,10 +89,11 @@
           <a class="link product-card_link" href="#">
             <div class="card-body product-card_body">
               <div class="product-card_thumbnail">
-                <img
-                  src="https://cdn7.bigcommerce.com/s-u0uja8gg4w/images/stencil/500x650/products/155/668/B000178_use__01779.1519163981.png?c=2"
-                  alt="genoderma lucidium"
-                >
+                <div class="image image--thumbnail fit-height lazy-image"
+                  data-src="https://cdn7.bigcommerce.com/s-u0uja8gg4w/images/stencil/500x650/products/155/668/B000178_use__01779.1519163981.png?c=2"
+                  data-alt="genoderma lucidium"
+                  >
+                </div>
               </div>
               <div class="product-card_description">
                 <span class="caption">{{ $item->categorie}}</span>

@@ -30,7 +30,7 @@
         <div class="row {{ $isOdd ? 'flex-row-reverse' : '' }}">
           <div class="col-md-5">
             <div
-              class="image image--square mb-3 lazy-image"
+              class="image image--square fit-height mb-3 lazy-image"
               data-src="https://cdn7.bigcommerce.com/s-u0uja8gg4w/images/stencil/500x650/products/155/668/B000178_use__01779.1519163981.png?c=2"
             ></div>
           </div>

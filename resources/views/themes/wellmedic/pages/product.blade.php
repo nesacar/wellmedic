@@ -32,9 +32,9 @@
           <h2 class="headline">Ganoderma lucidum</h2>
           <p class="tag-line">Meke gel kapsule na bazi ulja iz spora gljive Ganoderma lucidum</p>
         </div>
-        <div id="product">
+        <div id="product"><!-- cms content -->
 
-        </div>
+        </div><!-- /cms content -->
       </div>
       <div class="col-xl-3 col-lg-4">
         <h2 class="title"><span class="thin">Iskustva</span> korisnika</h2>

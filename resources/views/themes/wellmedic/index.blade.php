@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Wellmedic - @yield('title')</title>
-    <style>
-       {{ include('themes/wellmedic/css/critical.css') }}
-    </style>
+    <link rel="stylesheet" href="{{ url('themes/wellmedic/css/index.css') }}">
 </head>
 <body>
   @include('themes/wellmedic/partials/icons')
@@ -26,8 +24,5 @@
 </script>
 
 <script src="{{ url('themes/wellmedic/js/index.js') }}"></script>
-<noscript>
-  <link rel="stylesheet" href="{{ url('themes/wellmedic/css/index.css') }}">
-</noscript>
 </body>
 </html>

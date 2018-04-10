@@ -25,11 +25,10 @@
 
   &--square {
     padding-top: 100%;
+  }
 
-    img {
-      height: 100%;
-      width: auto;
-    }
+  &--thumbnail {
+    padding-top: 130%;
   }
 
   &--alt {
@@ -51,11 +50,6 @@
 
     @include media-breakpoint-up(lg) {
       padding-top: 46.875%;
-    }
-
-    img {
-      height: 100%;
-      width: auto;
     }
   }
 }

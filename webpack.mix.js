@@ -20,6 +20,3 @@ mix.js('resources/assets/js/app.js', 'public/js')
 mix.sass('resources/assets/sass/app.scss', 'public/css')
   .sass('resources/assets/frontend/sass/index.scss', 'public/themes/wellmedic/css')
   .purgeCss();
-
-mix.sass('resources/assets/frontend/sass/critical.scss', 'public/themes/wellmedic/css/critical.css')
-.purgeCss();

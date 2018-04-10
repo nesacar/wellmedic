@@ -122,3 +122,8 @@
     border-image-slice: 32 0 0;
   }
 }
+
+.fit-height img {
+  height: 100% !important;
+  width: auto !important;
+}

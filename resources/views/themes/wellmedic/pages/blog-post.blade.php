@@ -33,12 +33,9 @@
           data-src="{{ url('themes/wellmedic/images/demo/tile-img.jpg') }}"
           style="background-image: url({{ url('themes/wellmedic/images/demo/tile-img-sm.jpg') }});"
         ></div>
-        <div id="blog-post">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In egestas diam elit, id finibus neque elementum eu. Fusce mattis velit et vestibulum facilisis. In dolor mi, elementum quis ex id, blandit porta justo. Etiam ullamcorper eleifend fermentum. Vestibulum suscipit a sapien feugiat tincidunt. Suspendisse potenti. Nunc aliquet nisl in neque faucibus condimentum. Vestibulum fermentum ac ipsum vitae tempor.</p>
-          <img src="https://images.pexels.com/photos/849810/pexels-photo-849810.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
-          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent consequat dictum luctus. Aliquam eu faucibus tortor, non porta mi. Cras ut maximus turpis, sit amet maximus eros. Sed luctus magna vitae dolor fringilla rutrum. Duis rhoncus tellus leo, a tincidunt augue tristique sed. Donec laoreet, eros sed interdum auctor, massa ipsum feugiat urna, a suscipit lectus risus sit amet dolor. In viverra dignissim urna ac efficitur. Phasellus tristique turpis luctus quam interdum venenatis.</p>
+        <div id="blog-post"><!-- cms content -->
 
-        </div>
+        </div><!-- /cms content -->
 
         <div class="d-flex justify-content-between"><!-- navigation -->
           <div class="go go--prev">
