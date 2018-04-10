@@ -18,7 +18,8 @@ class BoxesController extends Controller
      */
     public function index()
     {
-        $boxes = Box::select('id', 'title', 'link', 'publish', 'created_at')->orderBy('created_at', 'DESC')->paginate(50);
+        $boxes = Box::select('boxes.id', 'boxes.title', 'boxes.link', 'boxes.publish', 'boxes.created_at', 'blocks.title as block')
+            ->join('blocks', 'boxes.block_id', '=', 'blocks.id')->orderBy('boxes.created_at', 'DESC')->paginate(50);
 
         return response()->json([
             'boxes' => $boxes,
@@ -96,6 +97,16 @@ class BoxesController extends Controller
 
         return response()->json([
             'image' => $image
+        ]);
+    }
+
+    public function showIndex($id){
+        $boxes = Box::select('boxes.id', 'boxes.title', 'blocks.title as block', 'boxes.publish', 'boxes.created_at')
+            ->join('blocks', 'boxes.block_id', '=', 'blocks.id')->where('blocks.id', $id)
+            ->orderBy('boxes.created_at', 'DESC')->paginate(50);
+
+        return response()->json([
+            'boxes' => $boxes,
         ]);
     }
 }

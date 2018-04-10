@@ -38,8 +38,8 @@
                 <a href="#" @click="changeShowTemplatesItemActive()">Šаbloni</a>
                 <font-awesome-icon icon="th-large" />
                 <ul>
-                    <li><router-link tag="a" :to="'/users'">Slajder</router-link></li>
-                    <li><router-link tag="a" :to="'/users'">Baner na početnoj</router-link></li>
+                    <li><router-link tag="a" :to="'/blocks'">Šabloni</router-link></li>
+                    <li><router-link tag="a" :to="'/boxes'">Slajderi</router-link></li>
                     <!--
                     <li><a href="#">Roles</a></li>
                     -->

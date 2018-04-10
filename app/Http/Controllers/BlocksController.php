@@ -83,4 +83,12 @@ class BlocksController extends Controller
             'block' => $block
         ]);
     }
+
+    public function lists(){
+        $blocks = Block::where('publish', 1)->orderBy('title', 'ASC')->pluck('title', 'id')->prepend('Bez šablona', 0);
+
+        return response()->json([
+            'blocks' => $blocks
+        ]);
+    }
 }
