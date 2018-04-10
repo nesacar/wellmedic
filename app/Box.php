@@ -26,6 +26,10 @@ class Box extends Model
         return $box->image;
     }
 
+    public static function getSlider(){
+        return self::where('block_id', 1)->where('publish', 1)->get();
+    }
+
     public function block(){
         return $this->belongsTo(Block::class);
     }

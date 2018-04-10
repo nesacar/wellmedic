@@ -26,6 +26,14 @@ class Post extends Model
         return $post->image;
     }
 
+    public static function getLatest($limit=3){
+        return self::published()->take($limit)->get();
+    }
+
+    public function scopePublished($query){
+        $query->where('publish_at', '<=', (new \Carbon\Carbon()))->where('publish', 1)->orderBy('publish_at', 'DESC');
+    }
+
     public function testimonial(){
         return $this->hasMany(Testimonial::class);
     }

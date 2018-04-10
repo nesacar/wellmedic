@@ -1,23 +1,24 @@
 @extends('themes.wellmedic.index')
+
 @section('title')
-  {{ $title }}
+  Veleprodaja medicinskih sredstava
 @endsection
+
 @section('content')
   <div class="section">
     <div class="swiper-container is-loading" data-name="masthead">
       <div class="swiper-wrapper">
 
-        @foreach ($items as $item)
+        @foreach ($sliders as $slider)
         <div class="swiper-slide masthead">
           <div class="image image--masthead fit-height">
-            <img src="{{ url('themes/wellmedic/images/demo/landing-hero-bg.jpg') }}"
-            alt="{{ $item->name }}" />
+            <img src="{{ url($slider->image) }}" alt="{{ $slider->title }}" />
           </div>
           <div class="masthead_wrap">
             <div class="container">
               <div class="masthead_content">
-                <h1 class="headline">{{ $item->name}}</h1>
-                <p>{{ $item->categorie }}</p>
+                <h1 class="headline">{{ $slider->title}}</h1>
+                <p>{{ $slider->subtitle }}</p>
                 <a class="btn btn-primary" href="#">Saznajte više</a>
               </div>
             </div>
@@ -118,8 +119,8 @@
         <div class="article-entry">
           <div
             class="image mb-3 lazy-image"
-            data-src="{{ url('themes/wellmedic/images/demo/tile-img.jpg') }}"
-            style="background-image: url({{ url('themes/wellmedic/images/demo/tile-img-sm.jpg') }});"
+            data-src="{{ url($posts[0]->image) }}"
+            style="background-image: url({{ Imagecache::get($posts[0]->image, 'image')->src }});"
           ></div>
           <div class="caption">30. Decembar 2017</div>
           <h3 class="subheading">Izbor kraljevskih i plemićkih porodica</h3>
@@ -132,8 +133,8 @@
         <div class="article-entry">
           <div
             class="image image--alt mb-3 lazy-image"
-            data-src="{{ url('themes/wellmedic/images/demo/tile-img.jpg') }}"
-            style="background-image: url({{ url('themes/wellmedic/images/demo/tile-img-sm.jpg') }});"
+            data-src="{{ url($posts[1]->image) }}"
+            style="background-image: url({{ Imagecache::get($posts[1]->image, 'alt')->src }});"
           ></div>
           <div class="caption">30. Decembar 2017</div>
           <div class="action-footer">
@@ -144,8 +145,8 @@
         <div class="article-entry">
           <div
             class="image image--alt mb-3 lazy-image"
-            data-src="{{ url('themes/wellmedic/images/demo/tile-img.jpg') }}"
-            style="background-image: url({{ url('themes/wellmedic/images/demo/tile-img-sm.jpg') }});"
+            data-src="{{ url($posts[2]->image) }}"
+            style="background-image: url({{ Imagecache::get($posts[2]->image, 'alt')->src }});"
           ></div>
           <div class="caption">30. Decembar 2017</div>
           <div class="action-footer">

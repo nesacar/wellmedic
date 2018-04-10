@@ -83,6 +83,7 @@ class BoxesController extends Controller
      */
     public function destroy(Box $box)
     {
+        if(!empty($box->image)) File::delete($box->image);
         $box->delete();
 
         return response()->json([
