@@ -34,7 +34,7 @@ class ProductsController extends Controller
     {
         $product = Product::create(request()->all());
         $product->slug = request('slug')? str_slug(request('slug')) : str_slug(request('title'));
-        $product->publish = request('publish')? true : false;
+        $product->publish = request('publish')?: false;
         $product->update();
 
         if(request('image')){ Product::base64UploadImage($product->id, request('image')); }

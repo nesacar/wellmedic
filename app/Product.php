@@ -18,7 +18,7 @@ class Product extends Model
         }
         $exploaded = explode(',', $image);
         $data = base64_decode($exploaded[1]);
-        $filename = $product->slug . '-' . str_random(2) . '-' . $product->id . '.jpg';
+        $filename = $product->slug . '-' . str_random(2) . '-' . $product->id . '.' . self::getExtension($image);
         $path = public_path('storage/uploads/products/');
         file_put_contents($path . $filename, $data);
         $product->image = 'storage/uploads/products/' . $filename;
@@ -28,6 +28,22 @@ class Product extends Model
 
     public function scopePublished($query){
         $query->where('publish_at', '<=', (new \Carbon\Carbon()))->where('publish', 1)->orderBy('publish_at', 'DESC');
+    }
+
+    public static function getExtension($image)
+    {
+        $exploaded = explode(',', $image);
+        return self::getBetween($exploaded[0], '/', ';');
+
+    }
+
+    public static function getBetween($content,$start,$end){
+        $r = explode($start, $content);
+        if (isset($r[1])){
+            $r = explode($end, $r[1]);
+            return $r[0];
+        }
+        return '';
     }
 
     public function collection(){
