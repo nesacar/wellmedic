@@ -5,12 +5,34 @@
         <use xlink:href="#icon_menu">
       </svg>
     </button>
-    <a class="header_logo" href="/">
+    <a class="header_logo" href="{{ url('/') }}">
       <img src="{{ url('themes/wellmedic/images/wellmedic-logo.png') }}" alt="wellmedic logo">
     </a>
 
+    @if(count($links)>0)
     <ul class="nav main-nav">
-      <li class="nav-item {{ Request::is('about') ? 'active' : '' }}">
+      @foreach($links as $link)
+        @if($link->id == 2)
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="{{ url($link->link) }}">{{ $link->title }}</a>
+            @php $subLinks = \App\MenuLink::where('parent', $link->id)->where('publish', 1)->orderBy('order', 'ASC')->get(); @endphp
+            @if(count($subLinks)>0)
+            <div class="dropdown-menu">
+              @foreach($subLinks as $subLink)
+                <a class="dropdown-item nav-link--secondary" href="{{ url($subLink->link) }}">{{ $subLink->title }}</a>
+              @endforeach
+            </div>
+            @endif
+          </li>
+        @else
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url($link->link) }}">{{ $link->title }}</a>
+          </li>
+        @endif
+
+      @endforeach
+      @if(false)
+      <li class="nav-item {{ Request::is('o-nama') ? 'active' : '' }}">
         <a class="nav-link" href="/about">O nama</a>
       </li>
       <li class="nav-item dropdown {{ Request::is('products') ? 'active' : '' }}">
@@ -30,7 +52,9 @@
       <li class="nav-item {{ Request::is('contact') ? 'active' : '' }}">
         <a class="nav-link" href="/contact">Kontakt</a>
       </li>
+      @endif
     </ul>
+    @endif
 
     <div>
       <ul class="social social--desktop">

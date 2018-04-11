@@ -10,9 +10,9 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700&amp;subset=latin-ext" rel="stylesheet">
 </head>
 <body>
-  @include('themes/wellmedic/partials/icons')
-  @include('themes/wellmedic/partials/mobile-nav')
-  @include('themes/wellmedic/partials/header')
+  @include('themes.'.$theme.'.partials.icons')
+  @include('themes.'.$theme.'.partials.mobile-nav')
+  @include('themes.'.$theme.'.partials.header')
 
   <div class="content">
 

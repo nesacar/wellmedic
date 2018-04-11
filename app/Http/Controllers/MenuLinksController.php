@@ -123,9 +123,7 @@ class MenuLinksController extends Controller
     }
 
     public function lists(){
-        $locale = 'sr';
-        app()->setLocale($locale);
-        $links = MenuLink::where('menu_links.publish', 1)->orderBy('menu_links.order', 'ASC')->pluck('menu_links.title', 'menu_links.id')->prepend('Bez nad kategorije', 0);
+        $links = MenuLink::where('menu_links.publish', 1)->where('menu_links.parent', 0)->orderBy('menu_links.order', 'ASC')->pluck('menu_links.title', 'menu_links.id')->prepend('Bez nad kategorije', 0);
 
         return response()->json([
             'links' => $links

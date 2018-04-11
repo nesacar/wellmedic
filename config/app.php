@@ -172,6 +172,7 @@ return [
          */
         Intervention\Image\ImageServiceProvider::class,
         Devfactory\Imagecache\ImagecacheServiceProvider::class,
+        App\Providers\ViewComposerServiseProvider::class,
         /*
          * Application Service Providers...
          */

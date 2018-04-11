@@ -31,21 +31,6 @@ Route::get('o-nama', 'PagesController@about');
 
 Route::post('subscribe', 'PagesController@subscribe');
 
-Route::get('/about', function () {
-  $title = 'O Nama';
-    $theme = \App\Theme::getTheme();
-    $settings = \App\Setting::get();
-  return view('themes.wellmedic.pages.about', compact('title', 'theme', 'settings'));
-});
-
-
-Route::get('/contact', function () {
-  $title = 'Kontakt';
-  $theme = \App\Theme::getTheme();
-  $settings = \App\Setting::get();
-  return view('themes.wellmedic.pages.contact', compact('title', 'theme', 'settings'));
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
