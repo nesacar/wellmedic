@@ -12,31 +12,38 @@
 */
 
 Route::get('/', 'PagesController@index');
+
+Route::get('blog', 'PagesController@blog');
+Route::get('blog/{slug}/{id}', 'PagesController@blogPost');
+
 Route::get('proizvodi', 'PagesController@products');
 Route::get('proizvodi/{slug}/{id}', 'PagesController@product');
+
+Route::get('iskustva', 'PagesController@experiences');
+Route::get('iskustva/{slug}/{id}', 'PagesController@experiencesProduct');
+Route::get('iskustva/{slug}/{id}', 'PagesController@experiencesProduct');
+
+Route::get('kontakt', 'PagesController@contact');
+Route::post('kontakt', 'PagesController@contactForm');
+
+Route::get('o-nama', 'PagesController@about');
+
 
 Route::post('subscribe', 'PagesController@subscribe');
 
 Route::get('/about', function () {
   $title = 'O Nama';
-  return view('themes.wellmedic.pages.about', compact('title'));
+    $theme = \App\Theme::getTheme();
+    $settings = \App\Setting::get();
+  return view('themes.wellmedic.pages.about', compact('title', 'theme', 'settings'));
 });
 
-Route::get('/blog', 'PagesController@blog');
-
-Route::get('/blog/{id}', function () {
-  $title = 'Blog Post';
-  return view('themes.wellmedic.pages.blog-post', compact('title'));
-});
 
 Route::get('/contact', function () {
   $title = 'Kontakt';
-  return view('themes.wellmedic.pages.contact', compact('title'));
-});
-
-Route::get('/experiences', function () {
-  $title = 'Iskustva korisnika';
-  return view('themes.wellmedic.pages.experiences', compact('title'));
+  $theme = \App\Theme::getTheme();
+  $settings = \App\Setting::get();
+  return view('themes.wellmedic.pages.contact', compact('title', 'theme', 'settings'));
 });
 
 Auth::routes();

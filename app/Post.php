@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use File;
+use Illuminate\Support\Facades\Cache;
 
 class Post extends Model
 {
@@ -46,6 +47,23 @@ class Post extends Model
                 }
             })
             ->published()->groupBy('posts.id')->paginate($limit);
+    }
+
+    public static function getNext($post){
+        return Cache::remember('settings', 60*24, function () use ($post) {
+            return self::where('product_id', $post->product_id)->where('publish_at', '<', $post->publish_at)->orderBy('publish_at', 'DESC')->first();
+        });
+    }
+
+    public static function getPrev($post){
+        return Cache::remember('settings', 60*24, function () use ($post) {
+            return self::where('product_id', $post->product_id)->where('publish_at', '<', $post->publish_at)->orderBy('publish_at', 'ASC')->first();
+        });
+    }
+
+    public static function get($post_id){
+        return self::select('posts.id', 'posts.title', 'posts.slug', 'posts.body', 'posts.image', 'posts.publish_at', 'products.slug as product_slug', 'products.id as product_id')
+            ->join('products', 'posts.product_id', '=', 'products.id')->where('posts.id', $post_id)->first();
     }
 
     public function scopePublished($query){

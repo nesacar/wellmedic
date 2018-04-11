@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Block;
 use App\Box;
+use App\Http\Requests\SubmitContactFormRequest;
 use App\Http\Requests\SubscribeNewsletterRequest;
 use App\Post;
 use App\Product;
@@ -54,6 +55,47 @@ class PagesController extends Controller
         $settings = Setting::get();
         $posts = Post::getLatestPaginate();
         return view('themes.'.$theme.'.pages.blog', compact(  'settings', 'theme', 'posts'));
+    }
+
+    public function blogPost($slug, $id){
+        $theme = Theme::getTheme();
+        $settings = Setting::get();
+        $post = Post::get($id);
+        $posts = Post::getLatest(3, $post->product_id);
+        $testimonials = Testimonial::where('product_id', $post->product_id)->published()->take(3)->get();
+        $prev = Post::getPrev($post);
+        $next = Post::getNext($post);
+        return view('themes.'.$theme.'.pages.blog-post', compact(  'settings', 'theme', 'posts', 'post', 'testimonials', 'prev', 'next'));
+    }
+
+    public function experiences(){
+        $theme = Theme::getTheme();
+        $settings = Setting::get();
+        $testimonials = Testimonial::getLatest();
+        return view('themes.'.$theme.'.pages.experiences', compact(  'settings', 'theme', 'testimonials'));
+    }
+
+    public function experiencesProduct($slug, $id){
+        $theme = Theme::getTheme();
+        $settings = Setting::get();
+        $testimonials = Testimonial::getLatest(12, $id);
+        return view('themes.'.$theme.'.pages.experiences', compact(  'settings', 'theme', 'testimonials'));
+    }
+
+    public function contact(){
+        $theme = Theme::getTheme();
+        $settings = Setting::get();
+        return view('themes.'.$theme.'.pages.contact', compact(  'settings', 'theme'));
+    }
+
+    public function contactForm(SubmitContactFormRequest $request){
+        return request()->all();
+    }
+
+    public function about(){
+        $theme = Theme::getTheme();
+        $settings = Setting::get();
+        return view('themes.'.$theme.'.pages.about', compact(  'settings', 'theme'));
     }
 
     public function subscribe(SubscribeNewsletterRequest $request){

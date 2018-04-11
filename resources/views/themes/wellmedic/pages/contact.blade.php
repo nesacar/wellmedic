@@ -1,7 +1,9 @@
-@extends('themes.wellmedic.index')
+@extends('themes.'.$theme.'.index')
+
 @section('title')
-  {{ $title }}
+  Kontakt
 @endsection
+
 @section('content')
   <div class="section position-relative">
     <div class="hero" id="hero">
@@ -141,21 +143,36 @@
   <div class="container section">
     <h2 class="title"><span class="thin">Kontaktirajte</span> nas</h2>
     <div class="contact_form">
-      <form>
-
+      <form method="POST" action="{{ action('PagesController@contactForm') }}">
+        @csrf
         <div class="text-field">
           <input class="text-field_input" type="text" name="name" id="name" />
           <label class="text-field_label" for="name">Ime i prezime</label>
+          @if ($errors->has('name'))
+            <span class="invalid-feedback">
+                <strong style="color: red;">{{ $errors->first('name') }}</strong>
+            </span>
+          @endif
           <div class="text-field_line"></div>
         </div>
         <div class="text-field">
-          <input class="text-field_input" type="text" name="email" id="email" />
+          <input class="text-field_input" type="email" name="email" id="email" />
           <label class="text-field_label" for="email">Vaša e-mail adresa</label>
+          @if ($errors->has('email'))
+            <span class="invalid-feedback">
+                <strong style="color: red;">{{ $errors->first('email') }}</strong>
+            </span>
+          @endif
           <div class="text-field_line"></div>
         </div>
         <div class="text-field text-field--textarea">
           <textarea class="text-field_input" rows="8" name="message" id="message"></textarea>
           <label class="text-field_label" for="message">Poruka</label>
+          @if ($errors->has('message'))
+            <span class="invalid-feedback">
+                <strong style="color: red;">{{ $errors->first('message') }}</strong>
+            </span>
+          @endif
         </div>
 
         <div class="d-flex py-2">

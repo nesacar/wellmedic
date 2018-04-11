@@ -1,7 +1,9 @@
-@extends('themes.wellmedic.index')
+@extends('themes.'.$theme.'.index')
+
 @section('title')
-  {{ $title }}
+  {{ $post->title }}
 @endsection
+
 @section('content')
 
   <div class="section position-relative">
@@ -15,9 +17,9 @@
       <div class="container">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Početna</a></li>
-            <li class="breadcrumb-item"><a href="/blog">Blog</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Title</li>
+            <li class="breadcrumb-item"><a href="{{ url('/') }}">Početna</a></li>
+            <li class="breadcrumb-item"><a href="{{ url('blog') }}">Blog</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ $post->title }}</li>
           </ol>
         </nav>
       </div>
@@ -27,11 +29,11 @@
   <div class="container section">
     <div class="row">
       <div class="col-xl-9 col-lg-8 mb-5">
-        <p class="caption caption--big">31 Decembar 2017</p>
-        <h2 class="subheading subheading--big">Izbor kraljevskih i plemićkih porodica</h2>
+        <p class="caption caption--big">{{ \Carbon\Carbon::parse($post->publish_at)->format('d. M Y.') }}</p>
+        <h2 class="subheading subheading--big">{{ $post->title }}</h2>
         <div class="image lazy-image my-4"
-          data-src="{{ url('themes/wellmedic/images/demo/tile-img.jpg') }}"
-          style="background-image: url({{ url('themes/wellmedic/images/demo/tile-img-sm.jpg') }});"
+          data-src="{{ url($post->image) }}"
+          style="background-image: url({{ Imagecache::get($post->image, 'image')->src }});"
         ></div>
         <div id="blog-post"><!-- cms content -->
 
@@ -64,45 +66,28 @@
 
       </div>
       <aside class="col-xl-3 col-lg-4">
+        @if(count($testimonials)>0)
         <h2 class="title"><span class="thin">Iskustva</span> korisnika</h2>
         <div class="row">
-          @for ($i = 0; $i < 3; $i++)
+          @foreach($testimonials as $testimonial)
           <div class="col-lg-12 col-md-4 mb-3">
-            @component('themes.wellmedic.components.quote', [
-              'body' => 'Rog mladog jelena je na listi tri najveće dragocenosti na severoistoku Kine. Mladi rogovi jelena predstavljaju izuzetno dragocen kineski sirov lek.',
-              'author' => 'Vaca San',
+            @component('themes.'.$theme.'.components.quote', [
+              'body' => $testimonial->body,
+              'author' => $testimonial->author,
               'href' => '#'
             ])
             @endcomponent
           </div>
-          @endfor
+          @endforeach
         </div>
         <div class="text-center py-2">
-          <a href="/experiences" class="btn btn-outline-primary">Ostala iskustva</a>
+          <a href="{{ url('iskustva/'.$post->product_slug.'/'.$post->id) }}" class="btn btn-outline-primary">Ostala iskustva</a>
         </div>
+        @endif
       </aside>
     </div>
   </div>
 
-  <div class="container section">
-    <h2 class="title"><span class="thin">Povezane</span> teme</h2>
-    <div class="row">
-      @for ($i = 0; $i < 3; $i++)
-        <div class="col-lg-4">
-          @component('themes.wellmedic.components.article-entry', [
-            'imageLg' => url('themes/wellmedic/images/demo/tile-img.jpg'),
-            'imageSm' => url('themes/wellmedic/images/demo/tile-img-sm.jpg'),
-            'date' => '30. Decembar 2017',
-            'title' => 'Izbor kraljevskih i plemićkih porodica',
-            'body' => 'Rog mladog jelena je na listi tri najveće dragocenosti na severoistoku Kine. Mladi rogovi jelena predstavljaju izuzetno dragocen kineski sirov lek. Kapsule se pripremaju isključivo iz prve serije duplih rogova koji se sakupljaju u mesecu maju. Ovi prvi, mladi rogovi su osnovni, najhranljiviji i najtraženiji.',
-            'articleURL'=> '#',
-            'commentsURL'=> '#',
-            'count'=> '9'
-          ])
-          @endcomponent
-        </div>
-      @endfor
-    </div>
-  </div>
+  @include('themes.'.$theme.'.partials.products.posts')
 
 @endsection

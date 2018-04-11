@@ -1,7 +1,9 @@
-@extends('themes.wellmedic.index')
+@extends('themes.'.$theme.'.index')
+
 @section('title')
-  {{ $title }}
+  O nama
 @endsection
+
 @section('content')
 
   <div class="section position-relative">
@@ -15,7 +17,7 @@
       <div class="container">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Početna</a></li>
+            <li class="breadcrumb-item"><a href="{{ url('/') }}">Početna</a></li>
             <li class="breadcrumb-item active" aria-current="page">O nama</li>
           </ol>
         </nav>
@@ -39,21 +41,21 @@
           <span class="mr-3">Pratite nas na:</span>
           <ul class="social">
             <li class="social_item">
-              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="pratite nas na facebooku">
+              <a href="{{ $settings->facebook }}" target="_blank" rel="noopener noreferrer" aria-label="pratite nas na facebooku">
                 <svg class="icon" role="presentation">
                   <use xlink:href="#icon_facebook">
                 </svg>
               </a>
             </li>
             <li class="social_item">
-              <a href="https://www.instagram.com/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="pratite nas na instagramu">
+              <a href="{{ $settings->instagram }}" target="_blank" rel="noopener noreferrer" aria-label="pratite nas na instagramu">
                 <svg class="icon" role="presentation">
                   <use xlink:href="#icon_instagram">
                 </svg>
               </a>
             </li>
             <li class="social_item">
-              <a href="https://twitter.com/?lang=en" target="_blank" rel="noopener noreferrer" aria-label="pratite nas na twitteru">
+              <a href="{{ $settings->twitter }}" target="_blank" rel="noopener noreferrer" aria-label="pratite nas na twitteru">
                 <svg class="icon" role="presentation">
                   <use xlink:href="#icon_twitter">
                 </svg>
