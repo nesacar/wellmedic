@@ -6,6 +6,7 @@ $factory->define(App\Post::class, function (Faker $faker) {
     return [
         'user_id' => 1,
         'category_id' => 5,
+        'product_id' => rand(1,3),
         'title' => $faker->sentence(5),
         'slug' => str_slug($faker->sentence(5)),
         'short' => $faker->paragraphs(1, true),

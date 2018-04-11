@@ -24,6 +24,7 @@ class CreateTestimonialRequest extends FormRequest
     public function rules()
     {
         return [
+            'product_id' => 'required|min:1',
             'body' => 'required',
             'author' => 'required',
             'publish_at' => 'required|date',
@@ -33,6 +34,8 @@ class CreateTestimonialRequest extends FormRequest
     public function messages()
     {
         return [
+            'product_id.required' => 'Povezani proizvod je obavezan',
+            'product_id.min' => 'Povezani proizvod je obavezan',
             'body.required' => 'Tekst je obavezan',
             'author.required' => 'Autor je obavezan',
             'publish_at.required' => 'Vreme publikovanja je obavezno',

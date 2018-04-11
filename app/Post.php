@@ -26,12 +26,30 @@ class Post extends Model
         return $post->image;
     }
 
-    public static function getLatest($limit=3){
-        return self::published()->take($limit)->get();
+    public static function getLatest($limit=3, $product_id = false){
+        return self::select('posts.id', 'posts.title', 'posts.slug', 'posts.image', 'posts.publish_at', 'products.slug as product_slug', 'products.id as product_id', \DB::raw('count(testimonials.id) as count'))
+            ->join('products', 'posts.product_id', '=', 'products.id')->join('testimonials', 'products.id', '=', 'testimonials.product_id')
+            ->where(function ($query) use ($product_id){
+                if($product_id){
+                    $query->where('posts.product_id', $product_id);
+                }
+            })
+            ->published()->groupBy('posts.id')->take($limit)->get();
+    }
+
+    public static function getLatestPaginate($limit=8, $product_id = false){
+        return self::select('posts.id', 'posts.title', 'posts.slug', 'posts.image', 'posts.publish_at', 'products.slug as product_slug', 'products.id as product_id', \DB::raw('count(testimonials.id) as count'))
+            ->join('products', 'posts.product_id', '=', 'products.id')->join('testimonials', 'products.id', '=', 'testimonials.product_id')
+            ->where(function ($query) use ($product_id){
+                if($product_id){
+                    $query->where('posts.product_id', $product_id);
+                }
+            })
+            ->published()->groupBy('posts.id')->paginate($limit);
     }
 
     public function scopePublished($query){
-        $query->where('publish_at', '<=', (new \Carbon\Carbon()))->where('publish', 1)->orderBy('publish_at', 'DESC');
+        $query->where('posts.publish_at', '<=', (new \Carbon\Carbon()))->where('posts.publish', 1)->orderBy('posts.publish_at', 'DESC');
     }
 
     public function testimonial(){

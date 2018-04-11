@@ -1,7 +1,9 @@
-@extends('themes.wellmedic.index')
+@extends('themes.'.$theme.'.index')
+
 @section('title')
-  {{ $title }}
+  {{ $product->title }}
 @endsection
+
 @section('content')
 
   <div class="section position-relative">
@@ -15,9 +17,9 @@
       <div class="container">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Početna</a></li>
-            <li class="breadcrumb-item"><a href="/products">Proizvodi</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Name</li>
+            <li class="breadcrumb-item"><a href="{{ url('/') }}">Početna</a></li>
+            <li class="breadcrumb-item"><a href="{{ url('proizvodi') }}">Proizvodi</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ $product->title }}</li>
           </ol>
         </nav>
       </div>
@@ -28,55 +30,38 @@
     <div class="row">
       <div class="col-xl-9 col-lg-8">
         <div class="mb-4">
-          <p class="caption caption--big">Kapsule na bazi ulja iz spora</p>
-          <h2 class="headline">Ganoderma lucidum</h2>
-          <p class="tag-line">Meke gel kapsule na bazi ulja iz spora gljive Ganoderma lucidum</p>
+          <p class="caption caption--big">{{ $product->overTitle }}</p>
+          <h2 class="headline">{{ $product->title }}</h2>
+          <p class="tag-line">{{ $product->subTitle }}</p>
         </div>
         <div id="product"><!-- cms content -->
-
+          {!! $product->body !!}
         </div><!-- /cms content -->
       </div>
 
       <aside class="col-xl-3 col-lg-4">
+        @if(count($testimonials)>0)
         <h2 class="title"><span class="thin">Iskustva</span> korisnika</h2>
         <div class="row">
-          @for ($i = 0; $i < 3; $i++)
+          @foreach($testimonials as $testimonial)
           <div class="col-lg-12 col-md-4 mb-3">
-            @component('themes.wellmedic.components.quote', [
-              'body' => 'Rog mladog jelena je na listi tri najveće dragocenosti na severoistoku Kine. Mladi rogovi jelena predstavljaju izuzetno dragocen kineski sirov lek.',
-              'author' => 'Vaca San',
+            @component('themes.'.$theme.'.components.quote', [
+              'body' => $testimonial->body,
+              'author' => $testimonial->author,
               'href' => '#'
             ])
             @endcomponent
           </div>
-          @endfor
+          @endforeach
         </div>
         <div class="text-center py-2">
-          <a href="/experiences" class="btn btn-outline-primary">Ostala iskustva</a>
+          <a href="{{ url('iskustva/'.$product->slug.'/'.$product->id) }}" class="btn btn-outline-primary">Ostala iskustva</a>
         </div>
+        @endif
       </aside>
     </div>
   </div>
 
-  <div class="container section">
-    <h2 class="title"><span class="thin">Naš</span> blog</h2>
-    <div class="row">
-      @for ($i = 0; $i < 3; $i++)
-        <div class="col-lg-4">
-          @component('themes.wellmedic.components.article-entry', [
-            'imageLg' => url('themes/wellmedic/images/demo/tile-img.jpg'),
-            'imageSm' => url('themes/wellmedic/images/demo/tile-img-sm.jpg'),
-            'date' => '30. Decembar 2017',
-            'title' => 'Izbor kraljevskih i plemićkih porodica',
-            'body' => 'Rog mladog jelena je na listi tri najveće dragocenosti na severoistoku Kine. Mladi rogovi jelena predstavljaju izuzetno dragocen kineski sirov lek. Kapsule se pripremaju isključivo iz prve serije duplih rogova koji se sakupljaju u mesecu maju. Ovi prvi, mladi rogovi su osnovni, najhranljiviji i najtraženiji.',
-            'articleURL'=> '#',
-            'commentsURL'=> '#',
-            'count'=> '9'
-          ])
-          @endcomponent
-        </div>
-      @endfor
-    </div>
-  </div>
+  @include('themes.'.$theme.'.partials.products.posts')
 
 @endsection

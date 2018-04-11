@@ -1,7 +1,9 @@
-@extends('themes.wellmedic.index')
+@extends('themes.'.$theme.'.index')
+
 @section('title')
-  {{ $title }}
+  Blog
 @endsection
+
 @section('content')
   <div class="section position-relative">
     <div class="hero" id="hero">
@@ -14,7 +16,7 @@
       <div class="container">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Početna</a></li>
+            <li class="breadcrumb-item"><a href="{{ url('/') }}">Početna</a></li>
             <li class="breadcrumb-item active" aria-current="page">Blog</li>
           </ol>
         </nav>
@@ -24,53 +26,29 @@
 
   <div class="section container">
     <div class="row">
-      @for ($i = 0; $i < 8; $i++)
-        <div class="mb-3 {{ ($i < 2) ? 'col-lg-6' : 'col-lg-4' }}">
-            @component('themes.wellmedic.components.article-entry', [
-              'imageLg' => url('themes/wellmedic/images/demo/tile-img.jpg'),
-              'imageSm' => url('themes/wellmedic/images/demo/tile-img-sm.jpg'),
-              'date' => '30. Decembar 2017',
-              'title' => 'Izbor kraljevskih i plemićkih porodica',
-              'body' => 'Rog mladog jelena je na listi tri najveće dragocenosti na severoistoku Kine. Mladi rogovi jelena predstavljaju izuzetno dragocen kineski sirov lek. Kapsule se pripremaju isključivo iz prve serije duplih rogova koji se sakupljaju u mesecu maju. Ovi prvi, mladi rogovi su osnovni, najhranljiviji i najtraženiji.',
-              'articleURL'=> '#',
-              'commentsURL'=> '#',
-              'count'=> '9'
-            ])
-            @endcomponent
-        </div>
-      @endfor
+      @if(count($posts)>0)
+        @foreach($posts as $i => $post)
+          <div class="mb-3 {{ ($i < 2) ? 'col-lg-6' : 'col-lg-4' }}">
+              @component('themes.'.$theme.'.components.article-entry', [
+                'imageLg' => url($post->image),
+                'imageSm' => url(Imagecache::get($post->image, 'square')->src),
+                'date' => \Carbon\Carbon::parse($post->publish_at)->format('d. M Y.'),
+                'title' => $post->title,
+                'body' => $post->body,
+                'articleURL'=> url('blog/'.$post->slug.'/'.$post->id),
+                'commentsURL'=> url('iskustva/'.$post->product_slug.'/'.$post->product_id),
+                'count'=> $post->count
+              ])
+              @endcomponent
+          </div>
+        @endforeach
+      @endif
     </div>
   </div>
 
   <div class="container section" id="pagination">
     <nav aria-label="paginacija">
-      <ul class="pagination">
-        <li class="page-item disabled">
-          <a class="page-link arrow arrow--prev" aria-label="Predhodna strana" href="#">
-            <span class="sr-only">Predhodna</span>
-            <svg class="icon">
-              <use xlink:href="#icon_arrow" />
-            </svg>
-          </a>
-        </li>
-        <li class="page-item active">
-          <a class="page-link" href="#">1</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">2</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">3</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link arrow arrow--next" aria-label="Sledeća strana" href="#">
-            <span class="sr-only">Sledeća</span>
-            <svg class="icon">
-              <use xlink:href="#icon_arrow" />
-            </svg>
-          </a>
-        </li>
-      </ul>
+      {{ $posts->links() }}
     </nav>
   </div>
 @endsection

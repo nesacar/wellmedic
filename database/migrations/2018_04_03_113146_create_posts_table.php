@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
             $table->integer('category_id')->unsigned()->index();
+            $table->integer('product_id')->nullable()->index();
             $table->string('title');
             $table->string('slug');
             $table->text('short');

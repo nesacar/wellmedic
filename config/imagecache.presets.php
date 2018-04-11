@@ -37,5 +37,10 @@ return array(
      'height' => 8,
      'method' => 'crop',
   ),
+  'square' => array(
+      'width' => 8,
+      'height' => 8,
+      'method' => 'crop',
+  ),
 
 );

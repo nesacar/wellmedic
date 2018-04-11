@@ -13,7 +13,8 @@
         <h3 class="subheading newsletter_title">Prijavite se za naš Newsletter</h3>
         <p class="primary">Najnovije vesti i specijalne ponude u vašem e-mail sandučetu.</p>
         <div class="d-flex justify-content-center py-3">
-          <form class="newsletter_form">
+          <form class="newsletter_form" method="POST" action="{{ action('PagesController@subscribe') }}">
+            @csrf
             <input type="text" class="form-control newsletter_input" placeholder="Vaš e-mail" aria-label="vaša e-mail adresa">
             <button class="btn btn-primary newsletter_btn" type="submit">Prijavi se</button>
           </form>
@@ -26,7 +27,7 @@
         <div class="col-xl-3 col-lg-6 col-md-12 footer-column-offset-fix">
           <div class="footer_company">
             <img src="{{ url('themes/wellmedic/images/wellmedic-logo.png') }}" alt="wellmedic logo">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ante mi, pellentesque vel turpis sed, vehicula bibendum mauris.</p>
+            <p>{!! $settings->footer !!}</p>
           </div>
         </div>
         <div class="col-xl-5 col-lg-6">

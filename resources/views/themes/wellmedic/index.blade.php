@@ -20,7 +20,7 @@
 
   </div>
 
-  @include('themes/wellmedic/partials/footer')
+  @include('themes.'.$theme.'.partials.footer')
 
 <script>
   window.app_url = "{{ url('/') }}";
