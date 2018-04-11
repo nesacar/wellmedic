@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'PagesController@index');
+Route::post('subscribe', 'PagesController@subscribe');
 
 Route::get('/products', function () {
   $items = [

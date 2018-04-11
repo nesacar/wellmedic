@@ -26,6 +26,10 @@ class Product extends Model
         return $product->image;
     }
 
+    public function scopePublished($query){
+        $query->where('publish_at', '<=', (new \Carbon\Carbon()))->where('publish', 1)->orderBy('publish_at', 'DESC');
+    }
+
     public function collection(){
         return $this->belongsTo(Collection::class);
     }

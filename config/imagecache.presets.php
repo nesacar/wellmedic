@@ -32,5 +32,10 @@ return array(
     'height' => 8,
     'method' => 'crop',
   ),
+  'banner' => array(
+     'width' => 19.8,
+     'height' => 8,
+     'method' => 'crop',
+  ),
 
 );
