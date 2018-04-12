@@ -67,6 +67,10 @@ export const router = new VueRouter({
         { path: "/boxes", component: require('./components/boxes/BoxList.vue'), meta: { forAuth: true } },
         { path: "/boxes/create", component: require('./components/boxes/BoxCreate.vue'), meta: { forAuth: true } },
         { path: "/boxes/:id/edit", component: require('./components/boxes/BoxEdit.vue'), meta: { forAuth: true } },
+
+        { path: "/newsletters", component: require('./components/newsletters/NewsletterList.vue'), meta: { forAuth: true } },
+        { path: "/newsletters/create", component: require('./components/newsletters/NewsletterCreate.vue'), meta: { forAuth: true } },
+        { path: "/newsletters/:id/edit", component: require('./components/newsletters/NewsletterEdit.vue'), meta: { forAuth: true } },
     ],
 
     linkActiveClass: 'active'
