@@ -6,6 +6,8 @@ use App\Block;
 use App\Box;
 use App\Http\Requests\SubmitContactFormRequest;
 use App\Http\Requests\SubscribeNewsletterRequest;
+use App\Mail\ContactFormMail;
+use App\Message;
 use App\Post;
 use App\Product;
 use App\Setting;
@@ -137,7 +139,14 @@ class PagesController extends Controller
      * @return array
      */
     public function contactForm(SubmitContactFormRequest $request){
-        return request()->all();
+        $message = new Message();
+        $message->name = request('name');
+        $message->email = request('email');
+        $message->message = request('message');
+
+        \Mail::to('nebojsart1409@yahoo.com')->send(new ContactFormMail($message));
+
+        return redirect('/');
     }
 
     /**
