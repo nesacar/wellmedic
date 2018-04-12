@@ -103,11 +103,8 @@
                                     <small class="form-text text-muted" v-if="error != null && error.keywords">{{ error.keywords[0] }}</small>
                                 </div>
                                 <div class="form-group">
-                                    <label>Opis</label>
-                                    <ckeditor
-                                            v-model="setting.desc"
-                                            :config="config">
-                                    </ckeditor>
+                                    <label for="desc">Opis</label>
+                                    <textarea name="desc" id="desc" class="form-control" v-model="setting.desc"></textarea>
                                     <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>
                                 </div>
                                 <div class="form-group">

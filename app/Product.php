@@ -26,10 +26,6 @@ class Product extends Model
         return $product->image;
     }
 
-    public function scopePublished($query){
-        $query->where('publish_at', '<=', (new \Carbon\Carbon()))->where('publish', 1)->orderBy('publish_at', 'DESC');
-    }
-
     public static function getExtension($image)
     {
         $exploaded = explode(',', $image);
@@ -44,6 +40,15 @@ class Product extends Model
             return $r[0];
         }
         return '';
+    }
+
+    public static function getAll(){
+        return self::select('products.*', \DB::raw('count(testimonials.id) as count'))
+            ->join('testimonials', 'products.id', '=', 'testimonials.product_id')->published()->groupBy('products.id')->get();
+    }
+
+    public function scopePublished($query){
+        $query->where('products.publish_at', '<=', (new \Carbon\Carbon()))->where('products.publish', 1)->orderBy('products.publish_at', 'DESC');
     }
 
     public function collection(){

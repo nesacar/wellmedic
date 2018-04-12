@@ -1,7 +1,37 @@
 @extends('themes.'.$theme.'.index')
 
 @section('title')
-  O nama
+  Wellmedic - O nama
+@endsection
+
+@section('seo_social_stuff')
+  <meta name="description" content="{!! $settings->desc !!}" />
+  <meta name="keywords" content="{{ $settings->keywords }}" />
+  <meta name="author" content="Mini STUDIO Publishing Group">
+
+  <!-- Facebok Open Graph -->
+  <meta property="og:title" content="Wellmedic - O nama"/>
+  <meta property="og:image" content="{{ url('themes/'.$theme.'/img/wellmedic-social-share.jpg') }}"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="{{ url('o-nama') }}"/>
+  <meta property="og:site_name" content="{{ $settings->title }}"/>
+  <meta property="og:description" content="{!! $settings->desc !!}" />
+  <!-- Facebok Open Graph Kraj-->
+
+  <!-- ITEM za GOOGLE + -->
+  <meta itemprop="name" content="Wellmedic - O nama" />
+  <meta itemprop="description" content="{!! $settings->desc !!}" />
+  <meta itemprop="image" content="{{ url('themes/'.$theme.'/img/wellmedic-social-share.jpg') }}" />
+  <!-- ITEM za GOOGLE + END -->
+
+  <!-- ITEM Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wellmedic">
+  <meta name="twitter:creator" content="@wellmedic">
+  <meta name="twitter:title" content="Wellmedic - O nama">
+  <meta name="twitter:description" content="{!! $settings->desc !!}">
+  <meta name="twitter:image" content="{{ url('themes/'.$theme.'/img/wellmedic-social-share.jpg') }}">
+  <!-- ITEM Twitter END -->
 @endsection
 
 @section('content')

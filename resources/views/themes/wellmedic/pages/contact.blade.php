@@ -1,7 +1,37 @@
 @extends('themes.'.$theme.'.index')
 
 @section('title')
-  Kontakt
+  Wellmedic - Kontakt
+@endsection
+
+@section('seo_social_stuff')
+  <meta name="description" content="{!! $settings->desc !!}" />
+  <meta name="keywords" content="{{ $settings->keywords }}" />
+  <meta name="author" content="Mini STUDIO Publishing Group">
+
+  <!-- Facebok Open Graph -->
+  <meta property="og:title" content="Wellmedic - Kontakt"/>
+  <meta property="og:image" content="{{ url('themes/'.$theme.'/img/wellmedic-social-share.jpg') }}"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="{{ url('kontakt') }}"/>
+  <meta property="og:site_name" content="{{ $settings->title }}"/>
+  <meta property="og:description" content="{!! $settings->desc !!}" />
+  <!-- Facebok Open Graph Kraj-->
+
+  <!-- ITEM za GOOGLE + -->
+  <meta itemprop="name" content="Wellmedic - Kontakt" />
+  <meta itemprop="description" content="{!! $settings->desc !!}" />
+  <meta itemprop="image" content="{{ url('themes/'.$theme.'/img/wellmedic-social-share.jpg') }}" />
+  <!-- ITEM za GOOGLE + END -->
+
+  <!-- ITEM Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wellmedic">
+  <meta name="twitter:creator" content="@wellmedic">
+  <meta name="twitter:title" content="Wellmedic - Kontakt">
+  <meta name="twitter:description" content="{!! $settings->desc !!}">
+  <meta name="twitter:image" content="{{ url('themes/'.$theme.'/img/wellmedic-social-share.jpg') }}">
+  <!-- ITEM Twitter END -->
 @endsection
 
 @section('content')
@@ -66,8 +96,8 @@
               </svg>
             </div>
             <b>Mobile</b>
-            <div>+381 60 133 8227</div>
-            <div>+381 61 285 5652</div>
+            <div><a href="tel:+381601338227">+381 60 133 8227</a></div>
+            <div><a href="tel:+381612855652">+381 61 285 5652</a></div>
           </div>
         </div>
       </div>
@@ -101,8 +131,8 @@
               </svg>
             </div>
             <b>Mobile</b>
-            <div>+381 60 033 8227</div>
-            <div>+381 11 403 9778</div>
+            <div><a href="tel:+381600338227">+381600338227</a></div>
+            <div><a href="tel:+381114039778">+381 11 403 9778</a></div>
           </div>
         </div>
       </div>

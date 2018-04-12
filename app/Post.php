@@ -28,7 +28,7 @@ class Post extends Model
     }
 
     public static function getLatest($limit=3, $product_id = false){
-        return self::select('posts.id', 'posts.title', 'posts.slug', 'posts.image', 'posts.publish_at', 'products.slug as product_slug', 'products.id as product_id', \DB::raw('count(testimonials.id) as count'))
+        return self::select('posts.id', 'posts.title', 'posts.slug', 'posts.short', 'posts.image', 'posts.publish_at', 'products.slug as product_slug', 'products.id as product_id', \DB::raw('count(testimonials.id) as count'))
             ->join('products', 'posts.product_id', '=', 'products.id')->join('testimonials', 'products.id', '=', 'testimonials.product_id')
             ->where(function ($query) use ($product_id){
                 if($product_id){
@@ -39,7 +39,7 @@ class Post extends Model
     }
 
     public static function getLatestPaginate($limit=8, $product_id = false){
-        return self::select('posts.id', 'posts.title', 'posts.slug', 'posts.image', 'posts.publish_at', 'products.slug as product_slug', 'products.id as product_id', \DB::raw('count(testimonials.id) as count'))
+        return self::select('posts.id', 'posts.title', 'posts.slug', 'posts.short', 'posts.image', 'posts.publish_at', 'products.slug as product_slug', 'products.id as product_id', \DB::raw('count(testimonials.id) as count'))
             ->join('products', 'posts.product_id', '=', 'products.id')->join('testimonials', 'products.id', '=', 'testimonials.product_id')
             ->where(function ($query) use ($product_id){
                 if($product_id){

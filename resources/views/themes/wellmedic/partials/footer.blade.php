@@ -88,12 +88,12 @@
                   </svg>
                 </div>
                 <b>Mobile</b>
-                <div>+381 60 133 8227</div>
-                <div>+381 61 285 5652</div>
+                <div><a href="tel:+381601338227">+381 60 133 8227</a></div>
+                <div><a href="tel:+381612855652">+381 61 285 5652</a></div>
               </div>
               <div class="contact_cell">
-                <div>+381 60 033 8227</div>
-                <div>+381 11 403 9778</div>
+                <div><a href="tel:+381600338227">+381 60 033 8227</a></div>
+                <div><a href="tel:+381114039778">+381 11 403 9778</a></div>
               </div>
             </div>
             <div class="col-6 contact_column">

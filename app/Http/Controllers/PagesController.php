@@ -32,15 +32,27 @@ class PagesController extends Controller
         return view('themes.'.$theme.'.pages.home', compact( 'sliders', 'settings', 'theme', 'posts', 'products', 'testimonials', 'banner'));
     }
 
+    /**
+     * Products page
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function products(){
         $theme = Theme::getTheme();
         $settings = Setting::get();
         $posts = Post::getLatest(3);
-        $products = Product::published()->take(3)->get();
+        $products = Product::getAll();
         $testimonials = Testimonial::published()->take(5)->get();
         return view('themes.'.$theme.'.pages.products', compact(  'settings', 'theme', 'posts', 'products', 'testimonials'));
     }
 
+    /**
+     * Product page
+     *
+     * @param $slug
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function product($slug, $id){
         $theme = Theme::getTheme();
         $settings = Setting::get();
@@ -50,6 +62,11 @@ class PagesController extends Controller
         return view('themes.'.$theme.'.pages.product', compact(  'settings', 'theme', 'posts', 'product', 'testimonials'));
     }
 
+    /**
+     * Blog page
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function blog(){
         $theme = Theme::getTheme();
         $settings = Setting::get();
@@ -57,6 +74,13 @@ class PagesController extends Controller
         return view('themes.'.$theme.'.pages.blog', compact(  'settings', 'theme', 'posts'));
     }
 
+    /**
+     * Blog post page
+     *
+     * @param $slug
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function blogPost($slug, $id){
         $theme = Theme::getTheme();
         $settings = Setting::get();
@@ -68,6 +92,11 @@ class PagesController extends Controller
         return view('themes.'.$theme.'.pages.blog-post', compact(  'settings', 'theme', 'posts', 'post', 'testimonials', 'prev', 'next'));
     }
 
+    /**
+     * Testimonials page
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function experiences(){
         $theme = Theme::getTheme();
         $settings = Setting::get();
@@ -75,29 +104,59 @@ class PagesController extends Controller
         return view('themes.'.$theme.'.pages.experiences', compact(  'settings', 'theme', 'testimonials'));
     }
 
+    /**
+     * Testimonials related to product
+     *
+     * @param $slug
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function experiencesProduct($slug, $id){
         $theme = Theme::getTheme();
         $settings = Setting::get();
         $testimonials = Testimonial::getLatest(12, $id);
-        return view('themes.'.$theme.'.pages.experiences', compact(  'settings', 'theme', 'testimonials'));
+        $product = Product::find($id);
+        return view('themes.'.$theme.'.pages.experience', compact(  'settings', 'theme', 'testimonials', 'product'));
     }
 
+    /**
+     * Contact page
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function contact(){
         $theme = Theme::getTheme();
         $settings = Setting::get();
         return view('themes.'.$theme.'.pages.contact', compact(  'settings', 'theme'));
     }
 
+    /**
+     * Contact form request
+     *
+     * @param SubmitContactFormRequest $request
+     * @return array
+     */
     public function contactForm(SubmitContactFormRequest $request){
         return request()->all();
     }
 
+    /**
+     * About us page
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function about(){
         $theme = Theme::getTheme();
         $settings = Setting::get();
         return view('themes.'.$theme.'.pages.about', compact(  'settings', 'theme'));
     }
 
+    /**
+     * Subscribe to Newsletter request
+     *
+     * @param SubscribeNewsletterRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function subscribe(SubscribeNewsletterRequest $request){
         $subscriber = new Subscriber();
         $subscriber->email = request('email');

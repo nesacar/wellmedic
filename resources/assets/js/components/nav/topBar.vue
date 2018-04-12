@@ -77,8 +77,6 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink4">
                             <router-link class="dropdown-item" tag="a" :to="'/users/change-password'" v-if="user">{{ user.name }}</router-link>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
                             <div class="dropdown-divider"></div>
                             <router-link tag="a" :to="'/logout'" class="dropdown-item" href="#">Odjava</router-link>
                         </div>

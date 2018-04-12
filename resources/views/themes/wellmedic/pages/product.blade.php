@@ -1,14 +1,44 @@
 @extends('themes.'.$theme.'.index')
 
 @section('title')
-  {{ $product->title }}
+  {{ $product->title }} - Wellmedic
+@endsection
+
+@section('seo_social_stuff')
+  <meta name="description" content="{{ $product->title }} - Wellmedic" />
+  <meta name="keywords" content="{{ $settings->keywords }}" />
+  <meta name="author" content="Mini STUDIO Publishing Group">
+
+  <!-- Facebok Open Graph -->
+  <meta property="og:title" content="{{ $product->title }}"/>
+  <meta property="og:image" content="{{ url($product->image) }}"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="{{ url('proizvodi/'.$product->slug.'/'.$product->id) }}"/>
+  <meta property="og:site_name" content="{{ $settings->title }}"/>
+  <meta property="og:description" content="{!! $settings->desc !!}" />
+  <!-- Facebok Open Graph Kraj-->
+
+  <!-- ITEM za GOOGLE + -->
+  <meta itemprop="name" content="{{ $product->title }} - Wellmedic" />
+  <meta itemprop="description" content="{{ $product->short }}" />
+  <meta itemprop="image" content="{{ url($product->image) }}" />
+  <!-- ITEM za GOOGLE + END -->
+
+  <!-- ITEM Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wellmedic">
+  <meta name="twitter:creator" content="@wellmedic">
+  <meta name="twitter:title" content="{{ $product->title }} - Wellmedic">
+  <meta name="twitter:description" content="{{ $product->short }}">
+  <meta name="twitter:image" content="{{ url($product->image) }}">
+  <!-- ITEM Twitter END -->
 @endsection
 
 @section('content')
 
   <div class="section position-relative">
     <div class="hero" id="hero">
-      <h1 class="title hero_title">Proizvodi</h1>
+      <h2 class="title hero_title">Proizvodi</h2>
       <figure class="plant plant--spoon">
         <img src="{{ url('themes/wellmedic/images/demo/spoon.png') }}" alt="drvena kašika">
       </figure>
@@ -31,7 +61,7 @@
       <div class="col-xl-9 col-lg-8">
         <div class="mb-4">
           <p class="caption caption--big">{{ $product->overTitle }}</p>
-          <h2 class="headline">{{ $product->title }}</h2>
+          <h1 class="headline">{{ $product->title }}</h1>
           <p class="tag-line">{{ $product->subTitle }}</p>
         </div>
         <div id="product"><!-- cms content -->

@@ -12,7 +12,7 @@
                 ></div>
                 <div class="caption">{{ \Carbon\Carbon::parse($posts[0]->publish_at)->format('d. M Y.') }}</div>
                 <h3 class="subheading">{{ $posts[0]->title }}</h3>
-                {!! $posts[0]->short !!}
+                <p>{{ $posts[0]->short }}</p>
                 <a href="{{ url('blog/'.$posts[0]->slug.'/'.$posts[0]->id) }}" class="btn btn-outline-primary">Pročitaj više</a>
             </div>
         </div>

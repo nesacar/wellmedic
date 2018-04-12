@@ -13,7 +13,7 @@
     <ul class="nav main-nav">
       @foreach($links as $link)
         @if($link->id == 2)
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown {{ Request::is($link->link) ? 'active' : '' }}">
             <a class="nav-link" href="{{ url($link->link) }}">{{ $link->title }}</a>
             @php $subLinks = \App\MenuLink::where('parent', $link->id)->where('publish', 1)->orderBy('order', 'ASC')->get(); @endphp
             @if(count($subLinks)>0)
@@ -25,34 +25,12 @@
             @endif
           </li>
         @else
-          <li class="nav-item">
+          <li class="nav-item {{ Request::is($link->link) ? 'active' : '' }}">
             <a class="nav-link" href="{{ url($link->link) }}">{{ $link->title }}</a>
           </li>
         @endif
 
       @endforeach
-      @if(false)
-      <li class="nav-item {{ Request::is('o-nama') ? 'active' : '' }}">
-        <a class="nav-link" href="/about">O nama</a>
-      </li>
-      <li class="nav-item dropdown {{ Request::is('products') ? 'active' : '' }}">
-        <a class="nav-link" href="/products">Proizvodi</a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item nav-link--secondary" href="/products/id_1">Ganoderma lucidum</a>
-          <a class="dropdown-item nav-link--secondary" href="/products/id_2">Jelenski rog</a>
-          <a class="dropdown-item nav-link--secondary" href="/products/id_3">Pasta za zube</a>
-        </div>
-      </li>
-      <li class="nav-item {{ Request::is('blog') ? 'active' : '' }}">
-        <a class="nav-link" href="/blog">Blog</a>
-      </li>
-      <li class="nav-item {{ Request::is('experiences') ? 'active' : '' }}">
-        <a class="nav-link" href="/experiences">Iskustva</a>
-      </li>
-      <li class="nav-item {{ Request::is('contact') ? 'active' : '' }}">
-        <a class="nav-link" href="/contact">Kontakt</a>
-      </li>
-      @endif
     </ul>
     @endif
 

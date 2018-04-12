@@ -18,11 +18,11 @@
                             <p>{{ $product->short }}</p>
                             <div class="action-footer">
                                 <a class="btn btn-primary" href="{{ url('proizvodi/'.$product->slug.'/'.$product->id) }}">Saznajte više</a>
-                                <a href="#" title="iskustva" class="action-footer_comments">
+                                <a href="{{ url('iskustva/'.$product->slug.'/'.$product->id) }}" title="iskustva" class="action-footer_comments">
                                     <svg class="icon" role="presentation">
                                         <use xlink:href="#icon_comment" />
                                     </svg>
-                                    <span class="action-footer_comments_desc product_comments-desc">Iskustva naših korisnika</span>18
+                                    <span class="action-footer_comments_desc product_comments-desc">Iskustva naših korisnika</span>{{ $product->count }}
                                 </a>
                             </div>
                         </div>

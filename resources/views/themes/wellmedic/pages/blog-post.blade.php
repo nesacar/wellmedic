@@ -1,7 +1,37 @@
 @extends('themes.'.$theme.'.index')
 
 @section('title')
-  {{ $post->title }}
+  Wellmedic - {{ $post->title }}
+@endsection
+
+@section('seo_social_stuff')
+  <meta name="description" content="{{ $post->short }}" />
+  <meta name="keywords" content="{{ $settings->keywords }}" />
+  <meta name="author" content="Mini STUDIO Publishing Group">
+
+  <!-- Facebok Open Graph -->
+  <meta property="og:title" content="Wellmedic - {{ $post->title }}"/>
+  <meta property="og:image" content="{{ url($post->image) }}"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="{{ url('blog/'.$post->slug.'/'.$post->id) }}"/>
+  <meta property="og:site_name" content="{{ $post->title }}"/>
+  <meta property="og:description" content="{{ $post->short }}" />
+  <!-- Facebok Open Graph Kraj-->
+
+  <!-- ITEM za GOOGLE + -->
+  <meta itemprop="name" content="Wellmedic - {{ $post->title }}" />
+  <meta itemprop="description" content="{{ $post->short }}" />
+  <meta itemprop="image" content="{{ url($post->image) }}" />
+  <!-- ITEM za GOOGLE + END -->
+
+  <!-- ITEM Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wellmedic">
+  <meta name="twitter:creator" content="@wellmedic">
+  <meta name="twitter:title" content="Wellmedic - {{ $post->title }}">
+  <meta name="twitter:description" content="{{ $post->short }}">
+  <meta name="twitter:image" content="{{ url($post->image) }}">
+  <!-- ITEM Twitter END -->
 @endsection
 
 @section('content')

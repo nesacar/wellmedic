@@ -33,7 +33,7 @@
         @if(count($links)>0)
           @foreach($links as $link)
             @if($link->id == 2)
-              <li class="nav-item accordion {{ Request::is('products') ? 'active' : '' }}">
+              <li class="nav-item accordion {{ Request::is($link->link) ? 'active' : '' }}">
                 <div class="accordion_tab">
                   <a class="nav-link" href="{{ url($link->link) }}">{{ $link->title }}</a>
                   <button class="btn-icon toggler js-dropdown-toggle" data-target="#jsSubmenu" aria-controls="jsSubmenu" aria-expanded="false">
@@ -61,43 +61,6 @@
               </li>
             @endif
           @endforeach
-        @if(false)
-        <li class="nav-item {{ Request::is('about') ? 'active' : '' }}">
-          <a class="nav-link" href="/about">O nama</a>
-        </li>
-        <li class="nav-item accordion {{ Request::is('products') ? 'active' : '' }}">
-          <div class="accordion_tab">
-            <a class="nav-link" href="/products">Proizvodi</a>
-            <button class="btn-icon toggler js-dropdown-toggle" data-target="#jsSubmenu" aria-controls="jsSubmenu" aria-expanded="false">
-              <svg class="icon">
-                <use xlink:href="#icon_arrow" />
-              </svg>
-            </button>
-          </div>
-          <div class="accordion_pane" id="jsSubmenu">
-            <div class="accordion_container">
-              <div class="nav-item">
-                <a href="/products/id_1" class="nav-link nav-link--secondary">Genoderma lucidium</a>
-              </div>
-              <div class="nav-item">
-                <a href="/products/id_2" class="nav-link nav-link--secondary">Jelenski rog</a>
-              </div>
-              <div class="nav-item">
-                <a href="/products/id_3" class="nav-link nav-link--secondary">Pasta za zube</a>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="nav-item {{ Request::is('blog') ? 'active' : '' }}">
-          <a class="nav-link" href="/blog">Blog</a>
-        </li>
-        <li class="nav-item {{ Request::is('experiences') ? 'active' : '' }}">
-          <a class="nav-link" href="/experiences">Iskustva</a>
-        </li>
-        <li class="nav-item {{ Request::is('contact') ? 'active' : '' }}">
-          <a class="nav-link" href="/contact">Kontakt</a>
-        </li>
-          @endif
         @endif
       </ul>
       </div>

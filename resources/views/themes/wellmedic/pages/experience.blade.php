@@ -1,7 +1,7 @@
 @extends('themes.'.$theme.'.index')
 
 @section('title')
-  Wellmedic - Iskustva korinsika
+  Wellmedic - Iskustva korinsika vezana za proizvod {{ $product->title }}
 @endsection
 
 @section('seo_social_stuff')
@@ -10,27 +10,27 @@
   <meta name="author" content="Mini STUDIO Publishing Group">
 
   <!-- Facebok Open Graph -->
-  <meta property="og:title" content="Wellmedic - Iskustva korinsika"/>
-  <meta property="og:image" content="{{ url('themes/'.$theme.'/img/wellmedic-social-share.jpg') }}"/>
+  <meta property="og:title" content="Wellmedic - Iskustva korinsika vezana za proizvod {{ $product->title }}"/>
+  <meta property="og:image" content="{{ url($product->image) }}"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:url" content="{{ url('iskustva') }}"/>
+  <meta property="og:url" content="{{ url('iskustva/'.$product->slug.'/'.$product->id) }}"/>
   <meta property="og:site_name" content="{{ $settings->title }}"/>
   <meta property="og:description" content="{!! $settings->desc !!}" />
   <!-- Facebok Open Graph Kraj-->
 
   <!-- ITEM za GOOGLE + -->
-  <meta itemprop="name" content="Wellmedic - Iskustva korinsika" />
+  <meta itemprop="name" content="Wellmedic - Iskustva korinsika vezana za proizvod {{ $product->title }}" />
   <meta itemprop="description" content="{!! $settings->desc !!}" />
-  <meta itemprop="image" content="{{ url('themes/'.$theme.'/img/wellmedic-social-share.jpg') }}" />
+  <meta itemprop="image" content="{{ url($product->image) }}" />
   <!-- ITEM za GOOGLE + END -->
 
   <!-- ITEM Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@wellmedic">
   <meta name="twitter:creator" content="@wellmedic">
-  <meta name="twitter:title" content="Wellmedic - Iskustva korinsika">
+  <meta name="twitter:title" content="Wellmedic - Iskustva korinsika vezana za proizvod {{ $product->title }}">
   <meta name="twitter:description" content="{!! $settings->desc !!}">
-  <meta name="twitter:image" content="{{ url('themes/'.$theme.'/img/wellmedic-social-share.jpg') }}">
+  <meta name="twitter:image" content="{{ url($product->image) }}">
   <!-- ITEM Twitter END -->
 @endsection
 
