@@ -35,6 +35,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// filemanager
+Route::middleware('auth')->get('filemanager/show', 'FilemanagerController@index');
+
 Route::get('/admin', function () {
     return view('layouts.admin-app');
 });
