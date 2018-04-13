@@ -84,8 +84,8 @@
             },
             deleteRow(row){
                 swal({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
+                    title: 'Da li ste sigurni?',
+                    text: "Nećete moći da povratite radnju!",
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#51d2b7',
@@ -100,8 +100,8 @@
                                     return row.id != item.id;
                                 });
                                 swal(
-                                    'Deleted!',
-                                    'User is deleted.',
+                                    'Obrisano!',
+                                    'Baner je obrisan.',
                                     'success'
                                 );
                             })

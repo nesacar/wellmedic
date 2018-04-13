@@ -13,6 +13,8 @@
 
 Route::get('/', 'PagesController@index');
 
+Route::get('proba', 'PagesController@proba');
+
 Route::get('blog', 'PagesController@blog');
 Route::get('blog/{slug}/{id}', 'PagesController@blogPost');
 

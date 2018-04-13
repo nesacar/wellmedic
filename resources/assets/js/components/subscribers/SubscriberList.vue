@@ -87,14 +87,14 @@
             },
             deleteRow(row){
                 swal({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
+                    title: 'Da li ste sigurni?',
+                    text: "Nećete moći da povratite radnju!",
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#51d2b7',
                     cancelButtonColor: '#fb9678',
-                    confirmButtonText: 'Yes, delete it!',
-                    cancelButtonText: 'Cancel'
+                    confirmButtonText: 'Da, obriši!',
+                    cancelButtonText: 'Odustani'
                 }).then((result) => {
                     if (result.value) {
                         axios.delete('api/subscribers/' + row.id)
@@ -103,8 +103,8 @@
                                     return row.id != item.id;
                                 });
                                 swal(
-                                    'Deleted!',
-                                    'Subscriber is deleted.',
+                                    'Obrisano!',
+                                    'Pretplatnik je obrisan.',
                                     'success'
                                 );
                             })

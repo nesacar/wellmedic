@@ -6,8 +6,11 @@ use App\Block;
 use App\Box;
 use App\Http\Requests\SubmitContactFormRequest;
 use App\Http\Requests\SubscribeNewsletterRequest;
+use App\Jobs\ProcessNewsletter;
 use App\Mail\ContactFormMail;
 use App\Message;
+use App\Newsletter;
+use App\Newsletter_templates;
 use App\Post;
 use App\Product;
 use App\Setting;
@@ -176,5 +179,14 @@ class PagesController extends Controller
         return response()->json([
             'message' => 'Uspešno ste prijavljeni'
         ]);
+    }
+
+    public function proba(){
+        $newsletter = Newsletter::first();
+        $templates = Newsletter_templates::where('newsletter_id', $newsletter->id)->orderBy('index', 'ASC')->get();
+        $subscribers = Subscriber::where('block', 0)->get();
+        ProcessNewsletter::dispatch($newsletter, $templates, $subscribers);
+
+        return 'proba';
     }
 }
