@@ -71,3 +71,13 @@ Route::middleware('auth:api')->resource('blocks', 'BlocksController');
 Route::middleware('auth:api')->resource('boxes', 'BoxesController');
 Route::middleware('auth:api')->get('boxes/{id}/index', 'BoxesController@showIndex');
 Route::middleware('auth:api')->post('boxes/{id}/image', 'BoxesController@uploadImage');
+
+Route::middleware('auth:api')->resource('newsletters', 'NewslettersController');
+Route::middleware('auth:api')->get('newsletters/{id}/post', 'NewslettersController@post');
+Route::middleware('auth:api')->get('newsletters/{id}/banner', 'NewslettersController@banner');
+Route::middleware('auth:api')->post('newsletters/{id}/prepare', 'NewslettersController@prepare');
+Route::middleware('auth:api')->post('newsletters/{id}/send', 'NewslettersController@send');
+
+Route::middleware('auth:api')->get('statistics/{id}/day', 'StatisticsController@day');
+Route::middleware('auth:api')->get('statistics/{id}/month', 'StatisticsController@month');
+Route::middleware('auth:api')->get('statistics/{id}/year', 'StatisticsController@year');

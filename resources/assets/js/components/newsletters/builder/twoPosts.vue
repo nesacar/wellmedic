@@ -3,136 +3,44 @@
         <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
             <tbody>
             <tr>
-                <td style="direction:ltr;font-size:0px;padding:20px 0;padding-bottom:0;padding-top:0;text-align:center;vertical-align:top;">
-
+                <td style="direction:ltr;font-size:0px;padding:20px 0;text-align:center;vertical-align:top;">
+                    <!-- articles -->
                     <div class="mj-column-per-50 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
-                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
-                            <tbody>
+                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                            <!-- article -->
                             <tr>
-                                <td style="vertical-align:top;padding:0 0 15px;">
-                                    <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
-                                        <!-- article -->
-                                        <tr>
-                                        <td align="center" style="font-size:0px;padding:10px 25px;padding-top:0;padding-bottom:0;word-break:break-word;">
-                                            <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
-                                                <tbody>
-                                                <tr>
-                                                    <td style="width:250px; position: relative;">
-                                                        <font-awesome-icon icon="times" @click="deleteRow(index)"  v-if="!newsletter.send" />
-                                                        <router-link tag="a" class="clicks" :to="'/clicks/' + newsletter.id + '/posts/' + item.post1.id" v-if="newsletter.send">{{ clicks1 }}</router-link>
-                                                        <a href="#" target="_blank">
-                                                        <img alt="#" height="auto" :src="domain + 'img/newsletter-post.jpg'" style="border:0;display:block;outline:none;text-decoration:none;width:250px;" width="250" v-if="item.post1 == null" />
-                                                        <img alt="#" height="auto" :src="domain + item.post1.image" style="border:0;display:block;outline:none;text-decoration:none;width:250px;" width="250" v-else />
-                                                    </a>
-                                                    </td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                        <tr>
-                                            <td align="center" style="font-size:0px;padding:10px 25px;padding-top:0;padding-bottom:0;word-break:break-word;">
-                                                <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td style="width:250px; padding-top: 20px;">
-
-                                                            <select2 :options="posts" :value="item.item1" :name="item.component" @input="input1($event)" v-if="!newsletter.send">
-                                                                <option value="0">select one</option>
-                                                            </select2>
-
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align="left" style="font-size:0px;padding:10px 25px;padding-top:0;padding-bottom:0;word-break:break-word;">
-                                                <div style="font-family:Roboto;font-size:14px;line-height:1.5;text-align:left;color:#000000;">
-                                                    <div class="article">
-                                                        <h2 class="heading" v-if="item.post1 == null">DEFAULT TITLE</h2>
-                                                        <h2 class="heading" v-else>{{ item.post1.title }}</h2>
-                                                        <p v-if="item.post1 == null">Default body...</p>
-                                                        <p v-else>{{ item.post1.title }}</p>
-                                                        <div style="text-align: right;"> <a href="">Read more &gt;</a> </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                    <div style="font-family:Roboto;font-size:14px;line-height:1.5;text-align:left;color:#000000;">
+                                        <div class="image thumbnail"> <img src="https://images.pexels.com/photos/68563/pexels-photo-68563.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" /> </div>
+                                        <div class="artcile"> <span class="caption">30. Decembar 2017</span>
+                                            <h2 class="article_title">Izbor krljevskih i plemickih porodica</h2>
+                                            <p class="article_body">Doktori i naucnici znaju da pomaze u sledecem: Dobodi kiseonik u telo i povecava izdrzljivost, pruza vise snage i energije</p>
+                                            <div style="text-align: center;"> <a href="#" class="btn btn--outline">Pročitaj više</a> </div>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
-                            </tbody>
                         </table>
                     </div>
-
                     <!-- /article -->
-
                     <div class="mj-column-per-50 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
-                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
-                            <tbody>
+                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                            <!-- article -->
                             <tr>
-                                <td style="vertical-align:top;padding:0 0 15px;">
-                                    <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
-                                        <!-- article -->
-                                        <tr>
-                                            <td align="center" style="font-size:0px;padding:10px 25px;padding-top:0;padding-bottom:0;word-break:break-word;">
-                                                <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td style="width:250px; position: relative;">
-                                                            <router-link tag="a" class="clicks" :to="'/clicks/' + newsletter.id + '/posts/' + item.post2.id" v-if="newsletter.send">{{ clicks2 }}</router-link>
-                                                            <a href="#" target="_blank">
-
-                                                            <img alt="#" height="auto" :src="domain + 'img/newsletter-post.jpg'" style="border:0;display:block;outline:none;text-decoration:none;width:250px;" width="250" v-if="item.post2 == null" />
-                                                            <img alt="#" height="auto" :src="domain + item.post2.image" style="border:0;display:block;outline:none;text-decoration:none;width:250px;" width="250" v-else />
-
-                                                        </a> </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align="center" style="font-size:0px;padding:10px 25px;padding-top:0;padding-bottom:0;word-break:break-word;">
-                                                <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td style="width:250px; padding-top: 20px;">
-
-                                                            <select2 :options="posts" :value="item.item2" :name="item.component" @input="input2($event)" v-if="!newsletter.send">
-                                                                <option value="0">select one</option>
-                                                            </select2>
-
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align="left" style="font-size:0px;padding:10px 25px;padding-top:0;padding-bottom:0;word-break:break-word;">
-                                                <div style="font-family:Roboto;font-size:14px;line-height:1.5;text-align:left;color:#000000;">
-                                                    <div class="article">
-                                                        <h2 class="heading" v-if="item.post2 == null">DEFAULT TITLE</h2>
-                                                        <h2 class="heading" v-else>{{ item.post2.title }}</h2>
-                                                        <p v-if="item.post2 == null">Default body...</p>
-                                                        <p v-else>{{ item.post2.title }}</p>
-                                                        <div style="text-align: right;"> <a href="">Read more &gt;</a> </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                    <div style="font-family:Roboto;font-size:14px;line-height:1.5;text-align:left;color:#000000;">
+                                        <div class="image thumbnail"> <img src="https://images.pexels.com/photos/68563/pexels-photo-68563.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" /> </div>
+                                        <div class="artcile"> <span class="caption">30. Decembar 2017</span>
+                                            <h2 class="article_title">Izbor krljevskih i plemickih porodica</h2>
+                                            <p class="article_body">Doktori i naucnici znaju da pomaze u sledecem: Dobodi kiseonik u telo i povecava izdrzljivost, pruza vise snage i energije</p>
+                                            <div style="text-align: center;"> <a href="#" class="btn btn--outline">Pročitaj više</a> </div>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
-                            </tbody>
                         </table>
                     </div>
-
                     <!-- /article -->
-
                 </td>
             </tr>
             </tbody>

@@ -39,7 +39,7 @@
                 <font-awesome-icon icon="th-large" />
                 <ul>
                     <li><router-link tag="a" :to="'/blocks'">Šabloni</router-link></li>
-                    <li><router-link tag="a" :to="'/boxes'">Slajderi</router-link></li>
+                    <li><router-link tag="a" :to="'/boxes'">Slajdovi</router-link></li>
                     <!--
                     <li><a href="#">Roles</a></li>
                     -->
