@@ -36,7 +36,7 @@ class SendNewsletter extends Mailable
      */
     public function build()
     {
-        $message = $this->view('themes.wellmedic.emails.newsletter');
+        $message = $this->view('themes.wellmedic.emails.newsletter-temp');
         $message->subject($this->newsletter->title);
         $message->from('wellmedic@mia.rs', 'Newsletter Wellmedic');
         return $message;
