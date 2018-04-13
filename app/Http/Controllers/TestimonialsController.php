@@ -99,6 +99,14 @@ class TestimonialsController extends Controller
         ]);
     }
 
+    public function lists(){
+        $testimonials = Testimonial::select('id', 'body', 'author')->where('publish', 1)->orderBy('created_at', 'DESC')->get();
+
+        return response()->json([
+            'testimonials' => $testimonials,
+        ]);
+    }
+
     public function search(){
         $product = request('list');
         $text = request('text');

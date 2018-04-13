@@ -23,10 +23,14 @@ class Newsletter extends Model
                     $template['post2'] = Post::select('id', 'title', 'image', 'short')->find($template->item2);
                     unset($template->type);
                     $template->component = 'two-posts';
-                }else{
+                }elseif($template->type == 'banner'){
                     $template['banner'] = Banner::select('id', 'title', 'image')->find($template->item1);
                     unset($template->type);
                     $template->component = 'banner';
+                }else{
+                    $template['testimonial'] = Testimonial::select('id', 'body', 'author')->find($template->item1);
+                    unset($template->type);
+                    $template->component = 'testimonial';
                 }
             }
 

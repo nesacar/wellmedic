@@ -107,10 +107,10 @@ class PostsController extends Controller
     }
 
     public function lists(){
-        $posts = Post::where('publish', 1)->orderBy('title', 'ASC')->pluck('title', 'id')->prepend('Bez članka', 0);
+        $posts = Post::select('id', 'title', 'short', 'image')->where('publish', 1)->orderBy('created_at', 'DESC')->get();
 
         return response()->json([
-            'posts' => $posts
+            'posts' => $posts,
         ]);
     }
 

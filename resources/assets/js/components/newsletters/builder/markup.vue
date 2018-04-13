@@ -56,11 +56,24 @@
                     </tbody>
                 </table>
             </div>
-            <!-- /header -->
-            <!-- body -->
 
-
-            <!-- /articles -->
+            <template v-for="(item, index) in items">
+                <component
+                        :is="item.component"
+                        :index="index"
+                        :posts="posts"
+                        :fullPosts="fullPosts"
+                        :banners="banners"
+                        :fullBanners="fullBanners"
+                        :testimonials="testimonials"
+                        :fullTestimonials="fullTestimonials"
+                        :item="item"
+                        :edit="edit"
+                        :newsletter="newsletter"
+                        @deleteRow="deleteRow($event)"
+                        @setItem="setItem($event)"
+                ></component>
+            </template>
 
             <div style="background:#f2f5f8;background-color:#f2f5f8;Margin:0px auto;max-width:600px;">
                 <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#f2f5f8;background-color:#f2f5f8;width:100%;">
@@ -202,6 +215,10 @@
                 </table>
             </div>
             <!-- /footer -->
+
+            <div>
+                <button class="btn btn-primary" @click="create()" v-if="items.length > 0">Save</button>
+            </div>
         </div>
     </div>
 </template>
@@ -210,6 +227,7 @@
     import leadingPost from './leadingPost.vue';
     import twoPosts from './twoPosts.vue';
     import banner from './banner.vue';
+    import testimonial from './testimonial.vue';
     import { apiHost } from './../../../config';
 
     export default{
@@ -219,6 +237,8 @@
               banners: {},
               fullPosts: {},
               fullBanners: {},
+              testimonials: {},
+              fullTestimonials: {},
               attrs: [],
               domain: apiHost
           }
@@ -228,10 +248,13 @@
             'leading-post': leadingPost,
             'two-posts': twoPosts,
             'banner': banner,
+            'testimonial': testimonial,
         },
         created(){
+            console.log(this.items);
             this.getPosts();
             this.getBanners();
+            this.getTestimonials();
         },
         methods: {
             getPosts(){
@@ -255,6 +278,20 @@
                         this.banners = _.map(res.data.banners, (data) => {
                             var pick = _.pick(data, 'title', 'id');
                             var object = {id: pick.id, text: pick.title};
+                            return object;
+                        });
+                    })
+                    .catch(e => {
+                        console.log(e);
+                    });
+            },
+            getTestimonials(){
+                axios.get('api/testimonials/lists')
+                    .then(res => {
+                        this.fullTestimonials = res.data.testimonials;
+                        this.testimonials = _.map(res.data.testimonials, (data) => {
+                            var pick = _.pick(data, 'body', 'id');
+                            var object = {id: pick.id, text: pick.body};
                             return object;
                         });
                     })

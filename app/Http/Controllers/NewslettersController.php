@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Banner;
 use App\Http\Requests\CreateNewsletterRequest;
+use App\Jobs\ProcessNewsletter;
 use App\Newsletter;
 use App\Newsletter_templates;
 use App\Post;

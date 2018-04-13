@@ -28,9 +28,11 @@
                             <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-primary" @click="createLeading()">Leading Post</button>
-                            <button class="btn btn-primary" @click="createPosts()">Two Posts</button>
+                            <button class="btn btn-primary" style="margin-bottom: 15px;" @click="createLeading()">Leading Post</button>
+                            <button class="btn btn-primary" style="margin-bottom: 15px;" @click="createPosts()">Two Posts</button>
+                            <br>
                             <button class="btn btn-primary" @click="createBanner()">Banner</button>
+                            <button class="btn btn-primary" @click="createTestimonial()">Iskustva</button>
                         </div>
                     </div>
                     <div class="card" v-else>
@@ -108,6 +110,9 @@
             },
             createBanner(){
                 this.items.push({component: 'banner', 'banner': null});
+            },
+            createTestimonial(){
+                this.items.push({component: 'testimonial', 'testimonial': null});
             },
             removeMarkup(index){
                 this.items.splice(index, 1);

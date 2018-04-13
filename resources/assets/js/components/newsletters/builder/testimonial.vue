@@ -4,20 +4,31 @@
             <tbody>
             <tr>
                 <td style="direction:ltr;font-size:0px;padding:20px 0;text-align:center;vertical-align:top;">
-                    <!-- experiences -->
                     <div class="mj-column-per-100 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:bottom;width:100%;">
                         <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:bottom;" width="100%">
                             <tr>
-                                <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word; position: relative;">
+
+                                    <font-awesome-icon icon="times" @click="deleteRow(index)" v-if="!newsletter.send" />
+                                    <router-link tag="a" class="clicks" :to="'/clicks/' + newsletter.id + '/testimonials/' + item.testimonial.id" v-if="newsletter.send">{{ clicks }}</router-link>
+
                                     <div style="font-family:Roboto;font-size:14px;line-height:1.5;text-align:center;color:#000000;">
                                         <h2 class="article_title">Iskustva korisnika</h2>
                                         <div class="quote">
-                                            <!-- experience -->
-                                            <p class="quote_body"> Morbi sodales luctus leo vitae venenatis. Nulla interdum diam sed justo ultricies sollicitudin. Morbi aliquet massa eu hendrerit egestas. Vivamus sodales nibh eget lobortis lobortis. Suspendisse potenti. Fusce est mi, ultricies
-                                                quis gravida eget, tempus eu lorem.Suspendisse potenti. Fusce est mi, ultricies quis gravida eget, tempus eu lorem.Suspendisse potenti. Fusce est mi, ultricies quis gravida eget, tempus eu lorem. </p>
-                                            <div class="quote_author">Vaca San</div>
+                                            <p class="quote_body" v-if="item.testimonial == null">Tekst iskustva</p>
+                                            <p class="quote_body" v-else>{{ item.testimonial.body}}</p>
+                                            <div class="quote_author" v-if="item.testimonial == null">Author</div>
+                                            <div class="quote_author" v-else>{{ item.testimonial.author }}</div>
                                         </div>
-                                        <!-- /experience -->
+
+                                        <div style="Margin:0px auto;max-width:600px;">
+                                            <div style="width: 100%; position: relative;">
+                                                <select2 :options="testimonials" :value="item.item" :name="item.component" @input="input($event)" v-if="!newsletter.send">
+                                                    <option value="0">select one</option>
+                                                </select2>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </td>
                             </tr>
@@ -39,13 +50,14 @@
         data(){
             return {
                 domain: apiHost,
-                clicks: 0
+                clicks: 0,
             }
         },
-        props: ['banners', 'fullBanners', 'index', 'item', 'edit', 'newsletter'],
+        props: ['testimonials', 'fullTestimonials', 'index', 'item', 'edit', 'newsletter'],
         created(){
+            console.log(this.edit);
             if(this.edit){
-                this.$emit('setItem', {type: 'banner', item1: this.item.banner, item2: null,  index: this.index});
+                this.$emit('setItem', {type: 'testimonial', item1: this.item.testimonial, item2: null,  index: this.index});
                 this.getClicks();
             }
         },
@@ -57,23 +69,25 @@
             deleteRow(index){
                 this.$emit('deleteRow', index);
             },
-            input(banner_id){
-                if(banner_id == 0){
-                    this.item.banner = null;
-                    this.$emit('setItem', {type: 'banner', item1: this.item.banner, item2: null, index: this.index});
+            input(testimonial_id){
+                if(testimonial_id == 0){
+                    this.item.testimonial = null;
+                    this.$emit('setItem', {type: 'testimonial', item1: this.item.testimonial, item2: null, index: this.index});
                 }else{
-                    this.item.banner = this.fullBanners.find(b => b.id == banner_id);
-                    this.$emit('setItem', {type: 'banner', item1: this.item.banner, item2: null,  index: this.index});
+                    this.item.testimonial = this.fullTestimonials.find(b => b.id == testimonial_id);
+                    this.$emit('setItem', {type: 'testimonial', item1: this.item.testimonial, item2: null,  index: this.index});
                 }
             },
             getClicks(){
-                axios.get('api/clicks/' + this.newsletter.id + '/testimonials/' + this.item.banner.id)
-                    .then(res => {
-                        this.clicks = res.data.clicks;
-                    })
-                    .catch(e => {
-                        console.log(e);
-                    });
+                if(this.item.testimonial){
+                    axios.get('api/clicks/' + this.newsletter.id + '/testimonials/' + this.item.testimonial.id)
+                        .then(res => {
+                            this.clicks = res.data.clicks;
+                        })
+                        .catch(e => {
+                            console.log(e);
+                        });
+                }
             },
         }
     }

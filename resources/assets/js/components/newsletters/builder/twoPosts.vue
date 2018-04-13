@@ -5,17 +5,38 @@
             <tr>
                 <td style="direction:ltr;font-size:0px;padding:20px 0;text-align:center;vertical-align:top;">
                     <!-- articles -->
-                    <div class="mj-column-per-50 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                    <div class="mj-column-per-50 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:50%;">
                         <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
                             <!-- article -->
                             <tr>
-                                <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;position: relative;">
+
+                                    <font-awesome-icon icon="times" @click="deleteRow(index)" v-if="!newsletter.send" />
+                                    <router-link tag="a" class="clicks" :to="'/clicks/' + newsletter.id + '/posts/' + item.post1.id" v-if="newsletter.send">{{ clicks }}</router-link>
+
                                     <div style="font-family:Roboto;font-size:14px;line-height:1.5;text-align:left;color:#000000;">
-                                        <div class="image thumbnail"> <img src="https://images.pexels.com/photos/68563/pexels-photo-68563.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" /> </div>
-                                        <div class="artcile"> <span class="caption">30. Decembar 2017</span>
-                                            <h2 class="article_title">Izbor krljevskih i plemickih porodica</h2>
-                                            <p class="article_body">Doktori i naucnici znaju da pomaze u sledecem: Dobodi kiseonik u telo i povecava izdrzljivost, pruza vise snage i energije</p>
-                                            <div style="text-align: center;"> <a href="#" class="btn btn--outline">Pročitaj više</a> </div>
+                                        <div class="image thumbnail">
+                                            <img :src="domain + 'img/nwl-600x400.png'"  v-if="item.post1 == null" style="width: 250px; height: 167px;"/>
+                                            <img :src="domain + item.post1.image" v-else style="width: 250px; height: 167px;" />
+                                        </div>
+
+                                        <div style="Margin:0px auto;max-width:600px;">
+                                            <div style="100%; position: relative;">
+                                                <select2 :options="posts" :value="item.item1" :name="item.component" @input="input1($event)" v-if="!newsletter.send">
+                                                    <option value="0">select one</option>
+                                                </select2>
+                                            </div>
+                                        </div>
+
+                                        <div class="artcile">
+                                            <!--<span class="caption">30. Decembar 2017</span>-->
+                                            <h2 class="article_title" v-if="item.post1 == null">naslov članka</h2>
+                                            <h2 class="article_title" v-else>{{ item.post1.title }}</h2>
+                                            <p class="article_body" v-if="item.post1 == null">Tekst članka..</p>
+                                            <p class="article_body" v-else>{{ item.post1.short }}</p>
+                                            <div style="text-align: center;">
+                                                <a href="#" class="btn btn--outline">Pročitaj više</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </td>
@@ -23,17 +44,37 @@
                         </table>
                     </div>
                     <!-- /article -->
-                    <div class="mj-column-per-50 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                    <div class="mj-column-per-50 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:50%;">
                         <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
                             <!-- article -->
                             <tr>
-                                <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;position: relative;">
+
+                                    <router-link tag="a" class="clicks" :to="'/clicks/' + newsletter.id + '/posts/' + item.post2.id" v-if="newsletter.send">{{ clicks }}</router-link>
+
                                     <div style="font-family:Roboto;font-size:14px;line-height:1.5;text-align:left;color:#000000;">
-                                        <div class="image thumbnail"> <img src="https://images.pexels.com/photos/68563/pexels-photo-68563.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" /> </div>
-                                        <div class="artcile"> <span class="caption">30. Decembar 2017</span>
-                                            <h2 class="article_title">Izbor krljevskih i plemickih porodica</h2>
-                                            <p class="article_body">Doktori i naucnici znaju da pomaze u sledecem: Dobodi kiseonik u telo i povecava izdrzljivost, pruza vise snage i energije</p>
-                                            <div style="text-align: center;"> <a href="#" class="btn btn--outline">Pročitaj više</a> </div>
+                                        <div class="image thumbnail">
+                                            <img :src="domain + 'img/nwl-600x400.png'"  v-if="item.post2 == null"  style="width: 250px; height: 167px;"/>
+                                            <img :src="domain + item.post2.image" v-else  style="width: 250px; height: 167px;"/>
+                                        </div>
+
+                                        <div style="Margin:0px auto;max-width:600px;">
+                                            <div style="100%; position: relative;">
+                                                <select2 :options="posts" :value="item.item2" :name="item.component" @input="input2($event)" v-if="!newsletter.send">
+                                                    <option value="0">select one</option>
+                                                </select2>
+                                            </div>
+                                        </div>
+
+                                        <div class="artcile">
+                                            <!--<span class="caption">30. Decembar 2017</span>-->
+                                            <h2 class="article_title" v-if="item.post2 == null">naslov članka</h2>
+                                            <h2 class="article_title" v-else>{{ item.post2.title }}</h2>
+                                            <p class="article_body" v-if="item.post2 == null">Tekst članka..</p>
+                                            <p class="article_body" v-else>{{ item.post2.short }}</p>
+                                            <div style="text-align: center;">
+                                                <a href="#" class="btn btn--outline">Pročitaj više</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </td>
@@ -96,22 +137,26 @@
                 }
             },
             getClicks1(){
-                axios.get('api/clicks/' + this.newsletter.id + '/posts/' + this.item.post1.id)
-                    .then(res => {
-                        this.clicks1 = res.data.clicks;
-                    })
-                    .catch(e => {
-                        console.log(e);
-                    });
+                if(this.item.post1){
+                    axios.get('api/clicks/' + this.newsletter.id + '/posts/' + this.item.post1.id)
+                        .then(res => {
+                            this.clicks1 = res.data.clicks;
+                        })
+                        .catch(e => {
+                            console.log(e);
+                        });
+                }
             },
             getClicks2(){
-                axios.get('api/clicks/' + this.newsletter.id + '/posts/' + this.item.post2.id)
-                    .then(res => {
-                        this.clicks2 = res.data.clicks;
-                    })
-                    .catch(e => {
-                        console.log(e);
-                    });
+                if(this.item.post2){
+                    axios.get('api/clicks/' + this.newsletter.id + '/posts/' + this.item.post2.id)
+                        .then(res => {
+                            this.clicks2 = res.data.clicks;
+                        })
+                        .catch(e => {
+                            console.log(e);
+                        });
+                }
             }
         }
     }
