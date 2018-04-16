@@ -58,7 +58,7 @@
     <div class="row">
       @if(count($posts)>0)
         @foreach($posts as $i => $post)
-          <div class="mb-3 {{ ($i < 2) ? 'col-lg-6' : 'col-lg-4' }}">
+          <div class="mb-5 {{ ($i < 2) ? 'col-lg-6' : 'col-lg-4' }}">
               @component('themes.'.$theme.'.components.article-entry', [
                 'imageLg' => url($post->image),
                 'imageSm' => url(Imagecache::get($post->image, 'square')->src),
@@ -74,11 +74,12 @@
         @endforeach
       @endif
     </div>
-  </div>
 
-  <div class="container section" id="pagination">
-    <nav aria-label="paginacija">
-      {{ $posts->links() }}
-    </nav>
+    <div id="pagination">
+      <nav aria-label="paginacija">
+        {{ $posts->links() }}
+      </nav>
+    </div>
+    
   </div>
 @endsection

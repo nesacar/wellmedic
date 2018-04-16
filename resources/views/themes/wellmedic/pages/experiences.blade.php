@@ -68,12 +68,13 @@
       </div>
       @endforeach
     </div>
-  </div>
 
-  <div class="container section" id="pagination">
-    <nav aria-label="paginacija">
-      {{ $testimonials->links() }}
-    </nav>
+    <div id="pagination">
+      <nav aria-label="paginacija">
+        {{ $testimonials->links() }}
+      </nav>
+    </div>
+    
   </div>
   @endif
 @endsection
