@@ -8,6 +8,8 @@ use App\Http\Requests\SubmitContactFormRequest;
 use App\Http\Requests\SubscribeNewsletterRequest;
 use App\Jobs\ProcessNewsletter;
 use App\Mail\ContactFormMail;
+use App\Mail\SendNewsletter;
+use App\Mail\TestNewsletterMail;
 use App\Message;
 use App\Newsletter;
 use App\Newsletter_templates;
@@ -182,11 +184,13 @@ class PagesController extends Controller
     }
 
     public function proba(){
-        $newsletter = Newsletter::first();
-        $templates = Newsletter_templates::where('newsletter_id', $newsletter->id)->orderBy('index', 'ASC')->get();
-        $subscribers = Subscriber::where('block', 0)->get();
-        ProcessNewsletter::dispatch($newsletter, $templates, $subscribers);
+//        $newsletter = Newsletter::first();
+//        $templates = Newsletter_templates::where('newsletter_id', $newsletter->id)->orderBy('index', 'ASC')->get();
+//        $subscribers = Subscriber::where('block', 0)->get();
+//        ProcessNewsletter::dispatch($newsletter, $templates, $subscribers);
 
-        return 'proba';
+        \Mail::to(['nebojsart1409@yahoo.com', 'vladan.kotarac@ministudio.rs', 'kotaracvladan@gmail.com'])->send(new TestNewsletterMail());
+
+        return 'sent';
     }
 }
