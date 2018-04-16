@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Banner;
 use App\Block;
 use App\Box;
+use App\Click;
 use App\Http\Requests\SubmitContactFormRequest;
 use App\Http\Requests\SubscribeNewsletterRequest;
 use App\Jobs\ProcessNewsletter;
@@ -96,6 +98,15 @@ class PagesController extends Controller
         $testimonials = Testimonial::where('product_id', $post->product_id)->published()->take(3)->get();
         $prev = Post::getPrev($post);
         $next = Post::getNext($post);
+
+        if(request('email') && request('news')){
+            $newsletter = Newsletter::where('verification', request('news'))->first();
+            $subscriber = Subscriber::where('verification', request('email'))->first();
+            if(isset($newsletter) && isset($subscriber)){
+                Click::insertClick($newsletter->id, $post->id, false, false, $subscriber->id);
+            }
+        }
+
         return view('themes.'.$theme.'.pages.blog-post', compact(  'settings', 'theme', 'posts', 'post', 'testimonials', 'prev', 'next'));
     }
 
@@ -183,14 +194,55 @@ class PagesController extends Controller
         ]);
     }
 
+
+    /**
+     * unsubscribe user
+     *
+     * @param $verification
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function unSubscribe($verification){
+        $subscriber = Subscriber::where('verification', $verification)->first();
+        if(!empty($subscriber)){
+            $subscriber->block = 1;
+            $subscriber->update();
+        }
+
+        return redirect('/');
+    }
+
+    /**
+     * Banner Newsletter click
+     *
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function banner($id){
+        $banner = Banner::find($id);
+
+        if(request('email') && request('news')){
+            $newsletter = Newsletter::where('verification', request('news'))->first();
+            $subscriber = Subscriber::where('verification', request('email'))->first();
+            if(isset($newsletter) && isset($subscriber)){
+                Click::insertClick($newsletter->id, false, $banner->id, false, $subscriber->id);
+            }
+        }
+
+        return redirect($banner->link);
+    }
+
     public function proba(){
 //        $newsletter = Newsletter::first();
 //        $templates = Newsletter_templates::where('newsletter_id', $newsletter->id)->orderBy('index', 'ASC')->get();
 //        $subscribers = Subscriber::where('block', 0)->get();
 //        ProcessNewsletter::dispatch($newsletter, $templates, $subscribers);
 
-        \Mail::to(['nebojsart1409@yahoo.com', 'vladan.kotarac@ministudio.rs', 'kotaracvladan@gmail.com'])->send(new TestNewsletterMail());
+//        \Artisan::call('queue:work', [
+//            '--tries' => 3
+//        ]);
 
-        return 'sent';
+        //\Mail::to(['nebojsart1409@yahoo.com', 'vladan.kotarac@ministudio.rs', 'kotaracvladan@gmail.com'])->send(new TestNewsletterMail());
+
+        return 'proba';
     }
 }

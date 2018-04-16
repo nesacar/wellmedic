@@ -28,6 +28,6 @@ class TestNewsletterMail extends Mailable
      */
     public function build()
     {
-        return $this->view('themes.wellmedic.emails.newsletter-temp');
+        return $this->view('themes.wellmedic.emails.newsletter-temp')->subject('Test newsletter Wellmedic')->from('wellmedic@mia.rs', 'Newsletter Wellmedic');
     }
 }
