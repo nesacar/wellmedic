@@ -1,3 +1,11 @@
 .section {
   margin-bottom: 4 * $base-line;
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: 8 * $base-line;
+  }
+
+  @include media-breakpoint-up(lg) {
+    margin-bottom: 12 * $base-line;
+  }
 }

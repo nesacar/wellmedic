@@ -2,6 +2,14 @@
   border: 0;
 }
 
+.card-container {
+  margin-bottom: 2 * $base-line;
+
+  @include media-breakpoint-up(lg) {
+    margin-bottom: 0;
+  }
+}
+
 .product-card {
   height: 100%;
   background-color: $theme-primary-light;

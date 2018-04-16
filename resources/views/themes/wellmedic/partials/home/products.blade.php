@@ -2,7 +2,7 @@
 <div class="container section">
     <div class="row">
         @foreach ($products as $product)
-            <div class="col-lg-4 mb-3">
+            <div class="col-lg-4 card-container">
                 <div class="card product-card with-shadow">
                     <a class="link product-card_link" href="{{ url('proizvodi/'.$product->slug.'/'.$product->id) }}">
                         <div class="card-body product-card_body">
