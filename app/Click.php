@@ -23,27 +23,9 @@ class Click extends Model
     protected $fillable = ['newsletter_id', 'post_id', 'banner_id', 'testimonial_id', 'subscriber_id'];
 
     public static function insertClick($newsletter_id, $post_id, $banner_id, $testimonial_id, $subscriber_id){
-        $last = Click::where('newsletter_id', $newsletter_id)->where('subscriber_id', $subscriber_id)->orderBy('id', 'DESC')->first();
+        $last = Click::where('newsletter_id', $newsletter_id)->where('subscriber_id', $subscriber_id)->where('created_at', '>', Carbon::now()->subSecond(2))->orderBy('id', 'DESC')->first();
 
         if(empty($last)){
-            $click = new Click();
-            if($post_id){
-                $click->post_id = $post_id;
-                $click->banner_id = 0;
-                $click->testimonial_id = 0;
-            }elseif($banner_id){
-                $click->post_id = 0;
-                $click->banner_id = $banner_id;
-                $click->testimonial_id = 0;
-            }else{
-                $click->post_id = 0;
-                $click->banner_id = 0;
-                $click->testimonial_id = $testimonial_id;
-            }
-            $click->newsletter_id = $newsletter_id;
-            $click->subscriber_id = $subscriber_id;
-            $click->save();
-        }elseif(Carbon::parse($last->created_at)->addSecond(2) < Carbon::now()){
             $click = new Click();
             if($post_id){
                 $click->post_id = $post_id;

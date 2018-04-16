@@ -10,7 +10,7 @@
                 datasets: [
                     {
                         label: this.title,
-                        backgroundColor: '#008a88',
+                        backgroundColor: '#00adee',
                         data: this.data
                     }
                 ]
