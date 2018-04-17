@@ -4,6 +4,7 @@ import LazyImages from './components/lazy-images';
 import SearchWidget from './components/search-widget';
 import Toolbar from './components/toolbar';
 import TextField from './components/text-field';
+import Quotes from './components/quotes';
 
 export function init () {
   Accordion.init();
@@ -12,4 +13,5 @@ export function init () {
   SearchWidget.init();
   Toolbar.init();
   TextField.init();
+  Quotes.init();
 };

@@ -1,4 +1,4 @@
-<div data-href="{{ $data_href }}" class="quote">
+<div data-href="{{ $data_href ?: '#' }}" class="quote">
   <div class="quote_icon">
     <svg class="icon" role="presentation">
       <use xlink:href="#icon_quote">
@@ -8,6 +8,6 @@
     <p class="quote_text with-trunk">
     <em>{{ $body }}</em>
     </p>
-    <p class="quote_author">@if($href) <a href="{{ $href }}" target="_blank">{{ $author }}</a> @else {{ $author }} @endif</p>
+    <p class="quote_author">@if($href) <a href="{{ $href }}" target="_blank" rel="noreferrer noopener">{{ $author }}</a> @else {{ $author }} @endif</p>
   </div>
 </div>
