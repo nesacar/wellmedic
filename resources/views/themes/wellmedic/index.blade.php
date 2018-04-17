@@ -25,6 +25,29 @@
 
   @include('themes.'.$theme.'.partials.footer')
 
+  <aside class="dialog dialog--visible">
+    <div class="dialog_surface">
+      <a href="#" class="dialog_close-btn" role="button" tabindex="1">Zatvori</a>
+      <div class="quote quote--dialog">
+        <div class="quote_icon">
+          <svg class="icon" role="presentation">
+            <use xlink:href="#icon_quote">
+          </svg>
+        </div>
+        <div class="quote_info">
+          <p class="quote_text">
+            <em>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita dolorum harum, iusto doloremque voluptatibus ea doloribus, odio atque laboriosam porro asperiores excepturi incidunt amet recusandae totam voluptate ullam nihil corrupti.</em>
+          </p>
+          <div class="action-footer">
+            <a href="#" class="quote_author" tabindex="2">Vaca San</a>
+            <a href="#" class="btn btn-primary" tabindex="3">Saznajte više</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dialog_backdrop"></div>
+  </aside>
+
 <script>
   window.app_url = "{{ url('/') }}";
 </script>
