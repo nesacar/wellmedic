@@ -78,7 +78,7 @@
             @component('themes.'.$theme.'.components.quote', [
               'body' => $testimonial->body,
               'author' => $testimonial->author,
-              'data_href' => '#',
+              'data_href' => $testimonial->post? url('blog/'.$testimonial->post->slug . '/' . $testimonial->post->id) : '#',
               'href' => $testimonial->link,
             ])
             @endcomponent
