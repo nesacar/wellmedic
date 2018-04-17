@@ -44,6 +44,10 @@
                                 <small class="form-text text-muted" v-if="error != null && error.height">{{ error.height[0] }}</small>
                             </div>
                             <div class="form-group">
+                                <label>Publikovano</label><br>
+                                <switches v-model="banner.publish" theme="bootstrap" color="primary"></switches>
+                            </div>
+                            <div class="form-group">
                                 <button class="btn btn-primary">Edit</button>
                             </div>
                         </form>
@@ -61,6 +65,7 @@
     import FontAwesomeIcon from '@fortawesome/vue-fontawesome';
     import UploadImageHelper from '../helper/UploadImageHelper.vue';
     import swal from 'sweetalert2';
+    import Switches from 'vue-switches';
 
     export default {
         data(){
@@ -72,6 +77,7 @@
         components: {
             'font-awesome-icon': FontAwesomeIcon,
             'upload-image-helper': UploadImageHelper,
+            'switches': Switches,
         },
         created(){
             this.getBanner();

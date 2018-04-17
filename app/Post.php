@@ -50,15 +50,15 @@ class Post extends Model
     }
 
     public static function getNext($post){
-        return Cache::remember('settings', 60*24, function () use ($post) {
+        //return Cache::remember('settings', 60*24, function () use ($post) {
             return self::where('product_id', $post->product_id)->where('publish_at', '<', $post->publish_at)->orderBy('publish_at', 'DESC')->first();
-        });
+        //});
     }
 
     public static function getPrev($post){
-        return Cache::remember('settings', 60*24, function () use ($post) {
+        //return Cache::remember('settings', 60*24, function () use ($post) {
             return self::where('product_id', $post->product_id)->where('publish_at', '<', $post->publish_at)->orderBy('publish_at', 'ASC')->first();
-        });
+        //});
     }
 
     public static function get($post_id){

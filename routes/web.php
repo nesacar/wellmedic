@@ -23,7 +23,6 @@ Route::get('proizvodi/{slug}/{id}', 'PagesController@product');
 
 Route::get('iskustva', 'PagesController@experiences');
 Route::get('iskustva/{slug}/{id}', 'PagesController@experiencesProduct');
-Route::get('iskustva/{slug}/{id}', 'PagesController@experiencesProduct');
 
 Route::get('kontakt', 'PagesController@contact');
 Route::post('kontakt', 'PagesController@contactForm');
@@ -32,6 +31,9 @@ Route::get('o-nama', 'PagesController@about');
 
 
 Route::post('subscribe', 'PagesController@subscribe');
+Route::get('un-subscribe/{verification}', 'PagesController@unSubscribe');
+
+Route::get('banners/click/{id}', 'PagesController@banner');
 
 Auth::routes();
 
