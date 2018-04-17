@@ -5,9 +5,9 @@
                 <div class="col-md-12">
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
-                            <li><router-link tag="a" :to="'/home'">Home</router-link></li>
+                            <li><router-link tag="a" :to="'/home'">Početna</router-link></li>
                             <li><router-link tag="a" :to="'/newsletters'">Newsletters</router-link></li>
-                            <li>Today</li>
+                            <li>Danas</li>
                         </ul>
                     </div>
                 </div>
@@ -17,9 +17,9 @@
                 <div class="col-md-12">
                     <div class="card">
                         <h5>
-                            <router-link tag="a" :to="'/statistics/' + id + '/day'" class="btn btn-primary">Day ({{ sum }})</router-link>
-                            <router-link tag="a" :to="'/statistics/' + id + '/month'" class="btn">Month</router-link>
-                            <router-link tag="a" :to="'/statistics/' + id + '/year'" class="btn">Year</router-link>
+                            <router-link tag="a" :to="'/statistics/' + id + '/day'" class="btn btn-primary">Dan ({{ sum }})</router-link>
+                            <router-link tag="a" :to="'/statistics/' + id + '/month'" class="btn">Mesec</router-link>
+                            <router-link tag="a" :to="'/statistics/' + id + '/year'" class="btn">Godina</router-link>
                         </h5>
                     </div>
                 </div>

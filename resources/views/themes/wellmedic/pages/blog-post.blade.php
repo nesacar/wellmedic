@@ -104,7 +104,7 @@
             @component('themes.'.$theme.'.components.quote', [
               'body' => $testimonial->body,
               'author' => $testimonial->author,
-              'data_href' => '#',
+              'data_href' => $testimonial->post? url('blog/'.$testimonial->post->slug . '/' . $testimonial->post->id) : '#',
               'href' => $testimonial->link,
             ])
             @endcomponent
@@ -112,7 +112,7 @@
           @endforeach
         </div>
         <div class="text-center py-2">
-          <a href="{{ url('iskustva/'.$post->product_slug.'/'.$post->id) }}" class="btn btn-outline-primary">Ostala iskustva</a>
+          <a href="{{ url('iskustva/'.$post->product_slug.'/'.$post->product_id) }}" class="btn btn-outline-primary">Ostala iskustva</a>
         </div>
         @endif
       </aside>

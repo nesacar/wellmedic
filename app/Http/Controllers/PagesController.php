@@ -37,7 +37,7 @@ class PagesController extends Controller
         $banner = Block::find(2)->box()->first();
         $posts = Post::getLatest(3);
         $products = Product::published()->take(3)->get();
-        $testimonials = Testimonial::published()->take(5)->get();
+        $testimonials = Testimonial::getTestimonial(5);
         return view('themes.'.$theme.'.pages.home', compact( 'sliders', 'settings', 'theme', 'posts', 'products', 'testimonials', 'banner'));
     }
 
@@ -51,7 +51,7 @@ class PagesController extends Controller
         $settings = Setting::get();
         $posts = Post::getLatest(3);
         $products = Product::getAll();
-        $testimonials = Testimonial::published()->take(5)->get();
+        $testimonials = Testimonial::getTestimonial(5);
         return view('themes.'.$theme.'.pages.products', compact(  'settings', 'theme', 'posts', 'products', 'testimonials'));
     }
 
@@ -67,7 +67,7 @@ class PagesController extends Controller
         $settings = Setting::get();
         $product = Product::find($id);
         $posts = Post::getLatest(3, $product->id);
-        $testimonials = Testimonial::where('product_id', $product->id)->published()->take(3)->get();
+        $testimonials = Testimonial::getTestimonial(3, $product->id);
         return view('themes.'.$theme.'.pages.product', compact(  'settings', 'theme', 'posts', 'product', 'testimonials'));
     }
 
@@ -95,7 +95,7 @@ class PagesController extends Controller
         $settings = Setting::get();
         $post = Post::get($id);
         $posts = Post::getLatest(3, $post->product_id);
-        $testimonials = Testimonial::where('product_id', $post->product_id)->published()->take(3)->get();
+        $testimonials = Testimonial::getTestimonial(3, $post->product_id);
         $prev = Post::getPrev($post);
         $next = Post::getNext($post);
 
@@ -118,7 +118,7 @@ class PagesController extends Controller
     public function experiences(){
         $theme = Theme::getTheme();
         $settings = Setting::get();
-        $testimonials = Testimonial::getLatest();
+        $testimonials = Testimonial::getTestimonial(12, false, true);
         return view('themes.'.$theme.'.pages.experiences', compact(  'settings', 'theme', 'testimonials'));
     }
 
@@ -132,7 +132,7 @@ class PagesController extends Controller
     public function experiencesProduct($slug, $id){
         $theme = Theme::getTheme();
         $settings = Setting::get();
-        $testimonials = Testimonial::getLatest(12, $id);
+        $testimonials = Testimonial::getTestimonial(12, $id, true);
         $product = Product::find($id);
         return view('themes.'.$theme.'.pages.experience', compact(  'settings', 'theme', 'testimonials', 'product'));
     }
@@ -242,6 +242,9 @@ class PagesController extends Controller
 //        ]);
 
         //\Mail::to(['nebojsart1409@yahoo.com', 'vladan.kotarac@ministudio.rs', 'kotaracvladan@gmail.com'])->send(new TestNewsletterMail());
+
+        $testimonials = Testimonial::with('Post')->get();
+        return view('themes.wellmedic.pages.proba', compact('testimonials'));
 
         return 'proba';
     }

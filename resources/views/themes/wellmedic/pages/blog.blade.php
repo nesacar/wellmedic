@@ -57,17 +57,17 @@
   <div class="section container">
     <div class="row">
       @if(count($posts)>0)
-        @foreach($posts as $i => $post)
+        @foreach($posts as $i => $p)
           <div class="mb-5 {{ ($i < 2) ? 'col-lg-6' : 'col-lg-4' }}">
               @component('themes.'.$theme.'.components.article-entry', [
-                'imageLg' => url($post->image),
-                'imageSm' => url(Imagecache::get($post->image, 'square')->src),
-                'date' => \Carbon\Carbon::parse($post->publish_at)->format('d. M Y.'),
-                'title' => $post->title,
-                'body' => $post->body,
-                'articleURL'=> url('blog/'.$post->slug.'/'.$post->id),
-                'commentsURL'=> url('iskustva/'.$post->product_slug.'/'.$post->product_id),
-                'count'=> $post->count
+                'imageLg' => url($p->image),
+                'imageSm' => url(Imagecache::get($p->image, 'square')->src),
+                'date' => \Carbon\Carbon::parse($p->publish_at)->format('d. M Y.'),
+                'title' => $p->title,
+                'body' => $p->body,
+                'articleURL'=> url('blog/'.$p->slug.'/'.$p->id),
+                'commentsURL'=> url('iskustva/'.$post->product_slug.'/'.$p->product_id),
+                'count'=> $p->count
               ])
               @endcomponent
           </div>

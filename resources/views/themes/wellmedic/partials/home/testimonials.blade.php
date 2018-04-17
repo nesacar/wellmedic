@@ -5,13 +5,12 @@
     <div class="carousel carousel--quotes">
         <div class="swiper-container is-loading" data-name="quotes">
             <div class="swiper-wrapper">
-
                 @foreach($testimonials as $testimonial)
                     <div class="swiper-slide">
                         @component('themes.'.$theme.'.components.quote', [
                           'body' => $testimonial->body,
                           'author' => $testimonial->author,
-                          'data_href' => '#',
+                          'data_href' => $testimonial->post? url('blog/'.$testimonial->post->slug . '/' . $testimonial->post->id) : '#',
                           'href' => $testimonial->link,
                         ])
                         @endcomponent
