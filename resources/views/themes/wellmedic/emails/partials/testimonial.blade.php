@@ -30,7 +30,11 @@
                                     <div class="quote">
                                         <!-- experience -->
                                         <p class="quote_body">{{ $testimonial->body }}</p>
-                                        <div class="quote_author">{{ $testimonial->author }}</div>
+                                        @if($testimonial->link != null)
+                                            <div class="quote_author"><a href="{{ $testimonial->link }}" target="_blank">{{ $testimonial->author }}</a></div>
+                                        @else
+                                            <div class="quote_author">{{ $testimonial->author }}</div>
+                                        @endif
                                     </div>
                                     <!-- /experience -->
                                 </div>

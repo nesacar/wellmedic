@@ -62,7 +62,8 @@
         @component('themes.'.$theme.'.components.quote', [
           'body' => $testimonial->body,
           'author' => $testimonial->author,
-          'href' => '#'
+          'data_href' => '#',
+          'href' => $testimonial->link,
         ])
         @endcomponent
       </div>
