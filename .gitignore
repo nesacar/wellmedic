@@ -5,7 +5,7 @@
 /public/themes/wellmedic/js
 /public/css/app.css
 /public/js/app.js
-/mix-manifest.json
+/public/mix-manifest.json
 /storage/*.key
 /vendor
 /.idea
