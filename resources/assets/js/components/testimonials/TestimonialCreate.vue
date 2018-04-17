@@ -33,7 +33,7 @@
                             <div class="form-group">
                                 <label for="post_id">Članak</label>
                                 <select name="post_id" id="post_id" class="form-control" v-model="testimonial.post_id">
-                                    <option :value="index" v-for="(post, index) in posts">{{ post }}</option>
+                                    <option :value="post.id" v-for="(post, index) in posts">{{ post.text }}</option>
                                 </select>
                                 <small class="form-text text-muted" v-if="error != null && error.post_id">{{ error.post_id[0] }}</small>
                             </div>
@@ -107,6 +107,7 @@
               },
               products: {},
               posts: {},
+              fullPosts: {},
               error: null,
               config: {
                   toolbar: [
@@ -169,7 +170,12 @@
             getPosts(){
                 axios.get('api/posts/lists')
                     .then(res => {
-                        this.posts = res.data.posts;
+                        this.fullPosts = res.data.posts;
+                        this.posts = _.map(res.data.posts, (data) => {
+                            var pick = _.pick(data, 'title', 'id');
+                            var object = {id: pick.id, text: pick.title};
+                            return object;
+                        });
                     }).catch(e => {
                         console.log(e.response);
                         this.error = e.response.data.errors;

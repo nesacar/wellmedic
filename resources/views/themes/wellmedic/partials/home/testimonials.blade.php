@@ -11,7 +11,8 @@
                         @component('themes.'.$theme.'.components.quote', [
                           'body' => $testimonial->body,
                           'author' => $testimonial->author,
-                          'href' => url('iskustva/'.$testimonial->slug.'/'.$testimonial->id)
+                          'data_href' => '#',
+                          'href' => $testimonial->link,
                         ])
                         @endcomponent
                     </div>

@@ -414,9 +414,9 @@
         color: $info;
         margin-right: 10px;
 
-        &.fa-angle-right{
+        &[data-icon="angle-right"]{
           transform: rotate(0);
-          right: 8px;
+          right: 8px !important;
           left: auto;
           top: 17px;
           color: white;
