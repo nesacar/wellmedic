@@ -7,6 +7,7 @@ use App\Http\Requests\UploadImageRequest;
 use App\Post;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use File;
 
 class PostsController extends Controller
 {
@@ -91,6 +92,7 @@ class PostsController extends Controller
      */
     public function destroy(Post $post)
     {
+        if($post->image) File::delete($post->image);
         $post->delete();
 
         return response()->json([
