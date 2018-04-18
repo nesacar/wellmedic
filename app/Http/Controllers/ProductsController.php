@@ -68,7 +68,7 @@ class ProductsController extends Controller
     {
         $product->update(request()->all());
         $product->slug = request('slug')? str_slug(request('slug')) : str_slug(request('title'));
-        $product->publish = request('publish')? true : false;
+        $product->publish = request('publish')?: false;
         $product->update();
 
         return response()->json([

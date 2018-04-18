@@ -106,6 +106,7 @@
     import Ckeditor from 'vue-ckeditor2';
     import vue2Dropzone from 'vue2-dropzone';
     import 'vue2-dropzone/dist/vue2Dropzone.css';
+    import moment from 'moment';
 
     export default {
         data(){
@@ -163,9 +164,9 @@
             getTestimonial(){
                 axios.get('api/testimonials/' + this.$route.params.id)
                     .then(res => {
-                        if(res.data.testimonial != null){
-                            this.testimonial = res.data.testimonial;
-                        }
+                        this.testimonial = res.data.testimonial;
+                        this.testimonial.date = moment(res.data.testimonial.publish_at).format('YYYY-MM-DD');
+                        this.testimonial.time = moment(res.data.testimonial.publish_at).format('HH:mm:ss');
                     })
                     .catch(e => {
                         console.log(e);

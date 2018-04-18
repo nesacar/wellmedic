@@ -55,9 +55,6 @@ class TestimonialsController extends Controller
      */
     public function show(Testimonial $testimonial)
     {
-        $testimonial->date = Carbon::parse($testimonial->publish_at)->format('Y-m-d');
-        $testimonial->time = Carbon::parse($testimonial->publish_at)->format('H:m');
-
         return response()->json([
             'testimonial' => $testimonial
         ]);
@@ -75,9 +72,6 @@ class TestimonialsController extends Controller
         $testimonial->update(request()->all());
         $testimonial->publish = request('publish')? true : false;
         $testimonial->update();
-
-        $testimonial->date = Carbon::parse($testimonial->publish_at)->format('Y-m-d');
-        $testimonial->time = Carbon::parse($testimonial->publish_at)->format('H:m');
 
         return response()->json([
             'testimonial' => $testimonial

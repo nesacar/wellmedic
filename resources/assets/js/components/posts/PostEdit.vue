@@ -136,6 +136,7 @@
     import Ckeditor from 'vue-ckeditor2';
     import vue2Dropzone from 'vue2-dropzone';
     import 'vue2-dropzone/dist/vue2Dropzone.css';
+    import moment from 'moment';
 
     export default {
         data(){
@@ -190,9 +191,10 @@
             getPost(){
                 axios.get('api/posts/' + this.$route.params.id)
                     .then(res => {
-                        if(res.data.post != null){
-                            this.post = res.data.post;
-                        }
+                        this.post = res.data.post;
+                        this.post.date = moment(res.data.post.publish_at).format('YYYY-MM-DD');
+                        this.post.time = moment(res.data.post.publish_at).format('HH:mm:ss');
+                        console.log(this.post);
                     })
                     .catch(e => {
                         console.log(e);

@@ -54,9 +54,6 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
-        $post->date = Carbon::parse($post->publish_at)->format('Y-m-d');
-        $post->time = Carbon::parse($post->publish_at)->format('H:m');
-
         return response()->json([
             'post' => $post
         ]);
@@ -75,9 +72,6 @@ class PostsController extends Controller
         $post->slug = request('slug')? str_slug(request('slug')) : str_slug(request('title'));
         $post->publish = request('publish')? true : false;
         $post->update();
-
-        $post->date = Carbon::parse($post->publish_at)->format('Y-m-d');
-        $post->time = Carbon::parse($post->publish_at)->format('H:m');
 
         return response()->json([
             'post' => $post
