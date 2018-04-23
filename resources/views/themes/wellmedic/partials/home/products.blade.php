@@ -14,7 +14,7 @@
                                 </div>
                             </div>
                             <div class="product-card_description">
-                                <span class="caption">{{ $product->subtitle}}</span>
+                                <span class="caption">{{ $product->overTitle}}</span>
                                 <h3 class="subheading">{{ $product->title}}</h3>
                                 <p class="product-card_info">{{ $product->short}}</p>
                             </div>
