@@ -12,9 +12,9 @@
                     </div>
                     <div class="col-md-7 product_desc">
                         <div class="py-4">
-                            <p class="caption caption--big">{{ $product->overTitle}}</p>
+                            <p class="tag-line">{{ $product->overTitle}}</p>
                             <h2 class="headline">{{ $product->title }}</h2>
-                            <p class="tag-line">{{ $product->subTitle }}</p>
+                            <p class="caption caption--big">{{ $product->subTitle }}</p>
                             <p>{{ $product->short }}</p>
                             <div class="action-footer">
                                 <a class="btn btn-primary" href="{{ url('proizvodi/'.$product->slug.'/'.$product->id) }}">Saznajte više</a>
