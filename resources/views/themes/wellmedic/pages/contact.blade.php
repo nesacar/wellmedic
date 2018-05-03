@@ -11,7 +11,7 @@
 
   <!-- Facebok Open Graph -->
   <meta property="og:title" content="Wellmedic - Kontakt"/>
-  <meta property="og:image" content="{{ url('themes/'.$theme.'/img/wellmedic-social-share.jpg') }}"/>
+  <meta property="og:image" content="{{ url('themes/'.$theme.'/images/wellmedic-social-share.jpg') }}"/>
   <meta property="og:type" content="article"/>
   <meta property="og:url" content="{{ url('kontakt') }}"/>
   <meta property="og:site_name" content="{{ $settings->title }}"/>
@@ -21,7 +21,7 @@
   <!-- ITEM za GOOGLE + -->
   <meta itemprop="name" content="Wellmedic - Kontakt" />
   <meta itemprop="description" content="{!! $settings->desc !!}" />
-  <meta itemprop="image" content="{{ url('themes/'.$theme.'/img/wellmedic-social-share.jpg') }}" />
+  <meta itemprop="image" content="{{ url('themes/'.$theme.'/images/wellmedic-social-share.jpg') }}" />
   <!-- ITEM za GOOGLE + END -->
 
   <!-- ITEM Twitter -->
@@ -30,7 +30,7 @@
   <meta name="twitter:creator" content="@wellmedic">
   <meta name="twitter:title" content="Wellmedic - Kontakt">
   <meta name="twitter:description" content="{!! $settings->desc !!}">
-  <meta name="twitter:image" content="{{ url('themes/'.$theme.'/img/wellmedic-social-share.jpg') }}">
+  <meta name="twitter:image" content="{{ url('themes/'.$theme.'/images/wellmedic-social-share.jpg') }}">
   <!-- ITEM Twitter END -->
 @endsection
 
