@@ -242,10 +242,6 @@ class PagesController extends Controller
 //        ]);
 
         //\Mail::to(['nebojsart1409@yahoo.com', 'vladan.kotarac@ministudio.rs', 'kotaracvladan@gmail.com'])->send(new TestNewsletterMail());
-
-        $testimonials = Testimonial::with('Post')->get();
-        return view('themes.wellmedic.pages.proba', compact('testimonials'));
-
-        return 'proba';
+        return 'done';
     }
 }
