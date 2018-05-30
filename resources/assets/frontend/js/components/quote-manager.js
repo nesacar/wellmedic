@@ -11,7 +11,9 @@ class QuoteManager {
     this.author.innerHTML = data.author;
     this.text.innerHTML = data.text;
     this.link.href = data.href;
-    this.author.href = data.authorURL;
+    if (data.authorURL) {
+      this.author.href = data.authorURL;
+    }
 
     this.link.style.display =
       (data.href === '#')

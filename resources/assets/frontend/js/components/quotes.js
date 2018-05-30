@@ -9,23 +9,19 @@ class Quotes {
     this._quotes = document.querySelectorAll('.quote');
 
     Array.from(this._quotes).forEach(quote => {
-      quote.addEventListener('click', this._onClick);
+      quote.addEventListener('click', () => {
+        this._onClick(quote);
+      });
     });
   }
 
-  _onClick (evt) {
-    if (evt.target.tagName.toLowerCase() === 'a') {
-      return;
-    }
+  _onClick (quote) {
+    const authorData = quote.querySelector('.quote_author');
 
-    const authorData = this.querySelector('.quote_author');
-
-    const text = this.querySelector('.quote_text em').textContent;
-    const href = this.dataset.href;
+    const text = quote.querySelector('.quote_text em').textContent;
+    const href = quote.dataset.href;
     const author = authorData.textContent;
-    let authorURL = authorData.hasChildNodes()
-      ? authorData.firstElementChild.href
-      : '#';    
+    const authorURL = authorData.dataset.href;
     
     quoteManager.showQuote({
       author,

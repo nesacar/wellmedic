@@ -49,7 +49,15 @@
 
   &_author {
     font-size: 16px;
-    color: $theme-primary;
+    color: $theme-primary !important;
+    
+    pointer-events: none;
+    text-decoration: none;
+
+    &[href] {
+      pointer-events: auto;
+      text-decoration: initial;
+    }
   }
 
   &--dialog {
