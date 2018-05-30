@@ -53,11 +53,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                    <label>Opis</label>
-                                <ckeditor
-                                        v-model="testimonial.body"
-                                        :config="config">
-                                </ckeditor>
+                                <label for="body">Opis</label>
+                                <textarea name="body" id="body" cols="4" rows="4" class="form-control" v-model="testimonial.body"></textarea>
                                 <small class="form-text text-muted" v-if="error != null && error.body">{{ error.body[0] }}</small>
                             </div>
                             <div class="form-group">

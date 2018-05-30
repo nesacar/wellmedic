@@ -18,7 +18,7 @@ class TestimonialsController extends Controller
      */
     public function index()
     {
-        $testimonials = Testimonial::select('id', 'author', 'body', 'post_id', 'product_id', 'created_at')->orderBy('created_at', 'DESC')->paginate(50);
+        $testimonials = Testimonial::orderBy('created_at', 'DESC')->paginate(50);
         $testimonials->map(function ($testimonial){
             $testimonial->product = empty($testimonial->product_id) ? '/' : Product::find($testimonial->product_id)->title;
             $testimonial->post = empty($testimonial->post_id) ? '/' : Post::find($testimonial->post_id)->title;

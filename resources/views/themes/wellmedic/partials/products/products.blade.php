@@ -22,7 +22,7 @@
                                     <svg class="icon" role="presentation">
                                         <use xlink:href="#icon_comment" />
                                     </svg>
-                                    <span class="action-footer_comments_desc product_comments-desc">Iskustva naših korisnika</span>{{ $product->count }}
+                                    <span class="action-footer_comments_desc product_comments-desc">Iskustva naših korisnika</span>{{ $product->testimonial_count }}
                                 </a>
                             </div>
                         </div>

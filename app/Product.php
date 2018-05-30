@@ -11,6 +11,15 @@ class Product extends Model
 
     protected $fillable = ['id', 'user_id', 'collection_id', 'title', 'slug', 'overTitle', 'subTitle', 'short', 'body', 'image', 'publish_at', 'publish'];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope('testimonialCount', function ($builder){
+            $builder->withCount('testimonial')->where('publish', 1);
+        });
+    }
+
     public static function base64UploadImage($product_id, $image){
         $product = self::find($product_id);
         if($product->image != null){
@@ -43,8 +52,7 @@ class Product extends Model
     }
 
     public static function getAll(){
-        return self::select('products.*', \DB::raw('count(testimonials.id) as count'))
-            ->join('testimonials', 'products.id', '=', 'testimonials.product_id')->published()->groupBy('products.id')->get();
+        return self::with('testimonial')->published()->groupBy('products.id')->get();
     }
 
     public function scopePublished($query){
