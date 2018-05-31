@@ -13,7 +13,10 @@
         </p>
         <div class="action-footer">
           <a class="quote_author" id="js-quote-author" target="_blank" rel="noreferrer noopener"></a>
-          <a class="btn btn-primary" id="js-quote-link">Saznajte više</a>
+          <div class="action-footer_actions">
+            <a class="btn btn-outline-primary" href="{{url('/iskustva')}}">Ostala iskustva</a>
+            <a class="btn btn-primary" id="js-quote-link">Saznajte više</a>
+          </div>
         </div>
       </div>
     </div>

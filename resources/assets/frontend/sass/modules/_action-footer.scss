@@ -3,8 +3,14 @@
   align-items: center;
   justify-content: space-between;
 
-  > .btn:last-child {
+  > :last-child {
     margin-left: 2 * $base-line;
+  }
+
+  &_actions {
+    .btn + .btn {
+      margin-left: 4px;
+    }
   }
 
   &_comments {
