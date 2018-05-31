@@ -160,7 +160,7 @@ class PagesController extends Controller
         $message->email = request('email');
         $message->message = request('message');
 
-        \Mail::to('nebojsart1409@yahoo.com')->send(new ContactFormMail($message));
+        \Mail::to('nenad@ministudio.rs')->send(new ContactFormMail($message));
 
         return redirect('/');
     }

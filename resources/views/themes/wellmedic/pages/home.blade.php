@@ -67,7 +67,7 @@
 
   @include('themes.'.$theme.'.partials.home.products')
 
-  @include('themes.'.$theme.'.partials.home.posts')
+  {{--@include('themes.'.$theme.'.partials.home.posts')--}}
 
 @endsection
 
