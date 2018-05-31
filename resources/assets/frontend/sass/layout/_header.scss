@@ -47,5 +47,11 @@
 
   &_logo {
     margin-right: 36px;
+    height: 48px;
+    
+    > img {
+      height: 100%;
+      width: auto;
+    }
   }
 }
