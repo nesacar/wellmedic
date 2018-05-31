@@ -22,7 +22,6 @@
                             <tr>
                                 <th scope="col">id</th>
                                 <th scope="col">naslov</th>
-                                <th scope="col">kolekcija</th>
                                 <th scope="col">publikovano</th>
                                 <th scope="col">kreirano</th>
                                 <th>akcija</th>
@@ -32,7 +31,6 @@
                             <tr v-for="row in products">
                                 <td>{{ row.id }}</td>
                                 <td>{{ row.title }}</td>
-                                <td>{{ row.collection }}</td>
                                 <td>{{ row.publish }}</td>
                                 <td>{{ row.created_at }}</td>
                                 <td>

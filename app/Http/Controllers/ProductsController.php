@@ -16,8 +16,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Product::select('products.id', 'products.title', 'products.publish', 'products.created_at', 'collections.title as collection')
-            ->join('collections', 'products.collection_id', '=', 'collections.id')->orderBy('products.created_at', 'DESC')->paginate(50);
+        $products = Product::select('products.id', 'products.title', 'products.publish', 'products.created_at')->orderBy('products.created_at', 'DESC')->paginate(50);
 
         return response()->json([
             'products' => $products
