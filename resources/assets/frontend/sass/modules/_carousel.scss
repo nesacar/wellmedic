@@ -3,20 +3,31 @@
 
   &--quotes {
     .controls {
-      display: flex;
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      z-index: 1;
-
       @include media-breakpoint-up(md) {
+        display: flex;
+        position: absolute;
         top: 0;
         right: 0;
         width: auto;
         justify-content: flex-end;
         transform: translateY(calc(-100% - 24px));
+      }
+    }
+
+    .controls-btn {
+      @include media-breakpoint-down(sm) {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-100%);
+        z-index: 1;
+
+        &_prev {
+          left: 0;
+        }
+
+        &_next {
+          right: 0;
+        }
       }
     }
   }
