@@ -44,8 +44,12 @@
   }
 
   &--masthead {
-    padding-top: 56 * $base-line;
+    padding-top: 75%;
     border-radius: 0;
+    
+    @include media-breakpoint-up(sm) {
+      padding-top: 56 * $base-line;
+    }
 
     @include media-breakpoint-up(lg) {
       padding-top: 46.875%;

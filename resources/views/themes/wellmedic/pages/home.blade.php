@@ -43,7 +43,7 @@
         <div class="swiper-slide masthead">
           <div class="image image--masthead fit-height">
             <picture>
-              <source media="(min-width: 768px)"
+              <source media="(min-width: 576px)"
                 srcset="{{ url($slider->image) }}"
               ><!-- velika -->
               <img src="{{ url($slider->tmb) }}" /><!-- mala -->
