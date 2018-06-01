@@ -8,12 +8,8 @@
 .headline {
   @extend %heading;
 
-  font-size: 32px;
+  font-size: 42px;
   text-transform: uppercase;
-
-  @include media-breakpoint-up(md) {
-    font-size: 42px;
-  }
 
   @include media-breakpoint-up(xl) {
     font-size: 55px;
@@ -79,5 +75,4 @@
   font-size: 24px;
   font-family: $font-family-open-sans;
   color: $theme-primary;
-  margin-bottom: 0;
 }

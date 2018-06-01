@@ -66,7 +66,7 @@
                 'title' => $p->title,
                 'body' => $p->body,
                 'articleURL'=> url('blog/'.$p->slug.'/'.$p->id),
-                'commentsURL'=> url('iskustva/'.$post->product_slug.'/'.$p->product_id),
+                'commentsURL'=> url('iskustva/'.$p->product_slug.'/'.$p->product_id),
                 'count'=> $p->count
               ])
               @endcomponent

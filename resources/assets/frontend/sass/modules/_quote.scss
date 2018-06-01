@@ -3,7 +3,7 @@
   flex-direction: column;
   padding-left: 6 * $base-line;
   padding-right: 6 * $base-line;
-  cursor: pointer;
+  user-select: none;
 
   &:hover {
     text-decoration: none;
@@ -49,32 +49,6 @@
 
   &_author {
     font-size: 16px;
-    color: $theme-primary !important;
-    
-    pointer-events: none;
-    text-decoration: none;
-
-    &[href] {
-      pointer-events: auto;
-      text-decoration: initial;
-    }
-  }
-
-  &--dialog {
-    display: flex;
-    flex-direction: column;
-    padding: (2 * $base-line) (4 * $base-line);
-
-    @include media-breakpoint-up(sm) {
-      padding: (4 * $base-line) (8 * $base-line);
-    }
-    
-    @include media-breakpoint-up(md) {
-      flex-direction: row;
-    }
-
-    .quote_text {
-      height: auto;
-    }
+    color: $theme-primary;
   }
 }

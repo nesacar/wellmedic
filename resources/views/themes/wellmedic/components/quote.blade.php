@@ -1,4 +1,4 @@
-<div data-href="{{ $data_href ?: '#' }}" class="quote" title="Pročitaj više">
+<div data-href="{{ $data_href ?: '#' }}" class="quote">
   <div class="quote_icon">
     <svg class="icon" role="presentation">
       <use xlink:href="#icon_quote">

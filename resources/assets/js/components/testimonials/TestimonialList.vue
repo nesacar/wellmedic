@@ -35,7 +35,7 @@
                                 <td><p v-html="row.body"></p></td>
                                 <td>{{ row.product }}</td>
                                 <td>{{ row.post }}</td>
-                                <td>{{ row.publish? 'Da' : 'Ne' }}</td>
+                                <td><div v-if="row.publish == 1">Da</div> <div v-else>Ne</div></td>
                                 <td>{{ row.created_at }}</td>
                                 <td>
                                     <router-link tag="a" :to="'testimonials/' + row['id'] + '/edit'" class="edit-link" target="_blank"><font-awesome-icon icon="pencil-alt"/></router-link>
@@ -85,7 +85,6 @@
                     .then(res => {
                         this.testimonials = res.data.testimonials.data;
                         this.paginate = res.data.testimonials;
-                        console.log(this.testimonials);
                     })
                     .catch(e => {
                         console.log(e);
