@@ -42,13 +42,12 @@
         @foreach ($sliders as $slider)
         <div class="swiper-slide masthead">
           <div class="image image--masthead fit-height">
-            {{--<picture>--}}
-              {{--<source media="(min-width: 768px)"--}}
-                {{--srcset="https://images.pexels.com/photos/72161/pexels-photo-72161.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"--}}
-              {{--><!-- velika -->--}}
-              {{--<img src="https://images.pexels.com/photos/443416/pexels-photo-443416.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" /><!-- mala -->--}}
-            {{--</picture>--}}
-             <img src="{{ url($slider->image) }}" alt="{{ $slider->title }}" />
+            <picture>
+              <source media="(min-width: 768px)"
+                srcset="{{ url($slider->tmb) }}"
+              ><!-- velika -->
+              <img src="{{ url($slider->image) }}" /><!-- mala -->
+            </picture>
           </div>
           <div class="masthead_wrap">
             <div class="container">
