@@ -41,9 +41,9 @@ const OPTIONS = {
 
 (function () {
   Banner.init();
-  // const swipers = document.getElementsByClassName('swiper-container');
-  // Array.from(swipers, (swiper, i) => {
-  //   let name = swiper.getAttribute('data-name');
-  //   new Swiper(swiper, OPTIONS[name]);
-  // });
+  const swipers = document.getElementsByClassName('swiper-container');
+  Array.from(swipers, (swiper, i) => {
+    let name = swiper.getAttribute('data-name');
+    new Swiper(swiper, OPTIONS[name]);
+  });
 }());
