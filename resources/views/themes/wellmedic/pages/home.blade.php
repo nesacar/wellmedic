@@ -44,9 +44,9 @@
           <div class="image image--masthead fit-height">
             <picture>
               <source media="(min-width: 768px)"
-                srcset="{{ url($slider->tmb) }}"
+                srcset="{{ url($slider->image) }}"
               ><!-- velika -->
-              <img src="{{ url($slider->image) }}" /><!-- mala -->
+              <img src="{{ url($slider->tmb) }}" /><!-- mala -->
             </picture>
           </div>
           <div class="masthead_wrap">
@@ -54,7 +54,7 @@
               <div class="masthead_content">
                 <h1 class="headline">{{ $slider->title}}</h1>
                 <p class="d-none d-sm-block">{{ $slider->subtitle }}</p>
-                <a class="btn btn-primary" href="#">Saznajte više</a>
+                <a class="btn btn-primary" href="{{ $slider->link }}">Saznajte više</a>
               </div>
             </div>
           </div>
