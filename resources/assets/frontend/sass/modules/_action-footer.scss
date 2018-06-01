@@ -7,6 +7,12 @@
     margin-left: 2 * $base-line;
   }
 
+  &_actions {
+    .btn + .btn {
+      margin-left: 4px;
+    }
+  }
+
   &_comments {
     display: inline-flex;
     align-items: center;

@@ -20,12 +20,12 @@
             </div>
         </div>
         <div class="controls">
-            <button class="btn-icon arrow arrow--prev">
+            <button class="btn-icon arrow arrow--prev controls-btn controls-btn_prev">
                 <svg class="icon">
                     <use xlink:href="#icon_arrow" />
                 </svg>
             </button>
-            <button class="btn-icon arrow arrow--next">
+            <button class="btn-icon arrow arrow--next controls-btn controls-btn_next">
                 <svg class="icon">
                     <use xlink:href="#icon_arrow" />
                 </svg>

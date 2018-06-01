@@ -44,4 +44,14 @@
   @include media-breakpoint-up(lg) {
     min-width: 0;
   }
+
+  &_logo {
+    margin-right: 36px;
+    height: 48px;
+    
+    > img {
+      height: 100%;
+      width: auto;
+    }
+  }
 }
