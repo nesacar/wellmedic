@@ -63,6 +63,7 @@
                 </div>
                 <div class="col-sm-4">
                     <upload-image-helper :image="box.image" :defaultImage="''" :titleImage="'slajda'" :error="error" @uploadImage="upload($event)"></upload-image-helper>
+                    <upload-image-helper :image="box.tmb" :defaultImage="''" :titleImage="'slajda (800x600)'" :error="error" @uploadImage="uploadTmb($event)"></upload-image-helper>
                 </div>
             </div>
         </div>
@@ -121,6 +122,23 @@
                 axios.post('api/boxes/' + this.box.id + '/image', { file: image[0] })
                     .then(res => {
                         this.box.image = res.data.image;
+                        this.error = null;
+                        swal({
+                            position: 'center',
+                            type: 'success',
+                            title: 'Success',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }).catch(e => {
+                        console.log(e);
+                        this.error = e.response.data.errors;
+                    });
+            },
+            uploadTmb(image){
+                axios.post('api/boxes/' + this.box.id + '/tmb', { file: image[0] })
+                    .then(res => {
+                        this.box.tmb = res.data.tmb;
                         this.error = null;
                         swal({
                             position: 'center',

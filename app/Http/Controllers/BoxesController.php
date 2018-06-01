@@ -101,6 +101,16 @@ class BoxesController extends Controller
         ]);
     }
 
+    public function uploadTmb(UploadImageRequest $request, $id){
+        $box = Box::find($id);
+        if(!empty($box->tmb)) File::delete($box->tmb);
+        $tmb = Box::base64UploadTmb($id, request('file'));
+
+        return response()->json([
+            'tmb' => $tmb,
+        ]);
+    }
+
     public function showIndex($id){
         $boxes = Box::select('boxes.id', 'boxes.title', 'blocks.title as block', 'boxes.publish', 'boxes.created_at')
             ->join('blocks', 'boxes.block_id', '=', 'blocks.id')->where('blocks.id', $id)

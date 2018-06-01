@@ -72,6 +72,7 @@ Route::middleware('auth:api')->resource('blocks', 'BlocksController');
 Route::middleware('auth:api')->resource('boxes', 'BoxesController');
 Route::middleware('auth:api')->get('boxes/{id}/index', 'BoxesController@showIndex');
 Route::middleware('auth:api')->post('boxes/{id}/image', 'BoxesController@uploadImage');
+Route::middleware('auth:api')->post('boxes/{id}/tmb', 'BoxesController@uploadTmb');
 
 Route::middleware('auth:api')->resource('newsletters', 'NewslettersController');
 Route::middleware('auth:api')->get('newsletters/{id}/post', 'NewslettersController@post');
