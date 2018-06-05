@@ -8,8 +8,12 @@
 .headline {
   @extend %heading;
 
-  font-size: 32px;
+  font-size: 24px;
   text-transform: uppercase;
+
+  @include media-breakpoint-up(sm) {
+    font-size: 32px;
+  }
 
   @include media-breakpoint-up(md) {
     font-size: 42px;
@@ -23,11 +27,12 @@
 .title {
   @extend %heading;
 
-  font-size: 30px;
+  font-size: 20px;
   margin-bottom: 24px;
   text-align: center;
 
   @include media-breakpoint-up(md) {
+    font-size: 30px;
     text-align: left;
   }
 }
@@ -43,8 +48,12 @@
 .subheading {
   @extend %heading;
 
-  font-size: 22px;
+  font-size: 18px;
   color: $text-primary-on-light;
+
+  @include media-breakpoint-up(sm) {
+    font-size: 22px;
+  }
 
   &--big {
     @include media-breakpoint-up(md) {

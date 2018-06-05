@@ -24,3 +24,13 @@
   pointer-events: none;
   transition: transform .12s, opacity .12s;
 }
+
+.dropdown-item {
+  transition: none;
+
+  &:hover {
+    color: #FFF;
+    text-decoration: none;
+    background-color: $theme-primary;
+  }
+}

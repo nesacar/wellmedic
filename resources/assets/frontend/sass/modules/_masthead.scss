@@ -13,9 +13,10 @@
   }
 
   &_content {
-    margin-top: 120px;
-    font-size: 18px;
+    margin-top: 80px;
+    font-size: 16px;
     transition: transform .3s .4s ease-out, opacity .3s .4s ease-out;
+    max-width: 70%;
 
     .has-loaded & {
       opacity: 0;
@@ -27,8 +28,9 @@
       transform: translateY(0);
     }
 
-    @include media-breakpoint-up(md) {
-      max-width: 70%;
+    @include media-breakpoint-up(sm) {
+      font-size: 18px;
+      margin-top: 120px;
     }
 
     @include media-breakpoint-up(lg) {
