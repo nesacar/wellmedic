@@ -275,8 +275,6 @@
             },
             preview(){
                 window.location.href = "blog/"+this.post.slug+'/'+this.post.id;
-                window.open(baseUrl+'/blog/'+this.post.slug+'/'+this.post.id);
-                // target="_blank" rel="noopener noreferrer"
             }
         }
     }
