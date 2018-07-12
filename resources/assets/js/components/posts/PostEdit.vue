@@ -116,6 +116,7 @@
                                     </div>
                                     <div class="form-group">
                                         <button class="btn btn-primary" type="submit">Izmeni</button>
+                                        <button class="btn btn-danger" type="button" v-on:click="preview()">Pregledaj</button>
                                     </div>
                                 </form>
                             </div><!-- #srb -->
@@ -271,6 +272,11 @@
             },
             showSuccess(){
                 this.getPhotos();
+            },
+            preview(){
+                window.location.href = "blog/"+this.post.slug+'/'+this.post.id;
+                window.open(baseUrl+'/blog/'+this.post.slug+'/'+this.post.id);
+                // target="_blank" rel="noopener noreferrer"
             }
         }
     }
