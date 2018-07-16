@@ -10,7 +10,7 @@ class Post extends Model
 {
     protected $table = 'posts';
 
-    protected $fillable = ['id', 'user_id', 'category_id', 'title', 'slug', 'short', 'body', 'image', 'publish_at', 'publish'];
+    protected $fillable = ['id', 'user_id', 'category_id', 'product_id', 'title', 'slug', 'short', 'body', 'image', 'publish_at', 'publish'];
 
     public static function base64UploadImage($post_id, $image){
         $post = self::find($post_id);
@@ -61,9 +61,18 @@ class Post extends Model
         //});
     }
 
-    public static function get($post_id){
+    /*public static function get($post_id){
         return self::select('posts.id', 'posts.title', 'posts.slug', 'posts.body', 'posts.image', 'posts.publish_at', 'products.slug as product_slug', 'products.id as product_id')
             ->join('products', 'posts.product_id', '=', 'products.id')->where('posts.id', $post_id)->first();
+    }*/
+
+    public static function get($post_id){
+        return self::with(['product' => function ($query) {
+            $query->select('id', 'slug');
+        }])
+            ->select('id', 'title', 'slug', 'body', 'image', 'publish_at')
+            ->where('id', $post_id)
+            ->first();
     }
 
     public function scopePublished($query){
@@ -76,5 +85,10 @@ class Post extends Model
 
     public function category(){
         return $this->belongsTo(Category::class);
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
     }
 }
