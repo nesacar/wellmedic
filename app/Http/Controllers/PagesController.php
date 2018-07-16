@@ -94,8 +94,12 @@ class PagesController extends Controller
         $theme = Theme::getTheme();
         $settings = Setting::get();
         $post = Post::get($id);
-        $posts = Post::getLatest(3, $post->product_id);
-        $testimonials = Testimonial::getTestimonial(3, $post->product_id);
+        $posts = null;
+        $testimonials = null;
+        if (!empty($post->product)) {
+            $posts = Post::getLatest(3, $post->product->id);
+            $testimonials = Testimonial::getTestimonial(3, $post->product->id);
+        }
         $prev = Post::getPrev($post);
         $next = Post::getNext($post);
 

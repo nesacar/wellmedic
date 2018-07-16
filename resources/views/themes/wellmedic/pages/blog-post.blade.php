@@ -61,12 +61,9 @@
       <div class="col-xl-9 col-lg-8 mb-5">
         <p class="caption caption--big">{{ \Carbon\Carbon::parse($post->publish_at)->format('d. M Y.') }}</p>
         <h2 class="subheading subheading--big">{{ $post->title }}</h2>
-        <div class="image lazy-image my-4"
-          data-src="{{ url($post->image) }}"
-          style="background-image: url({{ Imagecache::get($post->image, 'image')->src }});"
-        ></div>
-        <div id="blog-post"><!-- cms content -->
 
+        <div id="blog-post"><!-- cms content -->
+          {!! $post->body !!}
         </div><!-- /cms content -->
 
         <div class="d-flex justify-content-between"><!-- navigation -->

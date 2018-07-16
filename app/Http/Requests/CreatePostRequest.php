@@ -26,6 +26,7 @@ class CreatePostRequest extends FormRequest
         return [
             'title' => 'required',
             'category_id' => 'required|integer|min:1',
+            'product_id' => 'integer',
             'short' => 'required',
             'body' => 'required',
             'publish_at' => 'required|date',
