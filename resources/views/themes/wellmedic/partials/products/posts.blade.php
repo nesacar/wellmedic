@@ -1,6 +1,6 @@
 @if(count($posts)>0)
 <div class="container section">
-    <h2 class="title"><span class="thin">Naš</span> blog</h2>
+    <h2 class="title"><span class="thin">Povezani</span> članci</h2>
     <div class="row">
         @foreach($posts as $post)
             <div class="col-lg-4">
@@ -11,8 +11,8 @@
                   'title' => $post->title,
                   'body' => $post->short,
                   'articleURL'=> url('blog/'.$post->slug.'/'.$post->id),
-                  'commentsURL'=> url('iskustva/'.$post->product_slug.'/'.$post->product_id),
-                  'count'=> $post->count
+                  'commentsURL'=> url('iskustva/'.$post->product->slug.'/'.$post->product->id),
+                  'count'=> $post->product->testimonial_count
                 ])
                 @endcomponent
             </div>
