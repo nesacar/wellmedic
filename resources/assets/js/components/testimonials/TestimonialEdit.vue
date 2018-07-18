@@ -125,7 +125,11 @@
                       { name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
                   ],
                   height: 300,
-                  filebrowserBrowseUrl: 'filemanager/show'
+                  filebrowserBrowseUrl: 'filemanager/show',
+                  filebrowserBrowseUrl: 'filemanager/show',
+                  enterMode: CKEDITOR.ENTER_BR,
+                  shiftEnterMode: CKEDITOR.ENTER_P, //pressing the SHIFT + ENTER KEYS input <p>
+                  autoParagraph: false // stops automatic insertion of <p> on focus
               },
               dropzoneOptions: {
                   url: 'api/posts/' + this.$route.params.id + '/gallery',

@@ -33,8 +33,8 @@
                             <tr v-for="row in testimonials">
                                 <td>{{ row.id }}</td>
                                 <td><p v-html="row.body"></p></td>
-                                <td>{{ row.product }}</td>
-                                <td>{{ row.post }}</td>
+                                <td v-if="row.product">{{ row.product.title }}</td><td v-else>/</td>
+                                <td v-if="row.post">{{ row.post.title }}</td><td v-else>/</td>
                                 <td><div v-if="row.publish == 1">Da</div> <div v-else>Ne</div></td>
                                 <td>{{ row.created_at }}</td>
                                 <td>

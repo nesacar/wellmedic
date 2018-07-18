@@ -33,7 +33,7 @@
                             <div class="form-group">
                                 <label for="post_id">Članak</label>
                                 <select name="post_id" id="post_id" class="form-control" v-model="testimonial.post_id">
-                                    <option :value="index" v-for="(post, index) in posts">{{ post }}</option>
+                                    <option :value="index" v-for="(post, index) in posts">{{ post.title }}</option>
                                 </select>
                                 <small class="form-text text-muted" v-if="error != null && error.post_id">{{ error.post_id[0] }}</small>
                             </div>
@@ -116,7 +116,10 @@
                       { name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
                   ],
                   height: 300,
-                  filebrowserBrowseUrl: 'filemanager/show'
+                  filebrowserBrowseUrl: 'filemanager/show',
+                  enterMode: CKEDITOR.ENTER_BR,
+                  shiftEnterMode: CKEDITOR.ENTER_P, //pressing the SHIFT + ENTER KEYS input <p>
+                  autoParagraph: false // stops automatic insertion of <p> on focus
               },
               domain : apiHost
           }
