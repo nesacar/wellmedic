@@ -205,7 +205,6 @@
                         this.post = res.data.post;
                         this.post.date = moment(res.data.post.publish_at).format('YYYY-MM-DD');
                         this.post.time = moment(res.data.post.publish_at).format('HH:mm:ss');
-                        console.log(this.post);
                     })
                     .catch(e => {
                         console.log(e);
@@ -217,7 +216,9 @@
                 this.post.publish_at = this.publish_at;
                 axios.put('api/posts/' + this.post.id, this.post)
                     .then(res => {
-                        this.post = res.data.post;
+                        /*this.post = res.data.post;
+                        this.post.date = moment(res.data.post.publish_at).format('YYYY-MM-DD');
+                        this.post.time = moment(res.data.post.publish_at).format('HH:mm:ss');*/
                         swal({
                             position: 'center',
                             type: 'success',

@@ -181,7 +181,9 @@
                 this.testimonial.publish_at = this.publish_at;
                 axios.put('api/testimonials/' + this.testimonial.id, this.testimonial)
                     .then(res => {
-                        this.post = res.data.post;
+                        /*this.testimonial = res.data.testimonial;
+                        this.testimonial.date = moment(res.data.testimonial.publish_at).format('YYYY-MM-DD');
+                        this.testimonial.time = moment(res.data.testimonial.publish_at).format('HH:mm:ss');*/
                         swal({
                             position: 'center',
                             type: 'success',
