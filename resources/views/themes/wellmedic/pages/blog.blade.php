@@ -64,10 +64,10 @@
                 'imageSm' => url(Imagecache::get($p->image, 'square')->src),
                 'date' => \Carbon\Carbon::parse($p->publish_at)->format('d. M Y.'),
                 'title' => $p->title,
-                'body' => $p->body,
+                'body' => $p->short,
                 'articleURL'=> url('blog/'.$p->slug.'/'.$p->id),
-                'commentsURL'=> url('iskustva/'.$post->product_slug.'/'.$p->product_id),
-                'count'=> $p->count
+                'commentsURL'=> ($p->product) ? url('iskustva/'.$p->product->slug.'/'.$p->product->id) : '',
+                'count'=> ($p->product) ? $p->product->testimonial_count : 0
               ])
               @endcomponent
           </div>

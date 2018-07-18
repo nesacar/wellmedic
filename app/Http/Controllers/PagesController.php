@@ -97,7 +97,7 @@ class PagesController extends Controller
         $posts = null;
         $testimonials = null;
         if (!empty($post->product)) {
-            $posts = Post::getLatest(3, $post->product->id);
+            $posts = Post::getLatest(3, $post->product->id, $id);
             $testimonials = Testimonial::getTestimonial(3, $post->product->id);
         }
         $prev = Post::getPrev($post);

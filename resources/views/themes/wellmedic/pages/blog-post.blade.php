@@ -67,28 +67,34 @@
         </div><!-- /cms content -->
 
         <div class="d-flex justify-content-between"><!-- navigation -->
-          <div class="go go--prev">
-            <a href="#" class="go_control">
-              <span class="arrow arrow--prev">
-                <svg class="icon">
-                  <use xlink:href="#icon_arrow" />
-                </svg>
-              </span>
-              Prethodni post
-            </a>
-            <h3 class="subheading">Neverovatni sastojci</h3>
-          </div>
-          <div class="go go--next">
-            <a href="#" class="go_control">
-              Sledeći post
-              <span class="arrow arrow--next">
-                <svg class="icon">
-                  <use xlink:href="#icon_arrow" />
-                </svg>
-              </span>
-            </a>
-            <h3 class="subheading">Izbor kraljevskih i plemićkih porodica</h3>
-          </div>
+
+            <div class="go go--prev">
+              @if(!empty($prev))
+              <a href="{{ url('blog/'.$prev->slug.'/'.$prev->id) }}" class="go_control">
+                <span class="arrow arrow--prev">
+                  <svg class="icon">
+                    <use xlink:href="#icon_arrow" />
+                  </svg>
+                </span>
+                Prethodni post
+              </a>
+              <h3 class="subheading">{{ $prev->title }}</h3>
+              @endif
+            </div>
+            <div class="go go--next">
+              @if(!empty($next))
+              <a href="{{ url('blog/'.$next->slug.'/'.$next->id) }}" class="go_control">
+                Sledeći post
+                <span class="arrow arrow--next">
+                  <svg class="icon">
+                    <use xlink:href="#icon_arrow" />
+                  </svg>
+                </span>
+              </a>
+              <h3 class="subheading">{{ $next->title }}</h3>
+              @endif
+            </div>
+
         </div><!-- /navigation -->
 
       </div>
@@ -109,7 +115,7 @@
           @endforeach
         </div>
         <div class="text-center py-2">
-          <a href="{{ url('iskustva/'.$post->product_slug.'/'.$post->product_id) }}" class="btn btn-outline-primary">Ostala iskustva</a>
+          <a href="{{ url('iskustva/'.$post->product->slug.'/'.$post->product->id) }}" class="btn btn-outline-primary">Ostala iskustva</a>
         </div>
         @endif
       </aside>
