@@ -21,13 +21,13 @@ class Testimonial extends Model
 
     public static function getTestimonial($limit = 3, $product_id=false, $paginate=false){
         if($paginate){
-            return self::with('Post')->where(function($query) use ($product_id){
+            return self::with('post')->where(function($query) use ($product_id){
                 if($product_id){
                     $query->where('product_id', $product_id);
                 }
             })->published()->paginate($limit);
         }else{
-            return self::with('Post')->where(function($query) use ($product_id){
+            return self::with('post')->where(function($query) use ($product_id){
                 if($product_id){
                     $query->where('product_id', $product_id);
                 }

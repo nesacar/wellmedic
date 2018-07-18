@@ -18,12 +18,14 @@ class TestimonialsController extends Controller
      */
     public function index()
     {
-        $testimonials = Testimonial::orderBy('created_at', 'DESC')->paginate(50);
-        $testimonials->map(function ($testimonial){
-            $testimonial->product = empty($testimonial->product_id) ? '/' : Product::find($testimonial->product_id)->title;
-            $testimonial->post = empty($testimonial->post_id) ? '/' : Post::find($testimonial->post_id)->title;
-            return $testimonial;
-        });
+        $testimonials = Testimonial::with([
+            'product' => function ($product) {
+                $product->select('id', 'title');
+            },
+            'post' => function ($post) {
+                $post->select('id', 'title');
+            }
+        ])->orderBy('created_at', 'DESC')->paginate(50);
 
         return response()->json([
             'testimonials' => $testimonials
