@@ -61,6 +61,14 @@
                             <small class="form-text text-muted" v-if="error != null && error.category_id">{{ error.category_id[0] }}</small>
                         </div>
                         <div class="form-group">
+                            <label for="products">Proizvod</label>
+                            <select name="products" id="products" class="form-control" v-model="post.product_id">
+
+                                <option :value="index" v-for="(products, index) in products">{{ products }}</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label>Publikovano</label><br>
                             <switches v-model="post.publish" theme="bootstrap" color="primary"></switches>
                         </div>
@@ -116,6 +124,7 @@
                                     </div>
                                     <div class="form-group">
                                         <button class="btn btn-primary" type="submit">Izmeni</button>
+                                        <button class="btn btn-danger" type="button" v-on:click="preview()">Pregledaj</button>
                                     </div>
                                 </form>
                             </div><!-- #srb -->
@@ -144,6 +153,7 @@
               post: {},
               error: null,
               lists: {},
+              products: {},
               photos: {},
               config: {
                   toolbar: [
@@ -185,6 +195,7 @@
         created(){
             this.getPost();
             this.getList();
+            this.getProducts();
             //this.getPhotos();
         },
         methods: {
@@ -194,7 +205,6 @@
                         this.post = res.data.post;
                         this.post.date = moment(res.data.post.publish_at).format('YYYY-MM-DD');
                         this.post.time = moment(res.data.post.publish_at).format('HH:mm:ss');
-                        console.log(this.post);
                     })
                     .catch(e => {
                         console.log(e);
@@ -206,7 +216,9 @@
                 this.post.publish_at = this.publish_at;
                 axios.put('api/posts/' + this.post.id, this.post)
                     .then(res => {
-                        this.post = res.data.post;
+                        /*this.post = res.data.post;
+                        this.post.date = moment(res.data.post.publish_at).format('YYYY-MM-DD');
+                        this.post.time = moment(res.data.post.publish_at).format('HH:mm:ss');*/
                         swal({
                             position: 'center',
                             type: 'success',
@@ -247,6 +259,15 @@
                     this.error = e.response.data.errors;
                 });
             },
+            getProducts(){
+                axios.get('api/products/lists')
+                    .then(res => {
+                        this.products = res.data.products
+                    })
+                    .catch(e => {
+                        this.error = e.response.data.error;
+                    });
+            },
             getPhotos(){
                 axios.get('api/posts/' + this.$route.params.id + '/gallery')
                     .then(res => {
@@ -271,6 +292,10 @@
             },
             showSuccess(){
                 this.getPhotos();
+            },
+            preview(){
+                var link = "blog/"+this.post.slug+'/'+this.post.id;
+                window.open(link);
             }
         }
     }

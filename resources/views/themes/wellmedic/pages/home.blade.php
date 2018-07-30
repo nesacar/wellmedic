@@ -46,7 +46,9 @@
               <source media="(min-width: 576px)"
                 srcset="{{ url($slider->image) }}"
               ><!-- velika -->
-              <img src="{{ url($slider->tmb) }}" /><!-- mala -->
+                @if(!empty($slider->tmb))
+                    <img src="{{ url($slider->tmb) }}" /><!-- mala -->
+                @endif
             </picture>
           </div>
           <div class="masthead_wrap">
@@ -72,7 +74,7 @@
 
   @include('themes.'.$theme.'.partials.home.products')
 
-  {{--@include('themes.'.$theme.'.partials.home.posts')--}}
+  @include('themes.'.$theme.'.partials.home.posts')
 
 @endsection
 

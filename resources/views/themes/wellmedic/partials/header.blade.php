@@ -36,27 +36,33 @@
 
     <div>
       <ul class="social social--desktop">
+        @if(!empty($settings->facebook))
         <li class="social_item">
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="pratite nas na facebooku">
+          <a href="{{ $settings->facebook }}" target="_blank" rel="noopener noreferrer" aria-label="pratite nas na facebooku">
             <svg class="icon" role="presentation">
               <use xlink:href="#icon_facebook">
             </svg>
           </a>
         </li>
+        @endif
+        @if(!empty($settings->instagram))
         <li class="social_item">
-          <a href="https://www.instagram.com/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="pratite nas na instagramu">
+          <a href="{{ $settings->instagram }}" target="_blank" rel="noopener noreferrer" aria-label="pratite nas na instagramu">
             <svg class="icon" role="presentation">
               <use xlink:href="#icon_instagram">
             </svg>
           </a>
         </li>
+        @endif
+        @if(!empty($settings->twitter))
         <li class="social_item">
-          <a href="https://twitter.com/?lang=en" target="_blank" rel="noopener noreferrer" aria-label="pratite nas na twitteru">
+          <a href="{{ $settings->twitter }}" target="_blank" rel="noopener noreferrer" aria-label="pratite nas na twitteru">
             <svg class="icon" role="presentation">
               <use xlink:href="#icon_twitter">
             </svg>
           </a>
         </li>
+          @endif
       </ul>
       <form id="search-form">
         <div class="search-widget">

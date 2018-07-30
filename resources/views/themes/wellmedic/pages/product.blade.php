@@ -93,6 +93,6 @@
     </div>
   </div>
 
-  {{--@include('themes.'.$theme.'.partials.products.posts')--}}
+  @include('themes.'.$theme.'.partials.products.posts')
 
 @endsection
