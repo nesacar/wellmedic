@@ -40,7 +40,7 @@
     <div class="hero" id="hero">
       <h2 class="title hero_title">Proizvodi</h2>
       <figure class="plant plant--spoon">
-        <img src="{{ url('themes/wellmedic/images/demo/spoon.png') }}" alt="drvena kašika">
+        <img src="{{ url('themes/wellmedic/images/plants/spoon.png') }}" alt="drvena kašika">
       </figure>
     </div>
     <div id="breadcrumb">
