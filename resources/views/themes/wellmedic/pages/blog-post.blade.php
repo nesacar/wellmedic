@@ -10,7 +10,7 @@
   <meta name="author" content="Mini STUDIO Publishing Group">
 
   <!-- Facebok Open Graph -->
-  <meta property="og:title" content="Wellmedic - {{ $post->title }}"/>
+  <meta property="og:title" content="{{ $post->title }}"/>
   <meta property="og:image" content="{{ url($post->image) }}"/>
   <meta property="og:type" content="article"/>
   <meta property="og:url" content="{{ url('blog/'.$post->slug.'/'.$post->id) }}"/>
