@@ -10,12 +10,12 @@
   <meta name="author" content="Mini STUDIO Publishing Group">
 
   <!-- Facebok Open Graph -->
-  <meta property="og:title" content="{{ $product->title }}"/>
+  <meta property="og:title" content="{{ $product->title }} - {{ $product->overTitle }}"/>
   <meta property="og:image" content="{{ url($product->image) }}"/>
   <meta property="og:type" content="article"/>
   <meta property="og:url" content="{{ url('proizvodi/'.$product->slug.'/'.$product->id) }}"/>
   <meta property="og:site_name" content="{{ $settings->title }}"/>
-  <meta property="og:description" content="{!! $settings->desc !!}" />
+  <meta property="og:description" content="{!! $settings->subTitle !!}" />
   <!-- Facebok Open Graph Kraj-->
 
   <!-- ITEM za GOOGLE + -->
